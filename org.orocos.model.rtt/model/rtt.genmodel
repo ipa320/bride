@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011 Katholieke Universiteit Leuven&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA; &#xA;Contributors:&#xA;&#xA;    Hugo A. Garica - initial API and implementation&#xA;and/or initial documentation.&#xA;&#xA;    Herman Bruyninckx - Supervisor."
+    modelDirectory="/org.orocos.model.rtt/src" modelPluginID="org.orocos.model.rtt"
+    modelName="Rtt" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>rtt.ecore</foreignModel>
+  <genPackages prefix="Rtt" basePackage="org.orocos.model" disposableProviderFactory="true"
+      ecorePackage="rtt.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//PortType">
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/char"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/short"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/long"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/unsigned_char"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/unsigned_int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/unsigned_float"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/unsigned_double"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/unsigned_short"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/unsigned_long"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_char"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_float"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_double"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_short"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_long"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_unsigned_char"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_unsigned_int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_unsigned_float"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_unsigned_double"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_unsigned_short"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PortType/vector_of_unsigned_long"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//Scheduler">
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//Scheduler/ORO_SCHED_OTHER"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//Scheduler/ORO_SCHED_RT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//ConnectionPolicyType">
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyType/DATA"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyType/BUFFER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//ConnectionPolicyLockPolicy">
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyLockPolicy/UNSYNC"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyLockPolicy/LOCKED"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyLockPolicy/LOCK_FREE"/>
+    </genEnums>
+    <genClasses ecoreClass="rtt.ecore#//TaskContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/inputPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/outputPort"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Package/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//Package/taskContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//Package/connectionPolicy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//Package/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//InputPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//InputPort/isEventPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//InputPort/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//InputPort/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rtt.ecore#//InputPort/inputConnectionPolicy"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//OutputPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//OutputPort/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//OutputPort/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rtt.ecore#//OutputPort/outputConnectionPolicy"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//ConnectionPolicy">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rtt.ecore#//ConnectionPolicy/inputPort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rtt.ecore#//ConnectionPolicy/outputPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//ConnectionPolicy/bufferSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//ConnectionPolicy/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//ConnectionPolicy/lockPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//ConnectionPolicy/type"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//Activity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//Activity/slave"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/cpuAffinity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/scheduler"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//Slave">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rtt.ecore#//Slave/master"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rtt.ecore#//IActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//IActivity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//IActivity/taskContext"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

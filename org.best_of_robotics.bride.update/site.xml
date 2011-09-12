@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="BRIDE Alpha" url="http://www.best-of-robotics.org/bride/">
+      Bride Alpha Test Release
+   </description>
+   <feature url="features/org.best_of_robotics.bride.bcm_1.0.0.201108111927.jar" id="org.best_of_robotics.bride.bcm" version="1.0.0.201108111927">
+      <category name="BRIDE_Alpha"/>
+   </feature>
+   <feature url="features/org.best_of_robotics.bride.orocos_1.0.0.201108111927.jar" id="org.best_of_robotics.bride.orocos" version="1.0.0.201108111927">
+      <category name="BRIDE_Alpha"/>
+   </feature>
+   <category-def name="BRIDE_Alpha" label="BRIDE Alpha"/>
+</site>

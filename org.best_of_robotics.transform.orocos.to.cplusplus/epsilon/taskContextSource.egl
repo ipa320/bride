@@ -1,0 +1,52 @@
+#include <rtt/RTT.hpp>
+#include <rtt/Component.hpp>
+#include <iostream>
+#include "[%=taskContext.type%].hpp"
+
+using namespace RTT;
+using namespace [%=taskContext.namespace%];
+
+[%=taskContext.type%]::[%=taskContext.type%](string const& name = "[%=taskContext.name%]") :
+		TaskContext(name)
+{
+	[%for(anInputPort in taskContext.inputPort)
+		if (anInputPort.isEventPort == true) {%]
+	this->ports()->addEventPort( "[%=anInputPort.name%]", [%=anInputPort.name%] ).doc(
+	"Input Port that raises an event." );
+	[%} else {%]
+	this->ports()->addPort( "[%=anInputPort.name%]", [%=anInputPort.name%] ).doc( "Input Port that does *not* raise an event." );
+	[%}%]
+	[%for(anOutputPort in taskContext.outputPort) {%]
+	this->ports()->addPort( "[%=anOutputPort.name%]", [%=anOutputPort.name%] ).doc( "Output Port, here write our data to." );
+	[%}%]
+	std::cout << "[%=taskContext.name%] constructed !" <<std::endl;
+}
+
+bool [%=taskContext.type%]::configureHook()
+{
+    std::cout << "[%=taskContext.name%] configured !" <<std::endl;
+    return true;
+}
+
+bool [%=taskContext.type%]::startHook()
+{
+    std::cout << "[%=taskContext.name%] started !" <<std::endl;
+    return true;
+}
+
+void [%=taskContext.type%]::updateHook()
+{
+    std::cout << "[%=taskContext.name%] executes updateHook !" <<std::endl;
+}
+
+void [%=taskContext.type%]::stopHook()
+{
+    std::cout << "[%=taskContext.name%] executes stopping !" <<std::endl;
+}
+
+void [%=taskContext.type%]::cleanupHook()
+{
+    std::cout << "[%=taskContext.name%] cleaning up !" <<std::endl;
+}
+
+ORO_CREATE_COMPONENT([%=taskContext.namespace%]::[%=taskContext.type%])

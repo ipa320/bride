@@ -1,0 +1,99 @@
+/**
+ * Copyright (c) 2011 Katholieke Universiteit Leuven
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ * 
+ *     Hugo A. Garica - initial API and implementation
+ * and/or initial documentation.
+ * 
+ *     Herman Bruyninckx - Supervisor.
+ */
+package org.best_of_robotics.model.Cpf.provider;
+
+import org.eclipse.emf.common.EMFPlugin;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
+/**
+ * This is the central singleton for the Cpf edit plugin.
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public final class CpfEditPlugin extends EMFPlugin {
+	/**
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final CpfEditPlugin INSTANCE = new CpfEditPlugin();
+
+	/**
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static Implementation plugin;
+
+	/**
+	 * Create the instance.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CpfEditPlugin() {
+		super(new ResourceLocator[] {});
+	}
+
+	/**
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the singleton instance.
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getPluginResourceLocator() {
+		return plugin;
+	}
+
+	/**
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the singleton instance.
+	 * @generated
+	 */
+	public static Implementation getPlugin() {
+		return plugin;
+	}
+
+	/**
+	 * The actual implementation of the Eclipse <b>Plugin</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static class Implementation extends EclipsePlugin {
+		/**
+		 * Creates an instance.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public Implementation() {
+			super();
+
+			// Remember the static instance.
+			//
+			plugin = this;
+		}
+	}
+
+}

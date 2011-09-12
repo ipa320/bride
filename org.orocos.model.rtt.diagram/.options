@@ -1,0 +1,7 @@
+# Tracing options for the org.orocos.model.rtt.diagram plug-in
+
+# Common issues
+org.orocos.model.rtt.diagram/debug=false
+
+# Visual IDs
+org.orocos.model.rtt.diagram/debug/visualID=false

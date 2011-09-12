@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.best_of_robotics.transform.bcm.to.orocos.category"
+            name="M2M Category">
+      </category>
+      <command
+            categoryId="org.best_of_robotics.transform.bcm.to.orocos.category"
+            id="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToOrocos"
+            name="Transform To Orocos">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.bcm.to.orocos.category"
+            id="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToBcm"
+            name="Transform to BCM">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.best_of_robotics.transform.bcm.to.orocos.handlers.EtlBcmToOrocosTransformHandler"
+            commandId="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToOrocos">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.bcm.to.orocos.handlers.EtlOrocosToBcmTransformHandler"
+            commandId="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToBcm">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="org.best_of_robotics.transform.bcm.to.orocos.menus.sampleMenu"
+               label="M2M"
+               mnemonic="M">
+            <command
+                  commandId="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToOrocos"
+                  id="org.best_of_robotics.transform.bcm.to.orocos.menus.BcmtoOrocosCommand"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToBcm"
+                  id="org.best_of_robotics.transform.bcm.to.orocos.menus.OrocosToBcmCommand">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

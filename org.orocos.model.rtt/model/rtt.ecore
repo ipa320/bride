@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rtt"
+    nsURI="http://rtt/1.0" nsPrefix="rtt">
+  <eClassifiers xsi:type="ecore:EClass" name="TaskContext">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputPort" upperBound="-1"
+        eType="#//InputPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputPort" upperBound="-1"
+        eType="#//OutputPort" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskContext" upperBound="-1"
+        eType="#//TaskContext" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionPolicy" upperBound="-1"
+        eType="#//ConnectionPolicy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" upperBound="-1"
+        eType="#//IActivity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isEventPort" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PortType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnectionPolicy"
+        lowerBound="1" eType="#//ConnectionPolicy" eOpposite="#//ConnectionPolicy/inputPort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputPort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PortType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnectionPolicy"
+        lowerBound="1" eType="#//ConnectionPolicy" eOpposite="#//ConnectionPolicy/outputPort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionPolicy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputPort" lowerBound="1"
+        eType="#//InputPort" eOpposite="#//InputPort/inputConnectionPolicy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputPort" lowerBound="1"
+        eType="#//OutputPort" eOpposite="#//OutputPort/outputConnectionPolicy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bufferSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lockPolicy" eType="#//ConnectionPolicyLockPolicy"
+        defaultValueLiteral="LOCK_FREE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConnectionPolicyType"
+        defaultValueLiteral="DATA"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PortType">
+    <eLiterals name="char" literal="char"/>
+    <eLiterals name="int" value="1"/>
+    <eLiterals name="float" value="2"/>
+    <eLiterals name="double" value="3"/>
+    <eLiterals name="short" value="4"/>
+    <eLiterals name="long" value="5"/>
+    <eLiterals name="string" value="6"/>
+    <eLiterals name="unsigned_char" value="7" literal="unsigned char"/>
+    <eLiterals name="unsigned_int" value="8" literal="unsigned int"/>
+    <eLiterals name="unsigned_float" value="9" literal="unsigned float"/>
+    <eLiterals name="unsigned_double" value="10" literal="unsigned double"/>
+    <eLiterals name="unsigned_short" value="11" literal="unsigned short"/>
+    <eLiterals name="unsigned_long" value="12" literal="unsigned long"/>
+    <eLiterals name="vector_of_char" value="13" literal="std::vector&lt;char>"/>
+    <eLiterals name="vector_of_int" value="14" literal="std::vector&lt;int>"/>
+    <eLiterals name="vector_of_float" value="15" literal="std::vector&lt;float>"/>
+    <eLiterals name="vector_of_double" value="16" literal="std::vector&lt;double>"/>
+    <eLiterals name="vector_of_short" value="17" literal="std::vector&lt;short>"/>
+    <eLiterals name="vector_of_long" value="18" literal="std::vector&lt;long>"/>
+    <eLiterals name="vector_of_unsigned_char" value="19" literal="std::vector&lt;unsigened char>"/>
+    <eLiterals name="vector_of_unsigned_int" value="20" literal="std::vector&lt;unsigned int>"/>
+    <eLiterals name="vector_of_unsigned_float" value="21" literal="std::vector&lt;unsigned float>"/>
+    <eLiterals name="vector_of_unsigned_double" value="22" literal="std::vector&lt;unsigned double>"/>
+    <eLiterals name="vector_of_unsigned_short" value="23" literal="std::vector&lt;unsigned short>"/>
+    <eLiterals name="vector_of_unsigned_long" value="24" literal="std::vector&lt;unsigned long>"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//IActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slave" upperBound="-1"
+        eType="#//Slave" containment="true" eOpposite="#//Slave/master"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduler" lowerBound="1"
+        eType="#//Scheduler" defaultValueLiteral="ORO_SCHED_OTHER"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpuAffinity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="~0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Scheduler">
+    <eLiterals name="ORO_SCHED_OTHER"/>
+    <eLiterals name="ORO_SCHED_RT" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Slave" eSuperTypes="#//IActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="master" eType="#//Activity"
+        eOpposite="#//Activity/slave"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IActivity" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Activity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskContext" eType="#//TaskContext"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConnectionPolicyType">
+    <eLiterals name="DATA"/>
+    <eLiterals name="BUFFER" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConnectionPolicyLockPolicy">
+    <eLiterals name="UNSYNC"/>
+    <eLiterals name="LOCKED" value="1"/>
+    <eLiterals name="LOCK_FREE" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>
