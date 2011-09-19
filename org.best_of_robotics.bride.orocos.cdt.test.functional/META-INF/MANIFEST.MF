@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BRIDE - Orocos CDT Integration Functional Tests
+Bundle-SymbolicName: org.best_of_robotics.bride.orocos.cdt.test.functional
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.best_of_robotics.bride.orocos.cdt.test.functional.Activator
+Bundle-Vendor: BRICS
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.core.runtime,
+ org.eclipse.swtbot.eclipse.core;bundle-version="2.0.4",
+ org.eclipse.swtbot.eclipse.finder;bundle-version="2.0.4",
+ org.eclipse.swtbot.junit4_x;bundle-version="2.0.4",
+ org.eclipse.swtbot.swt.finder;bundle-version="2.0.4",
+ org.apache.commons.collections;bundle-version="3.2.0",
+ org.apache.log4j;bundle-version="1.2.13",
+ org.hamcrest;bundle-version="1.1.0",
+ org.junit4;bundle-version="4.8.1",
+ org.best_of_robotics.bride.orocos.cdt;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

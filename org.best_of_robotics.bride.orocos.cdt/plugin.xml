@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.cdt.core.templates">
+      <template
+            filterPattern=".*g\+\+"
+            id="org.best_of_robotics.bride.orocos.cdt.template.project"
+            location="templates/template.xml"
+            projectType="org.eclipse.cdt.build.makefile.projectType">
+      </template>
+   </extension>
+
+</plugin>

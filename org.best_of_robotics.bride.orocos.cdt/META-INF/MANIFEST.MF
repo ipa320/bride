@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BRIDE - Orocos CDT Integration
+Bundle-SymbolicName: org.best_of_robotics.bride.orocos.cdt;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.best_of_robotics.bride.orocos.cdt.Activator
+Require-Bundle: org.eclipse.cdt.core;bundle-version="5.3.0",
+ org.eclipse.cdt.ui;bundle-version="5.3.0",
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.ui.editors;bundle-version="3.7.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: BRICS
