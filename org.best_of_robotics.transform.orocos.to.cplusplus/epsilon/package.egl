@@ -2,7 +2,7 @@
 	
 	var package : Package := Package.allInstances().at(0);
 	var taskContexts : OrderedSet := package.taskContext;
-	
+
 	//TaskContext
 	for(taskContext in package.taskContext) {
 		var taskContextHeaderTemplate := TemplateFactory.load('taskContextHeader.egl');
