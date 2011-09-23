@@ -19,34 +19,49 @@ using namespace [%=taskContext.namespace%];
 	[%for(anOutputPort in taskContext.outputPort) {%]
 	this->ports()->addPort( "[%=anOutputPort.name%]", [%=anOutputPort.name%] ).doc( "Output Port, here write our data to." );
 	[%}%]
+	[%=out.startPreserve("/*", "*/", "constructor", true)%]
 	std::cout << "[%=taskContext.name%] constructed !" <<std::endl;
+	[%=out.stopPreserve()%]
 }
 
 bool [%=taskContext.type%]::configureHook()
 {
+    [%=out.startPreserve("/*", "*/", "configureHook", true)%]
     std::cout << "[%=taskContext.name%] configured !" <<std::endl;
+    [%=out.stopPreserve()%]
     return true;
 }
 
 bool [%=taskContext.type%]::startHook()
 {
+	[%=out.startPreserve("/*", "*/", "startHook", true)%]
     std::cout << "[%=taskContext.name%] started !" <<std::endl;
+    [%=out.stopPreserve()%]
     return true;
 }
 
 void [%=taskContext.type%]::updateHook()
 {
+	[%=out.startPreserve("/*", "*/", "updateHook", true)%]
     std::cout << "[%=taskContext.name%] executes updateHook !" <<std::endl;
+    [%=out.stopPreserve()%]
 }
 
 void [%=taskContext.type%]::stopHook()
 {
+	[%=out.startPreserve("/*", "*/", "stopHook", true)%]
     std::cout << "[%=taskContext.name%] executes stopping !" <<std::endl;
+    [%=out.stopPreserve()%]
 }
 
 void [%=taskContext.type%]::cleanupHook()
 {
+	[%=out.startPreserve("/*", "*/", "cleanupHook", true)%]
     std::cout << "[%=taskContext.name%] cleaning up !" <<std::endl;
+    [%=out.stopPreserve()%]
 }
+
+[%=out.startPreserve("/*", "*/", "User Code", true)%]
+[%=out.stopPreserve()%]
 
 ORO_CREATE_COMPONENT([%=taskContext.namespace%]::[%=taskContext.type%])
