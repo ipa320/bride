@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="org.best_of_robotics.bride.menu"
+               label="BRIDE"
+               mnemonic="B">
+            <separator
+                  name="additions"
+                  visible="false">
+            </separator>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

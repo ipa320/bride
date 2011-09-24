@@ -21,21 +21,13 @@
       </handler>
    </extension>
    <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
-            contextId="org.eclipse.ui.contexts.window"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="M1+6">
-      </key>
-   </extension>
-   <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+            allPopups="false"
+            locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
          <menu
                id="org.best_of_robotics.transform.orocos.to.cplusplus.menus.brideMenu"
-               label="M2T"
+               label="BCM"
                mnemonic="B">
             <command
                   commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
@@ -43,18 +35,6 @@
                   mnemonic="G">
             </command>
          </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="org.best_of_robotics.transform.orocos.to.cplusplus.toolbars.brideToolbar">
-            <command
-                  commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
-                  icon="icons/sample.gif"
-                  id="org.best_of_robotics.transform.orocos.to.cplusplus.toolbars.generateSource"
-                  tooltip="Generate Orocos Source">
-            </command>
-         </toolbar>
       </menuContribution>
    </extension>
    <extension

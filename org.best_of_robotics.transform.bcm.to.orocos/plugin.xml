@@ -32,11 +32,12 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+            allPopups="false"
+            locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
          <menu
                id="org.best_of_robotics.transform.bcm.to.orocos.menus.sampleMenu"
-               label="M2M"
-               mnemonic="M">
+               label="Orocos"
+               mnemonic="O">
             <command
                   commandId="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToOrocos"
                   id="org.best_of_robotics.transform.bcm.to.orocos.menus.BcmtoOrocosCommand"
