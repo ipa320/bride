@@ -50,5 +50,19 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension
+         id="creation-wizard"
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.best_of_robotics.bride.ui.category.newWizard"
+            class="org.best_of_robotics.model.bcm.diagram.part.BcmCreationWizard"
+            icon="icons/obj16/BcmDiagramFile.gif"
+            id="org.best_of_robotics.model.bcm.diagram.part.BcmCreationWizardID"
+            name="BCM Diagram">
+         <description>
+            %newWizardDesc
+         </description>
+      </wizard>
+   </extension>
 
 </plugin>

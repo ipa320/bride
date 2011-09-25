@@ -44,5 +44,15 @@
             defaultName="FeautreMapUtilTool">
       </tool>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.best_of_robotics.bride.ui.category.newWizard"
+            class="org.orocos.model.rtt.diagram.part.RttCreationWizard"
+            icon="icons/obj16/RttDiagramFile.gif"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.rttDiagram"
+            name="RTT Diagram">
+      </wizard>
+   </extension>
 
 </plugin>
