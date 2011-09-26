@@ -36,8 +36,8 @@
             locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
          <menu
                id="org.best_of_robotics.transform.bcm.to.orocos.menus.sampleMenu"
-               label="Orocos"
-               mnemonic="O">
+               label="BCM"
+               mnemonic="B">
             <command
                   commandId="org.best_of_robotics.transform.bcm.to.orocos.commands.transformToOrocos"
                   id="org.best_of_robotics.transform.bcm.to.orocos.menus.BcmtoOrocosCommand"
