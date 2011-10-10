@@ -12,12 +12,21 @@
             id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
             name="Generate Orocos Source">
       </command>
+      <command
+            categoryId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment"
+            name="Generate Deployment File">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="org.best_of_robotics.transform.orocos.to.cplusplus.handlers.RttTransformHandler"
             commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.handlers.CpfTransformHandler"
+            commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment">
       </handler>
    </extension>
    <extension
@@ -33,6 +42,11 @@
                   commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
                   id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
                   mnemonic="G">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment"
+                  id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment"
+                  mnemonic="D">
             </command>
          </menu>
       </menuContribution>
@@ -52,6 +66,13 @@
             icon="icons/obj16/RttDiagramFile.gif"
             id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.rttDiagram"
             name="RTT Diagram">
+      </wizard>
+      <wizard
+            category="org.best_of_robotics.bride.ui.category.newWizard"
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewRttComposite"
+            icon="icons/obj16/RttDiagramFile.gif"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewRttComposite"
+            name="Composite">
       </wizard>
    </extension>
 

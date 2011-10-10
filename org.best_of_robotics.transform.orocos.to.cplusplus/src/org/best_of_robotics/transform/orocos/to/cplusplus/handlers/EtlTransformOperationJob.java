@@ -49,7 +49,7 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 	private String transformationEntryPath = "epsilon/rttTocpf.etl";
 	private String modelFileExtension = ".cpf";
 	private IProject project;
-	private IFile sourceFile;
+	private IFile targetFile;
 	private EmfModel sourceModel;
 
 	public EtlTransformOperationJob(String name) {
@@ -134,7 +134,7 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 	protected EmfModel createTarget() {
 
 		String cpfFile = project.getLocation().toOSString() + "/deployment/"
-				+ sourceFile.getName() + modelFileExtension;
+				+ targetFile.getName() + modelFileExtension;
 
 		CpfPackage cpfPackage = CpfFactory.eINSTANCE.getCpfPackage();
 
@@ -159,8 +159,8 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 		this.project = project;
 	}
 
-	public void setSourceFile(IFile file) {
-		this.sourceFile = file;
+	public void setTargetFile(IFile file) {
+		this.targetFile = file;
 
 	}
 }

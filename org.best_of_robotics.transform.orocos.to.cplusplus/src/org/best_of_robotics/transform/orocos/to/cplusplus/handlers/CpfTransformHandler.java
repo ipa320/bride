@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2011 Katholieke Universiteit Leuven
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- * 
- *     Hugo A. Garica - initial API and implementation
- * and/or initial documentation.
- * 
- *     Herman Bruyninckx - Supervisor.
- */
 package org.best_of_robotics.transform.orocos.to.cplusplus.handlers;
 
 import java.util.ArrayList;
@@ -41,19 +27,15 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.orocos.model.rtt.TaskContext;
 import org.orocos.model.rtt.diagram.part.RttDiagramEditor;
 
-/**
- * @see org.eclipse.core.commands.IHandler
- * @see org.eclipse.core.commands.AbstractHandler
- */
-public class RttTransformHandler extends AbstractHandler {
+public class CpfTransformHandler extends AbstractHandler {
 
 	private RttDiagramEditor rttDiagramEdtior;
 	private IProject project;
-	private EglTransformOperationJob eglJob;
+	//private EglTransformOperationJob eglJob;
 	private EtlTransformOperationJob etlJob;
 	private ArrayList<IMarker> problems = new ArrayList<IMarker>();
 
-	public RttTransformHandler() {
+	public CpfTransformHandler() {
 	}
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -100,7 +82,7 @@ public class RttTransformHandler extends AbstractHandler {
 			return null;
 		}
 		
-		eglJob = new EglTransformOperationJob(commandName);
+		//eglJob = new EglTransformOperationJob(commandName);
 		etlJob = new EtlTransformOperationJob(commandName);
 
 		initializeJobs(resource);
@@ -109,10 +91,10 @@ public class RttTransformHandler extends AbstractHandler {
 		IResourceRuleFactory ruleFactory = workspace.getRuleFactory();
 		ISchedulingRule rule = ruleFactory.modifyRule(project);
 
-		eglJob.setUser(true);
-		eglJob.setPriority(Job.INTERACTIVE);
-		eglJob.setRule(rule);
-		eglJob.schedule();
+//		eglJob.setUser(true);
+//		eglJob.setPriority(Job.INTERACTIVE);
+//		eglJob.setRule(rule);
+//		eglJob.schedule();
 
 		etlJob.setUser(true);
 		etlJob.setPriority(Job.INTERACTIVE);
@@ -126,10 +108,10 @@ public class RttTransformHandler extends AbstractHandler {
 		FileEditorInput fileEditorInput = (FileEditorInput) rttDiagramEdtior
 				.getEditorInput();
 		project = fileEditorInput.getFile().getProject();
-		eglJob.setProject(project);
+		//eglJob.setProject(project);
 		etlJob.setProject(project);
 		etlJob.setTargetFile(fileEditorInput.getFile());
-		eglJob.createSource(resource);
+		//eglJob.createSource(resource);
 		etlJob.createSource(resource);
 	}
 
@@ -183,5 +165,4 @@ public class RttTransformHandler extends AbstractHandler {
 		}
 		return null;
 	}
-
 }

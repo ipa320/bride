@@ -6,14 +6,20 @@ rule TaskContextToComponent
 	
 	//Package
 	if (s.name.isDefined()) {
-		var importSimple = new Target!Simple;
-		importSimple.name = "Import";
-		importSimple.type = Target!SimpleType#string;
-		var value = new Target!Value;
-		var mixed = value.mixed;
-		featureMapUtilTool.addText(mixed, s.name);
-		importSimple.value = value;
-		t.simple.add(importSimple);
+		var str:String;
+		var seq:Sequence;
+		seq = s.name.split(':');
+		var sub:String;
+		for (sub in seq) {
+			var importSimple = new Target!Simple;
+			importSimple.name = "Import";
+			importSimple.type = Target!SimpleType#string;
+			var value = new Target!Value;
+			var mixed = value.mixed;
+			featureMapUtilTool.addText(mixed, sub);
+			importSimple.value = value;
+			t.simple.add(importSimple);
+		}
 	}
 	
 	//TaskContext
@@ -74,7 +80,7 @@ rule TaskContextToComponent
 				
 					if (activity.taskContext == taskContext) {
 						var activityStruct = new Target!Struct;
-						activityStruct.name = "Activity";
+						activityStruct.name = activity.name;
 						activityStruct.type = "Activity";
 						
 						//Activity Period
