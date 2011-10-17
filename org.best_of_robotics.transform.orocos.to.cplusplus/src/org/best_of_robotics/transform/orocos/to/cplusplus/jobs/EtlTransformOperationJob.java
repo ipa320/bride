@@ -12,7 +12,7 @@
  * 
  *     Herman Bruyninckx - Supervisor.
  */
-package org.best_of_robotics.transform.orocos.to.cplusplus.handlers;
+package org.best_of_robotics.transform.orocos.to.cplusplus.jobs;
 
 import java.io.IOException;
 import java.net.URI;
@@ -107,7 +107,7 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 		return Status.OK_STATUS;
 	}
 
-	protected EmfModel createSource(Resource resource) {
+	public EmfModel createSource(Resource resource) {
 
 		sourceModel = new EmfModel();
 		sourceModel.setName("Source");

@@ -5,16 +5,13 @@ import java.util.ArrayList;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -25,7 +22,6 @@ import org.eclipse.ui.IWorkbench;
 
 public class NewRttCompositeMainPage extends WizardPage {
 
-	private IWorkbench workbench;
 	private ListViewer listViewer;
 	private ArrayList<IResource> deploymentFileList;
 
@@ -40,7 +36,6 @@ public class NewRttCompositeMainPage extends WizardPage {
 
 	public NewRttCompositeMainPage(IWorkbench workbench) {
 		super("Page Name");
-		this.workbench = workbench;
 	}
 	
 	public ArrayList<IResource> getSelectedResources() {

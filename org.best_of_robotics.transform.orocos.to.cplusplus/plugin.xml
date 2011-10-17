@@ -5,7 +5,7 @@
          point="org.eclipse.ui.commands">
       <category
             id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
-            name="M2T Category">
+            name="Orocos Tranformations">
       </category>
       <command
             categoryId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
@@ -65,14 +65,14 @@
             class="org.orocos.model.rtt.diagram.part.RttCreationWizard"
             icon="icons/obj16/RttDiagramFile.gif"
             id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.rttDiagram"
-            name="RTT Diagram">
+            name="RTT Model Diagram">
       </wizard>
       <wizard
             category="org.best_of_robotics.bride.ui.category.newWizard"
-            class="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewRttComposite"
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewMergedRttModel"
             icon="icons/obj16/RttDiagramFile.gif"
             id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewRttComposite"
-            name="Composite">
+            name="Merged RTT Model">
       </wizard>
    </extension>
 

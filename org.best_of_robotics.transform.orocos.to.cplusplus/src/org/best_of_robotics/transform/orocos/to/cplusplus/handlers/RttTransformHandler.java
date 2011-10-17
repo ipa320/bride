@@ -16,6 +16,8 @@ package org.best_of_robotics.transform.orocos.to.cplusplus.handlers;
 
 import java.util.ArrayList;
 
+import org.best_of_robotics.transform.orocos.to.cplusplus.jobs.EglTransformOperationJob;
+import org.best_of_robotics.transform.orocos.to.cplusplus.jobs.EtlTransformOperationJob;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;

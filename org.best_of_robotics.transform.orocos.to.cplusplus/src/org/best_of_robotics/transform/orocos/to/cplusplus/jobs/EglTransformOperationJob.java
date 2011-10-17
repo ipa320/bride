@@ -12,7 +12,7 @@
  * 
  *     Herman Bruyninckx - Supervisor.
  */
-package org.best_of_robotics.transform.orocos.to.cplusplus.handlers;
+package org.best_of_robotics.transform.orocos.to.cplusplus.jobs;
 
 import java.io.IOException;
 import java.net.URI;
