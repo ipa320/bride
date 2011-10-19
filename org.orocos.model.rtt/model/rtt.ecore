@@ -13,6 +13,8 @@
         eType="#//InputPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputPort" upperBound="-1"
         eType="#//OutputPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -110,5 +112,20 @@
     <eLiterals name="UNSYNC"/>
     <eLiterals name="LOCKED" value="1"/>
     <eLiterals name="LOCK_FREE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PropertyType">
+    <eLiterals name="boolean"/>
+    <eLiterals name="char" value="1"/>
+    <eLiterals name="double" value="2"/>
+    <eLiterals name="float" value="3"/>
+    <eLiterals name="int" value="4"/>
+    <eLiterals name="string" value="5"/>
+    <eLiterals name="unsigned_int" value="6"/>
   </eClassifiers>
 </ecore:EPackage>

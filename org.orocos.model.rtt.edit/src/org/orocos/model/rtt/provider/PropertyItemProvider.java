@@ -22,8 +22,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -35,17 +33,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.orocos.model.rtt.Activity;
-import org.orocos.model.rtt.RttFactory;
+import org.orocos.model.rtt.Property;
 import org.orocos.model.rtt.RttPackage;
 
 /**
- * This is the item provider adapter for a {@link org.orocos.model.rtt.Activity} object.
+ * This is the item provider adapter for a {@link org.orocos.model.rtt.Property} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActivityItemProvider extends ItemProviderAdapter implements
+public class PropertyItemProvider extends ItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -54,7 +51,7 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActivityItemProvider(AdapterFactory adapterFactory) {
+	public PropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,10 +67,9 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addSchedulerPropertyDescriptor(object);
-			addCpuAffinityPropertyDescriptor(object);
-			addPeriodPropertyDescriptor(object);
-			addPriorityPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,122 +85,72 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 				((ComposeableAdapterFactory) adapterFactory)
 						.getRootAdapterFactory(),
 				getResourceLocator(),
-				getString("_UI_IActivity_name_feature"),
+				getString("_UI_Property_name_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_IActivity_name_feature", "_UI_IActivity_type"),
-				RttPackage.Literals.IACTIVITY__NAME, true, false, false,
+						"_UI_Property_name_feature", "_UI_Property_type"),
+				RttPackage.Literals.PROPERTY__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Cpu Affinity feature.
+	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCpuAffinityPropertyDescriptor(Object object) {
+	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
 								.getRootAdapterFactory(),
 						getResourceLocator(),
-						getString("_UI_Activity_cpuAffinity_feature"),
+						getString("_UI_Property_description_feature"),
 						getString("_UI_PropertyDescriptor_description",
-								"_UI_Activity_cpuAffinity_feature",
-								"_UI_Activity_type"),
-						RttPackage.Literals.ACTIVITY__CPU_AFFINITY, true,
-						false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+								"_UI_Property_description_feature",
+								"_UI_Property_type"),
+						RttPackage.Literals.PROPERTY__DESCRIPTION, true, false,
+						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Period feature.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPeriodPropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory)
 						.getRootAdapterFactory(),
 				getResourceLocator(),
-				getString("_UI_Activity_period_feature"),
+				getString("_UI_Property_type_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_Activity_period_feature", "_UI_Activity_type"),
-				RttPackage.Literals.ACTIVITY__PERIOD, true, false, false,
-				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Priority feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPriorityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Activity_priority_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Activity_priority_feature", "_UI_Activity_type"),
-				RttPackage.Literals.ACTIVITY__PRIORITY, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scheduler feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSchedulerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Activity_scheduler_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Activity_scheduler_feature", "_UI_Activity_type"),
-				RttPackage.Literals.ACTIVITY__SCHEDULER, true, false, false,
+						"_UI_Property_type_feature", "_UI_Property_type"),
+				RttPackage.Literals.PROPERTY__TYPE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(RttPackage.Literals.IACTIVITY__TASK_CONTEXT);
-			childrenFeatures.add(RttPackage.Literals.ACTIVITY__SLAVE);
-		}
-		return childrenFeatures;
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Property_value_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Property_value_feature", "_UI_Property_type"),
+				RttPackage.Literals.PROPERTY__VALUE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Activity.gif.
+	 * This returns Property.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -212,7 +158,7 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Activity"));
+				getResourceLocator().getImage("full/obj16/Property"));
 	}
 
 	/**
@@ -223,9 +169,9 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Activity) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Activity_type")
-				: getString("_UI_Activity_type") + " " + label;
+		String label = ((Property) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Property_type")
+				: getString("_UI_Property_type") + " " + label;
 	}
 
 	/**
@@ -239,19 +185,13 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Activity.class)) {
-		case RttPackage.ACTIVITY__NAME:
-		case RttPackage.ACTIVITY__SCHEDULER:
-		case RttPackage.ACTIVITY__CPU_AFFINITY:
-		case RttPackage.ACTIVITY__PERIOD:
-		case RttPackage.ACTIVITY__PRIORITY:
+		switch (notification.getFeatureID(Property.class)) {
+		case RttPackage.PROPERTY__NAME:
+		case RttPackage.PROPERTY__DESCRIPTION:
+		case RttPackage.PROPERTY__TYPE:
+		case RttPackage.PROPERTY__VALUE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
-			return;
-		case RttPackage.ACTIVITY__TASK_CONTEXT:
-		case RttPackage.ACTIVITY__SLAVE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -268,14 +208,6 @@ public class ActivityItemProvider extends ItemProviderAdapter implements
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-				RttPackage.Literals.IACTIVITY__TASK_CONTEXT,
-				RttFactory.eINSTANCE.createTaskContext()));
-
-		newChildDescriptors.add(createChildParameter(
-				RttPackage.Literals.ACTIVITY__SLAVE,
-				RttFactory.eINSTANCE.createSlave()));
 	}
 
 	/**

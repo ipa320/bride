@@ -30,6 +30,8 @@ import org.orocos.model.rtt.ConnectionPolicyType;
 import org.orocos.model.rtt.InputPort;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.PortType;
+import org.orocos.model.rtt.Property;
+import org.orocos.model.rtt.PropertyType;
 import org.orocos.model.rtt.RttFactory;
 import org.orocos.model.rtt.RttPackage;
 import org.orocos.model.rtt.Scheduler;
@@ -94,6 +96,8 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 			return createActivity();
 		case RttPackage.SLAVE:
 			return createSlave();
+		case RttPackage.PROPERTY:
+			return createProperty();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -117,6 +121,8 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 		case RttPackage.CONNECTION_POLICY_LOCK_POLICY:
 			return createConnectionPolicyLockPolicyFromString(eDataType,
 					initialValue);
+		case RttPackage.PROPERTY_TYPE:
+			return createPropertyTypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -140,6 +146,8 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 		case RttPackage.CONNECTION_POLICY_LOCK_POLICY:
 			return convertConnectionPolicyLockPolicyToString(eDataType,
 					instanceValue);
+		case RttPackage.PROPERTY_TYPE:
+			return convertPropertyTypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -214,6 +222,16 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 	public Slave createSlave() {
 		SlaveImpl slave = new SlaveImpl();
 		return slave;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
 	}
 
 	/**
@@ -314,6 +332,31 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 	 */
 	public String convertConnectionPolicyLockPolicyToString(
 			EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropertyType createPropertyTypeFromString(EDataType eDataType,
+			String initialValue) {
+		PropertyType result = PropertyType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPropertyTypeToString(EDataType eDataType,
+			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

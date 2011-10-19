@@ -46,10 +46,10 @@ import org.orocos.model.rtt.TaskContext;
  *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getTaskContext <em>Task Context</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getSlave <em>Slave</em>}</li>
+ *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getCpuAffinity <em>Cpu Affinity</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.orocos.model.rtt.impl.ActivityImpl#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +95,26 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 	 * @ordered
 	 */
 	protected EList<Slave> slave;
+
+	/**
+	 * The default value of the '{@link #getScheduler() <em>Scheduler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScheduler()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Scheduler SCHEDULER_EDEFAULT = Scheduler.ORO_SCHED_OTHER;
+
+	/**
+	 * The cached value of the '{@link #getScheduler() <em>Scheduler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScheduler()
+	 * @generated
+	 * @ordered
+	 */
+	protected Scheduler scheduler = SCHEDULER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCpuAffinity() <em>Cpu Affinity</em>}' attribute.
@@ -155,26 +175,6 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 	 * @ordered
 	 */
 	protected int priority = PRIORITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getScheduler() <em>Scheduler</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScheduler()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Scheduler SCHEDULER_EDEFAULT = Scheduler.ORO_SCHED_OTHER;
-
-	/**
-	 * The cached value of the '{@link #getScheduler() <em>Scheduler</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScheduler()
-	 * @generated
-	 * @ordered
-	 */
-	protected Scheduler scheduler = SCHEDULER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -409,14 +409,14 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 			return basicGetTaskContext();
 		case RttPackage.ACTIVITY__SLAVE:
 			return getSlave();
+		case RttPackage.ACTIVITY__SCHEDULER:
+			return getScheduler();
 		case RttPackage.ACTIVITY__CPU_AFFINITY:
 			return getCpuAffinity();
 		case RttPackage.ACTIVITY__PERIOD:
 			return getPeriod();
 		case RttPackage.ACTIVITY__PRIORITY:
 			return getPriority();
-		case RttPackage.ACTIVITY__SCHEDULER:
-			return getScheduler();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -440,6 +440,9 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 			getSlave().clear();
 			getSlave().addAll((Collection<? extends Slave>) newValue);
 			return;
+		case RttPackage.ACTIVITY__SCHEDULER:
+			setScheduler((Scheduler) newValue);
+			return;
 		case RttPackage.ACTIVITY__CPU_AFFINITY:
 			setCpuAffinity((String) newValue);
 			return;
@@ -448,9 +451,6 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 			return;
 		case RttPackage.ACTIVITY__PRIORITY:
 			setPriority((Integer) newValue);
-			return;
-		case RttPackage.ACTIVITY__SCHEDULER:
-			setScheduler((Scheduler) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -473,6 +473,9 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 		case RttPackage.ACTIVITY__SLAVE:
 			getSlave().clear();
 			return;
+		case RttPackage.ACTIVITY__SCHEDULER:
+			setScheduler(SCHEDULER_EDEFAULT);
+			return;
 		case RttPackage.ACTIVITY__CPU_AFFINITY:
 			setCpuAffinity(CPU_AFFINITY_EDEFAULT);
 			return;
@@ -481,9 +484,6 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 			return;
 		case RttPackage.ACTIVITY__PRIORITY:
 			setPriority(PRIORITY_EDEFAULT);
-			return;
-		case RttPackage.ACTIVITY__SCHEDULER:
-			setScheduler(SCHEDULER_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -504,6 +504,8 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 			return taskContext != null;
 		case RttPackage.ACTIVITY__SLAVE:
 			return slave != null && !slave.isEmpty();
+		case RttPackage.ACTIVITY__SCHEDULER:
+			return scheduler != SCHEDULER_EDEFAULT;
 		case RttPackage.ACTIVITY__CPU_AFFINITY:
 			return CPU_AFFINITY_EDEFAULT == null ? cpuAffinity != null
 					: !CPU_AFFINITY_EDEFAULT.equals(cpuAffinity);
@@ -511,8 +513,6 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 			return period != PERIOD_EDEFAULT;
 		case RttPackage.ACTIVITY__PRIORITY:
 			return priority != PRIORITY_EDEFAULT;
-		case RttPackage.ACTIVITY__SCHEDULER:
-			return scheduler != SCHEDULER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -530,14 +530,14 @@ public class ActivityImpl extends EObjectImpl implements Activity {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", scheduler: ");
+		result.append(scheduler);
 		result.append(", cpuAffinity: ");
 		result.append(cpuAffinity);
 		result.append(", period: ");
 		result.append(period);
 		result.append(", priority: ");
 		result.append(priority);
-		result.append(", scheduler: ");
-		result.append(scheduler);
 		result.append(')');
 		return result.toString();
 	}

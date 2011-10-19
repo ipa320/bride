@@ -48,12 +48,22 @@
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyLockPolicy/LOCKED"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyLockPolicy/LOCK_FREE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//PropertyType">
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/char"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/unsigned_int"/>
+    </genEnums>
     <genClasses ecoreClass="rtt.ecore#//TaskContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/inputPort"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/outputPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/property"/>
     </genClasses>
     <genClasses ecoreClass="rtt.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Package/name"/>
@@ -82,10 +92,10 @@
     </genClasses>
     <genClasses ecoreClass="rtt.ecore#//Activity">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//Activity/slave"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/scheduler"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/cpuAffinity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/period"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/priority"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Activity/scheduler"/>
     </genClasses>
     <genClasses ecoreClass="rtt.ecore#//Slave">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rtt.ecore#//Slave/master"/>
@@ -93,6 +103,12 @@
     <genClasses image="false" ecoreClass="rtt.ecore#//IActivity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//IActivity/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//IActivity/taskContext"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -124,13 +124,22 @@ public interface RttPackage extends EPackage {
 	int TASK_CONTEXT__OUTPUT_PORT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_CONTEXT__PROPERTY = 5;
+
+	/**
 	 * The number of structural features of the '<em>Task Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_CONTEXT_FEATURE_COUNT = 5;
+	int TASK_CONTEXT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.impl.PackageImpl <em>Package</em>}' class.
@@ -436,13 +445,22 @@ public interface RttPackage extends EPackage {
 	int ACTIVITY__SLAVE = IACTIVITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Scheduler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY__SCHEDULER = IACTIVITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Cpu Affinity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__CPU_AFFINITY = IACTIVITY_FEATURE_COUNT + 1;
+	int ACTIVITY__CPU_AFFINITY = IACTIVITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -451,7 +469,7 @@ public interface RttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__PERIOD = IACTIVITY_FEATURE_COUNT + 2;
+	int ACTIVITY__PERIOD = IACTIVITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -460,16 +478,7 @@ public interface RttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__PRIORITY = IACTIVITY_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Scheduler</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTIVITY__SCHEDULER = IACTIVITY_FEATURE_COUNT + 4;
+	int ACTIVITY__PRIORITY = IACTIVITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Activity</em>' class.
@@ -527,6 +536,61 @@ public interface RttPackage extends EPackage {
 	int SLAVE_FEATURE_COUNT = IACTIVITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.orocos.model.rtt.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.orocos.model.rtt.impl.PropertyImpl
+	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VALUE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.PortType <em>Port Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -534,7 +598,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getPortType()
 	 * @generated
 	 */
-	int PORT_TYPE = 8;
+	int PORT_TYPE = 9;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.Scheduler <em>Scheduler</em>}' enum.
@@ -544,7 +608,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getScheduler()
 	 * @generated
 	 */
-	int SCHEDULER = 9;
+	int SCHEDULER = 10;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.ConnectionPolicyType <em>Connection Policy Type</em>}' enum.
@@ -554,7 +618,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getConnectionPolicyType()
 	 * @generated
 	 */
-	int CONNECTION_POLICY_TYPE = 10;
+	int CONNECTION_POLICY_TYPE = 11;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.ConnectionPolicyLockPolicy <em>Connection Policy Lock Policy</em>}' enum.
@@ -564,7 +628,17 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getConnectionPolicyLockPolicy()
 	 * @generated
 	 */
-	int CONNECTION_POLICY_LOCK_POLICY = 11;
+	int CONNECTION_POLICY_LOCK_POLICY = 12;
+
+	/**
+	 * The meta object id for the '{@link org.orocos.model.rtt.PropertyType <em>Property Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.orocos.model.rtt.PropertyType
+	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getPropertyType()
+	 * @generated
+	 */
+	int PROPERTY_TYPE = 13;
 
 	/**
 	 * Returns the meta object for class '{@link org.orocos.model.rtt.TaskContext <em>Task Context</em>}'.
@@ -630,6 +704,17 @@ public interface RttPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTaskContext_OutputPort();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.orocos.model.rtt.TaskContext#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property</em>'.
+	 * @see org.orocos.model.rtt.TaskContext#getProperty()
+	 * @see #getTaskContext()
+	 * @generated
+	 */
+	EReference getTaskContext_Property();
 
 	/**
 	 * Returns the meta object for class '{@link org.orocos.model.rtt.Package <em>Package</em>}'.
@@ -977,6 +1062,60 @@ public interface RttPackage extends EPackage {
 	EReference getIActivity_TaskContext();
 
 	/**
+	 * Returns the meta object for class '{@link org.orocos.model.rtt.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see org.orocos.model.rtt.Property
+	 * @generated
+	 */
+	EClass getProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Property#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.orocos.model.rtt.Property#getName()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Property#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.orocos.model.rtt.Property#getDescription()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Property#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.orocos.model.rtt.Property#getType()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Property#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.orocos.model.rtt.Property#getValue()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Value();
+
+	/**
 	 * Returns the meta object for enum '{@link org.orocos.model.rtt.PortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,6 +1154,16 @@ public interface RttPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getConnectionPolicyLockPolicy();
+
+	/**
+	 * Returns the meta object for enum '{@link org.orocos.model.rtt.PropertyType <em>Property Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Property Type</em>'.
+	 * @see org.orocos.model.rtt.PropertyType
+	 * @generated
+	 */
+	EEnum getPropertyType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1090,6 +1239,14 @@ public interface RttPackage extends EPackage {
 		 */
 		EReference TASK_CONTEXT__OUTPUT_PORT = eINSTANCE
 				.getTaskContext_OutputPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK_CONTEXT__PROPERTY = eINSTANCE.getTaskContext_Property();
 
 		/**
 		 * The meta object literal for the '{@link org.orocos.model.rtt.impl.PackageImpl <em>Package</em>}' class.
@@ -1373,6 +1530,48 @@ public interface RttPackage extends EPackage {
 				.getIActivity_TaskContext();
 
 		/**
+		 * The meta object literal for the '{@link org.orocos.model.rtt.impl.PropertyImpl <em>Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.orocos.model.rtt.impl.PropertyImpl
+		 * @see org.orocos.model.rtt.impl.RttPackageImpl#getProperty()
+		 * @generated
+		 */
+		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__DESCRIPTION = eINSTANCE.getProperty_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.orocos.model.rtt.PortType <em>Port Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1412,6 +1611,16 @@ public interface RttPackage extends EPackage {
 		 */
 		EEnum CONNECTION_POLICY_LOCK_POLICY = eINSTANCE
 				.getConnectionPolicyLockPolicy();
+
+		/**
+		 * The meta object literal for the '{@link org.orocos.model.rtt.PropertyType <em>Property Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.orocos.model.rtt.PropertyType
+		 * @see org.orocos.model.rtt.impl.RttPackageImpl#getPropertyType()
+		 * @generated
+		 */
+		EEnum PROPERTY_TYPE = eINSTANCE.getPropertyType();
 
 	}
 

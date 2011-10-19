@@ -247,6 +247,29 @@ public class RttItemProviderAdapterFactory extends RttAdapterFactory implements
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.orocos.model.rtt.Property} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyItemProvider propertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.orocos.model.rtt.Property}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyAdapter() {
+		if (propertyItemProvider == null) {
+			propertyItemProvider = new PropertyItemProvider(this);
+		}
+
+		return propertyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,6 +385,8 @@ public class RttItemProviderAdapterFactory extends RttAdapterFactory implements
 			activityItemProvider.dispose();
 		if (slaveItemProvider != null)
 			slaveItemProvider.dispose();
+		if (propertyItemProvider != null)
+			propertyItemProvider.dispose();
 	}
 
 }

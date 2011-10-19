@@ -30,6 +30,8 @@ import org.orocos.model.rtt.IActivity;
 import org.orocos.model.rtt.InputPort;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.PortType;
+import org.orocos.model.rtt.Property;
+import org.orocos.model.rtt.PropertyType;
 import org.orocos.model.rtt.RttFactory;
 import org.orocos.model.rtt.RttPackage;
 import org.orocos.model.rtt.Scheduler;
@@ -104,6 +106,13 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass propertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum portTypeEEnum = null;
 
 	/**
@@ -126,6 +135,13 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * @generated
 	 */
 	private EEnum connectionPolicyLockPolicyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum propertyTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -243,6 +259,15 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 */
 	public EReference getTaskContext_OutputPort() {
 		return (EReference) taskContextEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskContext_Property() {
+		return (EReference) taskContextEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -464,15 +489,6 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * @generated
 	 */
 	public EAttribute getActivity_CpuAffinity() {
-		return (EAttribute) activityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getActivity_Period() {
 		return (EAttribute) activityEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -481,7 +497,7 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getActivity_Priority() {
+	public EAttribute getActivity_Period() {
 		return (EAttribute) activityEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -490,8 +506,17 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getActivity_Scheduler() {
+	public EAttribute getActivity_Priority() {
 		return (EAttribute) activityEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActivity_Scheduler() {
+		return (EAttribute) activityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -544,6 +569,51 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProperty() {
+		return propertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Name() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Description() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Type() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Value() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPortType() {
 		return portTypeEEnum;
 	}
@@ -573,6 +643,15 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 */
 	public EEnum getConnectionPolicyLockPolicy() {
 		return connectionPolicyLockPolicyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPropertyType() {
+		return propertyTypeEEnum;
 	}
 
 	/**
@@ -610,6 +689,7 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 		createEAttribute(taskContextEClass, TASK_CONTEXT__TYPE);
 		createEReference(taskContextEClass, TASK_CONTEXT__INPUT_PORT);
 		createEReference(taskContextEClass, TASK_CONTEXT__OUTPUT_PORT);
+		createEReference(taskContextEClass, TASK_CONTEXT__PROPERTY);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
@@ -639,10 +719,10 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 
 		activityEClass = createEClass(ACTIVITY);
 		createEReference(activityEClass, ACTIVITY__SLAVE);
+		createEAttribute(activityEClass, ACTIVITY__SCHEDULER);
 		createEAttribute(activityEClass, ACTIVITY__CPU_AFFINITY);
 		createEAttribute(activityEClass, ACTIVITY__PERIOD);
 		createEAttribute(activityEClass, ACTIVITY__PRIORITY);
-		createEAttribute(activityEClass, ACTIVITY__SCHEDULER);
 
 		slaveEClass = createEClass(SLAVE);
 		createEReference(slaveEClass, SLAVE__MASTER);
@@ -651,11 +731,18 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 		createEAttribute(iActivityEClass, IACTIVITY__NAME);
 		createEReference(iActivityEClass, IACTIVITY__TASK_CONTEXT);
 
+		propertyEClass = createEClass(PROPERTY);
+		createEAttribute(propertyEClass, PROPERTY__NAME);
+		createEAttribute(propertyEClass, PROPERTY__DESCRIPTION);
+		createEAttribute(propertyEClass, PROPERTY__TYPE);
+		createEAttribute(propertyEClass, PROPERTY__VALUE);
+
 		// Create enums
 		portTypeEEnum = createEEnum(PORT_TYPE);
 		schedulerEEnum = createEEnum(SCHEDULER);
 		connectionPolicyTypeEEnum = createEEnum(CONNECTION_POLICY_TYPE);
 		connectionPolicyLockPolicyEEnum = createEEnum(CONNECTION_POLICY_LOCK_POLICY);
+		propertyTypeEEnum = createEEnum(PROPERTY_TYPE);
 	}
 
 	/**
@@ -711,6 +798,10 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskContext_OutputPort(), this.getOutputPort(), null,
 				"outputPort", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskContext_Property(), this.getProperty(), null,
+				"property", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -816,6 +907,10 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getActivity_Scheduler(), this.getScheduler(),
+				"scheduler", "ORO_SCHED_OTHER", 1, 1, Activity.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActivity_CpuAffinity(), ecorePackage.getEString(),
 				"cpuAffinity", "~0", 1, 1, Activity.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -828,10 +923,6 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				"priority", "0", 1, 1, Activity.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActivity_Scheduler(), this.getScheduler(),
-				"scheduler", "ORO_SCHED_OTHER", 1, 1, Activity.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slaveEClass, Slave.class, "Slave", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -851,6 +942,25 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				"taskContext", null, 0, 1, IActivity.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name",
+				null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getProperty_Description(), ecorePackage.getEString(),
+				"description", null, 0, 1, Property.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Type(), this.getPropertyType(), "type",
+				null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value",
+				null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(portTypeEEnum, PortType.class, "PortType");
@@ -897,6 +1007,15 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				ConnectionPolicyLockPolicy.LOCKED);
 		addEEnumLiteral(connectionPolicyLockPolicyEEnum,
 				ConnectionPolicyLockPolicy.LOCK_FREE);
+
+		initEEnum(propertyTypeEEnum, PropertyType.class, "PropertyType");
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.BOOLEAN);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.CHAR);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.DOUBLE);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.FLOAT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.INT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.STRING);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.UNSIGNED_INT);
 
 		// Create resource
 		createResource(eNS_URI);

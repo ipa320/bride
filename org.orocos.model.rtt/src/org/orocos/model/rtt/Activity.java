@@ -25,10 +25,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.orocos.model.rtt.Activity#getSlave <em>Slave</em>}</li>
+ *   <li>{@link org.orocos.model.rtt.Activity#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link org.orocos.model.rtt.Activity#getCpuAffinity <em>Cpu Affinity</em>}</li>
  *   <li>{@link org.orocos.model.rtt.Activity#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.orocos.model.rtt.Activity#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.orocos.model.rtt.Activity#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  * </p>
  *
