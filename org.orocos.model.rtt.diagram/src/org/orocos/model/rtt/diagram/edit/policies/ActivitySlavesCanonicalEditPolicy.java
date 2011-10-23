@@ -29,8 +29,7 @@ import org.orocos.model.rtt.diagram.part.RttVisualIDRegistry;
 /**
  * @generated
  */
-public class ActivitySlaveCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class ActivitySlavesCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -59,7 +58,7 @@ public class ActivitySlaveCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<RttNodeDescriptor> childDescriptors = RttDiagramUpdater
-				.getActivitySlaves_7001SemanticChildren(viewObject);
+				.getActivitySlaves_7002SemanticChildren(viewObject);
 		for (RttNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -91,7 +90,7 @@ public class ActivitySlaveCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<RttNodeDescriptor> childDescriptors = RttDiagramUpdater
-				.getActivitySlaves_7001SemanticChildren((View) getHost()
+				.getActivitySlaves_7002SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

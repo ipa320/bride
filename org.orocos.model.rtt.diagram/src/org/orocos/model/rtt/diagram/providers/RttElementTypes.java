@@ -22,6 +22,7 @@ import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
 import org.orocos.model.rtt.diagram.part.RttDiagramEditorPlugin;
@@ -75,7 +76,11 @@ public class RttElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Slave_3003 = getElementType("org.orocos.model.rtt.diagram.Slave_3003"); //$NON-NLS-1$
+	public static final IElementType Property_3003 = getElementType("org.orocos.model.rtt.diagram.Property_3003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Slave_3004 = getElementType("org.orocos.model.rtt.diagram.Slave_3004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -207,7 +212,9 @@ public class RttElementTypes {
 
 			elements.put(InputPort_3002, RttPackage.eINSTANCE.getInputPort());
 
-			elements.put(Slave_3003, RttPackage.eINSTANCE.getSlave());
+			elements.put(Property_3003, RttPackage.eINSTANCE.getProperty());
+
+			elements.put(Slave_3004, RttPackage.eINSTANCE.getSlave());
 
 			elements.put(ConnectionPolicy_4001,
 					RttPackage.eINSTANCE.getConnectionPolicy());
@@ -236,7 +243,8 @@ public class RttElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Activity_2002);
 			KNOWN_ELEMENT_TYPES.add(OutputPort_3001);
 			KNOWN_ELEMENT_TYPES.add(InputPort_3002);
-			KNOWN_ELEMENT_TYPES.add(Slave_3003);
+			KNOWN_ELEMENT_TYPES.add(Property_3003);
+			KNOWN_ELEMENT_TYPES.add(Slave_3004);
 			KNOWN_ELEMENT_TYPES.add(ConnectionPolicy_4001);
 			KNOWN_ELEMENT_TYPES.add(IActivityTaskContext_4002);
 		}
@@ -258,8 +266,10 @@ public class RttElementTypes {
 			return OutputPort_3001;
 		case InputPortEditPart.VISUAL_ID:
 			return InputPort_3002;
+		case PropertyEditPart.VISUAL_ID:
+			return Property_3003;
 		case SlaveEditPart.VISUAL_ID:
-			return Slave_3003;
+			return Slave_3004;
 		case ConnectionPolicyEditPart.VISUAL_ID:
 			return ConnectionPolicy_4001;
 		case IActivityTaskContextEditPart.VISUAL_ID:

@@ -75,6 +75,15 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Property"
+          description="Create new Property">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

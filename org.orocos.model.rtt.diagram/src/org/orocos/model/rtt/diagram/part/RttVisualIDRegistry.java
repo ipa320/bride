@@ -13,7 +13,7 @@ import org.orocos.model.rtt.diagram.edit.parts.ActivityNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ActivityPeriodEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ActivityPriorityEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ActivitySchedulerEditPart;
-import org.orocos.model.rtt.diagram.edit.parts.ActivitySlaveCompartmentEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.ActivitySlavesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
@@ -24,11 +24,13 @@ import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortTypeEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNamespaceEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextTypeEditPart;
 
 /**
@@ -158,7 +160,13 @@ public class RttVisualIDRegistry {
 				return InputPortEditPart.VISUAL_ID;
 			}
 			break;
-		case ActivitySlaveCompartmentEditPart.VISUAL_ID:
+		case TaskContextPropertiesEditPart.VISUAL_ID:
+			if (RttPackage.eINSTANCE.getProperty().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PropertyEditPart.VISUAL_ID;
+			}
+			break;
+		case ActivitySlavesEditPart.VISUAL_ID:
 			if (RttPackage.eINSTANCE.getSlave().isSuperTypeOf(
 					domainElement.eClass())) {
 				return SlaveEditPart.VISUAL_ID;
@@ -207,6 +215,9 @@ public class RttVisualIDRegistry {
 			if (TaskContextTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (TaskContextPropertiesEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -230,7 +241,7 @@ public class RttVisualIDRegistry {
 			if (ActivitySchedulerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ActivitySlaveCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+			if (ActivitySlavesEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -258,7 +269,12 @@ public class RttVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ActivitySlaveCompartmentEditPart.VISUAL_ID:
+		case TaskContextPropertiesEditPart.VISUAL_ID:
+			if (PropertyEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ActivitySlavesEditPart.VISUAL_ID:
 			if (SlaveEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

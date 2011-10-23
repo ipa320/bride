@@ -47,14 +47,15 @@ public class RttModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof TaskContextEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(RttElementTypes.OutputPort_3001);
 			types.add(RttElementTypes.InputPort_3002);
+			types.add(RttElementTypes.Property_3003);
 			return types;
 		}
 		if (editPart instanceof ActivityEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(RttElementTypes.Slave_3003);
+			types.add(RttElementTypes.Slave_3004);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

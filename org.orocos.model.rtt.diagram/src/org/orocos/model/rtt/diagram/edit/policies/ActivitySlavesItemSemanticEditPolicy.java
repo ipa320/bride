@@ -8,13 +8,13 @@ import org.orocos.model.rtt.diagram.providers.RttElementTypes;
 /**
  * @generated
  */
-public class ActivitySlaveCompartmentItemSemanticEditPolicy extends
+public class ActivitySlavesItemSemanticEditPolicy extends
 		RttBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public ActivitySlaveCompartmentItemSemanticEditPolicy() {
+	public ActivitySlavesItemSemanticEditPolicy() {
 		super(RttElementTypes.Activity_2002);
 	}
 
@@ -22,7 +22,7 @@ public class ActivitySlaveCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RttElementTypes.Slave_3003 == req.getElementType()) {
+		if (RttElementTypes.Slave_3004 == req.getElementType()) {
 			return getGEFWrapper(new SlaveCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

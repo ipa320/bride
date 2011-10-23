@@ -9,6 +9,7 @@ import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -20,6 +21,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -28,6 +30,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -156,6 +159,14 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 							.getFigureTaskContextTypeFigure());
 			return true;
 		}
+		if (childEditPart instanceof TaskContextPropertiesEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigurePropertyCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((TaskContextPropertiesEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		if (childEditPart instanceof OutputPortEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
@@ -184,6 +195,14 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof TaskContextTypeEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof TaskContextPropertiesEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigurePropertyCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((TaskContextPropertiesEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof OutputPortEditPart) {
@@ -223,6 +242,9 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof TaskContextPropertiesEditPart) {
+			return getPrimaryShape().getFigurePropertyCompartmentFigure();
+		}
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
 		}
@@ -339,7 +361,7 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == RttElementTypes.IActivityTaskContext_4002) {
 			types.add(RttElementTypes.Activity_2002);
-			types.add(RttElementTypes.Slave_3003);
+			types.add(RttElementTypes.Slave_3004);
 		}
 		return types;
 	}
@@ -347,8 +369,34 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
+			if (type == RttElementTypes.Property_3003) {
+				return getChildBySemanticHint(RttVisualIDRegistry
+						.getType(TaskContextPropertiesEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
+	}
+
+	/**
+	 * @generated
+	 */
 	public class RoundedTaskContextFigure extends RoundedRectangle {
 
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFigurePropertyCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFigureTaskContextTopFigure;
 		/**
 		 * @generated
 		 */
@@ -368,18 +416,13 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 		public RoundedTaskContextFigure() {
 
 			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 3;
-			layoutThis.makeColumnsEqualWidth = false;
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20),
 					getMapMode().DPtoLP(20)));
 			this.setLineWidth(2);
-			this.setBackgroundColor(THIS_BACK);
-
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
@@ -387,6 +430,31 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 		 * @generated
 		 */
 		private void createContents() {
+
+			fFigureTaskContextTopFigure = new RectangleFigure();
+			fFigureTaskContextTopFigure
+					.setBackgroundColor(FFIGURETASKCONTEXTTOPFIGURE_BACK);
+
+			fFigureTaskContextTopFigure.setBorder(new MarginBorder(getMapMode()
+					.DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
+
+			GridData constraintFFigureTaskContextTopFigure = new GridData();
+			constraintFFigureTaskContextTopFigure.verticalAlignment = GridData.BEGINNING;
+			constraintFFigureTaskContextTopFigure.horizontalAlignment = GridData.FILL;
+			constraintFFigureTaskContextTopFigure.horizontalIndent = 0;
+			constraintFFigureTaskContextTopFigure.horizontalSpan = 1;
+			constraintFFigureTaskContextTopFigure.verticalSpan = 1;
+			constraintFFigureTaskContextTopFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureTaskContextTopFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureTaskContextTopFigure,
+					constraintFFigureTaskContextTopFigure);
+
+			GridLayout layoutFFigureTaskContextTopFigure = new GridLayout();
+			layoutFFigureTaskContextTopFigure.numColumns = 3;
+			layoutFFigureTaskContextTopFigure.makeColumnsEqualWidth = false;
+			fFigureTaskContextTopFigure
+					.setLayoutManager(layoutFFigureTaskContextTopFigure);
 
 			fFigureTaskContextNameFigure = new WrappingLabel();
 			fFigureTaskContextNameFigure.setText("<...>");
@@ -402,7 +470,7 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 			constraintFFigureTaskContextNameFigure.verticalSpan = 1;
 			constraintFFigureTaskContextNameFigure.grabExcessHorizontalSpace = false;
 			constraintFFigureTaskContextNameFigure.grabExcessVerticalSpace = false;
-			this.add(fFigureTaskContextNameFigure,
+			fFigureTaskContextTopFigure.add(fFigureTaskContextNameFigure,
 					constraintFFigureTaskContextNameFigure);
 
 			fFigureTaskContextNamespaceFigure = new WrappingLabel();
@@ -419,23 +487,24 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 			constraintFFigureTaskContextNamespaceFigure.verticalSpan = 1;
 			constraintFFigureTaskContextNamespaceFigure.grabExcessHorizontalSpace = false;
 			constraintFFigureTaskContextNamespaceFigure.grabExcessVerticalSpace = false;
-			this.add(fFigureTaskContextNamespaceFigure,
+			fFigureTaskContextTopFigure.add(fFigureTaskContextNamespaceFigure,
 					constraintFFigureTaskContextNamespaceFigure);
 
-			WrappingLabel doubleColon0 = new WrappingLabel();
-			doubleColon0.setText("::");
+			WrappingLabel doubleColon1 = new WrappingLabel();
+			doubleColon1.setText("::");
 
-			doubleColon0.setFont(DOUBLECOLON0_FONT);
+			doubleColon1.setFont(DOUBLECOLON1_FONT);
 
-			GridData constraintDoubleColon0 = new GridData();
-			constraintDoubleColon0.verticalAlignment = GridData.BEGINNING;
-			constraintDoubleColon0.horizontalAlignment = GridData.BEGINNING;
-			constraintDoubleColon0.horizontalIndent = 0;
-			constraintDoubleColon0.horizontalSpan = 1;
-			constraintDoubleColon0.verticalSpan = 1;
-			constraintDoubleColon0.grabExcessHorizontalSpace = false;
-			constraintDoubleColon0.grabExcessVerticalSpace = false;
-			this.add(doubleColon0, constraintDoubleColon0);
+			GridData constraintDoubleColon1 = new GridData();
+			constraintDoubleColon1.verticalAlignment = GridData.BEGINNING;
+			constraintDoubleColon1.horizontalAlignment = GridData.BEGINNING;
+			constraintDoubleColon1.horizontalIndent = 0;
+			constraintDoubleColon1.horizontalSpan = 1;
+			constraintDoubleColon1.verticalSpan = 1;
+			constraintDoubleColon1.grabExcessHorizontalSpace = false;
+			constraintDoubleColon1.grabExcessVerticalSpace = false;
+			fFigureTaskContextTopFigure.add(doubleColon1,
+					constraintDoubleColon1);
 
 			fFigureTaskContextTypeFigure = new WrappingLabel();
 			fFigureTaskContextTypeFigure.setText("<...>");
@@ -448,9 +517,40 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 			constraintFFigureTaskContextTypeFigure.verticalSpan = 1;
 			constraintFFigureTaskContextTypeFigure.grabExcessHorizontalSpace = false;
 			constraintFFigureTaskContextTypeFigure.grabExcessVerticalSpace = false;
-			this.add(fFigureTaskContextTypeFigure,
+			fFigureTaskContextTopFigure.add(fFigureTaskContextTypeFigure,
 					constraintFFigureTaskContextTypeFigure);
 
+			fFigurePropertyCompartmentFigure = new RectangleFigure();
+			fFigurePropertyCompartmentFigure.setFill(false);
+
+			GridData constraintFFigurePropertyCompartmentFigure = new GridData();
+			constraintFFigurePropertyCompartmentFigure.verticalAlignment = GridData.FILL;
+			constraintFFigurePropertyCompartmentFigure.horizontalAlignment = GridData.FILL;
+			constraintFFigurePropertyCompartmentFigure.horizontalIndent = 0;
+			constraintFFigurePropertyCompartmentFigure.horizontalSpan = 1;
+			constraintFFigurePropertyCompartmentFigure.verticalSpan = 1;
+			constraintFFigurePropertyCompartmentFigure.grabExcessHorizontalSpace = true;
+			constraintFFigurePropertyCompartmentFigure.grabExcessVerticalSpace = true;
+			this.add(fFigurePropertyCompartmentFigure,
+					constraintFFigurePropertyCompartmentFigure);
+
+			fFigurePropertyCompartmentFigure
+					.setLayoutManager(new StackLayout());
+
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigurePropertyCompartmentFigure() {
+			return fFigurePropertyCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureTaskContextTopFigure() {
+			return fFigureTaskContextTopFigure;
 		}
 
 		/**
@@ -479,7 +579,8 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 236, 232, 233);
+	static final Color FFIGURETASKCONTEXTTOPFIGURE_BACK = new Color(null, 236,
+			232, 233);
 
 	/**
 	 * @generated
@@ -498,7 +599,7 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font DOUBLECOLON0_FONT = new Font(Display.getCurrent(),
+	static final Font DOUBLECOLON1_FONT = new Font(Display.getCurrent(),
 			Display.getDefault().getSystemFont().getFontData()[0].getName(),
 			10, SWT.BOLD);
 

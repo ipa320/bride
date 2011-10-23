@@ -9,14 +9,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.orocos.model.rtt.diagram.edit.policies.ActivitySlaveCompartmentCanonicalEditPolicy;
-import org.orocos.model.rtt.diagram.edit.policies.ActivitySlaveCompartmentItemSemanticEditPolicy;
+import org.orocos.model.rtt.diagram.edit.policies.TaskContextPropertiesCanonicalEditPolicy;
+import org.orocos.model.rtt.diagram.edit.policies.TaskContextPropertiesItemSemanticEditPolicy;
 import org.orocos.model.rtt.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class ActivitySlaveCompartmentEditPart extends ListCompartmentEditPart {
+public class TaskContextPropertiesEditPart extends ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -26,7 +26,7 @@ public class ActivitySlaveCompartmentEditPart extends ListCompartmentEditPart {
 	/**
 	 * @generated
 	 */
-	public ActivitySlaveCompartmentEditPart(View view) {
+	public TaskContextPropertiesEditPart(View view) {
 		super(view);
 	}
 
@@ -41,7 +41,7 @@ public class ActivitySlaveCompartmentEditPart extends ListCompartmentEditPart {
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.ActivitySlaveCompartmentEditPart_title;
+		return Messages.TaskContextPropertiesEditPart_title;
 	}
 
 	/**
@@ -52,13 +52,13 @@ public class ActivitySlaveCompartmentEditPart extends ListCompartmentEditPart {
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ActivitySlaveCompartmentItemSemanticEditPolicy());
+				new TaskContextPropertiesItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ActivitySlaveCompartmentCanonicalEditPolicy());
+				new TaskContextPropertiesCanonicalEditPolicy());
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class SlaveItemSemanticEditPolicy extends RttBaseItemSemanticEditPolicy {
 	 * @generated
 	 */
 	public SlaveItemSemanticEditPolicy() {
-		super(RttElementTypes.Slave_3003);
+		super(RttElementTypes.Slave_3004);
 	}
 
 	/**

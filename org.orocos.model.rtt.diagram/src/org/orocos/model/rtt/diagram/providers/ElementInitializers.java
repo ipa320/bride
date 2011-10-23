@@ -15,7 +15,7 @@ public class ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public void init_Slave_3003(Slave instance) {
+	public void init_Slave_3004(Slave instance) {
 		try {
 			instance.setName("SlaveActivity");
 		} catch (RuntimeException e) {

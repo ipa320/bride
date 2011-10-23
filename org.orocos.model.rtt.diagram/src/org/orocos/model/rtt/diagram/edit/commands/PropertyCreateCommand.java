@@ -11,20 +11,19 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.orocos.model.rtt.Activity;
+import org.orocos.model.rtt.Property;
 import org.orocos.model.rtt.RttFactory;
-import org.orocos.model.rtt.Slave;
-import org.orocos.model.rtt.diagram.providers.ElementInitializers;
+import org.orocos.model.rtt.TaskContext;
 
 /**
  * @generated
  */
-public class SlaveCreateCommand extends EditElementCommand {
+public class PropertyCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public SlaveCreateCommand(CreateElementRequest req) {
+	public PropertyCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -54,12 +53,10 @@ public class SlaveCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Slave newElement = RttFactory.eINSTANCE.createSlave();
+		Property newElement = RttFactory.eINSTANCE.createProperty();
 
-		Activity owner = (Activity) getElementToEdit();
-		owner.getSlave().add(newElement);
-
-		ElementInitializers.getInstance().init_Slave_3004(newElement);
+		TaskContext owner = (TaskContext) getElementToEdit();
+		owner.getProperty().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 
@@ -70,7 +67,7 @@ public class SlaveCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Slave newElement, IProgressMonitor monitor,
+	protected void doConfigure(Property newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

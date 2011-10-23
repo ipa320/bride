@@ -315,7 +315,7 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 		case SlaveEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RttDiagramUpdater
-						.getSlave_3003ContainedLinks(view));
+						.getSlave_3004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

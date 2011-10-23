@@ -23,14 +23,16 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 import org.orocos.model.rtt.diagram.edit.parts.ActivityEditPart;
-import org.orocos.model.rtt.diagram.edit.parts.ActivitySlaveCompartmentEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.ActivitySlavesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.part.Messages;
 import org.orocos.model.rtt.diagram.part.RttVisualIDRegistry;
 
@@ -221,24 +223,6 @@ public class RttNavigatorContentProvider implements ICommonContentProvider {
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (RttVisualIDRegistry.getVisualID(view)) {
 
-		case OutputPortEditPart.VISUAL_ID: {
-			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			RttNavigatorGroup outgoinglinks = new RttNavigatorGroup(
-					Messages.NavigatorGroupName_OutputPort_3001_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					RttVisualIDRegistry
-							.getType(ConnectionPolicyEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
 		case InputPortEditPart.VISUAL_ID: {
 			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -253,24 +237,6 @@ public class RttNavigatorContentProvider implements ICommonContentProvider {
 					incominglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case SlaveEditPart.VISUAL_ID: {
-			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			RttNavigatorGroup outgoinglinks = new RttNavigatorGroup(
-					Messages.NavigatorGroupName_Slave_3003_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					RttVisualIDRegistry
-							.getType(IActivityTaskContextEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}
@@ -331,21 +297,13 @@ public class RttNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case ActivityEditPart.VISUAL_ID: {
+		case SlaveEditPart.VISUAL_ID: {
 			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			RttNavigatorGroup outgoinglinks = new RttNavigatorGroup(
-					Messages.NavigatorGroupName_Activity_2002_outgoinglinks,
+					Messages.NavigatorGroupName_Slave_3004_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					RttVisualIDRegistry
-							.getType(ActivitySlaveCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					RttVisualIDRegistry.getType(SlaveEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					RttVisualIDRegistry
 							.getType(IActivityTaskContextEditPart.VISUAL_ID));
@@ -353,6 +311,39 @@ public class RttNavigatorContentProvider implements ICommonContentProvider {
 					outgoinglinks, true));
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case TaskContextEditPart.VISUAL_ID: {
+			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			RttNavigatorGroup incominglinks = new RttNavigatorGroup(
+					Messages.NavigatorGroupName_TaskContext_2001_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					RttVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					RttVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					RttVisualIDRegistry
+							.getType(TaskContextPropertiesEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					RttVisualIDRegistry.getType(PropertyEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					RttVisualIDRegistry
+							.getType(IActivityTaskContextEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
 			}
 			return result.toArray();
 		}
@@ -388,28 +379,45 @@ public class RttNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case TaskContextEditPart.VISUAL_ID: {
+		case OutputPortEditPart.VISUAL_ID: {
 			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			RttNavigatorGroup incominglinks = new RttNavigatorGroup(
-					Messages.NavigatorGroupName_TaskContext_2001_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			RttNavigatorGroup outgoinglinks = new RttNavigatorGroup(
+					Messages.NavigatorGroupName_OutputPort_3001_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					RttVisualIDRegistry
+							.getType(ConnectionPolicyEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case ActivityEditPart.VISUAL_ID: {
+			LinkedList<RttAbstractNavigatorItem> result = new LinkedList<RttAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			RttNavigatorGroup outgoinglinks = new RttNavigatorGroup(
+					Messages.NavigatorGroupName_Activity_2002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					RttVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+					RttVisualIDRegistry
+							.getType(ActivitySlavesEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					RttVisualIDRegistry.getType(SlaveEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					RttVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					RttVisualIDRegistry
 							.getType(IActivityTaskContextEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}

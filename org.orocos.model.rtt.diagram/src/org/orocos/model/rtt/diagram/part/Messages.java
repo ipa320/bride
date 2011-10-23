@@ -318,7 +318,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ActivitySlaveCompartmentEditPart_title;
+	public static String Property9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Property9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String TaskContextPropertiesEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ActivitySlavesEditPart_title;
 
 	/**
 	 * @generated
@@ -328,17 +343,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_OutputPort_3001_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_InputPort_3002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Slave_3003_outgoinglinks;
 
 	/**
 	 * @generated
@@ -358,7 +363,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Activity_2002_outgoinglinks;
+	public static String NavigatorGroupName_Slave_3004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TaskContext_2001_incominglinks;
 
 	/**
 	 * @generated
@@ -373,7 +383,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TaskContext_2001_incominglinks;
+	public static String NavigatorGroupName_OutputPort_3001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Activity_2002_outgoinglinks;
 
 	/**
 	 * @generated

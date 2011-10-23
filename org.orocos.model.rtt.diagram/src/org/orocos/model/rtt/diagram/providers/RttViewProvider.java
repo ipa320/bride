@@ -48,7 +48,7 @@ import org.orocos.model.rtt.diagram.edit.parts.ActivityNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ActivityPeriodEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ActivityPriorityEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ActivitySchedulerEditPart;
-import org.orocos.model.rtt.diagram.edit.parts.ActivitySlaveCompartmentEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.ActivitySlavesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
@@ -60,11 +60,13 @@ import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortTypeEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNamespaceEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextTypeEditPart;
 import org.orocos.model.rtt.diagram.part.RttVisualIDRegistry;
 
@@ -160,6 +162,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 				case ActivityEditPart.VISUAL_ID:
 				case OutputPortEditPart.VISUAL_ID:
 				case InputPortEditPart.VISUAL_ID:
+				case PropertyEditPart.VISUAL_ID:
 				case SlaveEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != RttVisualIDRegistry.getNodeVisualID(
@@ -176,6 +179,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 				|| ActivityEditPart.VISUAL_ID == visualID
 				|| OutputPortEditPart.VISUAL_ID == visualID
 				|| InputPortEditPart.VISUAL_ID == visualID
+				|| PropertyEditPart.VISUAL_ID == visualID
 				|| SlaveEditPart.VISUAL_ID == visualID;
 	}
 
@@ -245,8 +249,11 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 		case InputPortEditPart.VISUAL_ID:
 			return createInputPort_3002(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case PropertyEditPart.VISUAL_ID:
+			return createProperty_3003(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case SlaveEditPart.VISUAL_ID:
-			return createSlave_3003(domainElement, containerView, index,
+			return createSlave_3004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -280,11 +287,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 	public Node createTaskContext_2001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(RttVisualIDRegistry.getType(TaskContextEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -313,6 +316,11 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5006 = createLabel(node,
 				RttVisualIDRegistry.getType(TaskContextNameEditPart.VISUAL_ID));
 		Node label5007 = createLabel(node,
@@ -320,6 +328,10 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 						.getType(TaskContextNamespaceEditPart.VISUAL_ID));
 		Node label5008 = createLabel(node,
 				RttVisualIDRegistry.getType(TaskContextTypeEditPart.VISUAL_ID));
+		createCompartment(node,
+				RttVisualIDRegistry
+						.getType(TaskContextPropertiesEditPart.VISUAL_ID),
+				true, true, true, true);
 		return node;
 	}
 
@@ -375,8 +387,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 				RttVisualIDRegistry
 						.getType(ActivitySchedulerEditPart.VISUAL_ID));
 		createCompartment(node,
-				RttVisualIDRegistry
-						.getType(ActivitySlaveCompartmentEditPart.VISUAL_ID),
+				RttVisualIDRegistry.getType(ActivitySlavesEditPart.VISUAL_ID),
 				true, true, true, true);
 		return node;
 	}
@@ -476,7 +487,20 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 	/**
 	 * @generated
 	 */
-	public Node createSlave_3003(EObject domainElement, View containerView,
+	public Node createProperty_3003(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(RttVisualIDRegistry.getType(PropertyEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSlave_3004(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());

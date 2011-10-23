@@ -18,7 +18,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.orocos.model.rtt.diagram.edit.commands.IActivityTaskContextCreateCommand;
 import org.orocos.model.rtt.diagram.edit.commands.IActivityTaskContextReorientCommand;
-import org.orocos.model.rtt.diagram.edit.parts.ActivitySlaveCompartmentEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.ActivitySlavesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.part.RttVisualIDRegistry;
@@ -77,7 +77,7 @@ public class ActivityItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (RttVisualIDRegistry.getVisualID(node)) {
-			case ActivitySlaveCompartmentEditPart.VISUAL_ID:
+			case ActivitySlavesEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();

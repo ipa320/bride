@@ -82,14 +82,20 @@ public class RttEditPartFactory implements EditPartFactory {
 			case InputPortIsEventPortEditPart.VISUAL_ID:
 				return new InputPortIsEventPortEditPart(view);
 
+			case PropertyEditPart.VISUAL_ID:
+				return new PropertyEditPart(view);
+
 			case SlaveEditPart.VISUAL_ID:
 				return new SlaveEditPart(view);
 
 			case SlaveNameEditPart.VISUAL_ID:
 				return new SlaveNameEditPart(view);
 
-			case ActivitySlaveCompartmentEditPart.VISUAL_ID:
-				return new ActivitySlaveCompartmentEditPart(view);
+			case TaskContextPropertiesEditPart.VISUAL_ID:
+				return new TaskContextPropertiesEditPart(view);
+
+			case ActivitySlavesEditPart.VISUAL_ID:
+				return new ActivitySlavesEditPart(view);
 
 			case ConnectionPolicyEditPart.VISUAL_ID:
 				return new ConnectionPolicyEditPart(view);

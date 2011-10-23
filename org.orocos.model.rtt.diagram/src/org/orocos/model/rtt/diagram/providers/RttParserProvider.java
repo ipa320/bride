@@ -24,6 +24,7 @@ import org.orocos.model.rtt.diagram.edit.parts.InputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortTypeEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortTypeEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNamespaceEditPart;
@@ -274,6 +275,24 @@ public class RttParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser property_3003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getProperty_3003Parser() {
+		if (property_3003Parser == null) {
+			EAttribute[] features = new EAttribute[] { RttPackage.eINSTANCE
+					.getProperty_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			property_3003Parser = parser;
+		}
+		return property_3003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser slaveName_5009Parser;
 
 	/**
@@ -338,6 +357,8 @@ public class RttParserProvider extends AbstractProvider implements
 			return getInputPortType_5004Parser();
 		case InputPortIsEventPortEditPart.VISUAL_ID:
 			return getInputPortIsEventPort_5005Parser();
+		case PropertyEditPart.VISUAL_ID:
+			return getProperty_3003Parser();
 		case SlaveNameEditPart.VISUAL_ID:
 			return getSlaveName_5009Parser();
 		case ConnectionPolicyNameEditPart.VISUAL_ID:

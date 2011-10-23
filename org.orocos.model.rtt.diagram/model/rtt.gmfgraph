@@ -188,74 +188,102 @@
           cornerWidth="20"
           cornerHeight="20">
         <layout
-            xsi:type="gmfgraph:GridLayout"
-            numColumns="3"
-            equalWidth="false"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="236"
-            green="232"
-            blue="233"/>
-        <insets
-            top="5"
-            left="5"
-            bottom="5"
-            right="5"/>
+            xsi:type="gmfgraph:GridLayout"/>
         <children
-            xsi:type="gmfgraph:Label"
-            name="TaskContextNameFigure"
-            text="&lt;...>">
+            xsi:type="gmfgraph:Rectangle"
+            name="TaskContextTopFigure">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
               verticalAlignment="BEGINNING"
-              horizontalAlignment="BEGINNING"
-              horizontalSpan="3"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              height="10"
-              style="BOLD"/>
+              horizontalAlignment="FILL"/>
+          <layout
+              xsi:type="gmfgraph:GridLayout"
+              numColumns="3"
+              equalWidth="false"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="236"
+              green="232"
+              blue="233"/>
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+          <children
+              xsi:type="gmfgraph:Label"
+              name="TaskContextNameFigure"
+              text="&lt;...>">
+            <layoutData
+                xsi:type="gmfgraph:GridLayoutData"
+                verticalAlignment="BEGINNING"
+                horizontalAlignment="BEGINNING"
+                horizontalSpan="3"/>
+            <font
+                xsi:type="gmfgraph:BasicFont"
+                height="10"
+                style="BOLD"/>
+          </children>
+          <children
+              xsi:type="gmfgraph:Label"
+              name="TaskContextNamespaceFigure"
+              text="&lt;...>">
+            <layoutData
+                xsi:type="gmfgraph:GridLayoutData"
+                verticalAlignment="BEGINNING"
+                horizontalAlignment="BEGINNING"/>
+            <font
+                xsi:type="gmfgraph:BasicFont"
+                style="ITALIC"/>
+          </children>
+          <children
+              xsi:type="gmfgraph:Label"
+              name="DoubleColon"
+              text="::">
+            <layoutData
+                xsi:type="gmfgraph:GridLayoutData"
+                verticalAlignment="BEGINNING"
+                horizontalAlignment="BEGINNING"/>
+            <font
+                xsi:type="gmfgraph:BasicFont"
+                height="10"
+                style="BOLD"/>
+          </children>
+          <children
+              xsi:type="gmfgraph:Label"
+              name="TaskContextTypeFigure"
+              text="&lt;...>">
+            <layoutData
+                xsi:type="gmfgraph:GridLayoutData"
+                verticalAlignment="BEGINNING"
+                horizontalAlignment="BEGINNING"/>
+          </children>
         </children>
         <children
-            xsi:type="gmfgraph:Label"
-            name="TaskContextNamespaceFigure"
-            text="&lt;...>">
+            xsi:type="gmfgraph:Rectangle"
+            name="PropertyCompartmentFigure"
+            fill="false">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
-              verticalAlignment="BEGINNING"
-              horizontalAlignment="BEGINNING"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              style="ITALIC"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="DoubleColon"
-            text="::">
-          <layoutData
-              xsi:type="gmfgraph:GridLayoutData"
-              verticalAlignment="BEGINNING"
-              horizontalAlignment="BEGINNING"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              height="10"
-              style="BOLD"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="TaskContextTypeFigure"
-            text="&lt;...>">
-          <layoutData
-              xsi:type="gmfgraph:GridLayoutData"
-              verticalAlignment="BEGINNING"
-              horizontalAlignment="BEGINNING"/>
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
-      <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.3"/>
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0/@children.3"/>
     </descriptors>
     <descriptors
         name="SlaveFigure">
@@ -282,6 +310,13 @@
       <accessors
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="PropertyFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ProperyNameFigure"
+          text="&lt;...>"/>
+    </descriptors>
   </figures>
   <nodes
       name="Slave"
@@ -307,26 +342,32 @@
       name="ActivityTaskContext"
       figure="ActivityTaskContextFigure"/>
   <compartments
-      name="SlaveCompartment"
+      name="Slaves"
       figure="ActivityFigure"
       collapsible="true"
       needsTitle="true"
       accessor="//@figures.0/@descriptors.3/@accessors.5"/>
+  <compartments
+      name="Properties"
+      figure="RoundedTaskContextFigure"
+      collapsible="true"
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
       name="TaskContextName"
       figure="RoundedTaskContextFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.5/@accessors.2"/>
   <labels
       name="TaskContextNamespace"
       figure="RoundedTaskContextFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.5/@accessors.3"/>
   <labels
       name="TaskContextType"
       figure="RoundedTaskContextFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.5/@accessors.4"/>
   <labels
       name="InputPortName"
       figure="InputPortFigure"
@@ -387,4 +428,8 @@
       figure="SlaveFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="PropertyName"
+      figure="PropertyFigure"
+      elementIcon="false"/>
 </gmfgraph:Canvas>

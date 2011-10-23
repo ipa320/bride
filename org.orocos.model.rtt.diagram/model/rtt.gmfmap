@@ -98,6 +98,33 @@
               href="rtt.gmfgraph#InputPort"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild">
+        <containmentFeature
+            href="../../org.orocos.model.rtt/model/rtt.ecore#//TaskContext/property"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.orocos.model.rtt/model/rtt.ecore#//Property"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="rtt.gmfgraph#PropertyName"/>
+            <features
+                href="../../org.orocos.model.rtt/model/rtt.ecore#//Property/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="rtt.gmftool#//@palette/@tools.0/@tools.8"/>
+          <diagramNode
+              href="rtt.gmfgraph#PropertyName"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.2">
+        <compartment
+            href="rtt.gmfgraph#Properties"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <nodes>
@@ -182,7 +209,7 @@
       <compartments
           children="//@nodes.1/@ownedChild/@children.0">
         <compartment
-            href="rtt.gmfgraph#SlaveCompartment"/>
+            href="rtt.gmfgraph#Slaves"/>
       </compartments>
     </ownedChild>
   </nodes>

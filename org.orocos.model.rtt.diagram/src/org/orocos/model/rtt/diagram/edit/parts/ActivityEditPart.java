@@ -148,11 +148,10 @@ public class ActivityEditPart extends ShapeNodeEditPart {
 							.getFigureActivitySchedulerFigure());
 			return true;
 		}
-		if (childEditPart instanceof ActivitySlaveCompartmentEditPart) {
+		if (childEditPart instanceof ActivitySlavesEditPart) {
 			IFigure pane = getPrimaryShape().getFigureSlaveCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((ActivitySlaveCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((ActivitySlavesEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -177,11 +176,10 @@ public class ActivityEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof ActivitySchedulerEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ActivitySlaveCompartmentEditPart) {
+		if (childEditPart instanceof ActivitySlavesEditPart) {
 			IFigure pane = getPrimaryShape().getFigureSlaveCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((ActivitySlaveCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.remove(((ActivitySlavesEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -211,7 +209,7 @@ public class ActivityEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof ActivitySlaveCompartmentEditPart) {
+		if (editPart instanceof ActivitySlavesEditPart) {
 			return getPrimaryShape().getFigureSlaveCompartmentFigure();
 		}
 		return getContentPane();
@@ -353,9 +351,9 @@ public class ActivityEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == RttElementTypes.Slave_3003) {
+			if (type == RttElementTypes.Slave_3004) {
 				return getChildBySemanticHint(RttVisualIDRegistry
-						.getType(ActivitySlaveCompartmentEditPart.VISUAL_ID));
+						.getType(ActivitySlavesEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

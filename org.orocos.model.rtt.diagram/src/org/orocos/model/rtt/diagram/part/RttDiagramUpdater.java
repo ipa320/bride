@@ -17,18 +17,21 @@ import org.orocos.model.rtt.IActivity;
 import org.orocos.model.rtt.InputPort;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.Package;
+import org.orocos.model.rtt.Property;
 import org.orocos.model.rtt.RttPackage;
 import org.orocos.model.rtt.Slave;
 import org.orocos.model.rtt.TaskContext;
 import org.orocos.model.rtt.diagram.edit.parts.ActivityEditPart;
-import org.orocos.model.rtt.diagram.edit.parts.ActivitySlaveCompartmentEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.ActivitySlavesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.providers.RttElementTypes;
 
 /**
@@ -45,8 +48,10 @@ public class RttDiagramUpdater {
 			return getPackage_1000SemanticChildren(view);
 		case TaskContextEditPart.VISUAL_ID:
 			return getTaskContext_2001SemanticChildren(view);
-		case ActivitySlaveCompartmentEditPart.VISUAL_ID:
-			return getActivitySlaves_7001SemanticChildren(view);
+		case TaskContextPropertiesEditPart.VISUAL_ID:
+			return getTaskContextProperties_7001SemanticChildren(view);
+		case ActivitySlavesEditPart.VISUAL_ID:
+			return getActivitySlaves_7002SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -120,7 +125,34 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttNodeDescriptor> getActivitySlaves_7001SemanticChildren(
+	public static List<RttNodeDescriptor> getTaskContextProperties_7001SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		TaskContext modelElement = (TaskContext) containerView.getElement();
+		LinkedList<RttNodeDescriptor> result = new LinkedList<RttNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getProperty().iterator(); it
+				.hasNext();) {
+			Property childElement = (Property) it.next();
+			int visualID = RttVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == PropertyEditPart.VISUAL_ID) {
+				result.add(new RttNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<RttNodeDescriptor> getActivitySlaves_7002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -158,8 +190,10 @@ public class RttDiagramUpdater {
 			return getOutputPort_3001ContainedLinks(view);
 		case InputPortEditPart.VISUAL_ID:
 			return getInputPort_3002ContainedLinks(view);
+		case PropertyEditPart.VISUAL_ID:
+			return getProperty_3003ContainedLinks(view);
 		case SlaveEditPart.VISUAL_ID:
-			return getSlave_3003ContainedLinks(view);
+			return getSlave_3004ContainedLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
 			return getConnectionPolicy_4001ContainedLinks(view);
 		}
@@ -179,8 +213,10 @@ public class RttDiagramUpdater {
 			return getOutputPort_3001IncomingLinks(view);
 		case InputPortEditPart.VISUAL_ID:
 			return getInputPort_3002IncomingLinks(view);
+		case PropertyEditPart.VISUAL_ID:
+			return getProperty_3003IncomingLinks(view);
 		case SlaveEditPart.VISUAL_ID:
-			return getSlave_3003IncomingLinks(view);
+			return getSlave_3004IncomingLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
 			return getConnectionPolicy_4001IncomingLinks(view);
 		}
@@ -200,8 +236,10 @@ public class RttDiagramUpdater {
 			return getOutputPort_3001OutgoingLinks(view);
 		case InputPortEditPart.VISUAL_ID:
 			return getInputPort_3002OutgoingLinks(view);
+		case PropertyEditPart.VISUAL_ID:
+			return getProperty_3003OutgoingLinks(view);
 		case SlaveEditPart.VISUAL_ID:
-			return getSlave_3003OutgoingLinks(view);
+			return getSlave_3004OutgoingLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
 			return getConnectionPolicy_4001OutgoingLinks(view);
 		}
@@ -257,7 +295,15 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttLinkDescriptor> getSlave_3003ContainedLinks(View view) {
+	public static List<RttLinkDescriptor> getProperty_3003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<RttLinkDescriptor> getSlave_3004ContainedLinks(View view) {
 		Slave modelElement = (Slave) view.getElement();
 		LinkedList<RttLinkDescriptor> result = new LinkedList<RttLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_IActivity_TaskContext_4002(modelElement));
@@ -319,7 +365,15 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttLinkDescriptor> getSlave_3003IncomingLinks(View view) {
+	public static List<RttLinkDescriptor> getProperty_3003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<RttLinkDescriptor> getSlave_3004IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -372,7 +426,15 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttLinkDescriptor> getSlave_3003OutgoingLinks(View view) {
+	public static List<RttLinkDescriptor> getProperty_3003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<RttLinkDescriptor> getSlave_3004OutgoingLinks(View view) {
 		Slave modelElement = (Slave) view.getElement();
 		LinkedList<RttLinkDescriptor> result = new LinkedList<RttLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_IActivity_TaskContext_4002(modelElement));
