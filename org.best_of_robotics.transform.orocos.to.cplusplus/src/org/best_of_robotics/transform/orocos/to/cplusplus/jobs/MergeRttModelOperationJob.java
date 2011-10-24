@@ -47,7 +47,7 @@ import org.orocos.model.rtt.diagram.part.RttNewDiagramFileWizard;
 public class MergeRttModelOperationJob extends UIJob {
 	
 	private String comparisonPath = "epsilon/rtt.ecl";
-	private String mergePath = "epsilon/compositeMerge.eml";
+	private String mergePath = "epsilon/rttMerge.eml";
 	private MatchTrace matchTrace;
 	private String location;
 	private ModelRepository modelRepository;
