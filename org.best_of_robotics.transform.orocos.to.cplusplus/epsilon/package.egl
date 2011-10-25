@@ -7,12 +7,16 @@
 	for(taskContext in package.taskContext) {
 		var taskContextHeaderTemplate := TemplateFactory.load('taskContextHeader.egl');
 		var taskContextSourceTemplate := TemplateFactory.load('taskContextSource.egl');
+		var taskContextPropertiesTemplate := TemplateFactory.load('taskContextProperties.egl');
 		
 		taskContextHeaderTemplate.populate('taskContext', taskContext);
-		taskContextHeaderTemplate.generate('src/'+taskContext.type + '.hpp');
+		taskContextHeaderTemplate.generate('src/' + taskContext.type + '.hpp');
 		
 		taskContextSourceTemplate.populate('taskContext', taskContext);
-		taskContextSourceTemplate.generate('src/'+taskContext.type + '.cpp');
+		taskContextSourceTemplate.generate('src/' + taskContext.type + '.cpp');
+		
+		taskContextPropertiesTemplate.populate('taskContext', taskContext);
+		taskContextPropertiesTemplate.generate('deployment/' + taskContext.type + '.cpf');
 	}
 	
 	//CMakeList

@@ -27,6 +27,12 @@ namespace [%=taskContext.namespace%]
         void updateHook();
         void stopHook();
         void cleanupHook();
+        
+    protected:
+    	[%for(aProperty in taskContext.property) {%]
+    	[%=aProperty.type%] [%=aProperty.name%];
+    	[%}%]
+    	
     };
 }
 

@@ -133,8 +133,11 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 
 	protected EmfModel createTarget() {
 
+		String name = targetFile.getName();
+		String fileName = name.substring(0, name.indexOf(targetFile.getFileExtension()));
+		
 		String cpfFile = project.getLocation().toOSString() + "/deployment/"
-				+ targetFile.getName() + modelFileExtension;
+				+ fileName + modelFileExtension;
 
 		CpfPackage cpfPackage = CpfFactory.eINSTANCE.getCpfPackage();
 
@@ -161,6 +164,5 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 
 	public void setTargetFile(IFile file) {
 		this.targetFile = file;
-
 	}
 }

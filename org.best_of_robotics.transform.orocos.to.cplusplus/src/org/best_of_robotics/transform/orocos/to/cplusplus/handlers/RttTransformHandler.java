@@ -120,7 +120,7 @@ public class RttTransformHandler extends AbstractHandler {
 		etlJob.setPriority(Job.INTERACTIVE);
 		etlJob.setRule(rule);
 		etlJob.schedule();
-
+		
 		return null;
 	}
 

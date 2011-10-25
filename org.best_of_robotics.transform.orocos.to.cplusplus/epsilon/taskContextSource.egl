@@ -8,7 +8,13 @@ using namespace [%=taskContext.namespace%];
 
 [%=taskContext.type%]::[%=taskContext.type%](string const& name = "[%=taskContext.name%]") :
 		TaskContext(name)
+		[%for(aProperty in taskContext.property) {%]
+    	,[%=aProperty.name%]([%=aProperty.value%])
+    	[%}%]
 {
+	[%for(aProperty in taskContext.property) {%]
+	this->addProperty("[%=aProperty.name%]", [%=aProperty.name%]).doc("[%=aProperty.description%]");
+    [%}%]
 	[%for(anInputPort in taskContext.inputPort)
 		if (anInputPort.isEventPort == true) {%]
 	this->ports()->addEventPort( "[%=anInputPort.name%]", [%=anInputPort.name%] ).doc(

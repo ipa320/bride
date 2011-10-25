@@ -31,6 +31,20 @@ rule TaskContextToComponent
 			component.type = taskContext.namespace + "::" + taskContext.type;
 			var port = null;
 			
+			//Properties
+			if (not taskContext.property.isEmpty()) {
+				for (aProperty in taskContext.property) {
+					var propertySimple = new Target!Simple;
+					propertySimple.name = "UpdateProperties";
+					propertySimple.type = Target!SimpleType#string;
+					var value = new Target!Value;
+					var mixed = value.mixed;
+					featureMapUtilTool.addText(mixed, taskContext.type + ".cpf");
+					propertySimple.value = value;
+					component.simple.add(propertySimple);
+				}
+			}
+			
 			//Ports
 			if (taskContext.outputPort.isDefined() or taskContext.inputPort.isDefined()) {
 				var ports = new Target!Struct;
