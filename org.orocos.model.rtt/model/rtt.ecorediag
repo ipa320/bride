@@ -416,7 +416,7 @@
     <children xmi:type="notation:Node" xmi:id="_fUvqgPqAEeCqnZoReLt5AQ" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_fUvqgfqAEeCqnZoReLt5AQ" type="5008">
       <children xmi:type="notation:Node" xmi:id="_pEtIsPqAEeCqnZoReLt5AQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="rtt.ecore#//PropertyType/boolean"/>
+        <element xmi:type="ecore:EEnumLiteral" href="rtt.ecore#//PropertyType/bool"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_pEtvwPqAEeCqnZoReLt5AQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_repbkPqAEeCqnZoReLt5AQ" type="2006">
@@ -440,7 +440,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_BuxOsfqBEeCqnZoReLt5AQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_EXchIPqBEeCqnZoReLt5AQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="rtt.ecore#//PropertyType/unsigned_int"/>
+        <element xmi:type="ecore:EEnumLiteral" href="rtt.ecore#//PropertyType/uint"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_EXchIfqBEeCqnZoReLt5AQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_fUvqgvqAEeCqnZoReLt5AQ"/>

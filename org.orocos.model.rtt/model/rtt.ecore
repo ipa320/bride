@@ -120,12 +120,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PropertyType">
-    <eLiterals name="boolean"/>
+    <eLiterals name="bool"/>
     <eLiterals name="char" value="1"/>
     <eLiterals name="double" value="2"/>
     <eLiterals name="float" value="3"/>
     <eLiterals name="int" value="4"/>
     <eLiterals name="string" value="5"/>
-    <eLiterals name="unsigned_int" value="6"/>
+    <eLiterals name="uint" value="6"/>
   </eClassifiers>
 </ecore:EPackage>

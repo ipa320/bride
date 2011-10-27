@@ -90,7 +90,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PropertyType TYPE_EDEFAULT = PropertyType.BOOLEAN;
+	protected static final PropertyType TYPE_EDEFAULT = PropertyType.BOOL;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

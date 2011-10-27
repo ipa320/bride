@@ -49,13 +49,13 @@
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//ConnectionPolicyLockPolicy/LOCK_FREE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//PropertyType">
-      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/bool"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/char"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/double"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/float"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/int"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/string"/>
-      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/unsigned_int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/uint"/>
     </genEnums>
     <genClasses ecoreClass="rtt.ecore#//TaskContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/name"/>

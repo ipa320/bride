@@ -1009,13 +1009,13 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				ConnectionPolicyLockPolicy.LOCK_FREE);
 
 		initEEnum(propertyTypeEEnum, PropertyType.class, "PropertyType");
-		addEEnumLiteral(propertyTypeEEnum, PropertyType.BOOLEAN);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.BOOL);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.CHAR);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.DOUBLE);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.FLOAT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.INT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.STRING);
-		addEEnumLiteral(propertyTypeEEnum, PropertyType.UNSIGNED_INT);
+		addEEnumLiteral(propertyTypeEEnum, PropertyType.UINT);
 
 		// Create resource
 		createResource(eNS_URI);

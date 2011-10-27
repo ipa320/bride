@@ -31,23 +31,21 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PropertyType implements Enumerator {
 	/**
-	 * The '<em><b>Boolean</b></em>' literal object.
+	 * The '<em><b>Bool</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN_VALUE
+	 * @see #BOOL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(0, "boolean", "boolean"),
-
-	/**
-	 * The '<em><b>Char</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #CHAR_VALUE
-	 * @generated
-	 * @ordered
-	 */
+	BOOL(0, "bool", "bool"), /**
+								 * The '<em><b>Char</b></em>' literal object.
+								 * <!-- begin-user-doc -->
+								 * <!-- end-user-doc -->
+								 * @see #CHAR_VALUE
+								 * @generated
+								 * @ordered
+								 */
 	CHAR(1, "char", "char"),
 
 	/**
@@ -91,29 +89,29 @@ public enum PropertyType implements Enumerator {
 	STRING(5, "string", "string"),
 
 	/**
-	 * The '<em><b>Unsigned int</b></em>' literal object.
+	 * The '<em><b>Uint</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #UNSIGNED_INT_VALUE
+	 * @see #UINT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	UNSIGNED_INT(6, "unsigned_int", "unsigned_int");
+	UINT(6, "uint", "uint");
 
 	/**
-	 * The '<em><b>Boolean</b></em>' literal value.
+	 * The '<em><b>Bool</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Bool</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN
-	 * @model name="boolean"
+	 * @see #BOOL
+	 * @model name="bool"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOOLEAN_VALUE = 0;
+	public static final int BOOL_VALUE = 0;
 
 	/**
 	 * The '<em><b>Char</b></em>' literal value.
@@ -191,19 +189,19 @@ public enum PropertyType implements Enumerator {
 	public static final int STRING_VALUE = 5;
 
 	/**
-	 * The '<em><b>Unsigned int</b></em>' literal value.
+	 * The '<em><b>Uint</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Unsigned int</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Uint</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UNSIGNED_INT
-	 * @model name="unsigned_int"
+	 * @see #UINT
+	 * @model name="uint"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNSIGNED_INT_VALUE = 6;
+	public static final int UINT_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Property Type</b></em>' enumerators.
@@ -212,7 +210,7 @@ public enum PropertyType implements Enumerator {
 	 * @generated
 	 */
 	private static final PropertyType[] VALUES_ARRAY = new PropertyType[] {
-			BOOLEAN, CHAR, DOUBLE, FLOAT, INT, STRING, UNSIGNED_INT, };
+			BOOL, CHAR, DOUBLE, FLOAT, INT, STRING, UINT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Property Type</b></em>' enumerators.
@@ -263,8 +261,8 @@ public enum PropertyType implements Enumerator {
 	 */
 	public static PropertyType get(int value) {
 		switch (value) {
-		case BOOLEAN_VALUE:
-			return BOOLEAN;
+		case BOOL_VALUE:
+			return BOOL;
 		case CHAR_VALUE:
 			return CHAR;
 		case DOUBLE_VALUE:
@@ -275,8 +273,8 @@ public enum PropertyType implements Enumerator {
 			return INT;
 		case STRING_VALUE:
 			return STRING;
-		case UNSIGNED_INT_VALUE:
-			return UNSIGNED_INT;
+		case UINT_VALUE:
+			return UINT;
 		}
 		return null;
 	}
