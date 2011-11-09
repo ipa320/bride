@@ -28,6 +28,8 @@ import org.orocos.model.rtt.ConnectionPolicyLockPolicy;
 import org.orocos.model.rtt.ConnectionPolicyType;
 import org.orocos.model.rtt.IActivity;
 import org.orocos.model.rtt.InputPort;
+import org.orocos.model.rtt.Operation;
+import org.orocos.model.rtt.OperationReturnType;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.PortType;
 import org.orocos.model.rtt.Property;
@@ -113,6 +115,13 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass operationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum portTypeEEnum = null;
 
 	/**
@@ -142,6 +151,13 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * @generated
 	 */
 	private EEnum propertyTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operationReturnTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -268,6 +284,15 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 */
 	public EReference getTaskContext_Property() {
 		return (EReference) taskContextEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskContext_Operation() {
+		return (EReference) taskContextEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -614,6 +639,42 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOperation() {
+		return operationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Name() {
+		return (EAttribute) operationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_ReturnType() {
+		return (EAttribute) operationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Documentation() {
+		return (EAttribute) operationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPortType() {
 		return portTypeEEnum;
 	}
@@ -659,6 +720,15 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getOperationReturnType() {
+		return operationReturnTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RttFactory getRttFactory() {
 		return (RttFactory) getEFactoryInstance();
 	}
@@ -690,6 +760,7 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 		createEReference(taskContextEClass, TASK_CONTEXT__INPUT_PORT);
 		createEReference(taskContextEClass, TASK_CONTEXT__OUTPUT_PORT);
 		createEReference(taskContextEClass, TASK_CONTEXT__PROPERTY);
+		createEReference(taskContextEClass, TASK_CONTEXT__OPERATION);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
@@ -737,12 +808,18 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 		createEAttribute(propertyEClass, PROPERTY__TYPE);
 		createEAttribute(propertyEClass, PROPERTY__VALUE);
 
+		operationEClass = createEClass(OPERATION);
+		createEAttribute(operationEClass, OPERATION__NAME);
+		createEAttribute(operationEClass, OPERATION__RETURN_TYPE);
+		createEAttribute(operationEClass, OPERATION__DOCUMENTATION);
+
 		// Create enums
 		portTypeEEnum = createEEnum(PORT_TYPE);
 		schedulerEEnum = createEEnum(SCHEDULER);
 		connectionPolicyTypeEEnum = createEEnum(CONNECTION_POLICY_TYPE);
 		connectionPolicyLockPolicyEEnum = createEEnum(CONNECTION_POLICY_LOCK_POLICY);
 		propertyTypeEEnum = createEEnum(PROPERTY_TYPE);
+		operationReturnTypeEEnum = createEEnum(OPERATION_RETURN_TYPE);
 	}
 
 	/**
@@ -802,6 +879,10 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskContext_Property(), this.getProperty(), null,
 				"property", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskContext_Operation(), this.getOperation(), null,
+				"operation", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -962,6 +1043,21 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name",
+				null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getOperation_ReturnType(),
+				this.getOperationReturnType(), "returnType", null, 0, 1,
+				Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Documentation(), ecorePackage.getEString(),
+				"documentation", null, 0, 1, Operation.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(portTypeEEnum, PortType.class, "PortType");
 		addEEnumLiteral(portTypeEEnum, PortType.CHAR);
@@ -1016,6 +1112,16 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.INT);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.STRING);
 		addEEnumLiteral(propertyTypeEEnum, PropertyType.UINT);
+
+		initEEnum(operationReturnTypeEEnum, OperationReturnType.class,
+				"OperationReturnType");
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.BOOL);
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.CHAR);
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.DOUBLE);
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.FLOAT);
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.INT);
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.STRING);
+		addEEnumLiteral(operationReturnTypeEEnum, OperationReturnType.UINT);
 
 		// Create resource
 		createResource(eNS_URI);

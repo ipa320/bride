@@ -24,8 +24,10 @@ import org.orocos.model.rtt.diagram.edit.commands.OutputPortCreateCommand;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.OperationEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextOperationsEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.part.RttVisualIDRegistry;
 import org.orocos.model.rtt.diagram.providers.RttElementTypes;
@@ -138,6 +140,21 @@ public class TaskContextItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (RttVisualIDRegistry.getVisualID(cnode)) {
 					case PropertyEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case TaskContextOperationsEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (RttVisualIDRegistry.getVisualID(cnode)) {
+					case OperationEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

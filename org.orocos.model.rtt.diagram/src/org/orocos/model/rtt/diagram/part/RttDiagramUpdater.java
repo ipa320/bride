@@ -15,6 +15,7 @@ import org.orocos.model.rtt.Activity;
 import org.orocos.model.rtt.ConnectionPolicy;
 import org.orocos.model.rtt.IActivity;
 import org.orocos.model.rtt.InputPort;
+import org.orocos.model.rtt.Operation;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.Package;
 import org.orocos.model.rtt.Property;
@@ -26,11 +27,13 @@ import org.orocos.model.rtt.diagram.edit.parts.ActivitySlavesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.OperationEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.SlaveEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextOperationsEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.providers.RttElementTypes;
 
@@ -50,6 +53,8 @@ public class RttDiagramUpdater {
 			return getTaskContext_2001SemanticChildren(view);
 		case TaskContextPropertiesEditPart.VISUAL_ID:
 			return getTaskContextProperties_7001SemanticChildren(view);
+		case TaskContextOperationsEditPart.VISUAL_ID:
+			return getTaskContextOperations_7003SemanticChildren(view);
 		case ActivitySlavesEditPart.VISUAL_ID:
 			return getActivitySlaves_7002SemanticChildren(view);
 		}
@@ -152,6 +157,33 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<RttNodeDescriptor> getTaskContextOperations_7003SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		TaskContext modelElement = (TaskContext) containerView.getElement();
+		LinkedList<RttNodeDescriptor> result = new LinkedList<RttNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getOperation().iterator(); it
+				.hasNext();) {
+			Operation childElement = (Operation) it.next();
+			int visualID = RttVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OperationEditPart.VISUAL_ID) {
+				result.add(new RttNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<RttNodeDescriptor> getActivitySlaves_7002SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -192,6 +224,8 @@ public class RttDiagramUpdater {
 			return getInputPort_3002ContainedLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003ContainedLinks(view);
+		case OperationEditPart.VISUAL_ID:
+			return getOperation_3005ContainedLinks(view);
 		case SlaveEditPart.VISUAL_ID:
 			return getSlave_3004ContainedLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
@@ -215,6 +249,8 @@ public class RttDiagramUpdater {
 			return getInputPort_3002IncomingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003IncomingLinks(view);
+		case OperationEditPart.VISUAL_ID:
+			return getOperation_3005IncomingLinks(view);
 		case SlaveEditPart.VISUAL_ID:
 			return getSlave_3004IncomingLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
@@ -238,6 +274,8 @@ public class RttDiagramUpdater {
 			return getInputPort_3002OutgoingLinks(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003OutgoingLinks(view);
+		case OperationEditPart.VISUAL_ID:
+			return getOperation_3005OutgoingLinks(view);
 		case SlaveEditPart.VISUAL_ID:
 			return getSlave_3004OutgoingLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
@@ -296,6 +334,14 @@ public class RttDiagramUpdater {
 	 * @generated
 	 */
 	public static List<RttLinkDescriptor> getProperty_3003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<RttLinkDescriptor> getOperation_3005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -373,6 +419,14 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<RttLinkDescriptor> getOperation_3005IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<RttLinkDescriptor> getSlave_3004IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -427,6 +481,14 @@ public class RttDiagramUpdater {
 	 * @generated
 	 */
 	public static List<RttLinkDescriptor> getProperty_3003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<RttLinkDescriptor> getOperation_3005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

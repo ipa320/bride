@@ -17,6 +17,9 @@
     <compartmentTraces
         visualID="7001"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
+        queryText="true"/>
   </nodeTraces>
   <nodeTraces
       visualID="2002"
@@ -73,6 +76,9 @@
         visualID="5009"
         queryText="true"/>
   </childNodeTraces>
+  <childNodeTraces
+      visualID="3005"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://rtt/1.0' and _eClass_.name = 'Operation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://rtt/1.0' and _eClass_.name = 'TaskContext') and _containmentMF_.name = 'operation')"/>
   <linkTraces
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://rtt/1.0' and _eClass_.name = 'ConnectionPolicy')">

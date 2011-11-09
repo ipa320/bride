@@ -59,7 +59,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="rtt.gmftool#//@palette/@tools.0/@tools.2"/>
+              href="rtt.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="rtt.gmfgraph#OutputPort"/>
         </ownedChild>
@@ -93,7 +93,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="rtt.gmftool#//@palette/@tools.0/@tools.1"/>
+              href="rtt.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="rtt.gmfgraph#InputPort"/>
         </ownedChild>
@@ -115,15 +115,42 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="rtt.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="rtt.gmftool#//@palette/@tools.0/@tools.1"/>
           <diagramNode
               href="rtt.gmfgraph#PropertyName"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.1"
+          referencedChild="//@nodes.0/@ownedChild">
+        <containmentFeature
+            href="../../org.orocos.model.rtt/model/rtt.ecore#//TaskContext/operation"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.orocos.model.rtt/model/rtt.ecore#//Operation"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="rtt.gmfgraph#OperationName"/>
+            <features
+                href="../../org.orocos.model.rtt/model/rtt.ecore#//Operation/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="rtt.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="rtt.gmfgraph#OperationName"/>
         </ownedChild>
       </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.2">
         <compartment
             href="rtt.gmfgraph#Properties"/>
+      </compartments>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.3">
+        <compartment
+            href="rtt.gmfgraph#Operations"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -170,7 +197,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="rtt.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="rtt.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="rtt.gmfgraph#Activity"/>
       <children
@@ -201,7 +228,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="rtt.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="rtt.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="rtt.gmfgraph#Slave"/>
         </ownedChild>
@@ -227,7 +254,7 @@
         href="../../org.orocos.model.rtt/model/rtt.ecore#//Package/connectionPolicy"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="rtt.gmftool#//@palette/@tools.0/@tools.3"/>
+        href="rtt.gmftool#//@palette/@tools.0/@tools.5"/>
     <diagramLink
         href="rtt.gmfgraph#ConnectionPolicy"/>
     <sourceMetaFeature
@@ -240,7 +267,7 @@
   <links>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="rtt.gmftool#//@palette/@tools.0/@tools.7"/>
+        href="rtt.gmftool#//@palette/@tools.0/@tools.8"/>
     <diagramLink
         href="rtt.gmfgraph#ActivityTaskContext"/>
     <linkMetaFeature

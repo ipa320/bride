@@ -20,6 +20,7 @@ import org.orocos.model.rtt.diagram.edit.parts.ActivityEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.ConnectionPolicyEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.IActivityTaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.OperationEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PackageEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.PropertyEditPart;
@@ -77,6 +78,10 @@ public class RttElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Property_3003 = getElementType("org.orocos.model.rtt.diagram.Property_3003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Operation_3005 = getElementType("org.orocos.model.rtt.diagram.Operation_3005"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -214,6 +219,8 @@ public class RttElementTypes {
 
 			elements.put(Property_3003, RttPackage.eINSTANCE.getProperty());
 
+			elements.put(Operation_3005, RttPackage.eINSTANCE.getOperation());
+
 			elements.put(Slave_3004, RttPackage.eINSTANCE.getSlave());
 
 			elements.put(ConnectionPolicy_4001,
@@ -244,6 +251,7 @@ public class RttElementTypes {
 			KNOWN_ELEMENT_TYPES.add(OutputPort_3001);
 			KNOWN_ELEMENT_TYPES.add(InputPort_3002);
 			KNOWN_ELEMENT_TYPES.add(Property_3003);
+			KNOWN_ELEMENT_TYPES.add(Operation_3005);
 			KNOWN_ELEMENT_TYPES.add(Slave_3004);
 			KNOWN_ELEMENT_TYPES.add(ConnectionPolicy_4001);
 			KNOWN_ELEMENT_TYPES.add(IActivityTaskContext_4002);
@@ -268,6 +276,8 @@ public class RttElementTypes {
 			return InputPort_3002;
 		case PropertyEditPart.VISUAL_ID:
 			return Property_3003;
+		case OperationEditPart.VISUAL_ID:
+			return Operation_3005;
 		case SlaveEditPart.VISUAL_ID:
 			return Slave_3004;
 		case ConnectionPolicyEditPart.VISUAL_ID:

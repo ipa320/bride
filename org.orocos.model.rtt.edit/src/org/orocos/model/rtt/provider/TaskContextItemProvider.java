@@ -153,6 +153,7 @@ public class TaskContextItemProvider extends ItemProviderAdapter implements
 			childrenFeatures.add(RttPackage.Literals.TASK_CONTEXT__INPUT_PORT);
 			childrenFeatures.add(RttPackage.Literals.TASK_CONTEXT__OUTPUT_PORT);
 			childrenFeatures.add(RttPackage.Literals.TASK_CONTEXT__PROPERTY);
+			childrenFeatures.add(RttPackage.Literals.TASK_CONTEXT__OPERATION);
 		}
 		return childrenFeatures;
 	}
@@ -216,6 +217,7 @@ public class TaskContextItemProvider extends ItemProviderAdapter implements
 		case RttPackage.TASK_CONTEXT__INPUT_PORT:
 		case RttPackage.TASK_CONTEXT__OUTPUT_PORT:
 		case RttPackage.TASK_CONTEXT__PROPERTY:
+		case RttPackage.TASK_CONTEXT__OPERATION:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -246,6 +248,10 @@ public class TaskContextItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add(createChildParameter(
 				RttPackage.Literals.TASK_CONTEXT__PROPERTY,
 				RttFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add(createChildParameter(
+				RttPackage.Literals.TASK_CONTEXT__OPERATION,
+				RttFactory.eINSTANCE.createOperation()));
 	}
 
 	/**

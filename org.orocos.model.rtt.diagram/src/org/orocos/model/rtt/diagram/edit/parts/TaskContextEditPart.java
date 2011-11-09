@@ -167,6 +167,14 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 					.getFigure());
 			return true;
 		}
+		if (childEditPart instanceof TaskContextOperationsEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureOperationCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((TaskContextOperationsEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
 		if (childEditPart instanceof OutputPortEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
@@ -202,6 +210,14 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 					.getFigurePropertyCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane.remove(((TaskContextPropertiesEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof TaskContextOperationsEditPart) {
+			IFigure pane = getPrimaryShape()
+					.getFigureOperationCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((TaskContextOperationsEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -244,6 +260,9 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof TaskContextPropertiesEditPart) {
 			return getPrimaryShape().getFigurePropertyCompartmentFigure();
+		}
+		if (editPart instanceof TaskContextOperationsEditPart) {
+			return getPrimaryShape().getFigureOperationCompartmentFigure();
 		}
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
@@ -380,6 +399,10 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 				return getChildBySemanticHint(RttVisualIDRegistry
 						.getType(TaskContextPropertiesEditPart.VISUAL_ID));
 			}
+			if (type == RttElementTypes.Operation_3005) {
+				return getChildBySemanticHint(RttVisualIDRegistry
+						.getType(TaskContextOperationsEditPart.VISUAL_ID));
+			}
 		}
 		return super.getTargetEditPart(request);
 	}
@@ -393,6 +416,10 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 		 * @generated
 		 */
 		private RectangleFigure fFigurePropertyCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFigureOperationCompartmentFigure;
 		/**
 		 * @generated
 		 */
@@ -537,6 +564,23 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 			fFigurePropertyCompartmentFigure
 					.setLayoutManager(new StackLayout());
 
+			fFigureOperationCompartmentFigure = new RectangleFigure();
+			fFigureOperationCompartmentFigure.setFill(false);
+
+			GridData constraintFFigureOperationCompartmentFigure = new GridData();
+			constraintFFigureOperationCompartmentFigure.verticalAlignment = GridData.FILL;
+			constraintFFigureOperationCompartmentFigure.horizontalAlignment = GridData.FILL;
+			constraintFFigureOperationCompartmentFigure.horizontalIndent = 0;
+			constraintFFigureOperationCompartmentFigure.horizontalSpan = 1;
+			constraintFFigureOperationCompartmentFigure.verticalSpan = 1;
+			constraintFFigureOperationCompartmentFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureOperationCompartmentFigure.grabExcessVerticalSpace = true;
+			this.add(fFigureOperationCompartmentFigure,
+					constraintFFigureOperationCompartmentFigure);
+
+			fFigureOperationCompartmentFigure
+					.setLayoutManager(new StackLayout());
+
 		}
 
 		/**
@@ -544,6 +588,13 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		public RectangleFigure getFigurePropertyCompartmentFigure() {
 			return fFigurePropertyCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureOperationCompartmentFigure() {
+			return fFigureOperationCompartmentFigure;
 		}
 
 		/**

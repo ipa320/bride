@@ -270,6 +270,29 @@ public class RttItemProviderAdapterFactory extends RttAdapterFactory implements
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.orocos.model.rtt.Operation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperationItemProvider operationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.orocos.model.rtt.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperationAdapter() {
+		if (operationItemProvider == null) {
+			operationItemProvider = new OperationItemProvider(this);
+		}
+
+		return operationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -387,6 +410,8 @@ public class RttItemProviderAdapterFactory extends RttAdapterFactory implements
 			slaveItemProvider.dispose();
 		if (propertyItemProvider != null)
 			propertyItemProvider.dispose();
+		if (operationItemProvider != null)
+			operationItemProvider.dispose();
 	}
 
 }

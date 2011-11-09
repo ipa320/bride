@@ -56,6 +56,7 @@ import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortIsEventPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortTypeEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.OperationEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortTypeEditPart;
@@ -66,6 +67,7 @@ import org.orocos.model.rtt.diagram.edit.parts.SlaveNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNamespaceEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextOperationsEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextTypeEditPart;
 import org.orocos.model.rtt.diagram.part.RttVisualIDRegistry;
@@ -163,6 +165,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 				case OutputPortEditPart.VISUAL_ID:
 				case InputPortEditPart.VISUAL_ID:
 				case PropertyEditPart.VISUAL_ID:
+				case OperationEditPart.VISUAL_ID:
 				case SlaveEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != RttVisualIDRegistry.getNodeVisualID(
@@ -180,6 +183,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 				|| OutputPortEditPart.VISUAL_ID == visualID
 				|| InputPortEditPart.VISUAL_ID == visualID
 				|| PropertyEditPart.VISUAL_ID == visualID
+				|| OperationEditPart.VISUAL_ID == visualID
 				|| SlaveEditPart.VISUAL_ID == visualID;
 	}
 
@@ -251,6 +255,9 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 					persisted, preferencesHint);
 		case PropertyEditPart.VISUAL_ID:
 			return createProperty_3003(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case OperationEditPart.VISUAL_ID:
+			return createOperation_3005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case SlaveEditPart.VISUAL_ID:
 			return createSlave_3004(domainElement, containerView, index,
@@ -331,6 +338,10 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 		createCompartment(node,
 				RttVisualIDRegistry
 						.getType(TaskContextPropertiesEditPart.VISUAL_ID),
+				true, true, true, true);
+		createCompartment(node,
+				RttVisualIDRegistry
+						.getType(TaskContextOperationsEditPart.VISUAL_ID),
 				true, true, true, true);
 		return node;
 	}
@@ -492,6 +503,19 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
 		node.setType(RttVisualIDRegistry.getType(PropertyEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createOperation_3005(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(RttVisualIDRegistry.getType(OperationEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		return node;

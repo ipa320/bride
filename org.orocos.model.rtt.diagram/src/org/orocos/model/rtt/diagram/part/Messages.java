@@ -263,72 +263,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InputPort2CreationTool_title;
+	public static String Property2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InputPort2CreationTool_desc;
+	public static String Property2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputPort3CreationTool_title;
+	public static String Operation3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OutputPort3CreationTool_desc;
+	public static String InputPort4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ConnectionPolicy4CreationTool_title;
+	public static String InputPort4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ConnectionPolicy4CreationTool_desc;
+	public static String OutputPort5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Activity6CreationTool_title;
+	public static String OutputPort5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Activity6CreationTool_desc;
+	public static String ConnectionPolicy6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Slave7CreationTool_title;
+	public static String ConnectionPolicy6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Slave7CreationTool_desc;
+	public static String Activity7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ActivityTaskContext8CreationTool_title;
+	public static String Activity7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Property9CreationTool_title;
+	public static String Slave8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Property9CreationTool_desc;
+	public static String Slave8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ActivityTaskContext9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
 	public static String TaskContextPropertiesEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TaskContextOperationsEditPart_title;
 
 	/**
 	 * @generated
@@ -343,36 +353,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_InputPort_3002_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConnectionPolicy_4001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConnectionPolicy_4001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Package_1000_links;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Slave_3004_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_TaskContext_2001_incominglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_IActivityTaskContext_4002_target;
 
 	/**
@@ -383,7 +363,37 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Package_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InputPort_3002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TaskContext_2001_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Slave_3004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_OutputPort_3001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConnectionPolicy_4001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConnectionPolicy_4001_source;
 
 	/**
 	 * @generated

@@ -133,13 +133,22 @@ public interface RttPackage extends EPackage {
 	int TASK_CONTEXT__PROPERTY = 5;
 
 	/**
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_CONTEXT__OPERATION = 6;
+
+	/**
 	 * The number of structural features of the '<em>Task Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_CONTEXT_FEATURE_COUNT = 6;
+	int TASK_CONTEXT_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.impl.PackageImpl <em>Package</em>}' class.
@@ -591,6 +600,52 @@ public interface RttPackage extends EPackage {
 	int PROPERTY_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link org.orocos.model.rtt.impl.OperationImpl <em>Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.orocos.model.rtt.impl.OperationImpl
+	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getOperation()
+	 * @generated
+	 */
+	int OPERATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__RETURN_TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__DOCUMENTATION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.PortType <em>Port Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,7 +653,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getPortType()
 	 * @generated
 	 */
-	int PORT_TYPE = 9;
+	int PORT_TYPE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.Scheduler <em>Scheduler</em>}' enum.
@@ -608,7 +663,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getScheduler()
 	 * @generated
 	 */
-	int SCHEDULER = 10;
+	int SCHEDULER = 11;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.ConnectionPolicyType <em>Connection Policy Type</em>}' enum.
@@ -618,7 +673,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getConnectionPolicyType()
 	 * @generated
 	 */
-	int CONNECTION_POLICY_TYPE = 11;
+	int CONNECTION_POLICY_TYPE = 12;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.ConnectionPolicyLockPolicy <em>Connection Policy Lock Policy</em>}' enum.
@@ -628,7 +683,7 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getConnectionPolicyLockPolicy()
 	 * @generated
 	 */
-	int CONNECTION_POLICY_LOCK_POLICY = 12;
+	int CONNECTION_POLICY_LOCK_POLICY = 13;
 
 	/**
 	 * The meta object id for the '{@link org.orocos.model.rtt.PropertyType <em>Property Type</em>}' enum.
@@ -638,7 +693,17 @@ public interface RttPackage extends EPackage {
 	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getPropertyType()
 	 * @generated
 	 */
-	int PROPERTY_TYPE = 13;
+	int PROPERTY_TYPE = 14;
+
+	/**
+	 * The meta object id for the '{@link org.orocos.model.rtt.OperationReturnType <em>Operation Return Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.orocos.model.rtt.OperationReturnType
+	 * @see org.orocos.model.rtt.impl.RttPackageImpl#getOperationReturnType()
+	 * @generated
+	 */
+	int OPERATION_RETURN_TYPE = 15;
 
 	/**
 	 * Returns the meta object for class '{@link org.orocos.model.rtt.TaskContext <em>Task Context</em>}'.
@@ -715,6 +780,17 @@ public interface RttPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTaskContext_Property();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.orocos.model.rtt.TaskContext#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operation</em>'.
+	 * @see org.orocos.model.rtt.TaskContext#getOperation()
+	 * @see #getTaskContext()
+	 * @generated
+	 */
+	EReference getTaskContext_Operation();
 
 	/**
 	 * Returns the meta object for class '{@link org.orocos.model.rtt.Package <em>Package</em>}'.
@@ -1116,6 +1192,49 @@ public interface RttPackage extends EPackage {
 	EAttribute getProperty_Value();
 
 	/**
+	 * Returns the meta object for class '{@link org.orocos.model.rtt.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation</em>'.
+	 * @see org.orocos.model.rtt.Operation
+	 * @generated
+	 */
+	EClass getOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Operation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.orocos.model.rtt.Operation#getName()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Operation#getReturnType <em>Return Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Type</em>'.
+	 * @see org.orocos.model.rtt.Operation#getReturnType()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_ReturnType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.orocos.model.rtt.Operation#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.orocos.model.rtt.Operation#getDocumentation()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Documentation();
+
+	/**
 	 * Returns the meta object for enum '{@link org.orocos.model.rtt.PortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1164,6 +1283,16 @@ public interface RttPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getPropertyType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.orocos.model.rtt.OperationReturnType <em>Operation Return Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Operation Return Type</em>'.
+	 * @see org.orocos.model.rtt.OperationReturnType
+	 * @generated
+	 */
+	EEnum getOperationReturnType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1247,6 +1376,15 @@ public interface RttPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK_CONTEXT__PROPERTY = eINSTANCE.getTaskContext_Property();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK_CONTEXT__OPERATION = eINSTANCE
+				.getTaskContext_Operation();
 
 		/**
 		 * The meta object literal for the '{@link org.orocos.model.rtt.impl.PackageImpl <em>Package</em>}' class.
@@ -1572,6 +1710,41 @@ public interface RttPackage extends EPackage {
 		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
 
 		/**
+		 * The meta object literal for the '{@link org.orocos.model.rtt.impl.OperationImpl <em>Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.orocos.model.rtt.impl.OperationImpl
+		 * @see org.orocos.model.rtt.impl.RttPackageImpl#getOperation()
+		 * @generated
+		 */
+		EClass OPERATION = eINSTANCE.getOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__RETURN_TYPE = eINSTANCE.getOperation_ReturnType();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__DOCUMENTATION = eINSTANCE
+				.getOperation_Documentation();
+
+		/**
 		 * The meta object literal for the '{@link org.orocos.model.rtt.PortType <em>Port Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1621,6 +1794,16 @@ public interface RttPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PROPERTY_TYPE = eINSTANCE.getPropertyType();
+
+		/**
+		 * The meta object literal for the '{@link org.orocos.model.rtt.OperationReturnType <em>Operation Return Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.orocos.model.rtt.OperationReturnType
+		 * @see org.orocos.model.rtt.impl.RttPackageImpl#getOperationReturnType()
+		 * @generated
+		 */
+		EEnum OPERATION_RETURN_TYPE = eINSTANCE.getOperationReturnType();
 
 	}
 

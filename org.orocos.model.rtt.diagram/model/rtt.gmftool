@@ -21,6 +21,23 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Property"
+          description="Create new Property">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Operation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="InputPort"
           description="Create new InputPort">
         <smallIcon
@@ -47,9 +64,6 @@
             xsi:type="gmftool:DefaultImage"/>
       </tools>
       <tools
-          xsi:type="gmftool:PaletteSeparator"
-          title="Activites"/>
-      <tools
           xsi:type="gmftool:CreationTool"
           title="Activity"
           description="Create new Activity">
@@ -70,15 +84,6 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Activity->TaskContext">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Property"
-          description="Create new Property">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

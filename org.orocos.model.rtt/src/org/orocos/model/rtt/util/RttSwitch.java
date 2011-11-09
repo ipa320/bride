@@ -23,6 +23,7 @@ import org.orocos.model.rtt.Activity;
 import org.orocos.model.rtt.ConnectionPolicy;
 import org.orocos.model.rtt.IActivity;
 import org.orocos.model.rtt.InputPort;
+import org.orocos.model.rtt.Operation;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.Property;
 import org.orocos.model.rtt.RttPackage;
@@ -149,6 +150,13 @@ public class RttSwitch<T> extends Switch<T> {
 		case RttPackage.PROPERTY: {
 			Property property = (Property) theEObject;
 			T result = caseProperty(property);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RttPackage.OPERATION: {
+			Operation operation = (Operation) theEObject;
+			T result = caseOperation(operation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -290,6 +298,21 @@ public class RttSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProperty(Property object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperation(Operation object) {
 		return null;
 	}
 

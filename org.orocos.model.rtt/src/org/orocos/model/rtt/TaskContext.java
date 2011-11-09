@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.orocos.model.rtt.TaskContext#getInputPort <em>Input Port</em>}</li>
  *   <li>{@link org.orocos.model.rtt.TaskContext#getOutputPort <em>Output Port</em>}</li>
  *   <li>{@link org.orocos.model.rtt.TaskContext#getProperty <em>Property</em>}</li>
+ *   <li>{@link org.orocos.model.rtt.TaskContext#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -166,5 +167,21 @@ public interface TaskContext extends EObject {
 	 * @generated
 	 */
 	EList<Property> getProperty();
+
+	/**
+	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.orocos.model.rtt.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operation</em>' containment reference list.
+	 * @see org.orocos.model.rtt.RttPackage#getTaskContext_Operation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Operation> getOperation();
 
 } // TaskContext

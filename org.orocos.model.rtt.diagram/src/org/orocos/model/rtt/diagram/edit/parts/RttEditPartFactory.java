@@ -85,6 +85,9 @@ public class RttEditPartFactory implements EditPartFactory {
 			case PropertyEditPart.VISUAL_ID:
 				return new PropertyEditPart(view);
 
+			case OperationEditPart.VISUAL_ID:
+				return new OperationEditPart(view);
+
 			case SlaveEditPart.VISUAL_ID:
 				return new SlaveEditPart(view);
 
@@ -93,6 +96,9 @@ public class RttEditPartFactory implements EditPartFactory {
 
 			case TaskContextPropertiesEditPart.VISUAL_ID:
 				return new TaskContextPropertiesEditPart(view);
+
+			case TaskContextOperationsEditPart.VISUAL_ID:
+				return new TaskContextOperationsEditPart(view);
 
 			case ActivitySlavesEditPart.VISUAL_ID:
 				return new ActivitySlavesEditPart(view);

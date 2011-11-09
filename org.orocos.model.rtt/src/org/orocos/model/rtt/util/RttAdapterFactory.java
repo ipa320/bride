@@ -25,6 +25,7 @@ import org.orocos.model.rtt.Activity;
 import org.orocos.model.rtt.ConnectionPolicy;
 import org.orocos.model.rtt.IActivity;
 import org.orocos.model.rtt.InputPort;
+import org.orocos.model.rtt.Operation;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.Property;
 import org.orocos.model.rtt.RttPackage;
@@ -129,6 +130,11 @@ public class RttAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseProperty(Property object) {
 			return createPropertyAdapter();
+		}
+
+		@Override
+		public Adapter caseOperation(Operation object) {
+			return createOperationAdapter();
 		}
 
 		@Override
@@ -273,6 +279,20 @@ public class RttAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.orocos.model.rtt.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.orocos.model.rtt.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
 		return null;
 	}
 

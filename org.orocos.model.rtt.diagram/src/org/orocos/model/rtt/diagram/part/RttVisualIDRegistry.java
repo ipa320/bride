@@ -20,6 +20,7 @@ import org.orocos.model.rtt.diagram.edit.parts.InputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortIsEventPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.InputPortTypeEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.OperationEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.OutputPortTypeEditPart;
@@ -30,6 +31,7 @@ import org.orocos.model.rtt.diagram.edit.parts.SlaveNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNameEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextNamespaceEditPart;
+import org.orocos.model.rtt.diagram.edit.parts.TaskContextOperationsEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextPropertiesEditPart;
 import org.orocos.model.rtt.diagram.edit.parts.TaskContextTypeEditPart;
 
@@ -166,6 +168,12 @@ public class RttVisualIDRegistry {
 				return PropertyEditPart.VISUAL_ID;
 			}
 			break;
+		case TaskContextOperationsEditPart.VISUAL_ID:
+			if (RttPackage.eINSTANCE.getOperation().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OperationEditPart.VISUAL_ID;
+			}
+			break;
 		case ActivitySlavesEditPart.VISUAL_ID:
 			if (RttPackage.eINSTANCE.getSlave().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -216,6 +224,9 @@ public class RttVisualIDRegistry {
 				return true;
 			}
 			if (TaskContextPropertiesEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TaskContextOperationsEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
@@ -271,6 +282,11 @@ public class RttVisualIDRegistry {
 			break;
 		case TaskContextPropertiesEditPart.VISUAL_ID:
 			if (PropertyEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TaskContextOperationsEditPart.VISUAL_ID:
+			if (OperationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

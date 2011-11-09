@@ -57,6 +57,15 @@
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/string"/>
       <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//PropertyType/uint"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rtt.ecore#//OperationReturnType">
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/bool"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/char"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="rtt.ecore#//OperationReturnType/uint"/>
+    </genEnums>
     <genClasses ecoreClass="rtt.ecore#//TaskContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//TaskContext/namespace"/>
@@ -64,6 +73,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/inputPort"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/outputPort"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/operation"/>
     </genClasses>
     <genClasses ecoreClass="rtt.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Package/name"/>
@@ -109,6 +119,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="rtt.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Operation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Operation/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Operation/documentation"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

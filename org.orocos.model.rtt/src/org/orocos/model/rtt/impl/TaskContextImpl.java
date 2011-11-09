@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.orocos.model.rtt.InputPort;
+import org.orocos.model.rtt.Operation;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.Property;
 import org.orocos.model.rtt.RttPackage;
@@ -49,6 +50,7 @@ import org.orocos.model.rtt.TaskContext;
  *   <li>{@link org.orocos.model.rtt.impl.TaskContextImpl#getInputPort <em>Input Port</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.TaskContextImpl#getOutputPort <em>Output Port</em>}</li>
  *   <li>{@link org.orocos.model.rtt.impl.TaskContextImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link org.orocos.model.rtt.impl.TaskContextImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,6 +146,16 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 	 * @ordered
 	 */
 	protected EList<Property> property;
+
+	/**
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Operation> operation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,6 +287,19 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Operation> getOperation() {
+		if (operation == null) {
+			operation = new EObjectContainmentEList<Operation>(Operation.class,
+					this, RttPackage.TASK_CONTEXT__OPERATION);
+		}
+		return operation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -287,6 +312,9 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 					msgs);
 		case RttPackage.TASK_CONTEXT__PROPERTY:
 			return ((InternalEList<?>) getProperty()).basicRemove(otherEnd,
+					msgs);
+		case RttPackage.TASK_CONTEXT__OPERATION:
+			return ((InternalEList<?>) getOperation()).basicRemove(otherEnd,
 					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -312,6 +340,8 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 			return getOutputPort();
 		case RttPackage.TASK_CONTEXT__PROPERTY:
 			return getProperty();
+		case RttPackage.TASK_CONTEXT__OPERATION:
+			return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -346,6 +376,10 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 			getProperty().clear();
 			getProperty().addAll((Collection<? extends Property>) newValue);
 			return;
+		case RttPackage.TASK_CONTEXT__OPERATION:
+			getOperation().clear();
+			getOperation().addAll((Collection<? extends Operation>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -376,6 +410,9 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 		case RttPackage.TASK_CONTEXT__PROPERTY:
 			getProperty().clear();
 			return;
+		case RttPackage.TASK_CONTEXT__OPERATION:
+			getOperation().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -403,6 +440,8 @@ public class TaskContextImpl extends EObjectImpl implements TaskContext {
 			return outputPort != null && !outputPort.isEmpty();
 		case RttPackage.TASK_CONTEXT__PROPERTY:
 			return property != null && !property.isEmpty();
+		case RttPackage.TASK_CONTEXT__OPERATION:
+			return operation != null && !operation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

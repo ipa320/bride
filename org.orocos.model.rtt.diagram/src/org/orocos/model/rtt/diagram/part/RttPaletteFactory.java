@@ -7,7 +7,6 @@ import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
-import org.eclipse.gef.palette.PaletteSeparator;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
@@ -36,14 +35,14 @@ public class RttPaletteFactory {
 		paletteContainer.setId("createRTT1Group"); //$NON-NLS-1$
 		paletteContainer.setDescription(Messages.RTT1Group_desc);
 		paletteContainer.add(createTaskContext1CreationTool());
-		paletteContainer.add(createInputPort2CreationTool());
-		paletteContainer.add(createOutputPort3CreationTool());
-		paletteContainer.add(createConnectionPolicy4CreationTool());
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createActivity6CreationTool());
-		paletteContainer.add(createSlave7CreationTool());
-		paletteContainer.add(createActivityTaskContext8CreationTool());
-		paletteContainer.add(createProperty9CreationTool());
+		paletteContainer.add(createProperty2CreationTool());
+		paletteContainer.add(createOperation3CreationTool());
+		paletteContainer.add(createInputPort4CreationTool());
+		paletteContainer.add(createOutputPort5CreationTool());
+		paletteContainer.add(createConnectionPolicy6CreationTool());
+		paletteContainer.add(createActivity7CreationTool());
+		paletteContainer.add(createSlave8CreationTool());
+		paletteContainer.add(createActivityTaskContext9CreationTool());
 		return paletteContainer;
 	}
 
@@ -65,12 +64,41 @@ public class RttPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createInputPort2CreationTool() {
+	private ToolEntry createProperty2CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.InputPort2CreationTool_title,
-				Messages.InputPort2CreationTool_desc,
+				Messages.Property2CreationTool_title,
+				Messages.Property2CreationTool_desc,
+				Collections.singletonList(RttElementTypes.Property_3003));
+		entry.setId("createProperty2CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(RttElementTypes
+				.getImageDescriptor(RttElementTypes.Property_3003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOperation3CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Operation3CreationTool_title, null,
+				Collections.singletonList(RttElementTypes.Operation_3005));
+		entry.setId("createOperation3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(RttElementTypes
+				.getImageDescriptor(RttElementTypes.Operation_3005));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInputPort4CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.InputPort4CreationTool_title,
+				Messages.InputPort4CreationTool_desc,
 				Collections.singletonList(RttElementTypes.InputPort_3002));
-		entry.setId("createInputPort2CreationTool"); //$NON-NLS-1$
+		entry.setId("createInputPort4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
 				.getImageDescriptor(RttElementTypes.InputPort_3002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -80,12 +108,12 @@ public class RttPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOutputPort3CreationTool() {
+	private ToolEntry createOutputPort5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.OutputPort3CreationTool_title,
-				Messages.OutputPort3CreationTool_desc,
+				Messages.OutputPort5CreationTool_title,
+				Messages.OutputPort5CreationTool_desc,
 				Collections.singletonList(RttElementTypes.OutputPort_3001));
-		entry.setId("createOutputPort3CreationTool"); //$NON-NLS-1$
+		entry.setId("createOutputPort5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
 				.getImageDescriptor(RttElementTypes.OutputPort_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -95,13 +123,13 @@ public class RttPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createConnectionPolicy4CreationTool() {
+	private ToolEntry createConnectionPolicy6CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ConnectionPolicy4CreationTool_title,
-				Messages.ConnectionPolicy4CreationTool_desc,
+				Messages.ConnectionPolicy6CreationTool_title,
+				Messages.ConnectionPolicy6CreationTool_desc,
 				Collections
 						.singletonList(RttElementTypes.ConnectionPolicy_4001));
-		entry.setId("createConnectionPolicy4CreationTool"); //$NON-NLS-1$
+		entry.setId("createConnectionPolicy6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
 				.getImageDescriptor(RttElementTypes.ConnectionPolicy_4001));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -111,12 +139,12 @@ public class RttPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createActivity6CreationTool() {
+	private ToolEntry createActivity7CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Activity6CreationTool_title,
-				Messages.Activity6CreationTool_desc,
+				Messages.Activity7CreationTool_title,
+				Messages.Activity7CreationTool_desc,
 				Collections.singletonList(RttElementTypes.Activity_2002));
-		entry.setId("createActivity6CreationTool"); //$NON-NLS-1$
+		entry.setId("createActivity7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
 				.getImageDescriptor(RttElementTypes.Activity_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -126,12 +154,12 @@ public class RttPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSlave7CreationTool() {
+	private ToolEntry createSlave8CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Slave7CreationTool_title,
-				Messages.Slave7CreationTool_desc,
+				Messages.Slave8CreationTool_title,
+				Messages.Slave8CreationTool_desc,
 				Collections.singletonList(RttElementTypes.Slave_3004));
-		entry.setId("createSlave7CreationTool"); //$NON-NLS-1$
+		entry.setId("createSlave8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
 				.getImageDescriptor(RttElementTypes.Slave_3004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -141,30 +169,15 @@ public class RttPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createActivityTaskContext8CreationTool() {
+	private ToolEntry createActivityTaskContext9CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ActivityTaskContext8CreationTool_title,
+				Messages.ActivityTaskContext9CreationTool_title,
 				null,
 				Collections
 						.singletonList(RttElementTypes.IActivityTaskContext_4002));
-		entry.setId("createActivityTaskContext8CreationTool"); //$NON-NLS-1$
+		entry.setId("createActivityTaskContext9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
 				.getImageDescriptor(RttElementTypes.IActivityTaskContext_4002));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createProperty9CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Property9CreationTool_title,
-				Messages.Property9CreationTool_desc,
-				Collections.singletonList(RttElementTypes.Property_3003));
-		entry.setId("createProperty9CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(RttElementTypes
-				.getImageDescriptor(RttElementTypes.Property_3003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

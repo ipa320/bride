@@ -28,6 +28,8 @@ import org.orocos.model.rtt.ConnectionPolicy;
 import org.orocos.model.rtt.ConnectionPolicyLockPolicy;
 import org.orocos.model.rtt.ConnectionPolicyType;
 import org.orocos.model.rtt.InputPort;
+import org.orocos.model.rtt.Operation;
+import org.orocos.model.rtt.OperationReturnType;
 import org.orocos.model.rtt.OutputPort;
 import org.orocos.model.rtt.PortType;
 import org.orocos.model.rtt.Property;
@@ -98,6 +100,8 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 			return createSlave();
 		case RttPackage.PROPERTY:
 			return createProperty();
+		case RttPackage.OPERATION:
+			return createOperation();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -123,6 +127,8 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 					initialValue);
 		case RttPackage.PROPERTY_TYPE:
 			return createPropertyTypeFromString(eDataType, initialValue);
+		case RttPackage.OPERATION_RETURN_TYPE:
+			return createOperationReturnTypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -148,6 +154,8 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 					instanceValue);
 		case RttPackage.PROPERTY_TYPE:
 			return convertPropertyTypeToString(eDataType, instanceValue);
+		case RttPackage.OPERATION_RETURN_TYPE:
+			return convertOperationReturnTypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -232,6 +240,16 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
 	}
 
 	/**
@@ -356,6 +374,31 @@ public class RttFactoryImpl extends EFactoryImpl implements RttFactory {
 	 * @generated
 	 */
 	public String convertPropertyTypeToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperationReturnType createOperationReturnTypeFromString(
+			EDataType eDataType, String initialValue) {
+		OperationReturnType result = OperationReturnType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOperationReturnTypeToString(EDataType eDataType,
 			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
