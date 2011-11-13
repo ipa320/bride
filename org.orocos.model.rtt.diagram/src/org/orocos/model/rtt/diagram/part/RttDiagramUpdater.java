@@ -168,7 +168,7 @@ public class RttDiagramUpdater {
 		}
 		TaskContext modelElement = (TaskContext) containerView.getElement();
 		LinkedList<RttNodeDescriptor> result = new LinkedList<RttNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getOperation().iterator(); it
+		for (Iterator<?> it = modelElement.getOperacion().iterator(); it
 				.hasNext();) {
 			Operation childElement = (Operation) it.next();
 			int visualID = RttVisualIDRegistry.getNodeVisualID(view,
@@ -225,7 +225,7 @@ public class RttDiagramUpdater {
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003ContainedLinks(view);
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3005ContainedLinks(view);
+			return getOperation_3006ContainedLinks(view);
 		case SlaveEditPart.VISUAL_ID:
 			return getSlave_3004ContainedLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
@@ -250,7 +250,7 @@ public class RttDiagramUpdater {
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003IncomingLinks(view);
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3005IncomingLinks(view);
+			return getOperation_3006IncomingLinks(view);
 		case SlaveEditPart.VISUAL_ID:
 			return getSlave_3004IncomingLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
@@ -275,7 +275,7 @@ public class RttDiagramUpdater {
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003OutgoingLinks(view);
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3005OutgoingLinks(view);
+			return getOperation_3006OutgoingLinks(view);
 		case SlaveEditPart.VISUAL_ID:
 			return getSlave_3004OutgoingLinks(view);
 		case ConnectionPolicyEditPart.VISUAL_ID:
@@ -341,7 +341,7 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttLinkDescriptor> getOperation_3005ContainedLinks(
+	public static List<RttLinkDescriptor> getOperation_3006ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -419,7 +419,7 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttLinkDescriptor> getOperation_3005IncomingLinks(
+	public static List<RttLinkDescriptor> getOperation_3006IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -488,7 +488,7 @@ public class RttDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<RttLinkDescriptor> getOperation_3005OutgoingLinks(
+	public static List<RttLinkDescriptor> getOperation_3006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

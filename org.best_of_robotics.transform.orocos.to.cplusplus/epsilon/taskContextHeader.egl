@@ -18,6 +18,9 @@ namespace [%=taskContext.namespace%]
 		[%for(anOutputPort in taskContext.outputPort) {%]
 		OutputPort<[%=anOutputPort.type%]> [%=anOutputPort.name%];
 		[%}%]
+		
+		[%=out.startPreserve("/*", "*/", "declarations", true)%]
+		[%=out.stopPreserve()%]
 	
     public:
         [%=taskContext.type%](const string& name);
@@ -27,11 +30,23 @@ namespace [%=taskContext.namespace%]
         void updateHook();
         void stopHook();
         void cleanupHook();
+        [%for(anOperation in taskContext.operacion) {%]
+        [%=anOperation.returnType%] [%=anOperation.name%]();
+        [%}%]
+        
+        [%=out.startPreserve("/*", "*/", "public", true)%]
+        [%=out.stopPreserve()%]
         
     protected:
     	[%for(aProperty in taskContext.property) {%]
     	[%=aProperty.type%] [%=aProperty.name%];
     	[%}%]
+    	[%=out.startPreserve("/*", "*/", "protected", true)%]
+    	[%=out.stopPreserve()%]
+    	
+    private:
+    	[%=out.startPreserve("/*", "*/", "private", true)%]
+    	[%=out.stopPreserve()%]
     	
     };
 }

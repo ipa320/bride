@@ -81,7 +81,7 @@ public class RttElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Operation_3005 = getElementType("org.orocos.model.rtt.diagram.Operation_3005"); //$NON-NLS-1$
+	public static final IElementType Operation_3006 = getElementType("org.orocos.model.rtt.diagram.Operation_3006"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
@@ -219,7 +219,7 @@ public class RttElementTypes {
 
 			elements.put(Property_3003, RttPackage.eINSTANCE.getProperty());
 
-			elements.put(Operation_3005, RttPackage.eINSTANCE.getOperation());
+			elements.put(Operation_3006, RttPackage.eINSTANCE.getOperation());
 
 			elements.put(Slave_3004, RttPackage.eINSTANCE.getSlave());
 
@@ -251,7 +251,7 @@ public class RttElementTypes {
 			KNOWN_ELEMENT_TYPES.add(OutputPort_3001);
 			KNOWN_ELEMENT_TYPES.add(InputPort_3002);
 			KNOWN_ELEMENT_TYPES.add(Property_3003);
-			KNOWN_ELEMENT_TYPES.add(Operation_3005);
+			KNOWN_ELEMENT_TYPES.add(Operation_3006);
 			KNOWN_ELEMENT_TYPES.add(Slave_3004);
 			KNOWN_ELEMENT_TYPES.add(ConnectionPolicy_4001);
 			KNOWN_ELEMENT_TYPES.add(IActivityTaskContext_4002);
@@ -277,7 +277,7 @@ public class RttElementTypes {
 		case PropertyEditPart.VISUAL_ID:
 			return Property_3003;
 		case OperationEditPart.VISUAL_ID:
-			return Operation_3005;
+			return Operation_3006;
 		case SlaveEditPart.VISUAL_ID:
 			return Slave_3004;
 		case ConnectionPolicyEditPart.VISUAL_ID:

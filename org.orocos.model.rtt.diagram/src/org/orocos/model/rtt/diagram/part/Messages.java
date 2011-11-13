@@ -363,7 +363,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Package_1000_links;
+	public static String NavigatorGroupName_Activity_2002_outgoinglinks;
 
 	/**
 	 * @generated
@@ -373,17 +373,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TaskContext_2001_incominglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Slave_3004_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_OutputPort_3001_outgoinglinks;
+	public static String NavigatorGroupName_TaskContext_2001_incominglinks;
 
 	/**
 	 * @generated
@@ -398,7 +393,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Activity_2002_outgoinglinks;
+	public static String NavigatorGroupName_Package_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutputPort_3001_outgoinglinks;
 
 	/**
 	 * @generated

@@ -399,7 +399,7 @@ public class TaskContextEditPart extends AbstractBorderedShapeEditPart {
 				return getChildBySemanticHint(RttVisualIDRegistry
 						.getType(TaskContextPropertiesEditPart.VISUAL_ID));
 			}
-			if (type == RttElementTypes.Operation_3005) {
+			if (type == RttElementTypes.Operation_3006) {
 				return getChildBySemanticHint(RttVisualIDRegistry
 						.getType(TaskContextOperationsEditPart.VISUAL_ID));
 			}

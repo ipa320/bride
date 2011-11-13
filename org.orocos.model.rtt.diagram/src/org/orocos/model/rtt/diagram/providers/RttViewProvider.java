@@ -257,7 +257,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 			return createProperty_3003(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case OperationEditPart.VISUAL_ID:
-			return createOperation_3005(domainElement, containerView, index,
+			return createOperation_3006(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case SlaveEditPart.VISUAL_ID:
 			return createSlave_3004(domainElement, containerView, index,
@@ -511,7 +511,7 @@ public class RttViewProvider extends AbstractProvider implements IViewProvider {
 	/**
 	 * @generated
 	 */
-	public Node createOperation_3005(EObject domainElement, View containerView,
+	public Node createOperation_3006(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());

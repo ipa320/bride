@@ -15,7 +15,7 @@
         eType="#//OutputPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operacion" upperBound="-1"
         eType="#//Operation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">

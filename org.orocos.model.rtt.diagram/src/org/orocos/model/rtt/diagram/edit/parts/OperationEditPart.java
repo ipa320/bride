@@ -59,7 +59,7 @@ public class OperationEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3005;
+	public static final int VISUAL_ID = 3006;
 
 	/**
 	 * @generated
@@ -310,7 +310,7 @@ public class OperationEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RttParserProvider
 					.getParser(
-							RttElementTypes.Operation_3005,
+							RttElementTypes.Operation_3006,
 							getParserElement(),
 							RttVisualIDRegistry
 									.getType(org.orocos.model.rtt.diagram.edit.parts.OperationEditPart.VISUAL_ID));

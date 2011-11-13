@@ -51,7 +51,7 @@ public class RttModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(RttElementTypes.OutputPort_3001);
 			types.add(RttElementTypes.InputPort_3002);
 			types.add(RttElementTypes.Property_3003);
-			types.add(RttElementTypes.Operation_3005);
+			types.add(RttElementTypes.Operation_3006);
 			return types;
 		}
 		if (editPart instanceof ActivityEditPart) {

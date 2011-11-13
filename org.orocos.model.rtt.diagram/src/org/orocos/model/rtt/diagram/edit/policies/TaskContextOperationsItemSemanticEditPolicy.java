@@ -22,7 +22,7 @@ public class TaskContextOperationsItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RttElementTypes.Operation_3005 == req.getElementType()) {
+		if (RttElementTypes.Operation_3006 == req.getElementType()) {
 			return getGEFWrapper(new OperationCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

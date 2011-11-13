@@ -82,10 +82,10 @@ public class RttPaletteFactory {
 	private ToolEntry createOperation3CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Operation3CreationTool_title, null,
-				Collections.singletonList(RttElementTypes.Operation_3005));
+				Collections.singletonList(RttElementTypes.Operation_3006));
 		entry.setId("createOperation3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RttElementTypes
-				.getImageDescriptor(RttElementTypes.Operation_3005));
+				.getImageDescriptor(RttElementTypes.Operation_3006));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -48,7 +48,7 @@ public class TaskContextOperationsCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return RttPackage.eINSTANCE.getTaskContext_Operation();
+		return RttPackage.eINSTANCE.getTaskContext_Operacion();
 	}
 
 	/**

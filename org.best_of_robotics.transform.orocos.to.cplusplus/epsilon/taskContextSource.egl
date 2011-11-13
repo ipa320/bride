@@ -15,6 +15,9 @@ using namespace [%=taskContext.namespace%];
 	[%for(aProperty in taskContext.property) {%]
 	this->addProperty("[%=aProperty.name%]", [%=aProperty.name%]).doc("[%=aProperty.description%]");
     [%}%]
+    [%for(anOperation in taskContext.operacion) {%]
+    this->addOperation("[%=anOperation.name%]", &[%=taskContext.type%]::[%=anOperation.name%](), OwnThread);
+    [%}%]
 	[%for(anInputPort in taskContext.inputPort)
 		if (anInputPort.isEventPort == true) {%]
 	this->ports()->addEventPort( "[%=anInputPort.name%]", [%=anInputPort.name%] ).doc(
@@ -66,6 +69,15 @@ void [%=taskContext.type%]::cleanupHook()
     std::cout << "[%=taskContext.name%] cleaning up !" <<std::endl;
     [%=out.stopPreserve()%]
 }
+
+[%for(anOperation in taskContext.operacion) {%]
+[%=anOperation.returnType%] [%=taskContext.type%]::[%=anOperation.name%]()
+{
+	[%=out.startPreserve("/*", "*/", %anOperation.name%, true)%]
+	[%=out.stopPreserve()%]
+}
+
+[%}%]
 
 [%=out.startPreserve("/*", "*/", "User Code", true)%]
 [%=out.stopPreserve()%]

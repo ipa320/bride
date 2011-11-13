@@ -206,7 +206,7 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3005"
+        visualID="3006"
         editPartClassName="OperationEditPart"
         itemSemanticEditPolicyClassName="OperationItemSemanticEditPolicy"
         canonicalEditPolicyClassName="OperationCanonicalEditPolicy"
@@ -226,9 +226,9 @@
         <metaClass
             href="../../org.orocos.model.rtt/model/rtt.genmodel#//rtt/Operation"/>
         <containmentMetaFeature
-            href="../../org.orocos.model.rtt/model/rtt.genmodel#//rtt/TaskContext/operation"/>
+            href="../../org.orocos.model.rtt/model/rtt.genmodel#//rtt/TaskContext/operacion"/>
         <childMetaFeature
-            href="../../org.orocos.model.rtt/model/rtt.genmodel#//rtt/TaskContext/operation"/>
+            href="../../org.orocos.model.rtt/model/rtt.genmodel#//rtt/TaskContext/operacion"/>
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"

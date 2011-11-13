@@ -699,7 +699,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_hIPngQreEeGuVqRHcJlhCg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_hIPnggreEeGuVqRHcJlhCg" fontColor="4210752" fontName="Ubuntu" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="rtt.ecore#//TaskContext/operation"/>
+    <element xmi:type="ecore:EReference" href="rtt.ecore#//TaskContext/operacion"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hIPngwreEeGuVqRHcJlhCg" points="[-7, -6, 208, 177]$[-126, -143, 89, 40]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hISq0AreEeGuVqRHcJlhCg" id="(0.0728476821192053,0.08641975308641975)"/>
   </edges>

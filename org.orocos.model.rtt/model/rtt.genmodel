@@ -73,7 +73,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/inputPort"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/outputPort"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/property"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rtt.ecore#//TaskContext/operacion"/>
     </genClasses>
     <genClasses ecoreClass="rtt.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rtt.ecore#//Package/name"/>

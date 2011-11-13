@@ -124,7 +124,7 @@
           compartment="//@nodes.0/@ownedChild/@compartments.1"
           referencedChild="//@nodes.0/@ownedChild">
         <containmentFeature
-            href="../../org.orocos.model.rtt/model/rtt.ecore#//TaskContext/operation"/>
+            href="../../org.orocos.model.rtt/model/rtt.ecore#//TaskContext/operacion"/>
         <ownedChild>
           <domainMetaElement
               href="../../org.orocos.model.rtt/model/rtt.ecore#//Operation"/>

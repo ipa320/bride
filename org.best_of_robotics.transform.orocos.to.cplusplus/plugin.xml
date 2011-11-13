@@ -75,5 +75,14 @@
             name="Merged RTT Model">
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.core.variables.valueVariables">
+      <variable
+            description="Orocos Includes"
+            initialValue="/opt/ros/electric/stacks/orocos_toolchain/install/include"
+            name="OROCOS_INCLUDE"
+            readOnly="true">
+      </variable>
+   </extension>
 
 </plugin>

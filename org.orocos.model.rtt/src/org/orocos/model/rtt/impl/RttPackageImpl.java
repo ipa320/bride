@@ -291,7 +291,7 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskContext_Operation() {
+	public EReference getTaskContext_Operacion() {
 		return (EReference) taskContextEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -760,7 +760,7 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 		createEReference(taskContextEClass, TASK_CONTEXT__INPUT_PORT);
 		createEReference(taskContextEClass, TASK_CONTEXT__OUTPUT_PORT);
 		createEReference(taskContextEClass, TASK_CONTEXT__PROPERTY);
-		createEReference(taskContextEClass, TASK_CONTEXT__OPERATION);
+		createEReference(taskContextEClass, TASK_CONTEXT__OPERACION);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
@@ -881,8 +881,8 @@ public class RttPackageImpl extends EPackageImpl implements RttPackage {
 				"property", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskContext_Operation(), this.getOperation(), null,
-				"operation", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
+		initEReference(getTaskContext_Operacion(), this.getOperation(), null,
+				"operacion", null, 0, -1, TaskContext.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

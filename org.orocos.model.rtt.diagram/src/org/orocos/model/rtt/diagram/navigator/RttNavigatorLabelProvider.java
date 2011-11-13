@@ -96,36 +96,36 @@ public class RttNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (RttVisualIDRegistry.getVisualID(view)) {
+		case OperationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://rtt/1.0?Operation", RttElementTypes.Operation_3006); //$NON-NLS-1$
 		case PropertyEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://rtt/1.0?Property", RttElementTypes.Property_3003); //$NON-NLS-1$
 		case IActivityTaskContextEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://rtt/1.0?IActivity?taskContext", RttElementTypes.IActivityTaskContext_4002); //$NON-NLS-1$
-		case PackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://rtt/1.0?Package", RttElementTypes.Package_1000); //$NON-NLS-1$
-		case InputPortEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://rtt/1.0?InputPort", RttElementTypes.InputPort_3002); //$NON-NLS-1$
-		case TaskContextEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://rtt/1.0?TaskContext", RttElementTypes.TaskContext_2001); //$NON-NLS-1$
-		case OperationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://rtt/1.0?Operation", RttElementTypes.Operation_3005); //$NON-NLS-1$
-		case SlaveEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://rtt/1.0?Slave", RttElementTypes.Slave_3004); //$NON-NLS-1$
-		case OutputPortEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://rtt/1.0?OutputPort", RttElementTypes.OutputPort_3001); //$NON-NLS-1$
-		case ConnectionPolicyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://rtt/1.0?ConnectionPolicy", RttElementTypes.ConnectionPolicy_4001); //$NON-NLS-1$
 		case ActivityEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://rtt/1.0?Activity", RttElementTypes.Activity_2002); //$NON-NLS-1$
+		case InputPortEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://rtt/1.0?InputPort", RttElementTypes.InputPort_3002); //$NON-NLS-1$
+		case SlaveEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://rtt/1.0?Slave", RttElementTypes.Slave_3004); //$NON-NLS-1$
+		case TaskContextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://rtt/1.0?TaskContext", RttElementTypes.TaskContext_2001); //$NON-NLS-1$
+		case ConnectionPolicyEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://rtt/1.0?ConnectionPolicy", RttElementTypes.ConnectionPolicy_4001); //$NON-NLS-1$
+		case PackageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://rtt/1.0?Package", RttElementTypes.Package_1000); //$NON-NLS-1$
+		case OutputPortEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://rtt/1.0?OutputPort", RttElementTypes.OutputPort_3001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -178,28 +178,47 @@ public class RttNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (RttVisualIDRegistry.getVisualID(view)) {
+		case OperationEditPart.VISUAL_ID:
+			return getOperation_3006Text(view);
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003Text(view);
 		case IActivityTaskContextEditPart.VISUAL_ID:
 			return getIActivityTaskContext_4002Text(view);
-		case PackageEditPart.VISUAL_ID:
-			return getPackage_1000Text(view);
-		case InputPortEditPart.VISUAL_ID:
-			return getInputPort_3002Text(view);
-		case TaskContextEditPart.VISUAL_ID:
-			return getTaskContext_2001Text(view);
-		case OperationEditPart.VISUAL_ID:
-			return getOperation_3005Text(view);
-		case SlaveEditPart.VISUAL_ID:
-			return getSlave_3004Text(view);
-		case OutputPortEditPart.VISUAL_ID:
-			return getOutputPort_3001Text(view);
-		case ConnectionPolicyEditPart.VISUAL_ID:
-			return getConnectionPolicy_4001Text(view);
 		case ActivityEditPart.VISUAL_ID:
 			return getActivity_2002Text(view);
+		case InputPortEditPart.VISUAL_ID:
+			return getInputPort_3002Text(view);
+		case SlaveEditPart.VISUAL_ID:
+			return getSlave_3004Text(view);
+		case TaskContextEditPart.VISUAL_ID:
+			return getTaskContext_2001Text(view);
+		case ConnectionPolicyEditPart.VISUAL_ID:
+			return getConnectionPolicy_4001Text(view);
+		case PackageEditPart.VISUAL_ID:
+			return getPackage_1000Text(view);
+		case OutputPortEditPart.VISUAL_ID:
+			return getOutputPort_3001Text(view);
 		}
 		return getUnknownElementText(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOperation_3006Text(View view) {
+		IParser parser = RttParserProvider.getParser(
+				RttElementTypes.Operation_3006,
+				view.getElement() != null ? view.getElement() : view,
+				RttVisualIDRegistry.getType(OperationEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RttDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 3006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -231,13 +250,18 @@ public class RttNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getPackage_1000Text(View view) {
-		Package domainModelElement = (Package) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getName();
+	private String getActivity_2002Text(View view) {
+		IParser parser = RttParserProvider.getParser(
+				RttElementTypes.Activity_2002,
+				view.getElement() != null ? view.getElement() : view,
+				RttVisualIDRegistry.getType(ActivityNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			RttDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+					"Parser was not found for label " + 5010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -264,44 +288,6 @@ public class RttNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTaskContext_2001Text(View view) {
-		IParser parser = RttParserProvider.getParser(
-				RttElementTypes.TaskContext_2001,
-				view.getElement() != null ? view.getElement() : view,
-				RttVisualIDRegistry.getType(TaskContextNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RttDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5006); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getOperation_3005Text(View view) {
-		IParser parser = RttParserProvider.getParser(
-				RttElementTypes.Operation_3005,
-				view.getElement() != null ? view.getElement() : view,
-				RttVisualIDRegistry.getType(OperationEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RttDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 3005); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getSlave_3004Text(View view) {
 		IParser parser = RttParserProvider.getParser(
 				RttElementTypes.Slave_3004,
@@ -321,18 +307,18 @@ public class RttNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getOutputPort_3001Text(View view) {
+	private String getTaskContext_2001Text(View view) {
 		IParser parser = RttParserProvider.getParser(
-				RttElementTypes.OutputPort_3001,
+				RttElementTypes.TaskContext_2001,
 				view.getElement() != null ? view.getElement() : view,
-				RttVisualIDRegistry.getType(OutputPortNameEditPart.VISUAL_ID));
+				RttVisualIDRegistry.getType(TaskContextNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			RttDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
+					"Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -360,18 +346,32 @@ public class RttNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getActivity_2002Text(View view) {
+	private String getPackage_1000Text(View view) {
+		Package domainModelElement = (Package) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getName();
+		} else {
+			RttDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutputPort_3001Text(View view) {
 		IParser parser = RttParserProvider.getParser(
-				RttElementTypes.Activity_2002,
+				RttElementTypes.OutputPort_3001,
 				view.getElement() != null ? view.getElement() : view,
-				RttVisualIDRegistry.getType(ActivityNameEditPart.VISUAL_ID));
+				RttVisualIDRegistry.getType(OutputPortNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			RttDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5010); //$NON-NLS-1$
+					"Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

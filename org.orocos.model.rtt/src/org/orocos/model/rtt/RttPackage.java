@@ -133,13 +133,13 @@ public interface RttPackage extends EPackage {
 	int TASK_CONTEXT__PROPERTY = 5;
 
 	/**
-	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operacion</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_CONTEXT__OPERATION = 6;
+	int TASK_CONTEXT__OPERACION = 6;
 
 	/**
 	 * The number of structural features of the '<em>Task Context</em>' class.
@@ -782,15 +782,15 @@ public interface RttPackage extends EPackage {
 	EReference getTaskContext_Property();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.orocos.model.rtt.TaskContext#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.orocos.model.rtt.TaskContext#getOperacion <em>Operacion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see org.orocos.model.rtt.TaskContext#getOperation()
+	 * @return the meta object for the containment reference list '<em>Operacion</em>'.
+	 * @see org.orocos.model.rtt.TaskContext#getOperacion()
 	 * @see #getTaskContext()
 	 * @generated
 	 */
-	EReference getTaskContext_Operation();
+	EReference getTaskContext_Operacion();
 
 	/**
 	 * Returns the meta object for class '{@link org.orocos.model.rtt.Package <em>Package</em>}'.
@@ -1378,13 +1378,13 @@ public interface RttPackage extends EPackage {
 		EReference TASK_CONTEXT__PROPERTY = eINSTANCE.getTaskContext_Property();
 
 		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Operacion</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK_CONTEXT__OPERATION = eINSTANCE
-				.getTaskContext_Operation();
+		EReference TASK_CONTEXT__OPERACION = eINSTANCE
+				.getTaskContext_Operacion();
 
 		/**
 		 * The meta object literal for the '{@link org.orocos.model.rtt.impl.PackageImpl <em>Package</em>}' class.

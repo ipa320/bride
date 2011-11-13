@@ -294,19 +294,19 @@ public class RttParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser operation_3005Parser;
+	private IParser operation_3006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOperation_3005Parser() {
-		if (operation_3005Parser == null) {
+	private IParser getOperation_3006Parser() {
+		if (operation_3006Parser == null) {
 			EAttribute[] features = new EAttribute[] { RttPackage.eINSTANCE
 					.getOperation_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			operation_3005Parser = parser;
+			operation_3006Parser = parser;
 		}
-		return operation_3005Parser;
+		return operation_3006Parser;
 	}
 
 	/**
@@ -379,7 +379,7 @@ public class RttParserProvider extends AbstractProvider implements
 		case PropertyEditPart.VISUAL_ID:
 			return getProperty_3003Parser();
 		case OperationEditPart.VISUAL_ID:
-			return getOperation_3005Parser();
+			return getOperation_3006Parser();
 		case SlaveNameEditPart.VISUAL_ID:
 			return getSlaveName_5009Parser();
 		case ConnectionPolicyNameEditPart.VISUAL_ID:

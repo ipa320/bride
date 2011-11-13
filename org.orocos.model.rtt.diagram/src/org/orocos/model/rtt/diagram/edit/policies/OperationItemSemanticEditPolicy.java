@@ -19,7 +19,7 @@ public class OperationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public OperationItemSemanticEditPolicy() {
-		super(RttElementTypes.Operation_3005);
+		super(RttElementTypes.Operation_3006);
 	}
 
 	/**

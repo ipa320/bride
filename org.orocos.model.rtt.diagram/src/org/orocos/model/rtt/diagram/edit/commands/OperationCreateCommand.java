@@ -56,7 +56,7 @@ public class OperationCreateCommand extends EditElementCommand {
 		Operation newElement = RttFactory.eINSTANCE.createOperation();
 
 		TaskContext owner = (TaskContext) getElementToEdit();
-		owner.getOperation().add(newElement);
+		owner.getOperacion().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

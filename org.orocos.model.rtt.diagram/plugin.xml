@@ -217,7 +217,7 @@
       <viewProvider class="org.orocos.model.rtt.diagram.providers.RttViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Rtt"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3001,3002,3003,3005,3004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3001,3002,3003,3006,3004"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002"/>
       </viewProvider>
    </extension>
@@ -230,7 +230,7 @@
             <method name="getType()" value="Rtt"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2002,3001,3002,3003,3005,3004"/>
+            <method name="getType()" value="2001,2002,3001,3002,3003,3006,3004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001,4002"/>
@@ -334,12 +334,12 @@
       </metamodel>
       <metamodel nsURI="http://rtt/1.0">
          <metamodelType
-               id="org.orocos.model.rtt.diagram.Operation_3005"
-               name="%metatype.name.Operation_3005"
+               id="org.orocos.model.rtt.diagram.Operation_3006"
+               name="%metatype.name.Operation_3006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Operation"
                edithelper="org.orocos.model.rtt.diagram.edit.helpers.OperationEditHelper">
-            <param name="semanticHint" value="3005"/>
+            <param name="semanticHint" value="3006"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://rtt/1.0">
@@ -389,7 +389,7 @@
          <elementType ref="org.orocos.model.rtt.diagram.OutputPort_3001"/>
          <elementType ref="org.orocos.model.rtt.diagram.InputPort_3002"/>
          <elementType ref="org.orocos.model.rtt.diagram.Property_3003"/>
-         <elementType ref="org.orocos.model.rtt.diagram.Operation_3005"/>
+         <elementType ref="org.orocos.model.rtt.diagram.Operation_3006"/>
          <elementType ref="org.orocos.model.rtt.diagram.Slave_3004"/>
          <elementType ref="org.orocos.model.rtt.diagram.ConnectionPolicy_4001"/>
          <elementType ref="org.orocos.model.rtt.diagram.IActivityTaskContext_4002"/>
