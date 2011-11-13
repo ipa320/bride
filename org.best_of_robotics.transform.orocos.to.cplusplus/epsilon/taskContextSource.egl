@@ -16,7 +16,7 @@ using namespace [%=taskContext.namespace%];
 	this->addProperty("[%=aProperty.name%]", [%=aProperty.name%]).doc("[%=aProperty.description%]");
     [%}%]
     [%for(anOperation in taskContext.operacion) {%]
-    this->addOperation("[%=anOperation.name%]", &[%=taskContext.type%]::[%=anOperation.name%](), OwnThread);
+    this->addOperation("[%=anOperation.name%]", &[%=taskContext.type%]::[%=anOperation.name%], this);
     [%}%]
 	[%for(anInputPort in taskContext.inputPort)
 		if (anInputPort.isEventPort == true) {%]
