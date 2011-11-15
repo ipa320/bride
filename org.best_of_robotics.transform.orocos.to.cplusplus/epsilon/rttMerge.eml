@@ -29,6 +29,8 @@ rule CopyTaskContext
 	t.type = s.type;
 	t.inputPort.addAll(s.inputPort);
 	t.outputPort.addAll(s.outputPort);
+	t.property.addAll(s.property);
+	t.operacion.addAll(s.operacion);
 }
 
 rule CopyActivity

@@ -74,12 +74,12 @@ public class RttTransformHandler extends AbstractHandler {
 			rttDiagramEdtior = (RttDiagramEditor) editor;
 		}
 
-		String commandName = "";
-		try {
-			commandName = event.getCommand().getName();
-		} catch (NotDefinedException e) {
-			e.printStackTrace();
-		}
+		String commandName = "rttHandler";
+//		try {
+//			commandName = event.getCommand().getName();
+//		} catch (NotDefinedException e) {
+//			e.printStackTrace();
+//		}
 
 		Resource resource = getFirstSemanticModelResource(rttDiagramEdtior
 				.getEditingDomain().getResourceSet());

@@ -3,6 +3,7 @@ package org.best_of_robotics.transform.orocos.to.cplusplus.handlers;
 import java.util.ArrayList;
 
 import org.best_of_robotics.transform.orocos.to.cplusplus.jobs.EtlTransformOperationJob;
+import org.best_of_robotics.transform.orocos.to.cplusplus.jobs.MergedPropertiesJob;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -32,7 +33,7 @@ public class CpfTransformHandler extends AbstractHandler {
 
 	private RttDiagramEditor rttDiagramEdtior;
 	private IProject project;
-	//private EglTransformOperationJob eglJob;
+	private MergedPropertiesJob eglJob;
 	private EtlTransformOperationJob etlJob;
 	private ArrayList<IMarker> problems = new ArrayList<IMarker>();
 
@@ -55,12 +56,12 @@ public class CpfTransformHandler extends AbstractHandler {
 			rttDiagramEdtior = (RttDiagramEditor) editor;
 		}
 
-		String commandName = "";
-		try {
-			commandName = event.getCommand().getName();
-		} catch (NotDefinedException e) {
-			e.printStackTrace();
-		}
+		String commandName = "cpfHandler";
+//		try {
+//			commandName = event.getCommand().getName();
+//		} catch (NotDefinedException e) {
+//			e.printStackTrace();
+//		}
 
 		Resource resource = getFirstSemanticModelResource(rttDiagramEdtior
 				.getEditingDomain().getResourceSet());
@@ -83,7 +84,7 @@ public class CpfTransformHandler extends AbstractHandler {
 			return null;
 		}
 		
-		//eglJob = new EglTransformOperationJob(commandName);
+		eglJob = new MergedPropertiesJob(commandName);
 		etlJob = new EtlTransformOperationJob(commandName);
 
 		initializeJobs(resource);
@@ -92,10 +93,10 @@ public class CpfTransformHandler extends AbstractHandler {
 		IResourceRuleFactory ruleFactory = workspace.getRuleFactory();
 		ISchedulingRule rule = ruleFactory.modifyRule(project);
 
-//		eglJob.setUser(true);
-//		eglJob.setPriority(Job.INTERACTIVE);
-//		eglJob.setRule(rule);
-//		eglJob.schedule();
+		eglJob.setUser(true);
+		eglJob.setPriority(Job.INTERACTIVE);
+		eglJob.setRule(rule);
+		eglJob.schedule();
 
 		etlJob.setUser(true);
 		etlJob.setPriority(Job.INTERACTIVE);
@@ -109,10 +110,10 @@ public class CpfTransformHandler extends AbstractHandler {
 		FileEditorInput fileEditorInput = (FileEditorInput) rttDiagramEdtior
 				.getEditorInput();
 		project = fileEditorInput.getFile().getProject();
-		//eglJob.setProject(project);
+		eglJob.setProject(project);
 		etlJob.setProject(project);
 		etlJob.setTargetFile(fileEditorInput.getFile());
-		//eglJob.createSource(resource);
+		eglJob.createSource(resource);
 		etlJob.createSource(resource);
 	}
 

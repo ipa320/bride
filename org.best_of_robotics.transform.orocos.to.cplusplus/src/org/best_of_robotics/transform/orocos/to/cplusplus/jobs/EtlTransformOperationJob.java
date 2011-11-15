@@ -113,13 +113,19 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 		sourceModel.setName("Source");
 		sourceModel.setMetamodelUri("http://rtt/1.0");
 		sourceModel.setResource(resource);
-		IFile modelFile = ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.getFile(
-						new Path(resource.getURI().path()
-								.substring("/resource/".length())));
-		sourceModel.setModelFile(modelFile.getLocation().toOSString());
+		
+		if (getName().equals("rttHandler")) {
+			IFile modelFile = ResourcesPlugin
+					.getWorkspace()
+					.getRoot()
+					.getFile(
+							new Path(resource.getURI().path()
+									.substring("/resource/".length())));
+			sourceModel.setModelFile(modelFile.getLocation().toOSString());
+		} else if (getName().equals("cpfHandler")){
+			String fileString = resource.getURI().toFileString();
+			sourceModel.setModelFile(fileString);
+		}
 		sourceModel.setReadOnLoad(true);
 		sourceModel.setStoredOnDisposal(false);
 		try {
