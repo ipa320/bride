@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.best_of_robotics.research.brsu.comm.communicationmodel.presentation.CommunicationmodelModelWizardID"
+            name="%_UI_CommunicationmodelModelWizard_label"
+            class="org.best_of_robotics.research.brsu.comm.communicationmodel.presentation.CommunicationmodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CommunicationmodelModelFile.gif">
+         <description>%_UI_CommunicationmodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.best_of_robotics.research.brsu.comm.communicationmodel.presentation.CommunicationmodelEditorID"
+            name="%_UI_CommunicationmodelEditor_label"
+            icon="icons/full/obj16/CommunicationmodelModelFile.gif"
+            extensions="communicationmodel"
+            class="org.best_of_robotics.research.brsu.comm.communicationmodel.presentation.CommunicationmodelEditor"
+            contributorClass="org.best_of_robotics.research.brsu.comm.communicationmodel.presentation.CommunicationmodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

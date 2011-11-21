@@ -1,0 +1,34 @@
+rule BundleToPackage 
+	transform connector : Source!Connector
+	to target :  Target!Package {
+	
+	target.name = "brsu";
+	
+	
+		
+			var taskContextA = new Target!TaskContext;
+			var taskContextB = new Target!TaskContext;
+			taskContextA.name = "TaskA";
+			taskContextB.name = "TaskB";
+			
+			var outputPort = new Target!OutputPort;
+			outputPort.name = connector.source.name;
+			taskContextA.outputPort.add(outputPort);
+			
+			var inputPort = new Target!InputPort;
+			inputPort.name = connector.target.name;
+			taskContextB.inputPort.add(inputPort);
+			
+			var connectionPolicy = new Target!ConnectionPolicy;
+			connectionPolicy.outputPort = outputPort;
+			connectionPolicy.inputPort = inputPort;
+			
+			if (connector.interaction.isDefined() == false) {
+				//should be typeOf check
+				connectionPolicy.type = ConnectionPolicyType#DATA;
+			}
+			
+			target.taskContext.add(taskContextA);
+			target.taskContext.add(taskContextB);
+			target.connectionPolicy.add(connectionPolicy);
+}

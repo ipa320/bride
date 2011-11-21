@@ -1,0 +1,35 @@
+rule BundleToPackage 
+	transform mission : Source!Mission
+	to target :  Target!Package {
+	
+	target.name = "upmc";
+	
+	var taskContextA = new Target!TaskContext;
+	var taskContextB = new Target!TaskContext;
+	var systemA = mission.Components.get(0);
+	var systemB = mission.Components.get(1);
+	taskContextA.name = systemA.name;
+	taskContextB.name = systemB.name;
+	
+	//There is a direction in the DataFlow Port that should
+	//be checked to determine if it is and Out(In)putPort.
+	
+	var outputPort = new Target!OutputPort;
+	outputPort.name = systemA.ownedPort.get(0).name;
+	taskContextA.outputPort.add(outputPort);
+
+	//Type can be set from the source from metaclass Type
+	
+	var inputPort = new Target!InputPort;
+	inputPort.name = systemB.ownedPort.get(0).name;
+	taskContextB.inputPort.add(inputPort);
+	
+	var connectionPolicy = new Target!ConnectionPolicy;
+	connectionPolicy.name = systemA.ownedConnector.get(0).name;
+	connectionPolicy.outputPort = outputPort;
+	connectionPolicy.inputPort = inputPort;
+	
+	target.taskContext.add(taskContextA);
+	target.taskContext.add(taskContextB);
+	target.connectionPolicy.add(connectionPolicy);
+}
