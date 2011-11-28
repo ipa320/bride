@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="choice" type="choice" />
+	<xs:element name="choices" type="choices" />
+	<xs:element name="defaultvalue" type="defaultvalue" />
+	<xs:element name="description" type="description" />
+	<xs:element name="properties" type="properties" />
+	<xs:element name="sequence" type="sequence" />
+	<xs:element name="simple" type="simple" />
+	<xs:element name="struct" type="struct" />
+	<xs:element name="value" type="value" />
+
+	<xs:complexType name="choice" mixed="true" />
+
+	<xs:complexType name="choices">
+		<xs:sequence>
+			<xs:element ref="choice" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="defaultvalue" mixed="true" />
+
+	<xs:complexType name="description" mixed="true" />
+
+	<xs:complexType name="properties">
+		<xs:sequence>
+			<xs:element ref="description" minOccurs="0" />
+			<xs:choice>
+				<xs:element ref="simple" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="sequence" />
+				<xs:element ref="struct" minOccurs="0" maxOccurs="unbounded" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="sequence">
+		<xs:sequence>
+			<xs:element ref="description" minOccurs="0" />
+			<xs:choice>
+				<xs:element ref="simple" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="struct" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="sequence" minOccurs="0" maxOccurs="unbounded" />
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:simpleType name="simpleType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="boolean" />
+			<xs:enumeration value="char" />
+			<xs:enumeration value="double" />
+			<xs:enumeration value="float" />
+			<xs:enumeration value="short" />
+			<xs:enumeration value="long" />
+			<xs:enumeration value="objref" />
+			<xs:enumeration value="octet" />
+			<xs:enumeration value="string" />
+			<xs:enumeration value="ulong" />
+			<xs:enumeration value="ushort" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="simple">
+		<xs:sequence>
+			<xs:element ref="description" minOccurs="0" />
+			<xs:element ref="value" />
+			<xs:element ref="choices" minOccurs="0" />
+			<xs:element ref="defaultvalue" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+		<xs:attribute name="type" type="simpleType" use="required">
+
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="struct">
+		<xs:sequence>
+			<xs:element ref="description" minOccurs="0" />
+			<xs:choice>
+				<xs:element ref="simple" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="sequence" />
+				<xs:element ref="struct" minOccurs="0" maxOccurs="unbounded" />
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="value" mixed="true" />
+
+</xs:schema>
