@@ -2,6 +2,8 @@
 #include <rtt/Component.hpp>
 #include <iostream>
 #include "[%=taskContext.type%].hpp"
+[%=out.startPreserve("/*", "*/", "include", true)%]
+[%=out.stopPreserve()%]
 
 using namespace RTT;
 using namespace [%=taskContext.namespace%];
