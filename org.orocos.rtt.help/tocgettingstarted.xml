@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Getting Started" link_to="toc.xml#gettingstarted"> 
+	<topic label="Basic Tutorial"> 
+		<topic href="html/gettingstarted/basicTutorial/mde.html" label="Model Based Development">
+		</topic>
+		<topic href="html/gettingstarted/basicTutorial/createProject.html" label="Creating a Project">
+  </topic>
+		<topic label="Model">
+     <topic href="html/gettingstarted/basicTutorial/model/createModel.html" label="Creating a Model">
+     </topic>
+	  <topic href="html/gettingstarted/basicTutorial/model/addTaskContext.html" label="Adding a TaskContext">
+	  </topic>
+	  <topic href="html/gettingstarted/basicTutorial/model/addOutputPort.html" label="Adding an Output Port">
+	  </topic>
+	  <topic href="html/gettingstarted/basicTutorial/model/addInputPort.html" label="Adding an Input Port">
+	  </topic>
+	  <topic href="html/gettingstarted/basicTutorial/model/addActivity.html" label="Adding an Activity">
+	  </topic>
+	  <topic href="html/gettingstarted/basicTutorial/model/addProperty.html" label="Adding a Property">
+	  </topic>
+	  <topic href="html/gettingstarted/basicTutorial/model/addOperation.html" label="Adding an Operation">
+	  </topic>
+  </topic>
+  <topic label="Code">
+     <topic href="html/gettingstarted/basicTutorial/code/generatingEditingCode.html" label="Generating and Editing Code">
+     </topic>
+  </topic>
+  <topic label="Deploy">
+     <topic href="html/gettingstarted/basicTutorial/deploy/deployment.html" label="Deployment">
+     </topic>
+  </topic>
+  </topic>
+</toc>

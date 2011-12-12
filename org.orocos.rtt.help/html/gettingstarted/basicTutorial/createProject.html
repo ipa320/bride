@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Creating a Project</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1>Creating a new Orocos Project</h1>
+
+<p>An Ococos Project is created using the new C++ Project Wizard.</p>
+
+<p><em>Note: Make sure to be in the C/C++ perspective.</em></p>
+
+<p>To create a a project:</p>
+<ol>
+  <li>Click <strong>File &gt; New &gt; C++ Project<br />
+    <img alt="Orocos Project Wizard" src="OrocosProjectWizard.jpg"
+    style="float:top" width="700" height="648" /></strong><br />
+  </li>
+  <li>In the <strong>Project Name</strong> box, type a name. <em>Best practice:
+    This name should be the same as the Orocos package name.</em></li>
+  <li>To specify a different directory in which to save your project, clear the
+    <strong>Use Default Location</strong> check box, and enter the path in the
+    <strong>Location</strong> box.</li>
+  <li>In the <strong>Project type</strong> pane: Open the <strong>Makefile
+    Project</strong> folder and select <strong>Orocos Package</strong>.</li>
+  <li>Select the <strong>Linux GCC</strong> from the list in the
+    <strong>Toolchains</strong> pane.</li>
+  <li>You can change build configurations list for the project. To do it, press
+    <strong>Next</strong>. But usually you need not to do it.</li>
+  <li>To create your project, click <strong>Finish.</strong></li>
+</ol>
+
+<h2>Dirctory Structure of the Created Orocos Project</h2>
+
+<p>The newly created empty project will contain three folders:</p>
+<dl>
+  <dt><strong>model</strong></dt>
+    <dd>This folder is the most important at the start of the project. Here you
+      will create your models.</dd>
+  <dt><strong>src</strong></dt>
+    <dd>All the generated source code from the model is contained in this
+      folder.</dd>
+  <dt><strong>deployment</strong></dt>
+    <dd>Deployment iinformation and or models will be generated into this
+      folder.</dd>
+</dl>
+
+<h2>Related Reference:</h2>
+
+<p>Orocos Package</p>
+</body>
+</html>

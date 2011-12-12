@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Examples" link_to="toc.xml#examples">
+ <topic href="html/TBW.html" label="About the Examples">
+ </topic> 
+	<topic label="Example 1"  href="html/TBW.html"> 
+	</topic>
+</toc>
