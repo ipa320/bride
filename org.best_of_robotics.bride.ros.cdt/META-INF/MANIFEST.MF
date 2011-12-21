@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BRIDE - ROS CDT Integration
+Bundle-SymbolicName: org.best_of_robotics.bride.ros.cdt;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.best_of_robotics.bride.ros.cdt.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.cdt.core;bundle-version="5.3.1",
+ org.eclipse.cdt.ui;bundle-version="5.3.1",
+ org.eclipse.ui.editors;bundle-version="3.7.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: BRICS

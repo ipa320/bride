@@ -1,0 +1,7 @@
+# Tracing options for the org.ros.model.ros.diagram plug-in
+
+# Common issues
+org.ros.model.ros.diagram/debug=false
+
+# Visual IDs
+org.ros.model.ros.diagram/debug/visualID=false
