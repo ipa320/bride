@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ros.model.ros/src"
+    modelPluginID="org.ros.model.ros" modelName="Ros" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>ros.ecore</foreignModel>
+  <genPackages prefix="Ros" basePackage="org.ros.model" disposableProviderFactory="true"
+      ecorePackage="ros.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ros.ecore#//StandardMessageType">
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StandardMessageType/Bool"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StandardMessageType/String"/>
+    </genEnums>
+    <genClasses ecoreClass="ros.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/loopRate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/publisher"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/subscriber"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/depend"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/rosdep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//Publisher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Publisher/topic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/msg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/queueSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/latch"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//Subscriber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Subscriber/topic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/msg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/queueSize"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//Topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Topic/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
