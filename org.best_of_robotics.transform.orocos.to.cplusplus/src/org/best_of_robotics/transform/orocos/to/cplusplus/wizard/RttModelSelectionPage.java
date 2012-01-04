@@ -1,6 +1,7 @@
 package org.best_of_robotics.transform.orocos.to.cplusplus.wizard;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -20,29 +21,30 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
 
-public class NewRttCompositeMainPage extends WizardPage {
+public class RttModelSelectionPage extends WizardPage {
 
 	private ListViewer listViewer;
-	private ArrayList<IResource> deploymentFileList;
+	private ArrayList<IResource> rttFileList;
 
-	public NewRttCompositeMainPage(String pageName) {
+	public RttModelSelectionPage(String pageName) {
 		super(pageName);
 	}
 
-	public NewRttCompositeMainPage(String pageName, String title,
+	public RttModelSelectionPage(String pageName, String title,
 			ImageDescriptor titleImage) {
 		super(pageName, title, titleImage);
 	}
 
-	public NewRttCompositeMainPage(IWorkbench workbench) {
-		super("Page Name");
+	public RttModelSelectionPage(IWorkbench workbench) {
+		super("RTT Model Selection");
 	}
 	
-	public ArrayList<IResource> getSelectedResources() {
-		ArrayList<IResource> selectedResource = new ArrayList<IResource>();
+	public LinkedList<IResource> getSelectedResources() {
+		LinkedList<IResource> selectedResource = new LinkedList<IResource>();
+		//get the data given the string.
 		String[] selections = listViewer.getList().getSelection();
 		for (String selection : selections) {
-			for(IResource resource : deploymentFileList) {
+			for(IResource resource : rttFileList) {
 				if (resource.getName().equals(selection)) {
 					selectedResource.add(resource);
 					break;
@@ -59,7 +61,7 @@ public class NewRttCompositeMainPage extends WizardPage {
 		top.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		createModelList(top);
 		setErrorMessage(null);
-		setMessage(null);
+		setMessage("Select one or more models to merge.");
 		setControl(top);
 		top.redraw();
 	}
@@ -68,7 +70,7 @@ public class NewRttCompositeMainPage extends WizardPage {
 		listViewer = new ListViewer(top);
 		listViewer.getList().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		
-		IResource[] deploymentFileList = getListOfDeploymentFiles();
+		IResource[] deploymentFileList = getListOfRttFiles();
 		
 		listViewer.setContentProvider(new IStructuredContentProvider() {
 			
@@ -96,21 +98,21 @@ public class NewRttCompositeMainPage extends WizardPage {
 		listViewer.setInput(deploymentFileList);
 	}
 
-	private IResource[] getListOfDeploymentFiles() {
-		deploymentFileList = new ArrayList<IResource>();
+	private IResource[] getListOfRttFiles() {
+		rttFileList = new ArrayList<IResource>();
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		for(IProject project : root.getProjects()) {
 			String natureId = "org.eclipse.cdt.core.ccnature";
 			try {
 				if (project.isNatureEnabled(natureId)) {
 					IResource[] members = project.members();
-					findRTTFile(deploymentFileList, members);
+					findRTTFile(rttFileList, members);
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
-		return deploymentFileList.toArray(new IResource[deploymentFileList.size()]);
+		return rttFileList.toArray(new IResource[rttFileList.size()]);
 	}
 
 	private void findRTTFile(ArrayList<IResource> deploymentFileList,
@@ -128,5 +130,4 @@ public class NewRttCompositeMainPage extends WizardPage {
 		}
 	}
 
-	
 }

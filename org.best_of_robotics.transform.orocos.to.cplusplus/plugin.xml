@@ -72,7 +72,7 @@
             class="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewMergedRttModel"
             icon="icons/obj16/RttDiagramFile.gif"
             id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewRttComposite"
-            name="Merged RTT Model">
+            name="Merge RTT Models">
       </wizard>
    </extension>
    <extension
