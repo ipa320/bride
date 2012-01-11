@@ -1,0 +1,58 @@
+#include <ros/ros.h>
+
+[%for (publisher in node.publisher) {%]
+#include "std_msgs/[%=publisher.msg.asString()%].h"
+[%}%]
+[%for (subscriber in node.subscriber) {%]
+#include "std_msgs/[%=subscriber.msg.asString()%].h"
+[%}%]
+
+[%=out.startPreserve("/*", "*/", "include", true)%]
+[%=out.stopPreserve()%]
+
+using std::string;
+const string NODE_NAME = "[%=node.name%]";
+
+[%for (subscriber in node.subscriber) {%]
+void [%=subscriber.topic.name%]Callback(const std_msgs::[%=subscriber.msg.asString()%]::ConstPtr& msg)
+{
+[%=out.startPreserve("/*", "*/", "callbackCode", true)%]
+
+[%=out.stopPreserve()%]
+
+	ROS_INFO("Received: %s", msg->data.c_str());
+}
+[%}%]
+	
+
+int main(int argc, char **argv)
+{
+	ros::init(argc, argv, NODE_NAME);
+	ros::NodeHandle nodeHandle;
+
+	[%for (publisher in node.publisher) {%]
+	ros::Publisher [%=publisher.name%] = nodeHandle.advertise<std_msgs::[%=publisher.msg.asString()%]>("[%=publisher.topic.name%]", [%=publisher.queueSize%], [%=publisher.latch%]); 
+	[%}%]
+	
+	[%for (subscriber in node.subscriber) {%]
+	ros::Subscriber [%=subscriber.name%] = nodeHandle.subscribe("[%=subscriber.topic.name%]", [%=subscriber.queueSize%], [%=subscriber.topic.name%]Callback); 
+	[%}%]
+	
+	
+	[%=out.startPreserve("/*", "*/", "mainCode", true)%]
+	[%=out.stopPreserve()%]
+	
+	[%if (node.loopRate > 0) {%]
+	ros::Rate loopRate([%=node.loopRate%]);
+	while(ros::ok()){
+		[%=out.startPreserve("/*", "*/", "periodicCode", true)%]
+		//PUT YOUR CODE HERE.
+		[%=out.stopPreserve()%]
+		ros::spinOnce();
+		loopRate.sleep();
+	}
+	[%} else {%]
+	ros::spin();
+	[%}%]
+	return 0;
+} 
