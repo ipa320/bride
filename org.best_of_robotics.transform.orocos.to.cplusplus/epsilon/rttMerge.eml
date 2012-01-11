@@ -1,7 +1,7 @@
 rule MergePackage
 	merge l : Left!Package with r : Right!Package into t : Target!Package {
 	
-	t.name := l.name + ':' + r.name;
+	t.name := l.name;
 	t.taskContext ::= l.taskContext + r.taskContext;
 	t.activity ::= l.activity + r.activity;
 	t.connectionPolicy ::= l.connectionPolicy + r.connectionPolicy;

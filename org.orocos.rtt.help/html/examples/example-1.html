@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Example 1 - Execution</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1>Example 1 - Execution</h1>
+
+<p></p>
+
+<p>Exercise 1: Read Orocos Component Builder's Manual, Chap 2 sect 3 and 3.1</p>
+
+<p>First, compile and run this application and try to start the component</p>
+
+<p>from the TaskBrowser console. How often is updateHook() executed ? Why ?</p>
+
+<p></p>
+
+<p>Tip: In order to find out which functions this component has, type 'ls',
+and</p>
+
+<p>for detailed information, type 'help this' (i.e. print the interface of the
+'this'</p>
+
+<p>task object).</p>
+
+<p></p>
+
+<p>Next, Set the period of the component in configureHook to 0.5 seconds and</p>
+
+<p>make start() succeed when the period of the component indeed equals 0.5
+seconds.</p>
+
+<p></p>
+
+<p>Next, add functions which use the log(Info) construct to display</p>
+
+<p>a notice when the configureHook(), startHook(), stopHook() and
+cleanupHook()</p>
+
+<p>are executed. (Note: not all these functions return a bool!)</p>
+
+<p></p>
+
+<p>Recompile and restart this application and try to configure, start, stop</p>
+
+<p>and cleanup the component.</p>
+
+<p></p>
+
+<p>Optional: Let the Hello component be created in the 'PreOperational'
+mode.</p>
+
+<p>What effect does this have on the acceptance of the start() method ?</p>
+
+<p>Optional: Replace the Activity with a SlaveActivity. What are</p>
+
+<p>the effects of trigger and update in comparison with the other activity
+types ?</p>
+
+<p>Optional: Replace the Activity with a SequentialActivity. What are</p>
+
+<p>the effects of trigger and update in comparison with the other activity
+types ?</p>
+
+<p></p>
+</body>
+</html>

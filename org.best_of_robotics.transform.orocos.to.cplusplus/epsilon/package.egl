@@ -15,8 +15,10 @@
 		taskContextSourceTemplate.populate('taskContext', taskContext);
 		taskContextSourceTemplate.generate('src/' + taskContext.type + '.cpp');
 		
-		taskContextPropertiesTemplate.populate('taskContext', taskContext);
-		taskContextPropertiesTemplate.generate('deployment/' + taskContext.type + '.cpf');
+		if (not taskContext.property.isEmpty()) {
+			taskContextPropertiesTemplate.populate('taskContext', taskContext);
+			taskContextPropertiesTemplate.generate('deployment/' + taskContext.type + '.cpf');
+		}
 	}
 	
 	//CMakeList

@@ -10,6 +10,7 @@ rule MatchTaskContext
 	with right : Right!TaskContext {
 	
 	compare : left.name = right.name
+	//also compare type?
 }
 
 rule MatchActivity

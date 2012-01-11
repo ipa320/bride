@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.best_of_robotics.bride.bcm"
-      label="BRIDE BCM"
+      id="org.best_of_robotics.bride.feature.bcm"
+      label="BRIDE - BCM"
       version="1.0.0.qualifier"
       provider-name="BRICS">
 
@@ -94,6 +94,10 @@ Everyone is permitted to copy and distribute copies of this Agreement, but in or
 This Agreement is governed by the laws of the State of New York and the intellectual property laws of the United States of America. No party to this Agreement will bring a legal action under this Agreement more than one year after the cause of action arose. Each party waives its rights to a jury trial in any resulting litigation.
    </license>
 
+   <url>
+      <update label="BRIDE" url="http://www.best-of-robotics.org/bride/update"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
@@ -120,6 +124,14 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.eclipse.gef"/>
       <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.best_of_robotics.model.bcm" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.6.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.epsilon.emc.emf" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eol.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.erl.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.etl.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.orocos.model.rtt" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -144,7 +156,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
          unpack="false"/>
 
    <plugin
-         id="org.best_of_robotics.bride.ui"
+         id="org.best_of_robotics.transform.bcm.to.orocos"
          download-size="0"
          install-size="0"
          version="0.0.0"
