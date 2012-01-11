@@ -6,9 +6,6 @@
    <feature url="features/org.best_of_robotics.bride.feature_1.0.0.qualifier.jar" id="org.best_of_robotics.bride.feature" version="1.0.0.qualifier">
       <category name="org.best_of_robotics.bride.required"/>
    </feature>
-   <feature url="features/org.best_of_robotics.bride.orocos_1.0.0.qualifier.jar" id="org.best_of_robotics.bride.orocos" version="1.0.0.qualifier">
-      <category name="org.best_of_robotics.bride.orocos"/>
-   </feature>
    <feature url="features/org.best_of_robotics.bride.ros_1.0.0.qualifier.jar" id="org.best_of_robotics.bride.ros" version="1.0.0.qualifier">
       <category name="org.best_of_robotics.bride.ros"/>
    </feature>
@@ -17,6 +14,9 @@
    </feature>
    <feature url="features/org.best_of_robotics.bride.bcm.feature_1.0.0.qualifier.jar" id="org.best_of_robotics.bride.bcm.feature" version="1.0.0.qualifier">
       <category name="org.best_of_robotics.bride.bcm"/>
+   </feature>
+   <feature url="features/org.best_of_robotics.bride.orocos.feature_1.0.0.qualifier.jar" id="org.best_of_robotics.bride.orocos.feature" version="1.0.0.qualifier">
+      <category name="org.best_of_robotics.bride.orocos"/>
    </feature>
    <category-def name="org.best_of_robotics.bride.required" label="Required">
       <description>
