@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.best_of_robotics.bride.orocos"
-      label="BRIDE Orocos"
+      label="BRIDE  - Orocos"
       version="1.0.0.qualifier"
       provider-name="BRICS">
 
@@ -9,10 +9,11 @@
       Orocos Graphical Editor and Code Generator.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
+   <copyright>
       Copyright (c) 2011 Katholieke Universiteit Leuven
 All rights reserved. This program and the accompanying materials
-are made available under the terms of the Eclipse Public License v1.0
+are made available under the terms of the Eclipse Public License
+v1.0
 which accompanies this distribution, and is available at
 http://www.eclipse.org/legal/epl-v10.html
 Contributors:
@@ -94,30 +95,42 @@ Everyone is permitted to copy and distribute copies of this Agreement, but in or
 This Agreement is governed by the laws of the State of New York and the intellectual property laws of the United States of America. No party to this Agreement will bring a legal action under this Agreement more than one year after the cause of action arose. Each party waives its rights to a jury trial in any resulting litigation.
    </license>
 
+   <url>
+      <update label="BRIDE" url="http://www.best-of-robotics.org/bride/update"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.core.resources" version="3.6.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.epsilon.emc.emf" version="0.9.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.epsilon.eol.engine" version="0.9.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.epsilon.erl.engine" version="0.9.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.epsilon.etl.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.common.dt" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.ecl.dt" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.ecl.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.emc.emf" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.egl.engine" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eml.dt" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eml.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eol.dt" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eol.engine" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.erl.engine" version="0.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.etl.engine" version="0.9.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
+      <import plugin="org.orocos.model.rtt" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.orocos.model.rtt.diagram" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.transaction" version="1.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.4.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor" version="1.4.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.epsilon.common.dt" version="0.9.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.epsilon.egl.engine" version="0.9.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.epsilon.eol.dt" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.best_of_robotics.model.cpf" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.core" version="5.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.variables" version="3.2.500" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.navigator"/>
       <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.gmf.runtime.emf.commands.core"/>
       <import plugin="org.eclipse.gmf.runtime.emf.ui.properties"/>
@@ -130,32 +143,11 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.eclipse.ocl.ecore"/>
       <import plugin="org.eclipse.gef"/>
-      <import plugin="org.best_of_robotics.model.bcm" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.orocos.model.rtt" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.best_of_robbotics.model.cpf" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.orocos.model.rtt.diagram" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.cdt.ui" version="5.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help" version="3.5.100" match="greaterOrEqual"/>
    </requires>
-
-   <plugin
-         id="org.best_of_robbotics.model.cpf"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.best_of_robbotics.model.cpf.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.best_of_robotics.transform.bcm.to.orocos"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.best_of_robotics.transform.orocos.to.cplusplus"
@@ -186,6 +178,27 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <plugin
          id="org.best_of_robotics.bride.orocos.cdt"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.orocos.rtt.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.best_of_robotics.model.cpf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.best_of_robotics.model.cpf.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
