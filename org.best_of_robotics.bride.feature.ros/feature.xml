@@ -54,13 +54,6 @@
    </requires>
 
    <plugin
-         id="org.best_of_robotics.bride.ros.cdt"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.ros.model.ros"
          download-size="0"
          install-size="0"
@@ -87,5 +80,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.best_of_robotics.bride.cdt.ros"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>
