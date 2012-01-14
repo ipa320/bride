@@ -32,4 +32,24 @@
      </topic>
   </topic>
   </topic>
+ <topic label="Advanced Tutorial">
+    <topic href="html/gettingstarted/advancedTutorial/introduction.html" label="Introduction">
+    </topic>
+    <topic label="Part I: Building a Basic Application">
+       <topic href="html/gettingstarted/advancedTutorial/computation.html" label="Computation: Components and TaskContext">
+       </topic>
+       <topic href="html/gettingstarted/advancedTutorial/configuration.html" label="Configuration and Property">
+       </topic>
+       <topic href="html/gettingstarted/advancedTutorial/activity.html" label="Time, Rates and Activity">
+       </topic>
+       <topic href="html/gettingstarted/advancedTutorial/communication.html" label="Communication I: Interfaces and Port">
+       </topic>
+       <topic href="html/gettingstarted/advancedTutorial/communication2.html" label="Communication II: Interfaces and Operation">
+       </topic>
+       <topic href="html/gettingstarted/advancedTutorial/coordination.html" label="Coordination: State Machines">
+       </topic>
+    </topic>
+    <topic label="Part II: Motion Control">
+    </topic>
+ </topic>
 </toc>

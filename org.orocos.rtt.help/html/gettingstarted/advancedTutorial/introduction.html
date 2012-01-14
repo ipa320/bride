@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Advanced Tutorial Introduction</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1>RTT Model-Based Development</h1>
+
+<p>This is an introduction to Model-Based Development for the Orocos Real-Time
+Toolkit (RTT) using BRIDE. We present the material in two parts. Part I is a
+tutorial for learning how to build applications while Part II is a complete
+application based on Motion Control for the KUKA YouBot.</p>
+
+<h2>Model-Based Development</h2>
+
+<p>Model-based development is based on the premise of first creating a model of
+you system and then generate code from this model. The model can be
+respresented as a diagram or a domain specific textual language. It is
+important to note that it is very difficult to provide a tool which will
+provide full code generation of an application, meaning, generation of code
+that does not need to be edited in order to implement functionality. Yet, by
+using Component Based Developement (CBD), we can use an MBD tool in two phases.
+Phase I: is the compnent building phase where from a model we generate the
+basic boilerplate code necesary for builing a complete component. During this
+phase the implementation of the component is not generate. The implementation
+is left to the component builder. Thus, a general approach to building a
+component is to Model -&gt; Code -&gt; Deploy. The other phase of CBD is system
+building where we do not create component from scracth but combine ready made
+compponents into application. Thus in this second phase we can think of the
+process as Model -&gt; Deploy.</p>
+
+<h2>Component Based Development</h2>
+
+<p>In CBD we strive to build modules that implement one specific functionaly of
+the whole system. The funtionality is available for use by other comppnents and
+in fact it may be the case that the funtionality of one component depends on
+the funtionality of another comppnent. Components share thery funcitonalty with
+other components via their interface. The interface is composed of ports and
+operations. Operations can be grouped together as a service. Compnents that
+need to work together are connected toghegher via their ports and through the
+services they provide and require from each other.</p>
+
+<p>Applications are built by connecting the components together. A complete
+system is then deployed on a system.</p>
+
+<h2>Orocos Real-Time Toolkit</h2>
+
+<p>The Real-Time Toolkit (RTT) from Orocos is a real-time component based
+development implementation. It provides the necessary code base and runtime
+environment for builing component based applications. A component in RTT is
+implemented as TaskContext. TaskContexts can have data ports which are
+implemented as either an InputPort or an OutputPort which are used for
+receiving or transmitting data between different components. Components provide
+functionality via operations which are akin to methods or funchtions. Ports
+and/or operations are the interface of the component. Data ports have to be
+connected to each other using a ConnectionPolicy. Operations do not have to be
+connected. Sometimes a TaskContext will need certain initial values to be set
+in order for the TaskContxt to function properly when it is deployed. The
+initial values needed are set by encapsulating the value in a Property for the
+TaskContext.</p>
+
+<h2>The 5 C's</h2>
+
+<p>Building a component based application can be a daunting process if one is
+not used to defining and grouping together similiar functionality into a
+modular fashion. Throught this tutorial we will use a "simple" conceptual
+framwork to help us define how to build our application which is based on what
+we call the 5 C's:</p>
+<ul>
+  <li>Communication</li>
+  <li>Computation</li>
+  <li>Configuration</li>
+  <li>Connectivity</li>
+  <li>Coordination</li>
+</ul>
+
+<h2>Structure of the Tuturial</h2>
+
+<p>The goal of this tutorial is to provide the necesary basic knowledge for
+creating an application. We will build a two component system that will explore
+the basic parts of components and we will introduce the 5 C's as we build our
+application. Each chapter of this tutorial will have the same format where we
+first introduce some concepts and then we follow the Model, Code, Deploy
+process in the sections of each chapter.</p>
+</body>
+</html>
