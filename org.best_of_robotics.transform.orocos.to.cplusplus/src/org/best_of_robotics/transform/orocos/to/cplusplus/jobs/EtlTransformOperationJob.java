@@ -18,9 +18,14 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.best_of_robotics.model.Cpf.CpfFactory;
 import org.best_of_robotics.model.Cpf.CpfPackage;
+import org.best_of_robotics.model.Cpf.DocumentRoot;
+import org.best_of_robotics.model.Cpf.Properties;
+import org.best_of_robotics.model.Cpf.util.CpfResourceFactoryImpl;
 import org.best_of_robotics.transform.orocos.to.cplusplus.Activator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -35,6 +40,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.epsilon.commons.parse.problem.ParseProblem;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
@@ -51,6 +57,7 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 	private IProject project;
 	private IFile targetFile;
 	private EmfModel sourceModel;
+	private org.eclipse.emf.common.util.URI cpfFilelURI;
 
 	public EtlTransformOperationJob(String name) {
 		super(name);
@@ -103,8 +110,22 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 			e.printStackTrace();
 		}
 		etlModule.getContext().getModelRepository().dispose();
+		postProcessModel();
 		monitor.done();
 		return Status.OK_STATUS;
+	}
+
+	private void postProcessModel() {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.createResource(cpfFilelURI);
+		try {
+			resource.load(null);
+			Map<String, Boolean> options = new HashMap<String, Boolean>();
+			options.put(XMLResource.OPTION_SCHEMA_LOCATION, Boolean.FALSE);
+			resource.save(options);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public EmfModel createSource(Resource resource) {
@@ -148,7 +169,7 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 		CpfPackage cpfPackage = CpfFactory.eINSTANCE.getCpfPackage();
 
 		ResourceSet resourceSet = new ResourceSetImpl();
-		org.eclipse.emf.common.util.URI cpfFilelURI = org.eclipse.emf.common.util.URI
+		cpfFilelURI = org.eclipse.emf.common.util.URI
 				.createFileURI(cpfFile);
 		Resource resource = resourceSet.createResource(cpfFilelURI);
 
