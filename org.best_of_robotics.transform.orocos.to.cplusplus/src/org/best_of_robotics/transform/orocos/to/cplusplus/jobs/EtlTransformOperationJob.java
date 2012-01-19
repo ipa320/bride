@@ -144,8 +144,8 @@ public class EtlTransformOperationJob extends WorkspaceJob {
 									.substring("/resource/".length())));
 			sourceModel.setModelFile(modelFile.getLocation().toOSString());
 		} else if (getName().equals("cpfHandler")){
-			String fileString = resource.getURI().toFileString();
-			sourceModel.setModelFile(fileString);
+			org.eclipse.emf.common.util.URI uri = resource.getURI();
+			sourceModel.setModelFileUri(uri);
 		}
 		sourceModel.setReadOnLoad(true);
 		sourceModel.setStoredOnDisposal(false);

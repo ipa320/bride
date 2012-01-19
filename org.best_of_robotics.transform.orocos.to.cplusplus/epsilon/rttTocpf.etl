@@ -46,7 +46,7 @@ rule TaskContextToComponent
 			}
 			
 			//Ports
-			if (taskContext.outputPort.isDefined() or taskContext.inputPort.isDefined()) {
+			if (not taskContext.outputPort.isEmpty() or not taskContext.inputPort.isEmpty()) {
 				var ports = new Target!Struct;
 				ports.name = "Ports";
 				ports.type = "PropertyBag";
