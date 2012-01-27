@@ -11,7 +11,7 @@ using namespace [%=taskContext.namespace%];
 [%=taskContext.type%]::[%=taskContext.type%](string const& name = "[%=taskContext.name%]") :
 		TaskContext(name)
 		[%for(aProperty in taskContext.property) {%]
-			,[%=aProperty.name%]('[%=aProperty.value%]')
+			,[%=aProperty.name%]("[%=aProperty.value%]")
     	[%}%]
 {
 	[%for(aProperty in taskContext.property) {%]

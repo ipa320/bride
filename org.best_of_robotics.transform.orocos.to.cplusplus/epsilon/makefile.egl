@@ -8,8 +8,8 @@ all:
 	mkdir -p build
 	cd build ; cmake .. -DINSTALL_PATH=orocos && make
 	echo -e "\n Now do 'make install' to install this package.\n"
-install: all
+install:
 	cd build ; make install
-uninstall: all
+uninstall:
 	cd build ; make uninstall
 endif
