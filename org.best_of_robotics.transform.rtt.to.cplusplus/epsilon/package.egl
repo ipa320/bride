@@ -1,0 +1,40 @@
+[%
+	
+	var package : Package := Package.allInstances().at(0);
+	var taskContexts : OrderedSet := package.taskContext;
+
+	//TaskContext
+	for(taskContext in package.taskContext) {
+		var taskContextHeaderTemplate := TemplateFactory.load('taskContextHeader.egl');
+		var taskContextSourceTemplate := TemplateFactory.load('taskContextSource.egl');
+		var taskContextPropertiesTemplate := TemplateFactory.load('taskContextProperties.egl');
+		
+		taskContextHeaderTemplate.populate('taskContext', taskContext);
+		taskContextHeaderTemplate.generate('src/' + taskContext.type + '.hpp');
+		
+		taskContextSourceTemplate.populate('taskContext', taskContext);
+		taskContextSourceTemplate.generate('src/' + taskContext.type + '.cpp');
+		
+		if (not taskContext.property.isEmpty()) {
+			taskContextPropertiesTemplate.populate('taskContext', taskContext);
+			taskContextPropertiesTemplate.generate('deployment/' + taskContext.type + '.cpf');
+		}
+	}
+	
+	//CMakeList
+	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
+	cmakeListsTemplate.populate('package', package);
+	//cmakeListsTemplate.populate('component', package.component.at(index));
+	cmakeListsTemplate.generate('CMakeLists.txt');
+	
+	//Makefile
+	var makefileTemplate := TemplateFactory.load('makefile.egl');
+	makefileTemplate.generate('Makefile');
+	//Manifest
+	
+	//manifest
+	var manifestTemplate := TemplateFactory.load('manifest.egl');
+	manifestTemplate.populate('package', package);
+	manifestTemplate.generate('manifest.xml');
+	
+%]

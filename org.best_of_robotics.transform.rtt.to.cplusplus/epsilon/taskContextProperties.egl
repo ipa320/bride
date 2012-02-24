@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "cpf.dtd">
+<properties>
+	[%for(aProperty in taskContext.property) {
+		if (aProperty.type.asString() = "bool") {%]
+	<simple name="[%=aProperty.name%]" type="boolean">
+		[%} else if (aProperty.type.asString() = "uint"){%]
+	<simple name="[%=aProperty.name%]" type="ulong">
+		[%} else {%]
+	<simple name="[%=aProperty.name%]" type="[%=aProperty.type%]">
+		[%}%]
+		<description>[%=aProperty.description%]</description>
+		<value>[%=aProperty.value%]</value>
+ 	</simple>
+    [%}%]
+</properties>

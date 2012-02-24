@@ -1,0 +1,15 @@
+[%
+	
+	var package : Package := Package.allInstances().at(0);
+	var taskContexts : OrderedSet := package.taskContext;
+
+	//TaskContext
+	for(taskContext in package.taskContext) {
+		if (not taskContext.property.isEmpty()) {
+			var taskContextPropertiesTemplate := TemplateFactory.load('taskContextProperties.egl');
+			
+			taskContextPropertiesTemplate.populate('taskContext', taskContext);
+			taskContextPropertiesTemplate.generate('deployment/' + taskContext.type + '.cpf');
+		}
+	}
+%]
