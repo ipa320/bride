@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.best_of_robotics.model.orocos/src"
+    modelPluginID="org.best_of_robotics.model.orocos" modelName="Orocos" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.best_of_robotics.model.datatypes/model/DataTypes.genmodel#//datatypes">
+  <foreignModel>orocos.ecore</foreignModel>
+  <genPackages prefix="Orocos" basePackage="org.best_of_robotics.model" disposableProviderFactory="true"
+      ecorePackage="orocos.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//PortType">
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/char"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/short"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/long"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_char"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_int"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_float"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_double"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_short"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_long"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_char"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_int"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_float"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_double"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_short"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_long"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_char"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_int"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_float"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_double"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_short"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_long"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//Scheduler">
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//Scheduler/ORO_SCHED_OTHER"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//Scheduler/ORO_SCHED_RT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//ConnectionPolicyType">
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//ConnectionPolicyType/DATA"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//ConnectionPolicyType/BUFFER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//ConnectionPolicyLockPolicy">
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//ConnectionPolicyLockPolicy/UNSYNC"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//ConnectionPolicyLockPolicy/LOCKED"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//ConnectionPolicyLockPolicy/LOCK_FREE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//PropertyType">
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/bool"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/char"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PropertyType/uint"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//OperationReturnType">
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/bool"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/char"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/float"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//OperationReturnType/uint"/>
+    </genEnums>
+    <genClasses ecoreClass="orocos.ecore#//TaskContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//TaskContext/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//TaskContext/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//TaskContext/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//TaskContext/inputPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//TaskContext/outputPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//TaskContext/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//TaskContext/operacion"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Package/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/taskContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/connectionPolicy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//InputPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/isEventPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//InputPort/inputConnectionPolicy"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//OutputPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//OutputPort/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//OutputPort/outputConnectionPolicy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//OutputPort/type"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//ConnectionPolicy">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//ConnectionPolicy/inputPort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//ConnectionPolicy/outputPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//ConnectionPolicy/bufferSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//ConnectionPolicy/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//ConnectionPolicy/lockPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//ConnectionPolicy/type"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//Activity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Activity/scheduler"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Activity/cpuAffinity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Activity/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Activity/priority"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="orocos.ecore#//IActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//IActivity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//IActivity/taskContext"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Property/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Property/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="orocos.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Operation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Operation/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//Operation/documentation"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

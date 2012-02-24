@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.best_of_robotics.model.datatypes/src"
+    modelPluginID="org.best_of_robotics.model.datatypes" modelName="DataTypes" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>DataTypes.ecore</foreignModel>
+  <genPackages prefix="Datatypes" basePackage="org.best_of_robotics.model" disposableProviderFactory="true"
+      multipleEditorPages="false" ecorePackage="DataTypes.ecore#/">
+    <genClasses ecoreClass="DataTypes.ecore#//TypesLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/bool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/char"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/double"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/float"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/int"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/long"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/short"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedChar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedDouble"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedFloat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedInt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedLong"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedShort"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DataTypes.ecore#//DataType">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//DataType/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DataTypes.ecore#//SimpleType"/>
+    <genClasses image="false" ecoreClass="DataTypes.ecore#//ComplexType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//ComplexType/namespace"/>
+    </genClasses>
+    <genClasses ecoreClass="DataTypes.ecore#//ExistingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//ExistingType/include"/>
+    </genClasses>
+    <genClasses ecoreClass="DataTypes.ecore#//GenericType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataTypes.ecore#//GenericType/template"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//GenericType/include"/>
+    </genClasses>
+    <genClasses ecoreClass="DataTypes.ecore#//CustomType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//CustomType/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="DataTypes.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//Field/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataTypes.ecore#//Field/type"/>
+    </genClasses>
+    <genClasses ecoreClass="DataTypes.ecore#//Int"/>
+    <genClasses ecoreClass="DataTypes.ecore#//Double"/>
+    <genClasses ecoreClass="DataTypes.ecore#//Char"/>
+    <genClasses ecoreClass="DataTypes.ecore#//Float"/>
+    <genClasses ecoreClass="DataTypes.ecore#//Short"/>
+    <genClasses ecoreClass="DataTypes.ecore#//String"/>
+    <genClasses ecoreClass="DataTypes.ecore#//Long"/>
+    <genClasses ecoreClass="DataTypes.ecore#//UnsignedInt"/>
+    <genClasses ecoreClass="DataTypes.ecore#//UnsignedDouble"/>
+    <genClasses ecoreClass="DataTypes.ecore#//UnsignedChar"/>
+    <genClasses ecoreClass="DataTypes.ecore#//UnsignedFloat"/>
+    <genClasses ecoreClass="DataTypes.ecore#//UnsignedShort"/>
+    <genClasses ecoreClass="DataTypes.ecore#//UnsignedLong"/>
+    <genClasses ecoreClass="DataTypes.ecore#//Bool"/>
+  </genPackages>
+</genmodel:GenModel>
