@@ -14,8 +14,12 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.ros.model.ros.Node;
+import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
 import org.ros.model.ros.RosPackage;
+import org.ros.model.ros.Service;
+import org.ros.model.ros.ServiceClient;
+import org.ros.model.ros.ServiceServer;
 import org.ros.model.ros.Subscriber;
 import org.ros.model.ros.Topic;
 
@@ -94,6 +98,22 @@ public class RosAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTopic(Topic object) {
 				return createTopicAdapter();
+			}
+			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
+			public Adapter caseServiceServer(ServiceServer object) {
+				return createServiceServerAdapter();
+			}
+			@Override
+			public Adapter caseServiceClient(ServiceClient object) {
+				return createServiceClientAdapter();
+			}
+			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -182,6 +202,62 @@ public class RosAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTopicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.ServiceServer <em>Service Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.ServiceServer
+	 * @generated
+	 */
+	public Adapter createServiceServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.ServiceClient <em>Service Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.ServiceClient
+	 * @generated
+	 */
+	public Adapter createServiceClientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 

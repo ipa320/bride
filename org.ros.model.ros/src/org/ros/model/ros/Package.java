@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Package#getUrl <em>Url</em>}</li>
  *   <li>{@link org.ros.model.ros.Package#getRosdep <em>Rosdep</em>}</li>
  *   <li>{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.ros.model.ros.Package#getService <em>Service</em>}</li>
  * </ul>
  * </p>
  *
@@ -224,19 +225,45 @@ public interface Package extends EObject {
 	void setRosdep(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
-	 * The list contents are of type {@link org.ros.model.ros.Topic}.
+	 * Returns the value of the '<em><b>Topic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Topic</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Topic</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Topic</em>' containment reference list.
+	 * @return the value of the '<em>Topic</em>' containment reference.
+	 * @see #setTopic(Topic)
 	 * @see org.ros.model.ros.RosPackage#getPackage_Topic()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Topic> getTopic();
+	Topic getTopic();
+
+	/**
+	 * Sets the value of the '{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Topic</em>' containment reference.
+	 * @see #getTopic()
+	 * @generated
+	 */
+	void setTopic(Topic value);
+
+	/**
+	 * Returns the value of the '<em><b>Service</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.Service}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Service</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getPackage_Service()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Service> getService();
 
 } // Package

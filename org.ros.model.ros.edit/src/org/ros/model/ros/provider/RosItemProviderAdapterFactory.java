@@ -191,6 +191,98 @@ public class RosItemProviderAdapterFactory extends RosAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.ros.model.ros.Service} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceItemProvider serviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.ros.model.ros.Service}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceAdapter() {
+		if (serviceItemProvider == null) {
+			serviceItemProvider = new ServiceItemProvider(this);
+		}
+
+		return serviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.ros.model.ros.ServiceServer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceServerItemProvider serviceServerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.ros.model.ros.ServiceServer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceServerAdapter() {
+		if (serviceServerItemProvider == null) {
+			serviceServerItemProvider = new ServiceServerItemProvider(this);
+		}
+
+		return serviceServerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.ros.model.ros.ServiceClient} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceClientItemProvider serviceClientItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.ros.model.ros.ServiceClient}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceClientAdapter() {
+		if (serviceClientItemProvider == null) {
+			serviceClientItemProvider = new ServiceClientItemProvider(this);
+		}
+
+		return serviceClientItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.ros.model.ros.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.ros.model.ros.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,6 +386,10 @@ public class RosItemProviderAdapterFactory extends RosAdapterFactory implements 
 		if (publisherItemProvider != null) publisherItemProvider.dispose();
 		if (subscriberItemProvider != null) subscriberItemProvider.dispose();
 		if (topicItemProvider != null) topicItemProvider.dispose();
+		if (serviceItemProvider != null) serviceItemProvider.dispose();
+		if (serviceServerItemProvider != null) serviceServerItemProvider.dispose();
+		if (serviceClientItemProvider != null) serviceClientItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
 	}
 
 }
