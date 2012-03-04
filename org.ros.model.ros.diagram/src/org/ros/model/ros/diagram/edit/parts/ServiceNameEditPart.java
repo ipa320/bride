@@ -3,7 +3,6 @@ package org.ros.model.ros.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -19,9 +18,9 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -47,13 +46,13 @@ import org.ros.model.ros.diagram.providers.RosParserProvider;
 /**
  * @generated
  */
-public class SubscriberNameEditPart extends LabelEditPart implements
+public class ServiceNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6002;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	 * @generated
@@ -78,17 +77,7 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	static {
-		registerSnapBackPosition(
-				RosVisualIDRegistry
-						.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID),
-				new Point(0, 40));
-	}
-
-	/**
-	 * @generated
-	 */
-	public SubscriberNameEditPart(View view) {
+	public ServiceNameEditPart(View view) {
 		super(view);
 	}
 
@@ -97,19 +86,12 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new RosTextSelectionEditPolicy());
+		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
+				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new PackageEditPart.LinkLabelDragPolicy());
-	}
-
-	/**
-	 * @generated
-	 */
-	public int getKeyPoint() {
-		return ConnectionLocator.MIDDLE;
+				new PackageEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -312,10 +294,10 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RosParserProvider
 					.getParser(
-							RosElementTypes.Subscriber_4002,
+							RosElementTypes.Service_2003,
 							getParserElement(),
 							RosVisualIDRegistry
-									.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID));
+									.getType(org.ros.model.ros.diagram.edit.parts.ServiceNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -522,6 +504,22 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	 */
 	private View getFontStyleOwnerView() {
 		return getPrimaryView();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addNotationalListeners() {
+		super.addNotationalListeners();
+		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeNotationalListeners() {
+		super.removeNotationalListeners();
+		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
 	}
 
 	/**

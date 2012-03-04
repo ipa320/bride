@@ -32,6 +32,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.Publisher;
+import org.ros.model.ros.Service;
+import org.ros.model.ros.ServiceClient;
+import org.ros.model.ros.ServiceServer;
 import org.ros.model.ros.Subscriber;
 import org.ros.model.ros.Topic;
 import org.ros.model.ros.diagram.edit.helpers.RosBaseEditHelper;
@@ -324,21 +327,43 @@ public class RosBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateSubscriber_4001(Node source, Topic target) {
-			return canExistSubscriber_4001(null, source, target);
+		public boolean canCreateServiceClient_4001(Node source, Service target) {
+			return canExistServiceClient_4001(null, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreatePublisher_4002(Node source, Topic target) {
-			return canExistPublisher_4002(null, source, target);
+		public boolean canCreateSubscriber_4002(Node source, Topic target) {
+			return canExistSubscriber_4002(null, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistSubscriber_4001(Subscriber linkInstance,
+		public boolean canCreateServiceServer_4003(Node source, Service target) {
+			return canExistServiceServer_4003(null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreatePublisher_4004(Node source, Topic target) {
+			return canExistPublisher_4004(null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistServiceClient_4001(ServiceClient linkInstance,
+				Node source, Service target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistSubscriber_4002(Subscriber linkInstance,
 				Node source, Topic target) {
 			return true;
 		}
@@ -346,7 +371,15 @@ public class RosBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistPublisher_4002(Publisher linkInstance,
+		public boolean canExistServiceServer_4003(ServiceServer linkInstance,
+				Node source, Service target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistPublisher_4004(Publisher linkInstance,
 				Node source, Topic target) {
 			return true;
 		}

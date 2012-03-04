@@ -67,7 +67,7 @@ public class SubscriberReorientCommand extends EditElementCommand {
 		}
 		Topic target = getLink().getTopic();
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistSubscriber_4001(getLink(), getNewSource(), target);
+				.canExistSubscriber_4002(getLink(), getNewSource(), target);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class SubscriberReorientCommand extends EditElementCommand {
 		}
 		Node source = (Node) getLink().eContainer();
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistSubscriber_4001(getLink(), source, getNewTarget());
+				.canExistSubscriber_4002(getLink(), source, getNewTarget());
 	}
 
 	/**

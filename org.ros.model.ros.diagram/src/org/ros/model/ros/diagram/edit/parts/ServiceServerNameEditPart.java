@@ -47,13 +47,13 @@ import org.ros.model.ros.diagram.providers.RosParserProvider;
 /**
  * @generated
  */
-public class SubscriberNameEditPart extends LabelEditPart implements
+public class ServiceServerNameEditPart extends LabelEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6002;
+	public static final int VISUAL_ID = 6003;
 
 	/**
 	 * @generated
@@ -81,14 +81,14 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				RosVisualIDRegistry
-						.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID),
+						.getType(org.ros.model.ros.diagram.edit.parts.ServiceServerNameEditPart.VISUAL_ID),
 				new Point(0, 40));
 	}
 
 	/**
 	 * @generated
 	 */
-	public SubscriberNameEditPart(View view) {
+	public ServiceServerNameEditPart(View view) {
 		super(view);
 	}
 
@@ -312,10 +312,10 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RosParserProvider
 					.getParser(
-							RosElementTypes.Subscriber_4002,
+							RosElementTypes.ServiceServer_4003,
 							getParserElement(),
 							RosVisualIDRegistry
-									.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID));
+									.getType(org.ros.model.ros.diagram.edit.parts.ServiceServerNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

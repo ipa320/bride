@@ -8,14 +8,14 @@ import org.ros.model.ros.diagram.providers.RosElementTypes;
 /**
  * @generated
  */
-public class SubscriberItemSemanticEditPolicy extends
+public class ServiceClientItemSemanticEditPolicy extends
 		RosBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public SubscriberItemSemanticEditPolicy() {
-		super(RosElementTypes.Subscriber_4002);
+	public ServiceClientItemSemanticEditPolicy() {
+		super(RosElementTypes.ServiceClient_4001);
 	}
 
 	/**

@@ -31,23 +31,47 @@ public class RosEditPartFactory implements EditPartFactory {
 			case PackageEditPart.VISUAL_ID:
 				return new PackageEditPart(view);
 
-			case TopicEditPart.VISUAL_ID:
-				return new TopicEditPart(view);
-
-			case TopicNameEditPart.VISUAL_ID:
-				return new TopicNameEditPart(view);
-
 			case NodeEditPart.VISUAL_ID:
 				return new NodeEditPart(view);
 
 			case NodeNameEditPart.VISUAL_ID:
 				return new NodeNameEditPart(view);
 
+			case TopicEditPart.VISUAL_ID:
+				return new TopicEditPart(view);
+
+			case TopicNameEditPart.VISUAL_ID:
+				return new TopicNameEditPart(view);
+
+			case ServiceEditPart.VISUAL_ID:
+				return new ServiceEditPart(view);
+
+			case ServiceNameEditPart.VISUAL_ID:
+				return new ServiceNameEditPart(view);
+
+			case ParameterEditPart.VISUAL_ID:
+				return new ParameterEditPart(view);
+
+			case NodeParametersEditPart.VISUAL_ID:
+				return new NodeParametersEditPart(view);
+
+			case ServiceClientEditPart.VISUAL_ID:
+				return new ServiceClientEditPart(view);
+
+			case ServiceClientNameEditPart.VISUAL_ID:
+				return new ServiceClientNameEditPart(view);
+
 			case SubscriberEditPart.VISUAL_ID:
 				return new SubscriberEditPart(view);
 
 			case SubscriberNameEditPart.VISUAL_ID:
 				return new SubscriberNameEditPart(view);
+
+			case ServiceServerEditPart.VISUAL_ID:
+				return new ServiceServerEditPart(view);
+
+			case ServiceServerNameEditPart.VISUAL_ID:
+				return new ServiceServerNameEditPart(view);
 
 			case PublisherEditPart.VISUAL_ID:
 				return new PublisherEditPart(view);

@@ -52,7 +52,7 @@ public class TopicNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	 * @generated
@@ -294,7 +294,7 @@ public class TopicNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RosParserProvider
 					.getParser(
-							RosElementTypes.Topic_2001,
+							RosElementTypes.Topic_2002,
 							getParserElement(),
 							RosVisualIDRegistry
 									.getType(org.ros.model.ros.diagram.edit.parts.TopicNameEditPart.VISUAL_ID));

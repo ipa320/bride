@@ -3,7 +3,6 @@ package org.ros.model.ros.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -11,20 +10,25 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
+import org.eclipse.gef.requests.SelectionRequest;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
+import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
@@ -39,6 +43,8 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import org.ros.model.ros.diagram.edit.policies.ParameterItemSemanticEditPolicy;
+import org.ros.model.ros.diagram.edit.policies.RosTextNonResizableEditPolicy;
 import org.ros.model.ros.diagram.edit.policies.RosTextSelectionEditPolicy;
 import org.ros.model.ros.diagram.part.RosVisualIDRegistry;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
@@ -47,13 +53,13 @@ import org.ros.model.ros.diagram.providers.RosParserProvider;
 /**
  * @generated
  */
-public class SubscriberNameEditPart extends LabelEditPart implements
+public class ParameterEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6002;
+	public static final int VISUAL_ID = 3001;
 
 	/**
 	 * @generated
@@ -78,18 +84,19 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	static {
-		registerSnapBackPosition(
-				RosVisualIDRegistry
-						.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID),
-				new Point(0, 40));
+	public ParameterEditPart(View view) {
+		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	public SubscriberNameEditPart(View view) {
-		super(view);
+	public DragTracker getDragTracker(Request request) {
+		if (request instanceof SelectionRequest
+				&& ((SelectionRequest) request).getLastButtonPressed() == 3) {
+			return null;
+		}
+		return new DragEditPartsTrackerEx(this);
 	}
 
 	/**
@@ -97,19 +104,14 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new ParameterItemSemanticEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new RosTextNonResizableEditPolicy());
+		installEditPolicy(EditPolicy.COMPONENT_ROLE,
+				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new RosTextSelectionEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new PackageEditPart.LinkLabelDragPolicy());
-	}
-
-	/**
-	 * @generated
-	 */
-	public int getKeyPoint() {
-		return ConnectionLocator.MIDDLE;
 	}
 
 	/**
@@ -159,7 +161,7 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrappingLabel figure) {
+	public void setLabel(IFigure figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -312,10 +314,10 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RosParserProvider
 					.getParser(
-							RosElementTypes.Subscriber_4002,
+							RosElementTypes.Parameter_3001,
 							getParserElement(),
 							RosVisualIDRegistry
-									.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID));
+									.getType(org.ros.model.ros.diagram.edit.parts.ParameterEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -527,6 +529,22 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
+	protected void addNotationalListeners() {
+		super.addNotationalListeners();
+		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeNotationalListeners() {
+		super.removeNotationalListeners();
+		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -571,8 +589,30 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		// Parent should assign one using setLabel() method
-		return null;
+		IFigure label = createFigurePrim();
+		defaultText = getLabelTextHelper(label);
+		return label;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure createFigurePrim() {
+		return new ParameterFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ParameterFigure extends WrappingLabel {
+
+		/**
+		 * @generated
+		 */
+		public ParameterFigure() {
+			this.setText("<...>");
+		}
+
 	}
 
 }

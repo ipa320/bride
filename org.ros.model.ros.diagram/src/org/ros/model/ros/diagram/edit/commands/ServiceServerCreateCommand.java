@@ -13,14 +13,14 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.RosFactory;
-import org.ros.model.ros.Subscriber;
-import org.ros.model.ros.Topic;
+import org.ros.model.ros.Service;
+import org.ros.model.ros.ServiceServer;
 import org.ros.model.ros.diagram.edit.policies.RosBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class SubscriberCreateCommand extends EditElementCommand {
+public class ServiceServerCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -35,7 +35,7 @@ public class SubscriberCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public SubscriberCreateCommand(CreateRelationshipRequest request,
+	public ServiceServerCreateCommand(CreateRelationshipRequest request,
 			EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
@@ -52,7 +52,7 @@ public class SubscriberCreateCommand extends EditElementCommand {
 		if (source != null && false == source instanceof Node) {
 			return false;
 		}
-		if (target != null && false == target instanceof Topic) {
+		if (target != null && false == target instanceof Service) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -60,7 +60,7 @@ public class SubscriberCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateSubscriber_4002(getSource(), getTarget());
+				.canCreateServiceServer_4003(getSource(), getTarget());
 	}
 
 	/**
@@ -73,9 +73,9 @@ public class SubscriberCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		Subscriber newElement = RosFactory.eINSTANCE.createSubscriber();
-		getSource().getSubscriber().add(newElement);
-		newElement.setTopic(getTarget());
+		ServiceServer newElement = RosFactory.eINSTANCE.createServiceServer();
+		getSource().getServiceServer().add(newElement);
+		newElement.setService(getTarget());
 		doConfigure(newElement, monitor, info);
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
 		return CommandResult.newOKCommandResult(newElement);
@@ -85,8 +85,9 @@ public class SubscriberCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Subscriber newElement, IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected void doConfigure(ServiceServer newElement,
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();
 		ConfigureRequest configureRequest = new ConfigureRequest(
@@ -122,8 +123,8 @@ public class SubscriberCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Topic getTarget() {
-		return (Topic) target;
+	protected Service getTarget() {
+		return (Service) target;
 	}
 
 }

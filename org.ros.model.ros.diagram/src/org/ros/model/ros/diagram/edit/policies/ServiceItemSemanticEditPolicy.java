@@ -12,25 +12,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ros.model.ros.diagram.edit.commands.PublisherCreateCommand;
-import org.ros.model.ros.diagram.edit.commands.PublisherReorientCommand;
-import org.ros.model.ros.diagram.edit.commands.SubscriberCreateCommand;
-import org.ros.model.ros.diagram.edit.commands.SubscriberReorientCommand;
-import org.ros.model.ros.diagram.edit.parts.PublisherEditPart;
-import org.ros.model.ros.diagram.edit.parts.SubscriberEditPart;
+import org.ros.model.ros.diagram.edit.commands.ServiceClientCreateCommand;
+import org.ros.model.ros.diagram.edit.commands.ServiceClientReorientCommand;
+import org.ros.model.ros.diagram.edit.commands.ServiceServerCreateCommand;
+import org.ros.model.ros.diagram.edit.commands.ServiceServerReorientCommand;
+import org.ros.model.ros.diagram.edit.parts.ServiceClientEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceServerEditPart;
 import org.ros.model.ros.diagram.part.RosVisualIDRegistry;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
 
 /**
  * @generated
  */
-public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
+public class ServiceItemSemanticEditPolicy extends
+		RosBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public TopicItemSemanticEditPolicy() {
-		super(RosElementTypes.Topic_2002);
+	public ServiceItemSemanticEditPolicy() {
+		super(RosElementTypes.Service_2003);
 	}
 
 	/**
@@ -43,14 +44,14 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (RosVisualIDRegistry.getVisualID(incomingLink) == SubscriberEditPart.VISUAL_ID) {
+			if (RosVisualIDRegistry.getVisualID(incomingLink) == ServiceClientEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (RosVisualIDRegistry.getVisualID(incomingLink) == PublisherEditPart.VISUAL_ID) {
+			if (RosVisualIDRegistry.getVisualID(incomingLink) == ServiceServerEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -85,10 +86,10 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RosElementTypes.Subscriber_4002 == req.getElementType()) {
+		if (RosElementTypes.ServiceClient_4001 == req.getElementType()) {
 			return null;
 		}
-		if (RosElementTypes.Publisher_4004 == req.getElementType()) {
+		if (RosElementTypes.ServiceServer_4003 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -99,12 +100,12 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RosElementTypes.Subscriber_4002 == req.getElementType()) {
-			return getGEFWrapper(new SubscriberCreateCommand(req,
+		if (RosElementTypes.ServiceClient_4001 == req.getElementType()) {
+			return getGEFWrapper(new ServiceClientCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (RosElementTypes.Publisher_4004 == req.getElementType()) {
-			return getGEFWrapper(new PublisherCreateCommand(req,
+		if (RosElementTypes.ServiceServer_4003 == req.getElementType()) {
+			return getGEFWrapper(new ServiceServerCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -119,10 +120,10 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 	protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case SubscriberEditPart.VISUAL_ID:
-			return getGEFWrapper(new SubscriberReorientCommand(req));
-		case PublisherEditPart.VISUAL_ID:
-			return getGEFWrapper(new PublisherReorientCommand(req));
+		case ServiceClientEditPart.VISUAL_ID:
+			return getGEFWrapper(new ServiceClientReorientCommand(req));
+		case ServiceServerEditPart.VISUAL_ID:
+			return getGEFWrapper(new ServiceServerReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

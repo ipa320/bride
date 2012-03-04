@@ -13,17 +13,17 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ros.model.ros.Package;
 import org.ros.model.ros.RosFactory;
-import org.ros.model.ros.Topic;
+import org.ros.model.ros.Service;
 
 /**
  * @generated
  */
-public class TopicCreateCommand extends EditElementCommand {
+public class ServiceCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public TopicCreateCommand(CreateElementRequest req) {
+	public ServiceCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -44,10 +44,6 @@ public class TopicCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		Package container = (Package) getElementToEdit();
-		if (container.getTopic() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -57,10 +53,10 @@ public class TopicCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Topic newElement = RosFactory.eINSTANCE.createTopic();
+		Service newElement = RosFactory.eINSTANCE.createService();
 
 		Package owner = (Package) getElementToEdit();
-		owner.setTopic(newElement);
+		owner.getService().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 
@@ -71,7 +67,7 @@ public class TopicCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Topic newElement, IProgressMonitor monitor,
+	protected void doConfigure(Service newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

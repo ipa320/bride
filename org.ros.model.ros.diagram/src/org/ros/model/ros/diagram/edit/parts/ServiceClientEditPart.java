@@ -8,23 +8,23 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ros.model.ros.diagram.edit.policies.SubscriberItemSemanticEditPolicy;
+import org.ros.model.ros.diagram.edit.policies.ServiceClientItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class SubscriberEditPart extends ConnectionNodeEditPart implements
+public class ServiceClientEditPart extends ConnectionNodeEditPart implements
 		ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 4001;
 
 	/**
 	 * @generated
 	 */
-	public SubscriberEditPart(View view) {
+	public ServiceClientEditPart(View view) {
 		super(view);
 	}
 
@@ -34,16 +34,17 @@ public class SubscriberEditPart extends ConnectionNodeEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SubscriberItemSemanticEditPolicy());
+				new ServiceClientItemSemanticEditPolicy());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubscriberNameEditPart) {
-			((SubscriberNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureSubscriberNameFigure());
+		if (childEditPart instanceof ServiceClientNameEditPart) {
+			((ServiceClientNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureServiceClientNameFigure());
 			return true;
 		}
 		return false;
@@ -63,7 +64,7 @@ public class SubscriberEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubscriberNameEditPart) {
+		if (childEditPart instanceof ServiceClientNameEditPart) {
 			return true;
 		}
 		return false;
@@ -89,30 +90,30 @@ public class SubscriberEditPart extends ConnectionNodeEditPart implements
 	 */
 
 	protected Connection createConnectionFigure() {
-		return new SubscriberFigure();
+		return new ServiceClientFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public SubscriberFigure getPrimaryShape() {
-		return (SubscriberFigure) getFigure();
+	public ServiceClientFigure getPrimaryShape() {
+		return (ServiceClientFigure) getFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class SubscriberFigure extends PolylineConnectionEx {
+	public class ServiceClientFigure extends PolylineConnectionEx {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureSubscriberNameFigure;
+		private WrappingLabel fFigureServiceClientNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public SubscriberFigure() {
+		public ServiceClientFigure() {
 
 			createContents();
 		}
@@ -122,18 +123,18 @@ public class SubscriberEditPart extends ConnectionNodeEditPart implements
 		 */
 		private void createContents() {
 
-			fFigureSubscriberNameFigure = new WrappingLabel();
-			fFigureSubscriberNameFigure.setText("<...>");
+			fFigureServiceClientNameFigure = new WrappingLabel();
+			fFigureServiceClientNameFigure.setText("<...>");
 
-			this.add(fFigureSubscriberNameFigure);
+			this.add(fFigureServiceClientNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureSubscriberNameFigure() {
-			return fFigureSubscriberNameFigure;
+		public WrappingLabel getFigureServiceClientNameFigure() {
+			return fFigureServiceClientNameFigure;
 		}
 
 	}

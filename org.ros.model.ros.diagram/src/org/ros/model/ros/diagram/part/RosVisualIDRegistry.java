@@ -9,9 +9,17 @@ import org.ros.model.ros.Package;
 import org.ros.model.ros.RosPackage;
 import org.ros.model.ros.diagram.edit.parts.NodeEditPart;
 import org.ros.model.ros.diagram.edit.parts.NodeNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.NodeParametersEditPart;
 import org.ros.model.ros.diagram.edit.parts.PackageEditPart;
+import org.ros.model.ros.diagram.edit.parts.ParameterEditPart;
 import org.ros.model.ros.diagram.edit.parts.PublisherEditPart;
 import org.ros.model.ros.diagram.edit.parts.PublisherNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceClientEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceClientNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceServerEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceServerNameEditPart;
 import org.ros.model.ros.diagram.edit.parts.SubscriberEditPart;
 import org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart;
 import org.ros.model.ros.diagram.edit.parts.TopicEditPart;
@@ -125,13 +133,23 @@ public class RosVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case PackageEditPart.VISUAL_ID:
+			if (RosPackage.eINSTANCE.getNode().isSuperTypeOf(
+					domainElement.eClass())) {
+				return NodeEditPart.VISUAL_ID;
+			}
 			if (RosPackage.eINSTANCE.getTopic().isSuperTypeOf(
 					domainElement.eClass())) {
 				return TopicEditPart.VISUAL_ID;
 			}
-			if (RosPackage.eINSTANCE.getNode().isSuperTypeOf(
+			if (RosPackage.eINSTANCE.getService().isSuperTypeOf(
 					domainElement.eClass())) {
-				return NodeEditPart.VISUAL_ID;
+				return ServiceEditPart.VISUAL_ID;
+			}
+			break;
+		case NodeParametersEditPart.VISUAL_ID:
+			if (RosPackage.eINSTANCE.getParameter().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParameterEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -160,10 +178,21 @@ public class RosVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case PackageEditPart.VISUAL_ID:
+			if (NodeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (TopicEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (NodeEditPart.VISUAL_ID == nodeVisualID) {
+			if (ServiceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case NodeEditPart.VISUAL_ID:
+			if (NodeNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (NodeParametersEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -172,13 +201,28 @@ public class RosVisualIDRegistry {
 				return true;
 			}
 			break;
-		case NodeEditPart.VISUAL_ID:
-			if (NodeNameEditPart.VISUAL_ID == nodeVisualID) {
+		case ServiceEditPart.VISUAL_ID:
+			if (ServiceNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case NodeParametersEditPart.VISUAL_ID:
+			if (ParameterEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ServiceClientEditPart.VISUAL_ID:
+			if (ServiceClientNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case SubscriberEditPart.VISUAL_ID:
 			if (SubscriberNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ServiceServerEditPart.VISUAL_ID:
+			if (ServiceServerNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -198,9 +242,17 @@ public class RosVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		if (RosPackage.eINSTANCE.getServiceClient().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ServiceClientEditPart.VISUAL_ID;
+		}
 		if (RosPackage.eINSTANCE.getSubscriber().isSuperTypeOf(
 				domainElement.eClass())) {
 			return SubscriberEditPart.VISUAL_ID;
+		}
+		if (RosPackage.eINSTANCE.getServiceServer().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ServiceServerEditPart.VISUAL_ID;
 		}
 		if (RosPackage.eINSTANCE.getPublisher().isSuperTypeOf(
 				domainElement.eClass())) {

@@ -25,19 +25,19 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.ros.model.ros.diagram.edit.policies.TopicItemSemanticEditPolicy;
+import org.ros.model.ros.diagram.edit.policies.ServiceItemSemanticEditPolicy;
 import org.ros.model.ros.diagram.part.RosVisualIDRegistry;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
 
 /**
  * @generated
  */
-public class TopicEditPart extends ShapeNodeEditPart {
+public class ServiceEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2003;
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public TopicEditPart(View view) {
+	public ServiceEditPart(View view) {
 		super(view);
 	}
 
@@ -62,7 +62,7 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TopicItemSemanticEditPolicy());
+				new ServiceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -95,23 +95,23 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new TopicFigure();
+		return primaryShape = new ServiceFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public TopicFigure getPrimaryShape() {
-		return (TopicFigure) primaryShape;
+	public ServiceFigure getPrimaryShape() {
+		return (ServiceFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof TopicNameEditPart) {
-			((TopicNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureTopicNameFigure());
+		if (childEditPart instanceof ServiceNameEditPart) {
+			((ServiceNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureServiceNameFigure());
 			return true;
 		}
 		return false;
@@ -121,7 +121,7 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof TopicNameEditPart) {
+		if (childEditPart instanceof ServiceNameEditPart) {
 			return true;
 		}
 		return false;
@@ -245,7 +245,7 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(RosVisualIDRegistry
-				.getType(TopicNameEditPart.VISUAL_ID));
+				.getType(ServiceNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -253,8 +253,8 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(RosElementTypes.Subscriber_4002);
-		types.add(RosElementTypes.Publisher_4004);
+		types.add(RosElementTypes.ServiceClient_4001);
+		types.add(RosElementTypes.ServiceServer_4003);
 		return types;
 	}
 
@@ -263,9 +263,9 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Subscriber_4002) {
+		if (relationshipType == RosElementTypes.ServiceClient_4001) {
 			types.add(RosElementTypes.Node_2001);
-		} else if (relationshipType == RosElementTypes.Publisher_4004) {
+		} else if (relationshipType == RosElementTypes.ServiceServer_4003) {
 			types.add(RosElementTypes.Node_2001);
 		}
 		return types;
@@ -274,17 +274,17 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class TopicFigure extends RectangleFigure {
+	public class ServiceFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureTopicNameFigure;
+		private WrappingLabel fFigureServiceNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public TopicFigure() {
+		public ServiceFigure() {
 
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -305,18 +305,18 @@ public class TopicEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureTopicNameFigure = new WrappingLabel();
-			fFigureTopicNameFigure.setText("<...>");
+			fFigureServiceNameFigure = new WrappingLabel();
+			fFigureServiceNameFigure.setText("<...>");
 
-			this.add(fFigureTopicNameFigure);
+			this.add(fFigureServiceNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureTopicNameFigure() {
-			return fFigureTopicNameFigure;
+		public WrappingLabel getFigureServiceNameFigure() {
+			return fFigureServiceNameFigure;
 		}
 
 	}

@@ -8,14 +8,14 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.ros.model.ros.Node;
-import org.ros.model.ros.Publisher;
-import org.ros.model.ros.Topic;
+import org.ros.model.ros.Service;
+import org.ros.model.ros.ServiceClient;
 import org.ros.model.ros.diagram.edit.policies.RosBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class PublisherReorientCommand extends EditElementCommand {
+public class ServiceClientReorientCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -35,7 +35,7 @@ public class PublisherReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public PublisherReorientCommand(ReorientRelationshipRequest request) {
+	public ServiceClientReorientCommand(ReorientRelationshipRequest request) {
 		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
 		oldEnd = request.getOldRelationshipEnd();
@@ -46,7 +46,7 @@ public class PublisherReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (false == getElementToEdit() instanceof Publisher) {
+		if (false == getElementToEdit() instanceof ServiceClient) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -65,16 +65,16 @@ public class PublisherReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Node && newEnd instanceof Node)) {
 			return false;
 		}
-		Topic target = getLink().getTopic();
+		Service target = getLink().getService();
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistPublisher_4004(getLink(), getNewSource(), target);
+				.canExistServiceClient_4001(getLink(), getNewSource(), target);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Topic && newEnd instanceof Topic)) {
+		if (!(oldEnd instanceof Service && newEnd instanceof Service)) {
 			return false;
 		}
 		if (!(getLink().eContainer() instanceof Node)) {
@@ -82,7 +82,7 @@ public class PublisherReorientCommand extends EditElementCommand {
 		}
 		Node source = (Node) getLink().eContainer();
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistPublisher_4004(getLink(), source, getNewTarget());
+				.canExistServiceClient_4001(getLink(), source, getNewTarget());
 	}
 
 	/**
@@ -107,8 +107,8 @@ public class PublisherReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getPublisher().remove(getLink());
-		getNewSource().getPublisher().add(getLink());
+		getOldSource().getServiceClient().remove(getLink());
+		getNewSource().getServiceClient().add(getLink());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -116,15 +116,15 @@ public class PublisherReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setTopic(getNewTarget());
+		getLink().setService(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Publisher getLink() {
-		return (Publisher) getElementToEdit();
+	protected ServiceClient getLink() {
+		return (ServiceClient) getElementToEdit();
 	}
 
 	/**
@@ -144,14 +144,14 @@ public class PublisherReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Topic getOldTarget() {
-		return (Topic) oldEnd;
+	protected Service getOldTarget() {
+		return (Service) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Topic getNewTarget() {
-		return (Topic) newEnd;
+	protected Service getNewTarget() {
+		return (Service) newEnd;
 	}
 }

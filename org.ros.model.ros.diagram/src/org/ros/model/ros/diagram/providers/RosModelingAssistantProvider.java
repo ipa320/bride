@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.ros.model.ros.diagram.edit.parts.NodeEditPart;
 import org.ros.model.ros.diagram.edit.parts.PackageEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceEditPart;
 import org.ros.model.ros.diagram.edit.parts.TopicEditPart;
 import org.ros.model.ros.diagram.part.Messages;
 import org.ros.model.ros.diagram.part.RosDiagramEditorPlugin;
@@ -38,9 +39,15 @@ public class RosModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof PackageEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(RosElementTypes.Topic_2001);
-			types.add(RosElementTypes.Node_2002);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(RosElementTypes.Node_2001);
+			types.add(RosElementTypes.Topic_2002);
+			types.add(RosElementTypes.Service_2003);
+			return types;
+		}
+		if (editPart instanceof NodeEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(RosElementTypes.Parameter_3001);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -66,6 +73,9 @@ public class RosModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof TopicEditPart) {
 			return ((TopicEditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof ServiceEditPart) {
+			return ((ServiceEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -95,6 +105,10 @@ public class RosModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof TopicEditPart) {
 			return ((TopicEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof ServiceEditPart) {
+			return ((ServiceEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
