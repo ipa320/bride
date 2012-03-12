@@ -60,7 +60,7 @@ public class PublisherCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreatePublisher_4002(getSource(), getTarget());
+				.canCreatePublisher_4004(getSource(), getTarget());
 	}
 
 	/**

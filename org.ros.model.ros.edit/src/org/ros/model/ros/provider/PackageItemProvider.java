@@ -245,6 +245,7 @@ public class PackageItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RosPackage.Literals.PACKAGE__NODE);
 			childrenFeatures.add(RosPackage.Literals.PACKAGE__TOPIC);
+			childrenFeatures.add(RosPackage.Literals.PACKAGE__SERVICE);
 		}
 		return childrenFeatures;
 	}
@@ -310,6 +311,7 @@ public class PackageItemProvider
 				return;
 			case RosPackage.PACKAGE__NODE:
 			case RosPackage.PACKAGE__TOPIC:
+			case RosPackage.PACKAGE__SERVICE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -336,6 +338,11 @@ public class PackageItemProvider
 			(createChildParameter
 				(RosPackage.Literals.PACKAGE__TOPIC,
 				 RosFactory.eINSTANCE.createTopic()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RosPackage.Literals.PACKAGE__SERVICE,
+				 RosFactory.eINSTANCE.createService()));
 	}
 
 	/**

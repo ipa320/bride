@@ -23,8 +23,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.ros.model.ros.Node;
+import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
 import org.ros.model.ros.RosPackage;
+import org.ros.model.ros.ServiceClient;
+import org.ros.model.ros.ServiceServer;
 import org.ros.model.ros.Subscriber;
 
 /**
@@ -38,6 +41,9 @@ import org.ros.model.ros.Subscriber;
  *   <li>{@link org.ros.model.ros.impl.NodeImpl#getLoopRate <em>Loop Rate</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.NodeImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.NodeImpl#getSubscriber <em>Subscriber</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.NodeImpl#getServiceClient <em>Service Client</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.NodeImpl#getServiceServer <em>Service Server</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.NodeImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +109,36 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 * @ordered
 	 */
 	protected EList<Subscriber> subscriber;
+
+	/**
+	 * The cached value of the '{@link #getServiceClient() <em>Service Client</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceClient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServiceClient> serviceClient;
+
+	/**
+	 * The cached value of the '{@link #getServiceServer() <em>Service Server</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceServer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServiceServer> serviceServer;
+
+	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> parameter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,6 +230,42 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ServiceClient> getServiceClient() {
+		if (serviceClient == null) {
+			serviceClient = new EObjectContainmentEList<ServiceClient>(ServiceClient.class, this, RosPackage.NODE__SERVICE_CLIENT);
+		}
+		return serviceClient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ServiceServer> getServiceServer() {
+		if (serviceServer == null) {
+			serviceServer = new EObjectContainmentEList<ServiceServer>(ServiceServer.class, this, RosPackage.NODE__SERVICE_SERVER);
+		}
+		return serviceServer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Parameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<Parameter>(Parameter.class, this, RosPackage.NODE__PARAMETER);
+		}
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -201,6 +273,12 @@ public class NodeImpl extends EObjectImpl implements Node {
 				return ((InternalEList<?>)getPublisher()).basicRemove(otherEnd, msgs);
 			case RosPackage.NODE__SUBSCRIBER:
 				return ((InternalEList<?>)getSubscriber()).basicRemove(otherEnd, msgs);
+			case RosPackage.NODE__SERVICE_CLIENT:
+				return ((InternalEList<?>)getServiceClient()).basicRemove(otherEnd, msgs);
+			case RosPackage.NODE__SERVICE_SERVER:
+				return ((InternalEList<?>)getServiceServer()).basicRemove(otherEnd, msgs);
+			case RosPackage.NODE__PARAMETER:
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,6 +299,12 @@ public class NodeImpl extends EObjectImpl implements Node {
 				return getPublisher();
 			case RosPackage.NODE__SUBSCRIBER:
 				return getSubscriber();
+			case RosPackage.NODE__SERVICE_CLIENT:
+				return getServiceClient();
+			case RosPackage.NODE__SERVICE_SERVER:
+				return getServiceServer();
+			case RosPackage.NODE__PARAMETER:
+				return getParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,6 +332,18 @@ public class NodeImpl extends EObjectImpl implements Node {
 				getSubscriber().clear();
 				getSubscriber().addAll((Collection<? extends Subscriber>)newValue);
 				return;
+			case RosPackage.NODE__SERVICE_CLIENT:
+				getServiceClient().clear();
+				getServiceClient().addAll((Collection<? extends ServiceClient>)newValue);
+				return;
+			case RosPackage.NODE__SERVICE_SERVER:
+				getServiceServer().clear();
+				getServiceServer().addAll((Collection<? extends ServiceServer>)newValue);
+				return;
+			case RosPackage.NODE__PARAMETER:
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends Parameter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -272,6 +368,15 @@ public class NodeImpl extends EObjectImpl implements Node {
 			case RosPackage.NODE__SUBSCRIBER:
 				getSubscriber().clear();
 				return;
+			case RosPackage.NODE__SERVICE_CLIENT:
+				getServiceClient().clear();
+				return;
+			case RosPackage.NODE__SERVICE_SERVER:
+				getServiceServer().clear();
+				return;
+			case RosPackage.NODE__PARAMETER:
+				getParameter().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -292,6 +397,12 @@ public class NodeImpl extends EObjectImpl implements Node {
 				return publisher != null && !publisher.isEmpty();
 			case RosPackage.NODE__SUBSCRIBER:
 				return subscriber != null && !subscriber.isEmpty();
+			case RosPackage.NODE__SERVICE_CLIENT:
+				return serviceClient != null && !serviceClient.isEmpty();
+			case RosPackage.NODE__SERVICE_SERVER:
+				return serviceServer != null && !serviceServer.isEmpty();
+			case RosPackage.NODE__PARAMETER:
+				return parameter != null && !parameter.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

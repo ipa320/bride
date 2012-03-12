@@ -34,6 +34,9 @@ import org.ros.model.ros.RosPackage;
 import org.ros.model.ros.diagram.edit.parts.NodeEditPart;
 import org.ros.model.ros.diagram.edit.parts.PackageEditPart;
 import org.ros.model.ros.diagram.edit.parts.PublisherEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceClientEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceServerEditPart;
 import org.ros.model.ros.diagram.edit.parts.SubscriberEditPart;
 import org.ros.model.ros.diagram.edit.parts.TopicEditPart;
 import org.ros.model.ros.diagram.part.RosDiagramUpdater;
@@ -69,9 +72,11 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(RosPackage.eINSTANCE.getPackage_Node());
 			myFeaturesToSynchronize
 					.add(RosPackage.eINSTANCE.getPackage_Topic());
-			myFeaturesToSynchronize.add(RosPackage.eINSTANCE.getPackage_Node());
+			myFeaturesToSynchronize.add(RosPackage.eINSTANCE
+					.getPackage_Service());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -105,8 +110,9 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = RosVisualIDRegistry.getVisualID(view);
-		return visualID == TopicEditPart.VISUAL_ID
-				|| visualID == NodeEditPart.VISUAL_ID;
+		return visualID == NodeEditPart.VISUAL_ID
+				|| visualID == TopicEditPart.VISUAL_ID
+				|| visualID == ServiceEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -265,10 +271,10 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case TopicEditPart.VISUAL_ID: {
+		case NodeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RosDiagramUpdater
-						.getTopic_2001ContainedLinks(view));
+						.getNode_2001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -276,10 +282,32 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case NodeEditPart.VISUAL_ID: {
+		case TopicEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RosDiagramUpdater
-						.getNode_2002ContainedLinks(view));
+						.getTopic_2002ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ServiceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RosDiagramUpdater
+						.getService_2003ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ServiceClientEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RosDiagramUpdater
+						.getServiceClient_4001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -290,7 +318,18 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 		case SubscriberEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RosDiagramUpdater
-						.getSubscriber_4001ContainedLinks(view));
+						.getSubscriber_4002ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ServiceServerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RosDiagramUpdater
+						.getServiceServer_4003ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -301,7 +340,7 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 		case PublisherEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RosDiagramUpdater
-						.getPublisher_4002ContainedLinks(view));
+						.getPublisher_4004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

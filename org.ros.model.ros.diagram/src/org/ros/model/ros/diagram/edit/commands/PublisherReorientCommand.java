@@ -67,7 +67,7 @@ public class PublisherReorientCommand extends EditElementCommand {
 		}
 		Topic target = getLink().getTopic();
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistPublisher_4002(getLink(), getNewSource(), target);
+				.canExistPublisher_4004(getLink(), getNewSource(), target);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class PublisherReorientCommand extends EditElementCommand {
 		}
 		Node source = (Node) getLink().eContainer();
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistPublisher_4002(getLink(), source, getNewTarget());
+				.canExistPublisher_4004(getLink(), source, getNewTarget());
 	}
 
 	/**

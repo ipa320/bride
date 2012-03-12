@@ -7,6 +7,7 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import org.ros.model.ros.diagram.edit.commands.NodeCreateCommand;
+import org.ros.model.ros.diagram.edit.commands.ServiceCreateCommand;
 import org.ros.model.ros.diagram.edit.commands.TopicCreateCommand;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
 
@@ -27,11 +28,14 @@ public class PackageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RosElementTypes.Topic_2001 == req.getElementType()) {
+		if (RosElementTypes.Node_2001 == req.getElementType()) {
+			return getGEFWrapper(new NodeCreateCommand(req));
+		}
+		if (RosElementTypes.Topic_2002 == req.getElementType()) {
 			return getGEFWrapper(new TopicCreateCommand(req));
 		}
-		if (RosElementTypes.Node_2002 == req.getElementType()) {
-			return getGEFWrapper(new NodeCreateCommand(req));
+		if (RosElementTypes.Service_2003 == req.getElementType()) {
+			return getGEFWrapper(new ServiceCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

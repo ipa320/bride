@@ -53,7 +53,7 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6001;
+	public static final int VISUAL_ID = 6002;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class SubscriberNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RosParserProvider
 					.getParser(
-							RosElementTypes.Subscriber_4001,
+							RosElementTypes.Subscriber_4002,
 							getParserElement(),
 							RosVisualIDRegistry
 									.getType(org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart.VISUAL_ID));

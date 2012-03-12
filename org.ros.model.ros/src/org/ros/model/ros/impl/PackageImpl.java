@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.ros.model.ros.Node;
 import org.ros.model.ros.RosPackage;
+import org.ros.model.ros.Service;
 import org.ros.model.ros.Topic;
 
 /**
@@ -43,6 +44,7 @@ import org.ros.model.ros.Topic;
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getRosdep <em>Rosdep</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.PackageImpl#getService <em>Service</em>}</li>
  * </ul>
  * </p>
  *
@@ -190,14 +192,24 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	protected String rosdep = ROSDEP_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
+	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTopic()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Topic> topic;
+	protected Topic topic;
+
+	/**
+	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getService()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Service> service;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -373,11 +385,54 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Topic> getTopic() {
-		if (topic == null) {
-			topic = new EObjectContainmentEList<Topic>(Topic.class, this, RosPackage.PACKAGE__TOPIC);
-		}
+	public Topic getTopic() {
 		return topic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTopic(Topic newTopic, NotificationChain msgs) {
+		Topic oldTopic = topic;
+		topic = newTopic;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RosPackage.PACKAGE__TOPIC, oldTopic, newTopic);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopic(Topic newTopic) {
+		if (newTopic != topic) {
+			NotificationChain msgs = null;
+			if (topic != null)
+				msgs = ((InternalEObject)topic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RosPackage.PACKAGE__TOPIC, null, msgs);
+			if (newTopic != null)
+				msgs = ((InternalEObject)newTopic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RosPackage.PACKAGE__TOPIC, null, msgs);
+			msgs = basicSetTopic(newTopic, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.PACKAGE__TOPIC, newTopic, newTopic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Service> getService() {
+		if (service == null) {
+			service = new EObjectContainmentEList<Service>(Service.class, this, RosPackage.PACKAGE__SERVICE);
+		}
+		return service;
 	}
 
 	/**
@@ -391,7 +446,9 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__NODE:
 				return ((InternalEList<?>)getNode()).basicRemove(otherEnd, msgs);
 			case RosPackage.PACKAGE__TOPIC:
-				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
+				return basicSetTopic(null, msgs);
+			case RosPackage.PACKAGE__SERVICE:
+				return ((InternalEList<?>)getService()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -422,6 +479,8 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				return getRosdep();
 			case RosPackage.PACKAGE__TOPIC:
 				return getTopic();
+			case RosPackage.PACKAGE__SERVICE:
+				return getService();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -462,8 +521,11 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				setRosdep((String)newValue);
 				return;
 			case RosPackage.PACKAGE__TOPIC:
-				getTopic().clear();
-				getTopic().addAll((Collection<? extends Topic>)newValue);
+				setTopic((Topic)newValue);
+				return;
+			case RosPackage.PACKAGE__SERVICE:
+				getService().clear();
+				getService().addAll((Collection<? extends Service>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -502,7 +564,10 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				setRosdep(ROSDEP_EDEFAULT);
 				return;
 			case RosPackage.PACKAGE__TOPIC:
-				getTopic().clear();
+				setTopic((Topic)null);
+				return;
+			case RosPackage.PACKAGE__SERVICE:
+				getService().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -533,7 +598,9 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__ROSDEP:
 				return ROSDEP_EDEFAULT == null ? rosdep != null : !ROSDEP_EDEFAULT.equals(rosdep);
 			case RosPackage.PACKAGE__TOPIC:
-				return topic != null && !topic.isEmpty();
+				return topic != null;
+			case RosPackage.PACKAGE__SERVICE:
+				return service != null && !service.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -22,6 +22,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Node#getLoopRate <em>Loop Rate</em>}</li>
  *   <li>{@link org.ros.model.ros.Node#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.ros.model.ros.Node#getSubscriber <em>Subscriber</em>}</li>
+ *   <li>{@link org.ros.model.ros.Node#getServiceClient <em>Service Client</em>}</li>
+ *   <li>{@link org.ros.model.ros.Node#getServiceServer <em>Service Server</em>}</li>
+ *   <li>{@link org.ros.model.ros.Node#getParameter <em>Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,5 +116,53 @@ public interface Node extends EObject {
 	 * @generated
 	 */
 	EList<Subscriber> getSubscriber();
+
+	/**
+	 * Returns the value of the '<em><b>Service Client</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.ServiceClient}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Service Client</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service Client</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getNode_ServiceClient()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ServiceClient> getServiceClient();
+
+	/**
+	 * Returns the value of the '<em><b>Service Server</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.ServiceServer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Service Server</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service Server</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getNode_ServiceServer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ServiceServer> getServiceServer();
+
+	/**
+	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameter</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getNode_Parameter()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter> getParameter();
 
 } // Node

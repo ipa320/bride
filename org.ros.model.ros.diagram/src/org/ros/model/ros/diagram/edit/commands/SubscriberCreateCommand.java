@@ -60,7 +60,7 @@ public class SubscriberCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return RosBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateSubscriber_4001(getSource(), getTarget());
+				.canCreateSubscriber_4002(getSource(), getTarget());
 	}
 
 	/**

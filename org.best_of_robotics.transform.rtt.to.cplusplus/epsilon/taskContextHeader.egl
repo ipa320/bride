@@ -1,0 +1,54 @@
+/*
+ * [%=taskContext.type%].hpp
+ *
+ */
+
+#ifndef [%=taskContext.type.toUpperCase()%]_HPP_
+#define [%=taskContext.type.toUpperCase()%]_HPP_
+
+using namespace RTT;
+
+namespace [%=taskContext.namespace%] 
+{
+	class [%=taskContext.type%]: public RTT::TaskContext
+	{
+		[%for(anInputPort in taskContext.inputPort) {%]
+		InputPort<[%=anInputPort.type%]> [%=anInputPort.name%];
+		[%}%]
+		[%for(anOutputPort in taskContext.outputPort) {%]
+		OutputPort<[%=anOutputPort.type%]> [%=anOutputPort.name%];
+		[%}%]
+		
+		[%=out.startPreserve("/*", "*/", "declarations", true)%]
+		[%=out.stopPreserve()%]
+	
+    public:
+        [%=taskContext.type%](const string& name);
+        
+        bool configureHook();
+        bool startHook();
+        void updateHook();
+        void stopHook();
+        void cleanupHook();
+        [%for(anOperation in taskContext.operacion) {%]
+        [%=anOperation.returnType%] [%=anOperation.name%]();
+        [%}%]
+        
+        [%=out.startPreserve("/*", "*/", "public", true)%]
+        [%=out.stopPreserve()%]
+        
+    protected:
+    	[%for(aProperty in taskContext.property) {%]
+    	[%=aProperty.name%] [%=aProperty.name%];
+    	[%}%]
+    	[%=out.startPreserve("/*", "*/", "protected", true)%]
+    	[%=out.stopPreserve()%]
+    	
+    private:
+    	[%=out.startPreserve("/*", "*/", "private", true)%]
+    	[%=out.stopPreserve()%]
+    	
+    };
+}
+
+#endif /* [%=taskContext.type.toUpperCase()%]_HPP_ */

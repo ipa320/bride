@@ -15,7 +15,7 @@ public class SubscriberItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SubscriberItemSemanticEditPolicy() {
-		super(RosElementTypes.Subscriber_4001);
+		super(RosElementTypes.Subscriber_4002);
 	}
 
 	/**

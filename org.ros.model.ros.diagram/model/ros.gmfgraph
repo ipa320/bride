@@ -5,43 +5,45 @@
     xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="ros">
   <figures
       name="Default">
-    <figures
-        xsi:type="gmfgraph:PolylineDecoration"
-        name="PublisherTopicTargetDecoration"/>
-    <figures
-        xsi:type="gmfgraph:PolylineDecoration"
-        name="SubscriberTopicTargetDecoration"/>
     <descriptors
         name="NodeFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="NodeFigure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:GridLayout"/>
         <children
             xsi:type="gmfgraph:Label"
             name="NodeNameFigure"
             text="&lt;...>">
-          <children
-              xsi:type="gmfgraph:Rectangle"
-              name="PublisherCompartmentFigure">
-            <layout
-                xsi:type="gmfgraph:StackLayout"/>
-          </children>
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              verticalAlignment="BEGINNING"
+              horizontalAlignment="BEGINNING"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ParameterCompartmentFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
         </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0/@children.0"/>
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PublisherFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:PolylineConnection"
           name="PublisherFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"/>
         <children
             xsi:type="gmfgraph:Label"
             name="PublisherNameFigure"
@@ -53,10 +55,8 @@
     <descriptors
         name="SubscriberFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:PolylineConnection"
           name="SubscriberFigure">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"/>
         <children
             xsi:type="gmfgraph:Label"
             name="SubscriberNameFigure"
@@ -81,40 +81,80 @@
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="PublisherTopicFigure">
+        name="ServiceFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="PublisherTopicConnectionFigure"
-          targetDecoration="//@figures.0/@figures.0"/>
+          xsi:type="gmfgraph:Rectangle"
+          name="ServiceFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="SubscriberTopicFigure">
+        name="ServiceServerFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="SubscriberTopicConnectionFigure"
-          targetDecoration="//@figures.0/@figures.1"/>
+          name="ServiceServerFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceServerNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ServiceClientFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ServiceClientFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ServiceClientNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ParameterFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParameterNameFigure"
+          text="&lt;...>"/>
     </descriptors>
   </figures>
   <nodes
       name="Node"
       figure="NodeFigure"/>
   <nodes
-      name="Publisher"
-      figure="PublisherFigure"/>
-  <nodes
-      name="Subscriber"
-      figure="SubscriberFigure"/>
-  <nodes
       name="Topic"
       figure="TopicFigure"/>
+  <nodes
+      name="Service"
+      figure="ServiceFigure"/>
+  <nodes
+      name="Parameter"
+      figure="ParameterFigure"/>
   <connections
-      name="Publisher to Topic"
-      figure="PublisherTopicFigure"/>
+      name="Publisher"
+      figure="PublisherFigure"/>
   <connections
-      name="Subscriber To Topic"
-      figure="SubscriberTopicFigure"/>
+      name="Subscriber"
+      figure="SubscriberFigure"/>
+  <connections
+      name="ServiceServer"
+      figure="ServiceServerFigure"/>
+  <connections
+      name="ServiceClient"
+      figure="ServiceClientFigure"/>
   <compartments
-      name="Publishers"
+      name="Parameters"
       figure="NodeFigure"
       needsTitle="true"
       accessor="//@figures.0/@descriptors.0/@accessors.1"/>
@@ -134,4 +174,19 @@
       name="TopicName"
       figure="TopicFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels
+      name="ServiceName"
+      figure="ServiceFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels
+      name="ServiceServerName"
+      figure="ServiceServerFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="ServiceClientName"
+      figure="ServiceClientFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="ParameterName"
+      figure="ParameterFigure"/>
 </gmfgraph:Canvas>

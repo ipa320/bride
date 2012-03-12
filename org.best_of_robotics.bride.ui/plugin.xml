@@ -23,5 +23,13 @@
             name="BRIDE">
       </category>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.best_of_robotics.bride.ui.preference.WorkbenchPreferencePage"
+            id="org.best_of_robotics.bride.ui.preference"
+            name="BRIDE">
+      </page>
+   </extension>
 
 </plugin>

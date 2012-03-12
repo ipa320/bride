@@ -16,9 +16,13 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.ros.model.ros.Node;
+import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
 import org.ros.model.ros.RosFactory;
 import org.ros.model.ros.RosPackage;
+import org.ros.model.ros.Service;
+import org.ros.model.ros.ServiceClient;
+import org.ros.model.ros.ServiceServer;
 import org.ros.model.ros.StandardMessageType;
 import org.ros.model.ros.Subscriber;
 import org.ros.model.ros.Topic;
@@ -72,6 +76,10 @@ public class RosFactoryImpl extends EFactoryImpl implements RosFactory {
 			case RosPackage.PUBLISHER: return createPublisher();
 			case RosPackage.SUBSCRIBER: return createSubscriber();
 			case RosPackage.TOPIC: return createTopic();
+			case RosPackage.SERVICE: return createService();
+			case RosPackage.SERVICE_SERVER: return createServiceServer();
+			case RosPackage.SERVICE_CLIENT: return createServiceClient();
+			case RosPackage.PARAMETER: return createParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -155,6 +163,46 @@ public class RosFactoryImpl extends EFactoryImpl implements RosFactory {
 	public Topic createTopic() {
 		TopicImpl topic = new TopicImpl();
 		return topic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Service createService() {
+		ServiceImpl service = new ServiceImpl();
+		return service;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceServer createServiceServer() {
+		ServiceServerImpl serviceServer = new ServiceServerImpl();
+		return serviceServer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceClient createServiceClient() {
+		ServiceClientImpl serviceClient = new ServiceClientImpl();
+		return serviceClient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
 	}
 
 	/**

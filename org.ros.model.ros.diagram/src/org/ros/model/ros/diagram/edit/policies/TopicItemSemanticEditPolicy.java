@@ -30,7 +30,7 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 	 * @generated
 	 */
 	public TopicItemSemanticEditPolicy() {
-		super(RosElementTypes.Topic_2001);
+		super(RosElementTypes.Topic_2002);
 	}
 
 	/**
@@ -85,10 +85,10 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RosElementTypes.Subscriber_4001 == req.getElementType()) {
+		if (RosElementTypes.Subscriber_4002 == req.getElementType()) {
 			return null;
 		}
-		if (RosElementTypes.Publisher_4002 == req.getElementType()) {
+		if (RosElementTypes.Publisher_4004 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -99,11 +99,11 @@ public class TopicItemSemanticEditPolicy extends RosBaseItemSemanticEditPolicy {
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RosElementTypes.Subscriber_4001 == req.getElementType()) {
+		if (RosElementTypes.Subscriber_4002 == req.getElementType()) {
 			return getGEFWrapper(new SubscriberCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (RosElementTypes.Publisher_4002 == req.getElementType()) {
+		if (RosElementTypes.Publisher_4004 == req.getElementType()) {
 			return getGEFWrapper(new PublisherCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}

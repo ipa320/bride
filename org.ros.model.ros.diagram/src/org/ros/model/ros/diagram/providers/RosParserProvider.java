@@ -14,7 +14,11 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ros.model.ros.RosPackage;
 import org.ros.model.ros.diagram.edit.parts.NodeNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ParameterEditPart;
 import org.ros.model.ros.diagram.edit.parts.PublisherNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceClientNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceNameEditPart;
+import org.ros.model.ros.diagram.edit.parts.ServiceServerNameEditPart;
 import org.ros.model.ros.diagram.edit.parts.SubscriberNameEditPart;
 import org.ros.model.ros.diagram.edit.parts.TopicNameEditPart;
 import org.ros.model.ros.diagram.parsers.MessageFormatParser;
@@ -29,73 +33,145 @@ public class RosParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser topicName_5001Parser;
+	private IParser nodeName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTopicName_5001Parser() {
-		if (topicName_5001Parser == null) {
-			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
-					.getTopic_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			topicName_5001Parser = parser;
-		}
-		return topicName_5001Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser nodeName_5002Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getNodeName_5002Parser() {
-		if (nodeName_5002Parser == null) {
+	private IParser getNodeName_5001Parser() {
+		if (nodeName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
 					.getNode_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			nodeName_5002Parser = parser;
+			nodeName_5001Parser = parser;
 		}
-		return nodeName_5002Parser;
+		return nodeName_5001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subscriberName_6001Parser;
+	private IParser topicName_5002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubscriberName_6001Parser() {
-		if (subscriberName_6001Parser == null) {
+	private IParser getTopicName_5002Parser() {
+		if (topicName_5002Parser == null) {
+			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
+					.getTopic_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			topicName_5002Parser = parser;
+		}
+		return topicName_5002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser serviceName_5003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getServiceName_5003Parser() {
+		if (serviceName_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
+					.getService_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			serviceName_5003Parser = parser;
+		}
+		return serviceName_5003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser parameter_3001Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getParameter_3001Parser() {
+		if (parameter_3001Parser == null) {
+			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
+					.getParameter_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parameter_3001Parser = parser;
+		}
+		return parameter_3001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser serviceClientName_6001Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getServiceClientName_6001Parser() {
+		if (serviceClientName_6001Parser == null) {
+			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
+					.getServiceClient_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			serviceClientName_6001Parser = parser;
+		}
+		return serviceClientName_6001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser subscriberName_6002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSubscriberName_6002Parser() {
+		if (subscriberName_6002Parser == null) {
 			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
 					.getSubscriber_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			subscriberName_6001Parser = parser;
+			subscriberName_6002Parser = parser;
 		}
-		return subscriberName_6001Parser;
+		return subscriberName_6002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser publisherName_6002Parser;
+	private IParser serviceServerName_6003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPublisherName_6002Parser() {
-		if (publisherName_6002Parser == null) {
+	private IParser getServiceServerName_6003Parser() {
+		if (serviceServerName_6003Parser == null) {
+			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
+					.getServiceServer_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			serviceServerName_6003Parser = parser;
+		}
+		return serviceServerName_6003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser publisherName_6004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPublisherName_6004Parser() {
+		if (publisherName_6004Parser == null) {
 			EAttribute[] features = new EAttribute[] { RosPackage.eINSTANCE
 					.getPublisher_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			publisherName_6002Parser = parser;
+			publisherName_6004Parser = parser;
 		}
-		return publisherName_6002Parser;
+		return publisherName_6004Parser;
 	}
 
 	/**
@@ -103,14 +179,22 @@ public class RosParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case TopicNameEditPart.VISUAL_ID:
-			return getTopicName_5001Parser();
 		case NodeNameEditPart.VISUAL_ID:
-			return getNodeName_5002Parser();
+			return getNodeName_5001Parser();
+		case TopicNameEditPart.VISUAL_ID:
+			return getTopicName_5002Parser();
+		case ServiceNameEditPart.VISUAL_ID:
+			return getServiceName_5003Parser();
+		case ParameterEditPart.VISUAL_ID:
+			return getParameter_3001Parser();
+		case ServiceClientNameEditPart.VISUAL_ID:
+			return getServiceClientName_6001Parser();
 		case SubscriberNameEditPart.VISUAL_ID:
-			return getSubscriberName_6001Parser();
+			return getSubscriberName_6002Parser();
+		case ServiceServerNameEditPart.VISUAL_ID:
+			return getServiceServerName_6003Parser();
 		case PublisherNameEditPart.VISUAL_ID:
-			return getPublisherName_6002Parser();
+			return getPublisherName_6004Parser();
 		}
 		return null;
 	}

@@ -107,13 +107,40 @@ public interface RosPackage extends EPackage {
 	int NODE__SUBSCRIBER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Service Client</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__SERVICE_CLIENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Service Server</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__SERVICE_SERVER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__PARAMETER = 6;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 4;
+	int NODE_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.PackageImpl <em>Package</em>}' class.
@@ -198,7 +225,7 @@ public interface RosPackage extends EPackage {
 	int PACKAGE__ROSDEP = 7;
 
 	/**
-	 * The feature id for the '<em><b>Topic</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Topic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -207,13 +234,22 @@ public interface RosPackage extends EPackage {
 	int PACKAGE__TOPIC = 8;
 
 	/**
+	 * The feature id for the '<em><b>Service</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SERVICE = 9;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 9;
+	int PACKAGE_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.PublisherImpl <em>Publisher</em>}' class.
@@ -363,6 +399,154 @@ public interface RosPackage extends EPackage {
 	int TOPIC_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.ros.model.ros.impl.ServiceImpl <em>Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.ros.model.ros.impl.ServiceImpl
+	 * @see org.ros.model.ros.impl.RosPackageImpl#getService()
+	 * @generated
+	 */
+	int SERVICE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.ros.model.ros.impl.ServiceServerImpl <em>Service Server</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.ros.model.ros.impl.ServiceServerImpl
+	 * @see org.ros.model.ros.impl.RosPackageImpl#getServiceServer()
+	 * @generated
+	 */
+	int SERVICE_SERVER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Service</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SERVER__SERVICE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SERVER__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Server</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SERVER_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.ros.model.ros.impl.ServiceClientImpl <em>Service Client</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.ros.model.ros.impl.ServiceClientImpl
+	 * @see org.ros.model.ros.impl.RosPackageImpl#getServiceClient()
+	 * @generated
+	 */
+	int SERVICE_CLIENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Service</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_CLIENT__SERVICE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_CLIENT__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Client</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_CLIENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.ros.model.ros.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.ros.model.ros.impl.ParameterImpl
+	 * @see org.ros.model.ros.impl.RosPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link org.ros.model.ros.StandardMessageType <em>Standard Message Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,7 +554,7 @@ public interface RosPackage extends EPackage {
 	 * @see org.ros.model.ros.impl.RosPackageImpl#getStandardMessageType()
 	 * @generated
 	 */
-	int STANDARD_MESSAGE_TYPE = 5;
+	int STANDARD_MESSAGE_TYPE = 9;
 
 
 	/**
@@ -426,6 +610,39 @@ public interface RosPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNode_Subscriber();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.ros.model.ros.Node#getServiceClient <em>Service Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Service Client</em>'.
+	 * @see org.ros.model.ros.Node#getServiceClient()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_ServiceClient();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.ros.model.ros.Node#getServiceServer <em>Service Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Service Server</em>'.
+	 * @see org.ros.model.ros.Node#getServiceServer()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_ServiceServer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.ros.model.ros.Node#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter</em>'.
+	 * @see org.ros.model.ros.Node#getParameter()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_Parameter();
 
 	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.Package <em>Package</em>}'.
@@ -526,15 +743,26 @@ public interface RosPackage extends EPackage {
 	EAttribute getPackage_Rosdep();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Topic</em>'.
+	 * @return the meta object for the containment reference '<em>Topic</em>'.
 	 * @see org.ros.model.ros.Package#getTopic()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EReference getPackage_Topic();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.ros.model.ros.Package#getService <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Service</em>'.
+	 * @see org.ros.model.ros.Package#getService()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Service();
 
 	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.Publisher <em>Publisher</em>}'.
@@ -677,6 +905,134 @@ public interface RosPackage extends EPackage {
 	EAttribute getTopic_Name();
 
 	/**
+	 * Returns the meta object for class '{@link org.ros.model.ros.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service</em>'.
+	 * @see org.ros.model.ros.Service
+	 * @generated
+	 */
+	EClass getService();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Service#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.ros.model.ros.Service#getName()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.ros.model.ros.ServiceServer <em>Service Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Server</em>'.
+	 * @see org.ros.model.ros.ServiceServer
+	 * @generated
+	 */
+	EClass getServiceServer();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.ros.model.ros.ServiceServer#getService <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Service</em>'.
+	 * @see org.ros.model.ros.ServiceServer#getService()
+	 * @see #getServiceServer()
+	 * @generated
+	 */
+	EReference getServiceServer_Service();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.ServiceServer#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.ros.model.ros.ServiceServer#getName()
+	 * @see #getServiceServer()
+	 * @generated
+	 */
+	EAttribute getServiceServer_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.ros.model.ros.ServiceClient <em>Service Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Client</em>'.
+	 * @see org.ros.model.ros.ServiceClient
+	 * @generated
+	 */
+	EClass getServiceClient();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.ros.model.ros.ServiceClient#getService <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Service</em>'.
+	 * @see org.ros.model.ros.ServiceClient#getService()
+	 * @see #getServiceClient()
+	 * @generated
+	 */
+	EReference getServiceClient_Service();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.ServiceClient#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.ros.model.ros.ServiceClient#getName()
+	 * @see #getServiceClient()
+	 * @generated
+	 */
+	EAttribute getServiceClient_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.ros.model.ros.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see org.ros.model.ros.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Parameter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.ros.model.ros.Parameter#getName()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Parameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.ros.model.ros.Parameter#getValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Parameter#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.ros.model.ros.Parameter#getType()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Type();
+
+	/**
 	 * Returns the meta object for enum '{@link org.ros.model.ros.StandardMessageType <em>Standard Message Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -749,6 +1105,30 @@ public interface RosPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NODE__SUBSCRIBER = eINSTANCE.getNode_Subscriber();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Client</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__SERVICE_CLIENT = eINSTANCE.getNode_ServiceClient();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Server</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__SERVICE_SERVER = eINSTANCE.getNode_ServiceServer();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__PARAMETER = eINSTANCE.getNode_Parameter();
 
 		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.PackageImpl <em>Package</em>}' class.
@@ -825,12 +1205,20 @@ public interface RosPackage extends EPackage {
 		EAttribute PACKAGE__ROSDEP = eINSTANCE.getPackage_Rosdep();
 
 		/**
-		 * The meta object literal for the '<em><b>Topic</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Topic</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PACKAGE__TOPIC = eINSTANCE.getPackage_Topic();
+
+		/**
+		 * The meta object literal for the '<em><b>Service</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__SERVICE = eINSTANCE.getPackage_Service();
 
 		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.PublisherImpl <em>Publisher</em>}' class.
@@ -941,6 +1329,110 @@ public interface RosPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TOPIC__NAME = eINSTANCE.getTopic_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.ros.model.ros.impl.ServiceImpl <em>Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.ros.model.ros.impl.ServiceImpl
+		 * @see org.ros.model.ros.impl.RosPackageImpl#getService()
+		 * @generated
+		 */
+		EClass SERVICE = eINSTANCE.getService();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__NAME = eINSTANCE.getService_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.ros.model.ros.impl.ServiceServerImpl <em>Service Server</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.ros.model.ros.impl.ServiceServerImpl
+		 * @see org.ros.model.ros.impl.RosPackageImpl#getServiceServer()
+		 * @generated
+		 */
+		EClass SERVICE_SERVER = eINSTANCE.getServiceServer();
+
+		/**
+		 * The meta object literal for the '<em><b>Service</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_SERVER__SERVICE = eINSTANCE.getServiceServer_Service();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_SERVER__NAME = eINSTANCE.getServiceServer_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.ros.model.ros.impl.ServiceClientImpl <em>Service Client</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.ros.model.ros.impl.ServiceClientImpl
+		 * @see org.ros.model.ros.impl.RosPackageImpl#getServiceClient()
+		 * @generated
+		 */
+		EClass SERVICE_CLIENT = eINSTANCE.getServiceClient();
+
+		/**
+		 * The meta object literal for the '<em><b>Service</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_CLIENT__SERVICE = eINSTANCE.getServiceClient_Service();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_CLIENT__NAME = eINSTANCE.getServiceClient_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.ros.model.ros.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.ros.model.ros.impl.ParameterImpl
+		 * @see org.ros.model.ros.impl.RosPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.StandardMessageType <em>Standard Message Type</em>}' enum.

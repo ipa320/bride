@@ -69,6 +69,8 @@ public class NodeItemProvider
 
 			addNamePropertyDescriptor(object);
 			addLoopRatePropertyDescriptor(object);
+			addServiceClientPropertyDescriptor(object);
+			addServiceServerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -118,6 +120,50 @@ public class NodeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Service Client feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addServiceClientPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_serviceClient_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_serviceClient_feature", "_UI_Node_type"),
+				 RosPackage.Literals.NODE__SERVICE_CLIENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Service Server feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addServiceServerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_serviceServer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_serviceServer_feature", "_UI_Node_type"),
+				 RosPackage.Literals.NODE__SERVICE_SERVER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -131,6 +177,7 @@ public class NodeItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RosPackage.Literals.NODE__PUBLISHER);
 			childrenFeatures.add(RosPackage.Literals.NODE__SUBSCRIBER);
+			childrenFeatures.add(RosPackage.Literals.NODE__PARAMETER);
 		}
 		return childrenFeatures;
 	}
@@ -191,6 +238,7 @@ public class NodeItemProvider
 				return;
 			case RosPackage.NODE__PUBLISHER:
 			case RosPackage.NODE__SUBSCRIBER:
+			case RosPackage.NODE__PARAMETER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -217,6 +265,11 @@ public class NodeItemProvider
 			(createChildParameter
 				(RosPackage.Literals.NODE__SUBSCRIBER,
 				 RosFactory.eINSTANCE.createSubscriber()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RosPackage.Literals.NODE__PARAMETER,
+				 RosFactory.eINSTANCE.createParameter()));
 	}
 
 	/**

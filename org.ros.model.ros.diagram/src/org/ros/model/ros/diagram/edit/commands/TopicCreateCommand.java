@@ -44,6 +44,10 @@ public class TopicCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
+		Package container = (Package) getElementToEdit();
+		if (container.getTopic() != null) {
+			return false;
+		}
 		return true;
 
 	}
@@ -56,7 +60,7 @@ public class TopicCreateCommand extends EditElementCommand {
 		Topic newElement = RosFactory.eINSTANCE.createTopic();
 
 		Package owner = (Package) getElementToEdit();
-		owner.getTopic().add(newElement);
+		owner.setTopic(newElement);
 
 		doConfigure(newElement, monitor, info);
 

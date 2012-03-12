@@ -288,6 +288,51 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Service5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Service5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ServiceServer6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ServiceServer6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ServiceClient7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ServiceClient7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Parameter8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Parameter8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String NodeParametersEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -298,32 +343,57 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Subscriber_4001_target;
+	public static String NavigatorGroupName_Subscriber_4002_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Subscriber_4001_source;
+	public static String NavigatorGroupName_Subscriber_4002_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Topic_2001_incominglinks;
+	public static String NavigatorGroupName_Topic_2002_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Publisher_4002_target;
+	public static String NavigatorGroupName_Service_2003_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Publisher_4002_source;
+	public static String NavigatorGroupName_Node_2001_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Node_2002_outgoinglinks;
+	public static String NavigatorGroupName_ServiceClient_4001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ServiceClient_4001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Publisher_4004_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Publisher_4004_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ServiceServer_4003_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ServiceServer_4003_source;
 
 	/**
 	 * @generated

@@ -1,0 +1,191 @@
+rule TaskContextToComponent 
+	transform s : Source!Package
+	to t : Target!Properties {
+	
+	var featureMapUtilTool = new Native("org.best_of_robotics.transform.rtt.to.cplusplus.tools.FeautreMapUtilTool");
+	
+	//Package
+	if (s.name.isDefined()) {
+		var str:String;
+		var seq:Sequence;
+		seq = s.name.split(':');
+		var sub:String;
+		for (sub in seq) {
+			var importSimple = new Target!Simple;
+			importSimple.name = "Import";
+			importSimple.type = Target!SimpleType#string;
+			var value = new Target!Value;
+			var mixed = value.mixed;
+			featureMapUtilTool.addText(mixed, sub);
+			importSimple.value = value;
+			t.simple.add(importSimple);
+		}
+	}
+	
+	//TaskContext
+	if (s.taskContext.isDefined()) {
+		
+		for(taskContext in s.taskContext) {
+			var component = new  Target!Struct;
+			component.name = taskContext.name;
+			component.type = taskContext.namespace + "::" + taskContext.type;
+			var port = null;
+			
+			//Properties
+			if (not taskContext.property.isEmpty()) {
+				for (aProperty in taskContext.property) {
+					var propertySimple = new Target!Simple;
+					propertySimple.name = "UpdateProperties";
+					propertySimple.type = Target!SimpleType#string;
+					var value = new Target!Value;
+					var mixed = value.mixed;
+					featureMapUtilTool.addText(mixed, taskContext.type + ".cpf");
+					propertySimple.value = value;
+					component.simple.add(propertySimple);
+				}
+			}
+			
+			//Ports
+			if (not taskContext.outputPort.isEmpty() or not taskContext.inputPort.isEmpty()) {
+				var ports = new Target!Struct;
+				ports.name = "Ports";
+				ports.type = "PropertyBag";
+				
+				//OutputPorts
+				for (aPort in taskContext.outputPort) {
+					port = new Target!Simple;
+					port.name = aPort.name;
+					var simpleType = Target!SimpleType#string;
+					port.type = simpleType;
+					ports.simple.add(port);
+					
+					//ConnectionPolicy for port
+					if (aPort.outputConnectionPolicy.isDefined()) {
+						var value = new Target!Value;
+						var mixed = value.mixed;
+						featureMapUtilTool.addText(mixed, aPort.outputConnectionPolicy.name);
+						port.value = value;
+					}
+				}
+				
+				//InputPorts
+				for (aPort in taskContext.inputPort) {
+					port = new Target!Simple;
+					port.name = aPort.name;
+					var simpleType = Target!SimpleType#string;
+					port.type = simpleType;
+					ports.simple.add(port);
+					
+					//ConnectionPolicy for port
+					if (aPort.inputConnectionPolicy.isDefined()) {
+						var value = new Target!Value;
+						var mixed = value.mixed;
+						featureMapUtilTool.addText(mixed, aPort.inputConnectionPolicy.name);
+						port.value = value;
+					}
+				}
+				component.struct.add(ports);
+			}
+			
+			//Activity
+			if (s.activity.isDefined()) {
+				
+				for (activity in s.activity) {
+				
+					if (activity.taskContext == taskContext) {
+						var activityStruct = new Target!Struct;
+						activityStruct.name = activity.name;
+						activityStruct.type = "Activity";
+						
+						//Activity Period
+						var period = new Target!Simple;
+						period.name = "Period";
+						var simpleType = Target!SimpleType#double;
+						period.type = simpleType;
+						var value = new Target!Value;
+						var mixed = value.mixed;
+						featureMapUtilTool.addText(mixed, activity.period.asString());
+						period.value = value;
+						
+						//Activity Priority
+						var priority = new Target!Simple;
+						priority.name = "Priority";
+						var simpleType = Target!SimpleType#short;
+						priority.type = simpleType;
+						var value = new Target!Value;
+						var mixed = value.mixed;
+						featureMapUtilTool.addText(mixed, activity.priority.asString());
+						priority.value = value;
+						
+						//Activity Scheduler
+						var scheduler = new Target!Simple;
+						scheduler.name = "Scheduler";
+						var simpleType = Target!SimpleType#string;
+						scheduler.type = simpleType;
+						var value = new Target!Value;
+						var mixed = value.mixed;
+						var schedulerString = "NOT_SET";
+						schedulerString = activity.scheduler.getLiteral();
+						//if (activity.scheduler == Source!Scheduler#ORO_SCHED_OTHER) {
+						//	schedulerString = activity.scheduler.getValue().asString();
+						//}
+						//if (activity.scheduler == Source!Scheduler#ORO_SCHED_RT) {
+						//	schedulerString = activity.scheduler.getLiteral();
+						//}
+						featureMapUtilTool.addText(mixed, schedulerString);
+						scheduler.value = value;
+						
+						activityStruct.simple.add(period);
+						activityStruct.simple.add(priority);
+						activityStruct.simple.add(scheduler);
+						component.struct.add(activityStruct);
+					}
+				}
+			}
+			
+			t.struct.add(component);
+		}
+	}
+	
+	//ConnectionPolicy
+	if (s.connectionPolicy.isDefined()) {
+		for(connectionPolicy in s.connectionPolicy) {
+			var connectionStruct = new  Target!Struct;
+			connectionStruct.name = connectionPolicy.name;
+			connectionStruct.type = "ConnPolicy";
+			
+			//ConnectionPolicy Type
+			var typeSimple = new Target!Simple;
+			typeSimple.name = "type";
+			var simpleType = Target!SimpleType#short;
+			typeSimple.type = simpleType;
+			var value = new Target!Value;
+			var mixed = value.mixed;
+			var typeString = "NOT_SET";
+			typeString = connectionPolicy.type.value.asString();
+			featureMapUtilTool.addText(mixed, typeString);
+			typeSimple.value = value;
+			connectionStruct.simple.add(typeSimple);
+			
+			//Buffer Size
+			if (connectionPolicy.type == Source!ConnectionPolicyType#BUFFER) {
+				
+				var bufferSizeSimple = new Target!Simple;
+				bufferSizeSimple.name = "type";
+				var simpleType = Target!SimpleType#short;
+				bufferSizeSimple.type = simpleType;
+				var value = new Target!Value;
+				var mixed = value.mixed;
+				var bufferString = "NOT_SET";
+				bufferString = connectionPolicy.bufferSize.asString();
+				featureMapUtilTool.addText(mixed, bufferString);
+				bufferSizeSimple.value = value;
+				connectionStruct.simple.add(bufferSizeSimple);
+			}
+			//ConnectionPolicy Type
+						
+						
+			t.struct.add(connectionStruct);
+		}
+	}
+}

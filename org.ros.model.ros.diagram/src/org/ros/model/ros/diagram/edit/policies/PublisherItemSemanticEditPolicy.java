@@ -15,7 +15,7 @@ public class PublisherItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public PublisherItemSemanticEditPolicy() {
-		super(RosElementTypes.Publisher_4002);
+		super(RosElementTypes.Publisher_4004);
 	}
 
 	/**

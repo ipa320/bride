@@ -37,7 +37,7 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	 * @generated
@@ -253,8 +253,8 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(RosElementTypes.Subscriber_4001);
-		types.add(RosElementTypes.Publisher_4002);
+		types.add(RosElementTypes.Subscriber_4002);
+		types.add(RosElementTypes.Publisher_4004);
 		return types;
 	}
 
@@ -263,10 +263,10 @@ public class TopicEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Subscriber_4001) {
-			types.add(RosElementTypes.Node_2002);
-		} else if (relationshipType == RosElementTypes.Publisher_4002) {
-			types.add(RosElementTypes.Node_2002);
+		if (relationshipType == RosElementTypes.Subscriber_4002) {
+			types.add(RosElementTypes.Node_2001);
+		} else if (relationshipType == RosElementTypes.Publisher_4004) {
+			types.add(RosElementTypes.Node_2001);
 		}
 		return types;
 	}
