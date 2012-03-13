@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.best_of_robotics.bride.ui.preference"
+            class="org.best_of_robotics.bride.ui.orocos.preference.OrocosPreferencePage"
+            id="org.best_of_robotics.bride.ui.orocos.preference"
+            name="Orocos">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.best_of_robotics.bride.ui.orocos.preference.OrocosPreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>
