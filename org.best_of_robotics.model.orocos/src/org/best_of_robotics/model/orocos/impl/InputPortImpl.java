@@ -6,10 +6,11 @@
  */
 package org.best_of_robotics.model.orocos.impl;
 
+import org.best_of_robotics.model.datatypes.DataType;
+
 import org.best_of_robotics.model.orocos.ConnectionPolicy;
 import org.best_of_robotics.model.orocos.InputPort;
 import org.best_of_robotics.model.orocos.OrocosPackage;
-import org.best_of_robotics.model.orocos.PortType;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,8 +30,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link org.best_of_robotics.model.orocos.impl.InputPortImpl#getIsEventPort <em>Is Event Port</em>}</li>
  *   <li>{@link org.best_of_robotics.model.orocos.impl.InputPortImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.best_of_robotics.model.orocos.impl.InputPortImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.best_of_robotics.model.orocos.impl.InputPortImpl#getInputConnectionPolicy <em>Input Connection Policy</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.orocos.impl.InputPortImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,26 +79,6 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final PortType TYPE_EDEFAULT = PortType.CHAR;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected PortType type = TYPE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getInputConnectionPolicy() <em>Input Connection Policy</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,6 +87,16 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 	 * @ordered
 	 */
 	protected ConnectionPolicy inputConnectionPolicy;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,27 +164,6 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PortType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(PortType newType) {
-		PortType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OrocosPackage.INPUT_PORT__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConnectionPolicy getInputConnectionPolicy() {
 		if (inputConnectionPolicy != null && inputConnectionPolicy.eIsProxy()) {
 			InternalEObject oldInputConnectionPolicy = (InternalEObject)inputConnectionPolicy;
@@ -254,6 +224,44 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataType getType() {
+		if (type != null && type.eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (DataType)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OrocosPackage.INPUT_PORT__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataType basicGetType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(DataType newType) {
+		DataType oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OrocosPackage.INPUT_PORT__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -291,11 +299,12 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 				return getIsEventPort();
 			case OrocosPackage.INPUT_PORT__NAME:
 				return getName();
-			case OrocosPackage.INPUT_PORT__TYPE:
-				return getType();
 			case OrocosPackage.INPUT_PORT__INPUT_CONNECTION_POLICY:
 				if (resolve) return getInputConnectionPolicy();
 				return basicGetInputConnectionPolicy();
+			case OrocosPackage.INPUT_PORT__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -314,11 +323,11 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 			case OrocosPackage.INPUT_PORT__NAME:
 				setName((String)newValue);
 				return;
-			case OrocosPackage.INPUT_PORT__TYPE:
-				setType((PortType)newValue);
-				return;
 			case OrocosPackage.INPUT_PORT__INPUT_CONNECTION_POLICY:
 				setInputConnectionPolicy((ConnectionPolicy)newValue);
+				return;
+			case OrocosPackage.INPUT_PORT__TYPE:
+				setType((DataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,11 +347,11 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 			case OrocosPackage.INPUT_PORT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case OrocosPackage.INPUT_PORT__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case OrocosPackage.INPUT_PORT__INPUT_CONNECTION_POLICY:
 				setInputConnectionPolicy((ConnectionPolicy)null);
+				return;
+			case OrocosPackage.INPUT_PORT__TYPE:
+				setType((DataType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -360,10 +369,10 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 				return IS_EVENT_PORT_EDEFAULT == null ? isEventPort != null : !IS_EVENT_PORT_EDEFAULT.equals(isEventPort);
 			case OrocosPackage.INPUT_PORT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case OrocosPackage.INPUT_PORT__TYPE:
-				return type != TYPE_EDEFAULT;
 			case OrocosPackage.INPUT_PORT__INPUT_CONNECTION_POLICY:
 				return inputConnectionPolicy != null;
+			case OrocosPackage.INPUT_PORT__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -382,8 +391,6 @@ public class InputPortImpl extends EObjectImpl implements InputPort {
 		result.append(isEventPort);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

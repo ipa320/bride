@@ -7,33 +7,6 @@
   <foreignModel>orocos.ecore</foreignModel>
   <genPackages prefix="Orocos" basePackage="org.best_of_robotics.model" disposableProviderFactory="true"
       ecorePackage="orocos.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//PortType">
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/char"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/int"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/float"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/double"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/short"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/long"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/string"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_char"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_int"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_float"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_double"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_short"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/unsigned_long"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_char"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_int"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_float"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_double"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_short"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_long"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_char"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_int"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_float"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_double"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_short"/>
-      <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//PortType/vector_of_unsigned_long"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="orocos.ecore#//Scheduler">
       <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//Scheduler/ORO_SCHED_OTHER"/>
       <genEnumLiterals ecoreEnumLiteral="orocos.ecore#//Scheduler/ORO_SCHED_RT"/>
@@ -83,8 +56,8 @@
     <genClasses ecoreClass="orocos.ecore#//InputPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/isEventPort"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//InputPort/inputConnectionPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference orocos.ecore#//InputPort/type"/>
     </genClasses>
     <genClasses ecoreClass="orocos.ecore#//OutputPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//OutputPort/name"/>

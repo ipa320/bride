@@ -19,7 +19,6 @@ import org.best_of_robotics.model.orocos.OperationReturnType;
 import org.best_of_robotics.model.orocos.OrocosFactory;
 import org.best_of_robotics.model.orocos.OrocosPackage;
 import org.best_of_robotics.model.orocos.OutputPort;
-import org.best_of_robotics.model.orocos.PortType;
 import org.best_of_robotics.model.orocos.Property;
 import org.best_of_robotics.model.orocos.PropertyType;
 import org.best_of_robotics.model.orocos.Scheduler;
@@ -102,13 +101,6 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 	 * @generated
 	 */
 	private EClass operationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum portTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -358,8 +350,8 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInputPort_Type() {
-		return (EAttribute)inputPortEClass.getEStructuralFeatures().get(2);
+	public EReference getInputPort_InputConnectionPolicy() {
+		return (EReference)inputPortEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -367,7 +359,7 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInputPort_InputConnectionPolicy() {
+	public EReference getInputPort_Type() {
 		return (EReference)inputPortEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -628,15 +620,6 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getPortType() {
-		return portTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getScheduler() {
 		return schedulerEEnum;
 	}
@@ -723,8 +706,8 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 		inputPortEClass = createEClass(INPUT_PORT);
 		createEAttribute(inputPortEClass, INPUT_PORT__IS_EVENT_PORT);
 		createEAttribute(inputPortEClass, INPUT_PORT__NAME);
-		createEAttribute(inputPortEClass, INPUT_PORT__TYPE);
 		createEReference(inputPortEClass, INPUT_PORT__INPUT_CONNECTION_POLICY);
+		createEReference(inputPortEClass, INPUT_PORT__TYPE);
 
 		outputPortEClass = createEClass(OUTPUT_PORT);
 		createEAttribute(outputPortEClass, OUTPUT_PORT__NAME);
@@ -761,7 +744,6 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 		createEAttribute(operationEClass, OPERATION__DOCUMENTATION);
 
 		// Create enums
-		portTypeEEnum = createEEnum(PORT_TYPE);
 		schedulerEEnum = createEEnum(SCHEDULER);
 		connectionPolicyTypeEEnum = createEEnum(CONNECTION_POLICY_TYPE);
 		connectionPolicyLockPolicyEEnum = createEEnum(CONNECTION_POLICY_LOCK_POLICY);
@@ -821,8 +803,8 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 		initEClass(inputPortEClass, InputPort.class, "InputPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputPort_IsEventPort(), ecorePackage.getEBooleanObject(), "isEventPort", "false", 1, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInputPort_Name(), ecorePackage.getEString(), "name", null, 1, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInputPort_Type(), this.getPortType(), "type", null, 1, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInputPort_InputConnectionPolicy(), this.getConnectionPolicy(), this.getConnectionPolicy_InputPort(), "inputConnectionPolicy", null, 1, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputPort_Type(), theDatatypesPackage.getDataType(), null, "type", null, 0, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputPortEClass, OutputPort.class, "OutputPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOutputPort_Name(), ecorePackage.getEString(), "name", null, 1, 1, OutputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -859,33 +841,6 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 		initEAttribute(getOperation_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(portTypeEEnum, PortType.class, "PortType");
-		addEEnumLiteral(portTypeEEnum, PortType.CHAR);
-		addEEnumLiteral(portTypeEEnum, PortType.INT);
-		addEEnumLiteral(portTypeEEnum, PortType.FLOAT);
-		addEEnumLiteral(portTypeEEnum, PortType.DOUBLE);
-		addEEnumLiteral(portTypeEEnum, PortType.SHORT);
-		addEEnumLiteral(portTypeEEnum, PortType.LONG);
-		addEEnumLiteral(portTypeEEnum, PortType.STRING);
-		addEEnumLiteral(portTypeEEnum, PortType.UNSIGNED_CHAR);
-		addEEnumLiteral(portTypeEEnum, PortType.UNSIGNED_INT);
-		addEEnumLiteral(portTypeEEnum, PortType.UNSIGNED_FLOAT);
-		addEEnumLiteral(portTypeEEnum, PortType.UNSIGNED_DOUBLE);
-		addEEnumLiteral(portTypeEEnum, PortType.UNSIGNED_SHORT);
-		addEEnumLiteral(portTypeEEnum, PortType.UNSIGNED_LONG);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_CHAR);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_INT);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_FLOAT);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_DOUBLE);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_SHORT);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_LONG);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_UNSIGNED_CHAR);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_UNSIGNED_INT);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_UNSIGNED_FLOAT);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_UNSIGNED_DOUBLE);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_UNSIGNED_SHORT);
-		addEEnumLiteral(portTypeEEnum, PortType.VECTOR_OF_UNSIGNED_LONG);
-
 		initEEnum(schedulerEEnum, Scheduler.class, "Scheduler");
 		addEEnumLiteral(schedulerEEnum, Scheduler.ORO_SCHED_OTHER);
 		addEEnumLiteral(schedulerEEnum, Scheduler.ORO_SCHED_RT);

@@ -32,9 +32,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PortType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnectionPolicy"
         lowerBound="1" eType="#//ConnectionPolicy" eOpposite="#//ConnectionPolicy/inputPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.best_of_robotics.model.datatypes/model/DataTypes.ecore#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPort">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -53,33 +53,6 @@
         defaultValueLiteral="LOCK_FREE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConnectionPolicyType"
         defaultValueLiteral="DATA"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="PortType">
-    <eLiterals name="char" literal="char"/>
-    <eLiterals name="int" value="1"/>
-    <eLiterals name="float" value="2"/>
-    <eLiterals name="double" value="3"/>
-    <eLiterals name="short" value="4"/>
-    <eLiterals name="long" value="5"/>
-    <eLiterals name="string" value="6"/>
-    <eLiterals name="unsigned_char" value="7" literal="unsigned char"/>
-    <eLiterals name="unsigned_int" value="8" literal="unsigned int"/>
-    <eLiterals name="unsigned_float" value="9" literal="unsigned float"/>
-    <eLiterals name="unsigned_double" value="10" literal="unsigned double"/>
-    <eLiterals name="unsigned_short" value="11" literal="unsigned short"/>
-    <eLiterals name="unsigned_long" value="12" literal="unsigned long"/>
-    <eLiterals name="vector_of_char" value="13" literal="std::vector&lt;char>"/>
-    <eLiterals name="vector_of_int" value="14" literal="std::vector&lt;int>"/>
-    <eLiterals name="vector_of_float" value="15" literal="std::vector&lt;float>"/>
-    <eLiterals name="vector_of_double" value="16" literal="std::vector&lt;double>"/>
-    <eLiterals name="vector_of_short" value="17" literal="std::vector&lt;short>"/>
-    <eLiterals name="vector_of_long" value="18" literal="std::vector&lt;long>"/>
-    <eLiterals name="vector_of_unsigned_char" value="19" literal="std::vector&lt;unsigened char>"/>
-    <eLiterals name="vector_of_unsigned_int" value="20" literal="std::vector&lt;unsigned int>"/>
-    <eLiterals name="vector_of_unsigned_float" value="21" literal="std::vector&lt;unsigned float>"/>
-    <eLiterals name="vector_of_unsigned_double" value="22" literal="std::vector&lt;unsigned double>"/>
-    <eLiterals name="vector_of_unsigned_short" value="23" literal="std::vector&lt;unsigned short>"/>
-    <eLiterals name="vector_of_unsigned_long" value="24" literal="std::vector&lt;unsigned long>"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//IActivity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduler" lowerBound="1"

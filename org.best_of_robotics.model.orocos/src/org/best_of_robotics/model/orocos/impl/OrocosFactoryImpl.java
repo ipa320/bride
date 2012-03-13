@@ -16,7 +16,6 @@ import org.best_of_robotics.model.orocos.OperationReturnType;
 import org.best_of_robotics.model.orocos.OrocosFactory;
 import org.best_of_robotics.model.orocos.OrocosPackage;
 import org.best_of_robotics.model.orocos.OutputPort;
-import org.best_of_robotics.model.orocos.PortType;
 import org.best_of_robotics.model.orocos.Property;
 import org.best_of_robotics.model.orocos.PropertyType;
 import org.best_of_robotics.model.orocos.Scheduler;
@@ -96,8 +95,6 @@ public class OrocosFactoryImpl extends EFactoryImpl implements OrocosFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case OrocosPackage.PORT_TYPE:
-				return createPortTypeFromString(eDataType, initialValue);
 			case OrocosPackage.SCHEDULER:
 				return createSchedulerFromString(eDataType, initialValue);
 			case OrocosPackage.CONNECTION_POLICY_TYPE:
@@ -121,8 +118,6 @@ public class OrocosFactoryImpl extends EFactoryImpl implements OrocosFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case OrocosPackage.PORT_TYPE:
-				return convertPortTypeToString(eDataType, instanceValue);
 			case OrocosPackage.SCHEDULER:
 				return convertSchedulerToString(eDataType, instanceValue);
 			case OrocosPackage.CONNECTION_POLICY_TYPE:
@@ -216,26 +211,6 @@ public class OrocosFactoryImpl extends EFactoryImpl implements OrocosFactory {
 	public Operation createOperation() {
 		OperationImpl operation = new OperationImpl();
 		return operation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PortType createPortTypeFromString(EDataType eDataType, String initialValue) {
-		PortType result = PortType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPortTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

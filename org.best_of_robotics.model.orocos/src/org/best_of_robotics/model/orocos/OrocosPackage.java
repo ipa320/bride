@@ -226,22 +226,22 @@ public interface OrocosPackage extends EPackage {
 	int INPUT_PORT__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PORT__TYPE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Input Connection Policy</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PORT__INPUT_CONNECTION_POLICY = 3;
+	int INPUT_PORT__INPUT_CONNECTION_POLICY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PORT__TYPE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Input Port</em>' class.
@@ -583,16 +583,6 @@ public interface OrocosPackage extends EPackage {
 	int OPERATION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.PortType <em>Port Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.best_of_robotics.model.orocos.PortType
-	 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getPortType()
-	 * @generated
-	 */
-	int PORT_TYPE = 9;
-
-	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.Scheduler <em>Scheduler</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -600,7 +590,7 @@ public interface OrocosPackage extends EPackage {
 	 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getScheduler()
 	 * @generated
 	 */
-	int SCHEDULER = 10;
+	int SCHEDULER = 9;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.ConnectionPolicyType <em>Connection Policy Type</em>}' enum.
@@ -610,7 +600,7 @@ public interface OrocosPackage extends EPackage {
 	 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getConnectionPolicyType()
 	 * @generated
 	 */
-	int CONNECTION_POLICY_TYPE = 11;
+	int CONNECTION_POLICY_TYPE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.ConnectionPolicyLockPolicy <em>Connection Policy Lock Policy</em>}' enum.
@@ -620,7 +610,7 @@ public interface OrocosPackage extends EPackage {
 	 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getConnectionPolicyLockPolicy()
 	 * @generated
 	 */
-	int CONNECTION_POLICY_LOCK_POLICY = 12;
+	int CONNECTION_POLICY_LOCK_POLICY = 11;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.PropertyType <em>Property Type</em>}' enum.
@@ -630,7 +620,7 @@ public interface OrocosPackage extends EPackage {
 	 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getPropertyType()
 	 * @generated
 	 */
-	int PROPERTY_TYPE = 13;
+	int PROPERTY_TYPE = 12;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.OperationReturnType <em>Operation Return Type</em>}' enum.
@@ -640,7 +630,7 @@ public interface OrocosPackage extends EPackage {
 	 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getOperationReturnType()
 	 * @generated
 	 */
-	int OPERATION_RETURN_TYPE = 14;
+	int OPERATION_RETURN_TYPE = 13;
 
 
 	/**
@@ -817,17 +807,6 @@ public interface OrocosPackage extends EPackage {
 	EAttribute getInputPort_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.orocos.InputPort#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.best_of_robotics.model.orocos.InputPort#getType()
-	 * @see #getInputPort()
-	 * @generated
-	 */
-	EAttribute getInputPort_Type();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.best_of_robotics.model.orocos.InputPort#getInputConnectionPolicy <em>Input Connection Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -837,6 +816,17 @@ public interface OrocosPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInputPort_InputConnectionPolicy();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.best_of_robotics.model.orocos.InputPort#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see org.best_of_robotics.model.orocos.InputPort#getType()
+	 * @see #getInputPort()
+	 * @generated
+	 */
+	EReference getInputPort_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.orocos.OutputPort <em>Output Port</em>}'.
@@ -1141,16 +1131,6 @@ public interface OrocosPackage extends EPackage {
 	EAttribute getOperation_Documentation();
 
 	/**
-	 * Returns the meta object for enum '{@link org.best_of_robotics.model.orocos.PortType <em>Port Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Port Type</em>'.
-	 * @see org.best_of_robotics.model.orocos.PortType
-	 * @generated
-	 */
-	EEnum getPortType();
-
-	/**
 	 * Returns the meta object for enum '{@link org.best_of_robotics.model.orocos.Scheduler <em>Scheduler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1357,20 +1337,20 @@ public interface OrocosPackage extends EPackage {
 		EAttribute INPUT_PORT__NAME = eINSTANCE.getInputPort_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INPUT_PORT__TYPE = eINSTANCE.getInputPort_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Input Connection Policy</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference INPUT_PORT__INPUT_CONNECTION_POLICY = eINSTANCE.getInputPort_InputConnectionPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_PORT__TYPE = eINSTANCE.getInputPort_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.orocos.impl.OutputPortImpl <em>Output Port</em>}' class.
@@ -1607,16 +1587,6 @@ public interface OrocosPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPERATION__DOCUMENTATION = eINSTANCE.getOperation_Documentation();
-
-		/**
-		 * The meta object literal for the '{@link org.best_of_robotics.model.orocos.PortType <em>Port Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.best_of_robotics.model.orocos.PortType
-		 * @see org.best_of_robotics.model.orocos.impl.OrocosPackageImpl#getPortType()
-		 * @generated
-		 */
-		EEnum PORT_TYPE = eINSTANCE.getPortType();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.orocos.Scheduler <em>Scheduler</em>}' enum.
