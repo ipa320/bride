@@ -76,16 +76,12 @@ public class OrocosEditPartFactory implements EditPartFactory {
 				return new org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortNameEditPart(
 						view);
 
-			case org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart.VISUAL_ID:
-				return new org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart(
+			case org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID:
+				return new org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart(
 						view);
 
 			case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
 				return new org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart(
-						view);
-
-			case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyNameEditPart.VISUAL_ID:
-				return new org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyNameEditPart(
 						view);
 
 			case org.best_of_robotics.model.orocos.diagram.edit.parts.OperationEditPart.VISUAL_ID:

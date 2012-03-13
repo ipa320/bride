@@ -30,7 +30,7 @@ public class OrocosOCLFactory {
 	 * @generated
 	 */
 	protected OrocosOCLFactory() {
-		this.expressions = new org.best_of_robotics.model.orocos.diagram.expressions.OrocosAbstractExpression[1];
+		this.expressions = new org.best_of_robotics.model.orocos.diagram.expressions.OrocosAbstractExpression[2];
 	}
 
 	/**
@@ -50,6 +50,7 @@ public class OrocosOCLFactory {
 		}
 		if (cached.expressions[index] == null) {
 			final String[] exprBodies = new String[] { "self.type.name", //$NON-NLS-1$
+					"self.type.name", //$NON-NLS-1$
 			};
 			cached.expressions[index] = getExpression(
 					exprBodies[index],

@@ -211,6 +211,25 @@ public class OrocosNavigatorContentProvider implements ICommonContentProvider {
 		switch (org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
 				.getVisualID(view)) {
 
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID: {
+			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup outgoinglinks = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
+					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_Activity_2002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
+							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortEditPart.VISUAL_ID: {
 			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -265,48 +284,17 @@ public class OrocosNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID: {
-			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup target = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
-					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_IActivityTaskContext_4002_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup source = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
-					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_IActivityTaskContext_4002_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.TaskContextEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID: {
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortEditPart.VISUAL_ID: {
 			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup outgoinglinks = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
-					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_Activity_2002_outgoinglinks,
+					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_OutputPort_3001_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(sv),
 					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID));
+							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!outgoinglinks.isEmpty()) {
@@ -366,25 +354,6 @@ public class OrocosNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortEditPart.VISUAL_ID: {
-			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup outgoinglinks = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
-					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_OutputPort_3001_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyEditPart.VISUAL_ID: {
 			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
@@ -405,6 +374,37 @@ public class OrocosNavigatorContentProvider implements ICommonContentProvider {
 					Collections.singleton(sv),
 					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
 							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID: {
+			LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem> result = new LinkedList<org.best_of_robotics.model.orocos.diagram.navigator.OrocosAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup target = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
+					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_IActivityTaskContext_4002_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup source = new org.best_of_robotics.model.orocos.diagram.navigator.OrocosNavigatorGroup(
+					org.best_of_robotics.model.orocos.diagram.part.Messages.NavigatorGroupName_IActivityTaskContext_4002_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
+							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.TaskContextEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
+							.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

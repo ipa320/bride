@@ -224,12 +224,7 @@ public class OrocosVisualIDRegistry {
 			if (org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
-			if (org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

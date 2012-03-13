@@ -151,39 +151,35 @@ public class OrocosParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser inputPortType_5004Parser;
+	private org.best_of_robotics.model.orocos.diagram.parsers.InputPortLabelExpressionLabelParser inputPortLabel_5004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInputPortType_5004Parser() {
-		if (inputPortType_5004Parser == null) {
-			EAttribute[] features = new EAttribute[] { org.best_of_robotics.model.orocos.OrocosPackage.eINSTANCE
-					.getInputPort_Type() };
-			org.best_of_robotics.model.orocos.diagram.parsers.MessageFormatParser parser = new org.best_of_robotics.model.orocos.diagram.parsers.MessageFormatParser(
-					features);
-			inputPortType_5004Parser = parser;
+	private IParser getInputPortLabel_5004Parser() {
+		if (inputPortLabel_5004Parser == null) {
+			inputPortLabel_5004Parser = new org.best_of_robotics.model.orocos.diagram.parsers.InputPortLabelExpressionLabelParser();
 		}
-		return inputPortType_5004Parser;
+		return inputPortLabel_5004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser propertyName_5005Parser;
+	private IParser property_3003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPropertyName_5005Parser() {
-		if (propertyName_5005Parser == null) {
+	private IParser getProperty_3003Parser() {
+		if (property_3003Parser == null) {
 			EAttribute[] features = new EAttribute[] { org.best_of_robotics.model.orocos.OrocosPackage.eINSTANCE
 					.getProperty_Name() };
 			org.best_of_robotics.model.orocos.diagram.parsers.MessageFormatParser parser = new org.best_of_robotics.model.orocos.diagram.parsers.MessageFormatParser(
 					features);
-			propertyName_5005Parser = parser;
+			property_3003Parser = parser;
 		}
-		return propertyName_5005Parser;
+		return property_3003Parser;
 	}
 
 	/**
@@ -243,10 +239,10 @@ public class OrocosParserProvider extends AbstractProvider implements
 			return getOutputPortLabel_5002Parser();
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortNameEditPart.VISUAL_ID:
 			return getInputPortName_5003Parser();
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart.VISUAL_ID:
-			return getInputPortType_5004Parser();
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyNameEditPart.VISUAL_ID:
-			return getPropertyName_5005Parser();
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID:
+			return getInputPortLabel_5004Parser();
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
+			return getProperty_3003Parser();
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.OperationEditPart.VISUAL_ID:
 			return getOperation_3004Parser();
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyNameEditPart.VISUAL_ID:

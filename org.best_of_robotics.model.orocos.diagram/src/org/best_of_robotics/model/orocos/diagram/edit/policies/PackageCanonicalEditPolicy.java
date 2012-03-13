@@ -308,17 +308,6 @@ public class PackageCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramUpdater
-						.getProperty_3003ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramUpdater

@@ -78,11 +78,11 @@
                 href="../../org.best_of_robotics.model.orocos/model/orocos.ecore#//InputPort/name"/>
           </labelMappings>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:ExpressionLabelMapping">
             <diagramLabel
                 href="orocos.gmfgraph#InputPortType"/>
-            <features
-                href="../../org.best_of_robotics.model.orocos/model/orocos.ecore#//InputPort/type"/>
+            <viewExpression
+                body="self.type.name"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

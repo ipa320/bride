@@ -115,8 +115,8 @@ public class InputPortEditPart extends AbstractBorderItemEditPart {
 					.setLabel(getPrimaryShape().getFigureInputPortNameFigure());
 			return true;
 		}
-		if (childEditPart instanceof org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart) {
-			((org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart) childEditPart)
+		if (childEditPart instanceof org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart) {
+			((org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureInputPortTypeFigure());
 			return true;
 		}
@@ -130,7 +130,7 @@ public class InputPortEditPart extends AbstractBorderItemEditPart {
 		if (childEditPart instanceof org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortTypeEditPart) {
+		if (childEditPart instanceof org.best_of_robotics.model.orocos.diagram.edit.parts.WrappingLabel2EditPart) {
 			return true;
 		}
 		return false;

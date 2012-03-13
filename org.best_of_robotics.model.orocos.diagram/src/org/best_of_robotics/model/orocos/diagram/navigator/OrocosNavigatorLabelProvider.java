@@ -77,33 +77,33 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 	public Image getImage(View view) {
 		switch (org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
 				.getVisualID(view)) {
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://orocos/1.0?Activity", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Activity_2002); //$NON-NLS-1$
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://orocos/1.0?InputPort", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.InputPort_3002); //$NON-NLS-1$
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.PackageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://orocos/1.0?Package", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Package_1000); //$NON-NLS-1$
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://orocos/1.0?IActivity?taskContext", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.IActivityTaskContext_4002); //$NON-NLS-1$
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://orocos/1.0?Activity", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Activity_2002); //$NON-NLS-1$
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.TaskContextEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://orocos/1.0?TaskContext", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.TaskContext_2001); //$NON-NLS-1$
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://orocos/1.0?Property", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Property_3003); //$NON-NLS-1$
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.OperationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://orocos/1.0?Operation", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Operation_3004); //$NON-NLS-1$
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://orocos/1.0?OutputPort", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.OutputPort_3001); //$NON-NLS-1$
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.TaskContextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://orocos/1.0?TaskContext", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.TaskContext_2001); //$NON-NLS-1$
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://orocos/1.0?ConnectionPolicy", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.ConnectionPolicy_4001); //$NON-NLS-1$
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://orocos/1.0?Property", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Property_3003); //$NON-NLS-1$
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://orocos/1.0?IActivity?taskContext", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.IActivityTaskContext_4002); //$NON-NLS-1$
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.OperationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://orocos/1.0?Operation", org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Operation_3004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -160,26 +160,48 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 		}
 		switch (org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
 				.getVisualID(view)) {
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID:
+			return getActivity_2002Text(view);
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.InputPortEditPart.VISUAL_ID:
 			return getInputPort_3002Text(view);
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.PackageEditPart.VISUAL_ID:
 			return getPackage_1000Text(view);
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID:
-			return getIActivityTaskContext_4002Text(view);
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityEditPart.VISUAL_ID:
-			return getActivity_2002Text(view);
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.TaskContextEditPart.VISUAL_ID:
-			return getTaskContext_2001Text(view);
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
-			return getProperty_3003Text(view);
-		case org.best_of_robotics.model.orocos.diagram.edit.parts.OperationEditPart.VISUAL_ID:
-			return getOperation_3004Text(view);
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortEditPart.VISUAL_ID:
 			return getOutputPort_3001Text(view);
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.TaskContextEditPart.VISUAL_ID:
+			return getTaskContext_2001Text(view);
 		case org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyEditPart.VISUAL_ID:
 			return getConnectionPolicy_4001Text(view);
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID:
+			return getProperty_3003Text(view);
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.IActivityTaskContextEditPart.VISUAL_ID:
+			return getIActivityTaskContext_4002Text(view);
+		case org.best_of_robotics.model.orocos.diagram.edit.parts.OperationEditPart.VISUAL_ID:
+			return getOperation_3004Text(view);
 		}
 		return getUnknownElementText(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getActivity_2002Text(View view) {
+		IParser parser = org.best_of_robotics.model.orocos.diagram.providers.OrocosParserProvider
+				.getParser(
+						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Activity_2002,
+						view.getElement() != null ? view.getElement() : view,
+						org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
+								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
+					.getInstance().logError(
+							"Parser was not found for label " + 5009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -224,20 +246,13 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getIActivityTaskContext_4002Text(View view) {
-		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getActivity_2002Text(View view) {
+	private String getOutputPort_3001Text(View view) {
 		IParser parser = org.best_of_robotics.model.orocos.diagram.providers.OrocosParserProvider
 				.getParser(
-						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Activity_2002,
+						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.OutputPort_3001,
 						view.getElement() != null ? view.getElement() : view,
 						org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ActivityNameEditPart.VISUAL_ID));
+								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
@@ -245,7 +260,7 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 5009); //$NON-NLS-1$
+							"Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -275,13 +290,13 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getProperty_3003Text(View view) {
+	private String getConnectionPolicy_4001Text(View view) {
 		IParser parser = org.best_of_robotics.model.orocos.diagram.providers.OrocosParserProvider
 				.getParser(
-						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Property_3003,
+						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.ConnectionPolicy_4001,
 						view.getElement() != null ? view.getElement() : view,
 						org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyNameEditPart.VISUAL_ID));
+								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
@@ -289,9 +304,38 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 5005); //$NON-NLS-1$
+							"Parser was not found for label " + 6001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getProperty_3003Text(View view) {
+		IParser parser = org.best_of_robotics.model.orocos.diagram.providers.OrocosParserProvider
+				.getParser(
+						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.Property_3003,
+						view.getElement() != null ? view.getElement() : view,
+						org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
+								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.PropertyEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
+					.getInstance().logError(
+							"Parser was not found for label " + 3003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getIActivityTaskContext_4002Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**
@@ -312,50 +356,6 @@ public class OrocosNavigatorLabelProvider extends LabelProvider implements
 			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
 					.getInstance().logError(
 							"Parser was not found for label " + 3004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getOutputPort_3001Text(View view) {
-		IParser parser = org.best_of_robotics.model.orocos.diagram.providers.OrocosParserProvider
-				.getParser(
-						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.OutputPort_3001,
-						view.getElement() != null ? view.getElement() : view,
-						org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.OutputPortNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
-					.getInstance().logError(
-							"Parser was not found for label " + 5001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getConnectionPolicy_4001Text(View view) {
-		IParser parser = org.best_of_robotics.model.orocos.diagram.providers.OrocosParserProvider
-				.getParser(
-						org.best_of_robotics.model.orocos.diagram.providers.OrocosElementTypes.ConnectionPolicy_4001,
-						view.getElement() != null ? view.getElement() : view,
-						org.best_of_robotics.model.orocos.diagram.part.OrocosVisualIDRegistry
-								.getType(org.best_of_robotics.model.orocos.diagram.edit.parts.ConnectionPolicyNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			org.best_of_robotics.model.orocos.diagram.part.OrocosDiagramEditorPlugin
-					.getInstance().logError(
-							"Parser was not found for label " + 6001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
