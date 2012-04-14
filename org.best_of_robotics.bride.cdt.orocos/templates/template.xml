@@ -32,7 +32,7 @@
 			persist="true"/>
 	</property-group>
 	 -->
-	<process type="org.eclipse.cdt.core.CreateSourceFolder">
+	<process type="org.eclipse.cdt.core.CreateFolder">
 		<simple name="projectName" value="$(projectName)" />
 		<simple name="path" value="src" />
 	</process>
