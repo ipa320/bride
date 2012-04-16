@@ -8,6 +8,7 @@ package org.best_of_robotics.model.orocos.impl;
 
 import java.util.Collection;
 
+import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.orocos.ConnectionPolicy;
 import org.best_of_robotics.model.orocos.IActivity;
 import org.best_of_robotics.model.orocos.OrocosPackage;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.best_of_robotics.model.orocos.impl.PackageImpl#getTaskContext <em>Task Context</em>}</li>
  *   <li>{@link org.best_of_robotics.model.orocos.impl.PackageImpl#getConnectionPolicy <em>Connection Policy</em>}</li>
  *   <li>{@link org.best_of_robotics.model.orocos.impl.PackageImpl#getActivity <em>Activity</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.orocos.impl.PackageImpl#getTypesLibrary <em>Types Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +95,16 @@ public class PackageImpl extends EObjectImpl implements org.best_of_robotics.mod
 	 * @ordered
 	 */
 	protected EList<IActivity> activity;
+
+	/**
+	 * The cached value of the '{@link #getTypesLibrary() <em>Types Library</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypesLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypesLibrary typesLibrary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +187,44 @@ public class PackageImpl extends EObjectImpl implements org.best_of_robotics.mod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TypesLibrary getTypesLibrary() {
+		if (typesLibrary != null && typesLibrary.eIsProxy()) {
+			InternalEObject oldTypesLibrary = (InternalEObject)typesLibrary;
+			typesLibrary = (TypesLibrary)eResolveProxy(oldTypesLibrary);
+			if (typesLibrary != oldTypesLibrary) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OrocosPackage.PACKAGE__TYPES_LIBRARY, oldTypesLibrary, typesLibrary));
+			}
+		}
+		return typesLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypesLibrary basicGetTypesLibrary() {
+		return typesLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypesLibrary(TypesLibrary newTypesLibrary) {
+		TypesLibrary oldTypesLibrary = typesLibrary;
+		typesLibrary = newTypesLibrary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OrocosPackage.PACKAGE__TYPES_LIBRARY, oldTypesLibrary, typesLibrary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -204,6 +254,9 @@ public class PackageImpl extends EObjectImpl implements org.best_of_robotics.mod
 				return getConnectionPolicy();
 			case OrocosPackage.PACKAGE__ACTIVITY:
 				return getActivity();
+			case OrocosPackage.PACKAGE__TYPES_LIBRARY:
+				if (resolve) return getTypesLibrary();
+				return basicGetTypesLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,6 +285,9 @@ public class PackageImpl extends EObjectImpl implements org.best_of_robotics.mod
 				getActivity().clear();
 				getActivity().addAll((Collection<? extends IActivity>)newValue);
 				return;
+			case OrocosPackage.PACKAGE__TYPES_LIBRARY:
+				setTypesLibrary((TypesLibrary)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -256,6 +312,9 @@ public class PackageImpl extends EObjectImpl implements org.best_of_robotics.mod
 			case OrocosPackage.PACKAGE__ACTIVITY:
 				getActivity().clear();
 				return;
+			case OrocosPackage.PACKAGE__TYPES_LIBRARY:
+				setTypesLibrary((TypesLibrary)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -276,6 +335,8 @@ public class PackageImpl extends EObjectImpl implements org.best_of_robotics.mod
 				return connectionPolicy != null && !connectionPolicy.isEmpty();
 			case OrocosPackage.PACKAGE__ACTIVITY:
 				return activity != null && !activity.isEmpty();
+			case OrocosPackage.PACKAGE__TYPES_LIBRARY:
+				return typesLibrary != null;
 		}
 		return super.eIsSet(featureID);
 	}

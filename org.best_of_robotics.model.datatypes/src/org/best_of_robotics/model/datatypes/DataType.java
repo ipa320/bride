@@ -36,10 +36,21 @@ public interface DataType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
 	 * @see org.best_of_robotics.model.datatypes.DatatypesPackage#getDataType_Name()
-	 * @model changeable="false"
+	 * @model
 	 * @generated
 	 */
 	String getName();
+
+	/**
+	 * Sets the value of the '{@link org.best_of_robotics.model.datatypes.DataType#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // DataType

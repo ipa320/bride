@@ -24,43 +24,44 @@
         eType="#//String" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unsignedChar" lowerBound="1"
         eType="#//UnsignedChar" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unsignedDouble" lowerBound="1"
-        eType="#//UnsignedDouble" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unsignedFloat" lowerBound="1"
-        eType="#//UnsignedFloat" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unsignedInt" lowerBound="1"
         eType="#//UnsignedInt" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unsignedLong" lowerBound="1"
         eType="#//UnsignedLong" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unsignedShort" lowerBound="1"
         eType="#//UnsignedShort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleType" abstract="true" interface="true"
       eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexType" abstract="true" interface="true"
       eSuperTypes="#//DataType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExistingType" eSuperTypes="#//ComplexType">
+  <eClassifiers xsi:type="ecore:EClass" name="RosType" eSuperTypes="#//ComplexType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="include" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rosPackage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GenericType" eSuperTypes="#//ComplexType">
+  <eClassifiers xsi:type="ecore:EClass" name="VectorType" eSuperTypes="#//ComplexType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="template" lowerBound="1"
         eType="#//DataType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="include" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomType" eSuperTypes="#//ComplexType">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//Field" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
+        upperBound="-1" eType="#//Field" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="measureUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Double" eSuperTypes="#//SimpleType"/>
@@ -70,9 +71,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Long" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedInt" eSuperTypes="#//SimpleType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UnsignedDouble" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedChar" eSuperTypes="#//SimpleType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UnsignedFloat" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedShort" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedLong" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Bool" eSuperTypes="#//SimpleType"/>

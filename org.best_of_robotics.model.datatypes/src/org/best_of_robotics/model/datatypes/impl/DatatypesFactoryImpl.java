@@ -11,24 +11,19 @@ import org.best_of_robotics.model.datatypes.Char;
 import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DatatypesFactory;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.ExistingType;
 import org.best_of_robotics.model.datatypes.Field;
-import org.best_of_robotics.model.datatypes.GenericType;
 import org.best_of_robotics.model.datatypes.Int;
+import org.best_of_robotics.model.datatypes.RosType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
-import org.best_of_robotics.model.datatypes.UnsignedDouble;
-import org.best_of_robotics.model.datatypes.UnsignedFloat;
 import org.best_of_robotics.model.datatypes.UnsignedInt;
 import org.best_of_robotics.model.datatypes.UnsignedLong;
 import org.best_of_robotics.model.datatypes.UnsignedShort;
-
+import org.best_of_robotics.model.datatypes.VectorType;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -76,8 +71,8 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DatatypesPackage.TYPES_LIBRARY: return createTypesLibrary();
-			case DatatypesPackage.EXISTING_TYPE: return createExistingType();
-			case DatatypesPackage.GENERIC_TYPE: return createGenericType();
+			case DatatypesPackage.ROS_TYPE: return createRosType();
+			case DatatypesPackage.VECTOR_TYPE: return createVectorType();
 			case DatatypesPackage.CUSTOM_TYPE: return createCustomType();
 			case DatatypesPackage.FIELD: return createField();
 			case DatatypesPackage.INT: return createInt();
@@ -88,9 +83,7 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 			case DatatypesPackage.STRING: return createString();
 			case DatatypesPackage.LONG: return createLong();
 			case DatatypesPackage.UNSIGNED_INT: return createUnsignedInt();
-			case DatatypesPackage.UNSIGNED_DOUBLE: return createUnsignedDouble();
 			case DatatypesPackage.UNSIGNED_CHAR: return createUnsignedChar();
-			case DatatypesPackage.UNSIGNED_FLOAT: return createUnsignedFloat();
 			case DatatypesPackage.UNSIGNED_SHORT: return createUnsignedShort();
 			case DatatypesPackage.UNSIGNED_LONG: return createUnsignedLong();
 			case DatatypesPackage.BOOL: return createBool();
@@ -114,9 +107,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExistingType createExistingType() {
-		ExistingTypeImpl existingType = new ExistingTypeImpl();
-		return existingType;
+	public RosType createRosType() {
+		RosTypeImpl rosType = new RosTypeImpl();
+		return rosType;
 	}
 
 	/**
@@ -124,9 +117,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GenericType createGenericType() {
-		GenericTypeImpl genericType = new GenericTypeImpl();
-		return genericType;
+	public VectorType createVectorType() {
+		VectorTypeImpl vectorType = new VectorTypeImpl();
+		return vectorType;
 	}
 
 	/**
@@ -234,29 +227,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnsignedDouble createUnsignedDouble() {
-		UnsignedDoubleImpl unsignedDouble = new UnsignedDoubleImpl();
-		return unsignedDouble;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UnsignedChar createUnsignedChar() {
 		UnsignedCharImpl unsignedChar = new UnsignedCharImpl();
 		return unsignedChar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnsignedFloat createUnsignedFloat() {
-		UnsignedFloatImpl unsignedFloat = new UnsignedFloatImpl();
-		return unsignedFloat;
 	}
 
 	/**

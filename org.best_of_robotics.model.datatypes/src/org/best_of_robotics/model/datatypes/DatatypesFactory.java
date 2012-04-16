@@ -35,22 +35,22 @@ public interface DatatypesFactory extends EFactory {
 	TypesLibrary createTypesLibrary();
 
 	/**
-	 * Returns a new object of class '<em>Existing Type</em>'.
+	 * Returns a new object of class '<em>Ros Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Existing Type</em>'.
+	 * @return a new object of class '<em>Ros Type</em>'.
 	 * @generated
 	 */
-	ExistingType createExistingType();
+	RosType createRosType();
 
 	/**
-	 * Returns a new object of class '<em>Generic Type</em>'.
+	 * Returns a new object of class '<em>Vector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generic Type</em>'.
+	 * @return a new object of class '<em>Vector Type</em>'.
 	 * @generated
 	 */
-	GenericType createGenericType();
+	VectorType createVectorType();
 
 	/**
 	 * Returns a new object of class '<em>Custom Type</em>'.
@@ -143,15 +143,6 @@ public interface DatatypesFactory extends EFactory {
 	UnsignedInt createUnsignedInt();
 
 	/**
-	 * Returns a new object of class '<em>Unsigned Double</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unsigned Double</em>'.
-	 * @generated
-	 */
-	UnsignedDouble createUnsignedDouble();
-
-	/**
 	 * Returns a new object of class '<em>Unsigned Char</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,15 +150,6 @@ public interface DatatypesFactory extends EFactory {
 	 * @generated
 	 */
 	UnsignedChar createUnsignedChar();
-
-	/**
-	 * Returns a new object of class '<em>Unsigned Float</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unsigned Float</em>'.
-	 * @generated
-	 */
-	UnsignedFloat createUnsignedFloat();
 
 	/**
 	 * Returns a new object of class '<em>Unsigned Short</em>'.

@@ -26,6 +26,7 @@
         eType="#//ConnectionPolicy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" upperBound="-1"
         eType="#//IActivity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typesLibrary" eType="ecore:EClass ../../org.best_of_robotics.model.datatypes/model/DataTypes.ecore#//TypesLibrary"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputPort">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isEventPort" lowerBound="1"

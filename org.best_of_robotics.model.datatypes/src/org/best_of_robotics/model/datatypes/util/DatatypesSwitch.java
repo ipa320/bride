@@ -12,22 +12,18 @@ import org.best_of_robotics.model.datatypes.ComplexType;
 import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.ExistingType;
 import org.best_of_robotics.model.datatypes.Field;
-import org.best_of_robotics.model.datatypes.GenericType;
 import org.best_of_robotics.model.datatypes.Int;
+import org.best_of_robotics.model.datatypes.RosType;
 import org.best_of_robotics.model.datatypes.SimpleType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
-import org.best_of_robotics.model.datatypes.UnsignedDouble;
-import org.best_of_robotics.model.datatypes.UnsignedFloat;
 import org.best_of_robotics.model.datatypes.UnsignedInt;
 import org.best_of_robotics.model.datatypes.UnsignedLong;
 import org.best_of_robotics.model.datatypes.UnsignedShort;
-
+import org.best_of_robotics.model.datatypes.VectorType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 
 /**
@@ -113,19 +109,19 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.EXISTING_TYPE: {
-				ExistingType existingType = (ExistingType)theEObject;
-				T result = caseExistingType(existingType);
-				if (result == null) result = caseComplexType(existingType);
-				if (result == null) result = caseDataType(existingType);
+			case DatatypesPackage.ROS_TYPE: {
+				RosType rosType = (RosType)theEObject;
+				T result = caseRosType(rosType);
+				if (result == null) result = caseComplexType(rosType);
+				if (result == null) result = caseDataType(rosType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.GENERIC_TYPE: {
-				GenericType genericType = (GenericType)theEObject;
-				T result = caseGenericType(genericType);
-				if (result == null) result = caseComplexType(genericType);
-				if (result == null) result = caseDataType(genericType);
+			case DatatypesPackage.VECTOR_TYPE: {
+				VectorType vectorType = (VectorType)theEObject;
+				T result = caseVectorType(vectorType);
+				if (result == null) result = caseComplexType(vectorType);
+				if (result == null) result = caseDataType(vectorType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,27 +203,11 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.UNSIGNED_DOUBLE: {
-				UnsignedDouble unsignedDouble = (UnsignedDouble)theEObject;
-				T result = caseUnsignedDouble(unsignedDouble);
-				if (result == null) result = caseSimpleType(unsignedDouble);
-				if (result == null) result = caseDataType(unsignedDouble);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DatatypesPackage.UNSIGNED_CHAR: {
 				UnsignedChar unsignedChar = (UnsignedChar)theEObject;
 				T result = caseUnsignedChar(unsignedChar);
 				if (result == null) result = caseSimpleType(unsignedChar);
 				if (result == null) result = caseDataType(unsignedChar);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatypesPackage.UNSIGNED_FLOAT: {
-				UnsignedFloat unsignedFloat = (UnsignedFloat)theEObject;
-				T result = caseUnsignedFloat(unsignedFloat);
-				if (result == null) result = caseSimpleType(unsignedFloat);
-				if (result == null) result = caseDataType(unsignedFloat);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,32 +300,32 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Existing Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ros Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Existing Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ros Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExistingType(ExistingType object) {
+	public T caseRosType(RosType object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generic Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Vector Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generic Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Vector Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGenericType(GenericType object) {
+	public T caseVectorType(VectorType object) {
 		return null;
 	}
 
@@ -500,21 +480,6 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unsigned Double</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unsigned Double</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnsignedDouble(UnsignedDouble object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Unsigned Char</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -526,21 +491,6 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnsignedChar(UnsignedChar object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unsigned Float</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unsigned Float</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnsignedFloat(UnsignedFloat object) {
 		return null;
 	}
 

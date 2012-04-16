@@ -12,24 +12,19 @@ import org.best_of_robotics.model.datatypes.ComplexType;
 import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.ExistingType;
 import org.best_of_robotics.model.datatypes.Field;
-import org.best_of_robotics.model.datatypes.GenericType;
 import org.best_of_robotics.model.datatypes.Int;
+import org.best_of_robotics.model.datatypes.RosType;
 import org.best_of_robotics.model.datatypes.SimpleType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
-import org.best_of_robotics.model.datatypes.UnsignedDouble;
-import org.best_of_robotics.model.datatypes.UnsignedFloat;
 import org.best_of_robotics.model.datatypes.UnsignedInt;
 import org.best_of_robotics.model.datatypes.UnsignedLong;
 import org.best_of_robotics.model.datatypes.UnsignedShort;
-
+import org.best_of_robotics.model.datatypes.VectorType;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -105,12 +100,12 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createComplexTypeAdapter();
 			}
 			@Override
-			public Adapter caseExistingType(ExistingType object) {
-				return createExistingTypeAdapter();
+			public Adapter caseRosType(RosType object) {
+				return createRosTypeAdapter();
 			}
 			@Override
-			public Adapter caseGenericType(GenericType object) {
-				return createGenericTypeAdapter();
+			public Adapter caseVectorType(VectorType object) {
+				return createVectorTypeAdapter();
 			}
 			@Override
 			public Adapter caseCustomType(CustomType object) {
@@ -153,16 +148,8 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createUnsignedIntAdapter();
 			}
 			@Override
-			public Adapter caseUnsignedDouble(UnsignedDouble object) {
-				return createUnsignedDoubleAdapter();
-			}
-			@Override
 			public Adapter caseUnsignedChar(UnsignedChar object) {
 				return createUnsignedCharAdapter();
-			}
-			@Override
-			public Adapter caseUnsignedFloat(UnsignedFloat object) {
-				return createUnsignedFloatAdapter();
 			}
 			@Override
 			public Adapter caseUnsignedShort(UnsignedShort object) {
@@ -253,30 +240,30 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.ExistingType <em>Existing Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.RosType <em>Ros Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.best_of_robotics.model.datatypes.ExistingType
+	 * @see org.best_of_robotics.model.datatypes.RosType
 	 * @generated
 	 */
-	public Adapter createExistingTypeAdapter() {
+	public Adapter createRosTypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.GenericType <em>Generic Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.VectorType <em>Vector Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.best_of_robotics.model.datatypes.GenericType
+	 * @see org.best_of_robotics.model.datatypes.VectorType
 	 * @generated
 	 */
-	public Adapter createGenericTypeAdapter() {
+	public Adapter createVectorTypeAdapter() {
 		return null;
 	}
 
@@ -421,20 +408,6 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.UnsignedDouble <em>Unsigned Double</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.best_of_robotics.model.datatypes.UnsignedDouble
-	 * @generated
-	 */
-	public Adapter createUnsignedDoubleAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.UnsignedChar <em>Unsigned Char</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -445,20 +418,6 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnsignedCharAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.UnsignedFloat <em>Unsigned Float</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.best_of_robotics.model.datatypes.UnsignedFloat
-	 * @generated
-	 */
-	public Adapter createUnsignedFloatAdapter() {
 		return null;
 	}
 

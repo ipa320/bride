@@ -18,25 +18,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/short"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/string"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedChar"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedDouble"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedFloat"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedInt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedLong"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//TypesLibrary/unsignedShort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//TypesLibrary/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="DataTypes.ecore#//DataType">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//DataType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//DataType/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="DataTypes.ecore#//SimpleType"/>
     <genClasses image="false" ecoreClass="DataTypes.ecore#//ComplexType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//ComplexType/namespace"/>
+      <genOperations ecoreOperation="DataTypes.ecore#//ComplexType/getLabel"/>
     </genClasses>
-    <genClasses ecoreClass="DataTypes.ecore#//ExistingType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//ExistingType/include"/>
+    <genClasses ecoreClass="DataTypes.ecore#//RosType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//RosType/include"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//RosType/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//RosType/rosPackage"/>
     </genClasses>
-    <genClasses ecoreClass="DataTypes.ecore#//GenericType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataTypes.ecore#//GenericType/template"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//GenericType/include"/>
+    <genClasses ecoreClass="DataTypes.ecore#//VectorType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataTypes.ecore#//VectorType/template"/>
     </genClasses>
     <genClasses ecoreClass="DataTypes.ecore#//CustomType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DataTypes.ecore#//CustomType/fields"/>
@@ -44,6 +44,8 @@
     <genClasses ecoreClass="DataTypes.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//Field/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DataTypes.ecore#//Field/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//Field/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DataTypes.ecore#//Field/measureUnit"/>
     </genClasses>
     <genClasses ecoreClass="DataTypes.ecore#//Int"/>
     <genClasses ecoreClass="DataTypes.ecore#//Double"/>
@@ -53,9 +55,7 @@
     <genClasses ecoreClass="DataTypes.ecore#//String"/>
     <genClasses ecoreClass="DataTypes.ecore#//Long"/>
     <genClasses ecoreClass="DataTypes.ecore#//UnsignedInt"/>
-    <genClasses ecoreClass="DataTypes.ecore#//UnsignedDouble"/>
     <genClasses ecoreClass="DataTypes.ecore#//UnsignedChar"/>
-    <genClasses ecoreClass="DataTypes.ecore#//UnsignedFloat"/>
     <genClasses ecoreClass="DataTypes.ecore#//UnsignedShort"/>
     <genClasses ecoreClass="DataTypes.ecore#//UnsignedLong"/>
     <genClasses ecoreClass="DataTypes.ecore#//Bool"/>

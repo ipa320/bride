@@ -99,49 +99,49 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.ExistingType} instances.
+	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.RosType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExistingTypeItemProvider existingTypeItemProvider;
+	protected RosTypeItemProvider rosTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.ExistingType}.
+	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.RosType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExistingTypeAdapter() {
-		if (existingTypeItemProvider == null) {
-			existingTypeItemProvider = new ExistingTypeItemProvider(this);
+	public Adapter createRosTypeAdapter() {
+		if (rosTypeItemProvider == null) {
+			rosTypeItemProvider = new RosTypeItemProvider(this);
 		}
 
-		return existingTypeItemProvider;
+		return rosTypeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.GenericType} instances.
+	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.VectorType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GenericTypeItemProvider genericTypeItemProvider;
+	protected VectorTypeItemProvider vectorTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.GenericType}.
+	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.VectorType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGenericTypeAdapter() {
-		if (genericTypeItemProvider == null) {
-			genericTypeItemProvider = new GenericTypeItemProvider(this);
+	public Adapter createVectorTypeAdapter() {
+		if (vectorTypeItemProvider == null) {
+			vectorTypeItemProvider = new VectorTypeItemProvider(this);
 		}
 
-		return genericTypeItemProvider;
+		return vectorTypeItemProvider;
 	}
 
 	/**
@@ -375,29 +375,6 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.UnsignedDouble} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UnsignedDoubleItemProvider unsignedDoubleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.UnsignedDouble}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUnsignedDoubleAdapter() {
-		if (unsignedDoubleItemProvider == null) {
-			unsignedDoubleItemProvider = new UnsignedDoubleItemProvider(this);
-		}
-
-		return unsignedDoubleItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.UnsignedChar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,29 +395,6 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 		}
 
 		return unsignedCharItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.UnsignedFloat} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UnsignedFloatItemProvider unsignedFloatItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.UnsignedFloat}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUnsignedFloatAdapter() {
-		if (unsignedFloatItemProvider == null) {
-			unsignedFloatItemProvider = new UnsignedFloatItemProvider(this);
-		}
-
-		return unsignedFloatItemProvider;
 	}
 
 	/**
@@ -612,8 +566,8 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	 */
 	public void dispose() {
 		if (typesLibraryItemProvider != null) typesLibraryItemProvider.dispose();
-		if (existingTypeItemProvider != null) existingTypeItemProvider.dispose();
-		if (genericTypeItemProvider != null) genericTypeItemProvider.dispose();
+		if (rosTypeItemProvider != null) rosTypeItemProvider.dispose();
+		if (vectorTypeItemProvider != null) vectorTypeItemProvider.dispose();
 		if (customTypeItemProvider != null) customTypeItemProvider.dispose();
 		if (fieldItemProvider != null) fieldItemProvider.dispose();
 		if (intItemProvider != null) intItemProvider.dispose();
@@ -624,9 +578,7 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 		if (stringItemProvider != null) stringItemProvider.dispose();
 		if (longItemProvider != null) longItemProvider.dispose();
 		if (unsignedIntItemProvider != null) unsignedIntItemProvider.dispose();
-		if (unsignedDoubleItemProvider != null) unsignedDoubleItemProvider.dispose();
 		if (unsignedCharItemProvider != null) unsignedCharItemProvider.dispose();
-		if (unsignedFloatItemProvider != null) unsignedFloatItemProvider.dispose();
 		if (unsignedShortItemProvider != null) unsignedShortItemProvider.dispose();
 		if (unsignedLongItemProvider != null) unsignedLongItemProvider.dispose();
 		if (boolItemProvider != null) boolItemProvider.dispose();

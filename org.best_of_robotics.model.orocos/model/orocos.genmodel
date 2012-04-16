@@ -52,6 +52,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/taskContext"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/connectionPolicy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/activity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference orocos.ecore#//Package/typesLibrary"/>
     </genClasses>
     <genClasses ecoreClass="orocos.ecore#//InputPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute orocos.ecore#//InputPort/isEventPort"/>

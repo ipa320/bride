@@ -162,31 +162,13 @@ public interface DatatypesPackage extends EPackage {
 	int TYPES_LIBRARY__UNSIGNED_CHAR = 9;
 
 	/**
-	 * The feature id for the '<em><b>Unsigned Double</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPES_LIBRARY__UNSIGNED_DOUBLE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Unsigned Float</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPES_LIBRARY__UNSIGNED_FLOAT = 11;
-
-	/**
 	 * The feature id for the '<em><b>Unsigned Int</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_LIBRARY__UNSIGNED_INT = 12;
+	int TYPES_LIBRARY__UNSIGNED_INT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Unsigned Long</b></em>' containment reference.
@@ -195,7 +177,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_LIBRARY__UNSIGNED_LONG = 13;
+	int TYPES_LIBRARY__UNSIGNED_LONG = 11;
 
 	/**
 	 * The feature id for the '<em><b>Unsigned Short</b></em>' containment reference.
@@ -204,7 +186,16 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_LIBRARY__UNSIGNED_SHORT = 14;
+	int TYPES_LIBRARY__UNSIGNED_SHORT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPES_LIBRARY__NAME = 13;
 
 	/**
 	 * The number of structural features of the '<em>Types Library</em>' class.
@@ -213,7 +204,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_LIBRARY_FEATURE_COUNT = 15;
+	int TYPES_LIBRARY_FEATURE_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.DataType <em>Data Type</em>}' class.
@@ -291,32 +282,23 @@ public interface DatatypesPackage extends EPackage {
 	int COMPLEX_TYPE__NAME = DATA_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_TYPE__NAMESPACE = DATA_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Complex Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
+	int COMPLEX_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.ExistingTypeImpl <em>Existing Type</em>}' class.
+	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.RosTypeImpl <em>Ros Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.best_of_robotics.model.datatypes.impl.ExistingTypeImpl
-	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getExistingType()
+	 * @see org.best_of_robotics.model.datatypes.impl.RosTypeImpl
+	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getRosType()
 	 * @generated
 	 */
-	int EXISTING_TYPE = 4;
+	int ROS_TYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -325,16 +307,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXISTING_TYPE__NAME = COMPLEX_TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXISTING_TYPE__NAMESPACE = COMPLEX_TYPE__NAMESPACE;
+	int ROS_TYPE__NAME = COMPLEX_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Include</b></em>' attribute.
@@ -343,35 +316,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXISTING_TYPE__INCLUDE = COMPLEX_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Existing Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXISTING_TYPE_FEATURE_COUNT = COMPLEX_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.GenericTypeImpl <em>Generic Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.best_of_robotics.model.datatypes.impl.GenericTypeImpl
-	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getGenericType()
-	 * @generated
-	 */
-	int GENERIC_TYPE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERIC_TYPE__NAME = COMPLEX_TYPE__NAME;
+	int ROS_TYPE__INCLUDE = COMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -380,7 +325,44 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERIC_TYPE__NAMESPACE = COMPLEX_TYPE__NAMESPACE;
+	int ROS_TYPE__NAMESPACE = COMPLEX_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Ros Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROS_TYPE__ROS_PACKAGE = COMPLEX_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Ros Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROS_TYPE_FEATURE_COUNT = COMPLEX_TYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.VectorTypeImpl <em>Vector Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.best_of_robotics.model.datatypes.impl.VectorTypeImpl
+	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getVectorType()
+	 * @generated
+	 */
+	int VECTOR_TYPE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR_TYPE__NAME = COMPLEX_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Template</b></em>' reference.
@@ -389,25 +371,16 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERIC_TYPE__TEMPLATE = COMPLEX_TYPE_FEATURE_COUNT + 0;
+	int VECTOR_TYPE__TEMPLATE = COMPLEX_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Include</b></em>' attribute.
+	 * The number of structural features of the '<em>Vector Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERIC_TYPE__INCLUDE = COMPLEX_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Generic Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERIC_TYPE_FEATURE_COUNT = COMPLEX_TYPE_FEATURE_COUNT + 2;
+	int VECTOR_TYPE_FEATURE_COUNT = COMPLEX_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl <em>Custom Type</em>}' class.
@@ -427,15 +400,6 @@ public interface DatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int CUSTOM_TYPE__NAME = COMPLEX_TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CUSTOM_TYPE__NAMESPACE = COMPLEX_TYPE__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -484,13 +448,31 @@ public interface DatatypesPackage extends EPackage {
 	int FIELD__TYPE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Measure Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__MEASURE_UNIT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = 2;
+	int FIELD_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.IntImpl <em>Int</em>}' class.
@@ -717,34 +699,6 @@ public interface DatatypesPackage extends EPackage {
 	int UNSIGNED_INT_FEATURE_COUNT = SIMPLE_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedDoubleImpl <em>Unsigned Double</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.best_of_robotics.model.datatypes.impl.UnsignedDoubleImpl
-	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedDouble()
-	 * @generated
-	 */
-	int UNSIGNED_DOUBLE = 16;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNSIGNED_DOUBLE__NAME = SIMPLE_TYPE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Unsigned Double</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNSIGNED_DOUBLE_FEATURE_COUNT = SIMPLE_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedCharImpl <em>Unsigned Char</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,7 +706,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedChar()
 	 * @generated
 	 */
-	int UNSIGNED_CHAR = 17;
+	int UNSIGNED_CHAR = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -773,34 +727,6 @@ public interface DatatypesPackage extends EPackage {
 	int UNSIGNED_CHAR_FEATURE_COUNT = SIMPLE_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedFloatImpl <em>Unsigned Float</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.best_of_robotics.model.datatypes.impl.UnsignedFloatImpl
-	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedFloat()
-	 * @generated
-	 */
-	int UNSIGNED_FLOAT = 18;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNSIGNED_FLOAT__NAME = SIMPLE_TYPE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Unsigned Float</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNSIGNED_FLOAT_FEATURE_COUNT = SIMPLE_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedShortImpl <em>Unsigned Short</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -808,7 +734,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedShort()
 	 * @generated
 	 */
-	int UNSIGNED_SHORT = 19;
+	int UNSIGNED_SHORT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -836,7 +762,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedLong()
 	 * @generated
 	 */
-	int UNSIGNED_LONG = 20;
+	int UNSIGNED_LONG = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -864,7 +790,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getBool()
 	 * @generated
 	 */
-	int BOOL = 21;
+	int BOOL = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1006,28 +932,6 @@ public interface DatatypesPackage extends EPackage {
 	EReference getTypesLibrary_UnsignedChar();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedDouble <em>Unsigned Double</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Unsigned Double</em>'.
-	 * @see org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedDouble()
-	 * @see #getTypesLibrary()
-	 * @generated
-	 */
-	EReference getTypesLibrary_UnsignedDouble();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedFloat <em>Unsigned Float</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Unsigned Float</em>'.
-	 * @see org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedFloat()
-	 * @see #getTypesLibrary()
-	 * @generated
-	 */
-	EReference getTypesLibrary_UnsignedFloat();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedInt <em>Unsigned Int</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1059,6 +963,17 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTypesLibrary_UnsignedShort();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.best_of_robotics.model.datatypes.TypesLibrary#getName()
+	 * @see #getTypesLibrary()
+	 * @generated
+	 */
+	EAttribute getTypesLibrary_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.DataType <em>Data Type</em>}'.
@@ -1102,68 +1017,68 @@ public interface DatatypesPackage extends EPackage {
 	EClass getComplexType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.ComplexType#getNamespace <em>Namespace</em>}'.
+	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.RosType <em>Ros Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ros Type</em>'.
+	 * @see org.best_of_robotics.model.datatypes.RosType
+	 * @generated
+	 */
+	EClass getRosType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosType#getInclude <em>Include</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Include</em>'.
+	 * @see org.best_of_robotics.model.datatypes.RosType#getInclude()
+	 * @see #getRosType()
+	 * @generated
+	 */
+	EAttribute getRosType_Include();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosType#getNamespace <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Namespace</em>'.
-	 * @see org.best_of_robotics.model.datatypes.ComplexType#getNamespace()
-	 * @see #getComplexType()
+	 * @see org.best_of_robotics.model.datatypes.RosType#getNamespace()
+	 * @see #getRosType()
 	 * @generated
 	 */
-	EAttribute getComplexType_Namespace();
+	EAttribute getRosType_Namespace();
 
 	/**
-	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.ExistingType <em>Existing Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosType#getRosPackage <em>Ros Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Existing Type</em>'.
-	 * @see org.best_of_robotics.model.datatypes.ExistingType
+	 * @return the meta object for the attribute '<em>Ros Package</em>'.
+	 * @see org.best_of_robotics.model.datatypes.RosType#getRosPackage()
+	 * @see #getRosType()
 	 * @generated
 	 */
-	EClass getExistingType();
+	EAttribute getRosType_RosPackage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.ExistingType#getInclude <em>Include</em>}'.
+	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.VectorType <em>Vector Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Include</em>'.
-	 * @see org.best_of_robotics.model.datatypes.ExistingType#getInclude()
-	 * @see #getExistingType()
+	 * @return the meta object for class '<em>Vector Type</em>'.
+	 * @see org.best_of_robotics.model.datatypes.VectorType
 	 * @generated
 	 */
-	EAttribute getExistingType_Include();
+	EClass getVectorType();
 
 	/**
-	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.GenericType <em>Generic Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generic Type</em>'.
-	 * @see org.best_of_robotics.model.datatypes.GenericType
-	 * @generated
-	 */
-	EClass getGenericType();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.best_of_robotics.model.datatypes.GenericType#getTemplate <em>Template</em>}'.
+	 * Returns the meta object for the reference '{@link org.best_of_robotics.model.datatypes.VectorType#getTemplate <em>Template</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Template</em>'.
-	 * @see org.best_of_robotics.model.datatypes.GenericType#getTemplate()
-	 * @see #getGenericType()
+	 * @see org.best_of_robotics.model.datatypes.VectorType#getTemplate()
+	 * @see #getVectorType()
 	 * @generated
 	 */
-	EReference getGenericType_Template();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.GenericType#getInclude <em>Include</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Include</em>'.
-	 * @see org.best_of_robotics.model.datatypes.GenericType#getInclude()
-	 * @see #getGenericType()
-	 * @generated
-	 */
-	EAttribute getGenericType_Include();
+	EReference getVectorType_Template();
 
 	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.CustomType <em>Custom Type</em>}'.
@@ -1217,6 +1132,28 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getField_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.Field#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.best_of_robotics.model.datatypes.Field#getDescription()
+	 * @see #getField()
+	 * @generated
+	 */
+	EAttribute getField_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.Field#getMeasureUnit <em>Measure Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Measure Unit</em>'.
+	 * @see org.best_of_robotics.model.datatypes.Field#getMeasureUnit()
+	 * @see #getField()
+	 * @generated
+	 */
+	EAttribute getField_MeasureUnit();
 
 	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.Int <em>Int</em>}'.
@@ -1299,16 +1236,6 @@ public interface DatatypesPackage extends EPackage {
 	EClass getUnsignedInt();
 
 	/**
-	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.UnsignedDouble <em>Unsigned Double</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unsigned Double</em>'.
-	 * @see org.best_of_robotics.model.datatypes.UnsignedDouble
-	 * @generated
-	 */
-	EClass getUnsignedDouble();
-
-	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.UnsignedChar <em>Unsigned Char</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1317,16 +1244,6 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnsignedChar();
-
-	/**
-	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.UnsignedFloat <em>Unsigned Float</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unsigned Float</em>'.
-	 * @see org.best_of_robotics.model.datatypes.UnsignedFloat
-	 * @generated
-	 */
-	EClass getUnsignedFloat();
 
 	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.UnsignedShort <em>Unsigned Short</em>}'.
@@ -1471,22 +1388,6 @@ public interface DatatypesPackage extends EPackage {
 		EReference TYPES_LIBRARY__UNSIGNED_CHAR = eINSTANCE.getTypesLibrary_UnsignedChar();
 
 		/**
-		 * The meta object literal for the '<em><b>Unsigned Double</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPES_LIBRARY__UNSIGNED_DOUBLE = eINSTANCE.getTypesLibrary_UnsignedDouble();
-
-		/**
-		 * The meta object literal for the '<em><b>Unsigned Float</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPES_LIBRARY__UNSIGNED_FLOAT = eINSTANCE.getTypesLibrary_UnsignedFloat();
-
-		/**
 		 * The meta object literal for the '<em><b>Unsigned Int</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1509,6 +1410,14 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TYPES_LIBRARY__UNSIGNED_SHORT = eINSTANCE.getTypesLibrary_UnsignedShort();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPES_LIBRARY__NAME = eINSTANCE.getTypesLibrary_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.DataType <em>Data Type</em>}' class.
@@ -1549,22 +1458,14 @@ public interface DatatypesPackage extends EPackage {
 		EClass COMPLEX_TYPE = eINSTANCE.getComplexType();
 
 		/**
-		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.RosTypeImpl <em>Ros Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.best_of_robotics.model.datatypes.impl.RosTypeImpl
+		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getRosType()
 		 * @generated
 		 */
-		EAttribute COMPLEX_TYPE__NAMESPACE = eINSTANCE.getComplexType_Namespace();
-
-		/**
-		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.ExistingTypeImpl <em>Existing Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.best_of_robotics.model.datatypes.impl.ExistingTypeImpl
-		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getExistingType()
-		 * @generated
-		 */
-		EClass EXISTING_TYPE = eINSTANCE.getExistingType();
+		EClass ROS_TYPE = eINSTANCE.getRosType();
 
 		/**
 		 * The meta object literal for the '<em><b>Include</b></em>' attribute feature.
@@ -1572,17 +1473,33 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXISTING_TYPE__INCLUDE = eINSTANCE.getExistingType_Include();
+		EAttribute ROS_TYPE__INCLUDE = eINSTANCE.getRosType_Include();
 
 		/**
-		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.GenericTypeImpl <em>Generic Type</em>}' class.
+		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.best_of_robotics.model.datatypes.impl.GenericTypeImpl
-		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getGenericType()
 		 * @generated
 		 */
-		EClass GENERIC_TYPE = eINSTANCE.getGenericType();
+		EAttribute ROS_TYPE__NAMESPACE = eINSTANCE.getRosType_Namespace();
+
+		/**
+		 * The meta object literal for the '<em><b>Ros Package</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROS_TYPE__ROS_PACKAGE = eINSTANCE.getRosType_RosPackage();
+
+		/**
+		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.VectorTypeImpl <em>Vector Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.best_of_robotics.model.datatypes.impl.VectorTypeImpl
+		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getVectorType()
+		 * @generated
+		 */
+		EClass VECTOR_TYPE = eINSTANCE.getVectorType();
 
 		/**
 		 * The meta object literal for the '<em><b>Template</b></em>' reference feature.
@@ -1590,15 +1507,7 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERIC_TYPE__TEMPLATE = eINSTANCE.getGenericType_Template();
-
-		/**
-		 * The meta object literal for the '<em><b>Include</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERIC_TYPE__INCLUDE = eINSTANCE.getGenericType_Include();
+		EReference VECTOR_TYPE__TEMPLATE = eINSTANCE.getVectorType_Template();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl <em>Custom Type</em>}' class.
@@ -1643,6 +1552,22 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FIELD__TYPE = eINSTANCE.getField_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIELD__DESCRIPTION = eINSTANCE.getField_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Measure Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIELD__MEASURE_UNIT = eINSTANCE.getField_MeasureUnit();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.IntImpl <em>Int</em>}' class.
@@ -1725,16 +1650,6 @@ public interface DatatypesPackage extends EPackage {
 		EClass UNSIGNED_INT = eINSTANCE.getUnsignedInt();
 
 		/**
-		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedDoubleImpl <em>Unsigned Double</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.best_of_robotics.model.datatypes.impl.UnsignedDoubleImpl
-		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedDouble()
-		 * @generated
-		 */
-		EClass UNSIGNED_DOUBLE = eINSTANCE.getUnsignedDouble();
-
-		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedCharImpl <em>Unsigned Char</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1743,16 +1658,6 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNSIGNED_CHAR = eINSTANCE.getUnsignedChar();
-
-		/**
-		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedFloatImpl <em>Unsigned Float</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.best_of_robotics.model.datatypes.impl.UnsignedFloatImpl
-		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getUnsignedFloat()
-		 * @generated
-		 */
-		EClass UNSIGNED_FLOAT = eINSTANCE.getUnsignedFloat();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.UnsignedShortImpl <em>Unsigned Short</em>}' class.

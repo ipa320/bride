@@ -15,23 +15,16 @@ import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Int;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
-import org.best_of_robotics.model.datatypes.UnsignedDouble;
-import org.best_of_robotics.model.datatypes.UnsignedFloat;
 import org.best_of_robotics.model.datatypes.UnsignedInt;
 import org.best_of_robotics.model.datatypes.UnsignedLong;
 import org.best_of_robotics.model.datatypes.UnsignedShort;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -52,11 +45,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getShort <em>Short</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getString <em>String</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getUnsignedChar <em>Unsigned Char</em>}</li>
- *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getUnsignedDouble <em>Unsigned Double</em>}</li>
- *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getUnsignedFloat <em>Unsigned Float</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getUnsignedInt <em>Unsigned Int</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getUnsignedLong <em>Unsigned Long</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getUnsignedShort <em>Unsigned Short</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.datatypes.impl.TypesLibraryImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -164,26 +156,6 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 	protected UnsignedChar unsignedChar;
 
 	/**
-	 * The cached value of the '{@link #getUnsignedDouble() <em>Unsigned Double</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnsignedDouble()
-	 * @generated
-	 * @ordered
-	 */
-	protected UnsignedDouble unsignedDouble;
-
-	/**
-	 * The cached value of the '{@link #getUnsignedFloat() <em>Unsigned Float</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnsignedFloat()
-	 * @generated
-	 * @ordered
-	 */
-	protected UnsignedFloat unsignedFloat;
-
-	/**
 	 * The cached value of the '{@link #getUnsignedInt() <em>Unsigned Int</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,6 +184,26 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 	 * @ordered
 	 */
 	protected UnsignedShort unsignedShort;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -636,92 +628,6 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnsignedDouble getUnsignedDouble() {
-		return unsignedDouble;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUnsignedDouble(UnsignedDouble newUnsignedDouble, NotificationChain msgs) {
-		UnsignedDouble oldUnsignedDouble = unsignedDouble;
-		unsignedDouble = newUnsignedDouble;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE, oldUnsignedDouble, newUnsignedDouble);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUnsignedDouble(UnsignedDouble newUnsignedDouble) {
-		if (newUnsignedDouble != unsignedDouble) {
-			NotificationChain msgs = null;
-			if (unsignedDouble != null)
-				msgs = ((InternalEObject)unsignedDouble).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE, null, msgs);
-			if (newUnsignedDouble != null)
-				msgs = ((InternalEObject)newUnsignedDouble).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE, null, msgs);
-			msgs = basicSetUnsignedDouble(newUnsignedDouble, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE, newUnsignedDouble, newUnsignedDouble));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnsignedFloat getUnsignedFloat() {
-		return unsignedFloat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUnsignedFloat(UnsignedFloat newUnsignedFloat, NotificationChain msgs) {
-		UnsignedFloat oldUnsignedFloat = unsignedFloat;
-		unsignedFloat = newUnsignedFloat;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT, oldUnsignedFloat, newUnsignedFloat);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUnsignedFloat(UnsignedFloat newUnsignedFloat) {
-		if (newUnsignedFloat != unsignedFloat) {
-			NotificationChain msgs = null;
-			if (unsignedFloat != null)
-				msgs = ((InternalEObject)unsignedFloat).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT, null, msgs);
-			if (newUnsignedFloat != null)
-				msgs = ((InternalEObject)newUnsignedFloat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT, null, msgs);
-			msgs = basicSetUnsignedFloat(newUnsignedFloat, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT, newUnsignedFloat, newUnsignedFloat));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UnsignedInt getUnsignedInt() {
 		return unsignedInt;
 	}
@@ -851,6 +757,27 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.TYPES_LIBRARY__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -874,10 +801,6 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 				return basicSetString(null, msgs);
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
 				return basicSetUnsignedChar(null, msgs);
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE:
-				return basicSetUnsignedDouble(null, msgs);
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT:
-				return basicSetUnsignedFloat(null, msgs);
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
 				return basicSetUnsignedInt(null, msgs);
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_LONG:
@@ -916,16 +839,14 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 				return getString();
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
 				return getUnsignedChar();
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE:
-				return getUnsignedDouble();
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT:
-				return getUnsignedFloat();
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
 				return getUnsignedInt();
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_LONG:
 				return getUnsignedLong();
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_SHORT:
 				return getUnsignedShort();
+			case DatatypesPackage.TYPES_LIBRARY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -970,12 +891,6 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
 				setUnsignedChar((UnsignedChar)newValue);
 				return;
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE:
-				setUnsignedDouble((UnsignedDouble)newValue);
-				return;
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT:
-				setUnsignedFloat((UnsignedFloat)newValue);
-				return;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
 				setUnsignedInt((UnsignedInt)newValue);
 				return;
@@ -984,6 +899,9 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 				return;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_SHORT:
 				setUnsignedShort((UnsignedShort)newValue);
+				return;
+			case DatatypesPackage.TYPES_LIBRARY__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1027,12 +945,6 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
 				setUnsignedChar((UnsignedChar)null);
 				return;
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE:
-				setUnsignedDouble((UnsignedDouble)null);
-				return;
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT:
-				setUnsignedFloat((UnsignedFloat)null);
-				return;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
 				setUnsignedInt((UnsignedInt)null);
 				return;
@@ -1041,6 +953,9 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 				return;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_SHORT:
 				setUnsignedShort((UnsignedShort)null);
+				return;
+			case DatatypesPackage.TYPES_LIBRARY__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1074,18 +989,32 @@ public class TypesLibraryImpl extends EObjectImpl implements TypesLibrary {
 				return string != null;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
 				return unsignedChar != null;
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE:
-				return unsignedDouble != null;
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT:
-				return unsignedFloat != null;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
 				return unsignedInt != null;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_LONG:
 				return unsignedLong != null;
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_SHORT:
 				return unsignedShort != null;
+			case DatatypesPackage.TYPES_LIBRARY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //TypesLibraryImpl

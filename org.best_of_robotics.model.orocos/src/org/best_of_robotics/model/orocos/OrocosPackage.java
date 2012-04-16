@@ -189,13 +189,22 @@ public interface OrocosPackage extends EPackage {
 	int PACKAGE__ACTIVITY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Types Library</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__TYPES_LIBRARY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 4;
+	int PACKAGE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.orocos.impl.InputPortImpl <em>Input Port</em>}' class.
@@ -775,6 +784,17 @@ public interface OrocosPackage extends EPackage {
 	EReference getPackage_Activity();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.best_of_robotics.model.orocos.Package#getTypesLibrary <em>Types Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Types Library</em>'.
+	 * @see org.best_of_robotics.model.orocos.Package#getTypesLibrary()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_TypesLibrary();
+
+	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.orocos.InputPort <em>Input Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1309,6 +1329,14 @@ public interface OrocosPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__ACTIVITY = eINSTANCE.getPackage_Activity();
+
+		/**
+		 * The meta object literal for the '<em><b>Types Library</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__TYPES_LIBRARY = eINSTANCE.getPackage_TypesLibrary();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.orocos.impl.InputPortImpl <em>Input Port</em>}' class.

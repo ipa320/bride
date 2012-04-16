@@ -68,7 +68,6 @@ public class CustomTypeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addNamespacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,28 +86,6 @@ public class CustomTypeItemProvider
 				 getString("_UI_DataType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DataType_name_feature", "_UI_DataType_type"),
 				 DatatypesPackage.Literals.DATA_TYPE__NAME,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Namespace feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComplexType_namespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexType_namespace_feature", "_UI_ComplexType_type"),
-				 DatatypesPackage.Literals.COMPLEX_TYPE__NAMESPACE,
 				 true,
 				 false,
 				 false,
@@ -162,14 +139,15 @@ public class CustomTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * Modified in order to return first the type name
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomType)object).getName();
+		String label = ((CustomType)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CustomType_type") :
-			getString("_UI_CustomType_type") + " " + label;
+			label + " - " + getString("_UI_CustomType_type");
 	}
 
 	/**
@@ -185,7 +163,6 @@ public class CustomTypeItemProvider
 
 		switch (notification.getFeatureID(CustomType.class)) {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
-			case DatatypesPackage.CUSTOM_TYPE__NAMESPACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:

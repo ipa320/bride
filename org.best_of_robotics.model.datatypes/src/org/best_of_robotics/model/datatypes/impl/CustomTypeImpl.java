@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl#getFields <em>Fields</em>}</li>
  * </ul>
  * </p>
@@ -63,26 +62,6 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAMESPACE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected String namespace = NAMESPACE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
@@ -127,20 +106,11 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getNamespace() {
-		return namespace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNamespace(String newNamespace) {
-		String oldNamespace = namespace;
-		namespace = newNamespace;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.CUSTOM_TYPE__NAMESPACE, oldNamespace, namespace));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.CUSTOM_TYPE__NAME, oldName, name));
 	}
 
 	/**
@@ -153,6 +123,18 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 			fields = new EObjectContainmentEList<Field>(Field.class, this, DatatypesPackage.CUSTOM_TYPE__FIELDS);
 		}
 		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getLabel(){
+		String label = name;
+//		if( namespace != null && namespace.length()>0 )
+//			label = namespace + "::" + label;
+		return label;
 	}
 
 	/**
@@ -179,8 +161,6 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 		switch (featureID) {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
 				return getName();
-			case DatatypesPackage.CUSTOM_TYPE__NAMESPACE:
-				return getNamespace();
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				return getFields();
 		}
@@ -196,8 +176,8 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatypesPackage.CUSTOM_TYPE__NAMESPACE:
-				setNamespace((String)newValue);
+			case DatatypesPackage.CUSTOM_TYPE__NAME:
+				setName((String)newValue);
 				return;
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				getFields().clear();
@@ -215,8 +195,8 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.CUSTOM_TYPE__NAMESPACE:
-				setNamespace(NAMESPACE_EDEFAULT);
+			case DatatypesPackage.CUSTOM_TYPE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				getFields().clear();
@@ -235,8 +215,6 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 		switch (featureID) {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatatypesPackage.CUSTOM_TYPE__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				return fields != null && !fields.isEmpty();
 		}
@@ -255,8 +233,6 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", namespace: ");
-		result.append(namespace);
 		result.append(')');
 		return result.toString();
 	}

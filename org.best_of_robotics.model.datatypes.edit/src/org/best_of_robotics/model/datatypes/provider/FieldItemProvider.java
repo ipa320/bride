@@ -10,14 +10,13 @@ package org.best_of_robotics.model.datatypes.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.best_of_robotics.model.datatypes.ComplexType;
+import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -66,6 +65,8 @@ public class FieldItemProvider
 
 			addNamePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addMeasureUnitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,50 @@ public class FieldItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Field_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Field_description_feature", "_UI_Field_type"),
+				 DatatypesPackage.Literals.FIELD__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Measure Unit feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMeasureUnitPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Field_measureUnit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Field_measureUnit_feature", "_UI_Field_type"),
+				 DatatypesPackage.Literals.FIELD__MEASURE_UNIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Field.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,14 +174,19 @@ public class FieldItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * Modified in order to return a better description
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Field)object).getName();
+		DataType field = ((Field)object).getType();
+		if(field instanceof ComplexType){
+			label = ((ComplexType) field).getLabel() + " " + label;
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Field_type") :
-			getString("_UI_Field_type") + " " + label;
+				label + " - " + getString("_UI_Field_type");
 	}
 
 	/**
@@ -152,6 +202,8 @@ public class FieldItemProvider
 
 		switch (notification.getFeatureID(Field.class)) {
 			case DatatypesPackage.FIELD__NAME:
+			case DatatypesPackage.FIELD__DESCRIPTION:
+			case DatatypesPackage.FIELD__MEASURE_UNIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

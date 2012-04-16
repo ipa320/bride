@@ -6,6 +6,7 @@
  */
 package org.best_of_robotics.model.datatypes;
 
+import java.lang.String;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -28,11 +29,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getShort <em>Short</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getString <em>String</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedChar <em>Unsigned Char</em>}</li>
- *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedDouble <em>Unsigned Double</em>}</li>
- *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedFloat <em>Unsigned Float</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedInt <em>Unsigned Int</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedLong <em>Unsigned Long</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedShort <em>Unsigned Short</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.datatypes.TypesLibrary#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -292,58 +292,6 @@ public interface TypesLibrary extends EObject {
 	void setUnsignedChar(UnsignedChar value);
 
 	/**
-	 * Returns the value of the '<em><b>Unsigned Double</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Unsigned Double</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unsigned Double</em>' containment reference.
-	 * @see #setUnsignedDouble(UnsignedDouble)
-	 * @see org.best_of_robotics.model.datatypes.DatatypesPackage#getTypesLibrary_UnsignedDouble()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	UnsignedDouble getUnsignedDouble();
-
-	/**
-	 * Sets the value of the '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedDouble <em>Unsigned Double</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unsigned Double</em>' containment reference.
-	 * @see #getUnsignedDouble()
-	 * @generated
-	 */
-	void setUnsignedDouble(UnsignedDouble value);
-
-	/**
-	 * Returns the value of the '<em><b>Unsigned Float</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Unsigned Float</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unsigned Float</em>' containment reference.
-	 * @see #setUnsignedFloat(UnsignedFloat)
-	 * @see org.best_of_robotics.model.datatypes.DatatypesPackage#getTypesLibrary_UnsignedFloat()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	UnsignedFloat getUnsignedFloat();
-
-	/**
-	 * Sets the value of the '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getUnsignedFloat <em>Unsigned Float</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unsigned Float</em>' containment reference.
-	 * @see #getUnsignedFloat()
-	 * @generated
-	 */
-	void setUnsignedFloat(UnsignedFloat value);
-
-	/**
 	 * Returns the value of the '<em><b>Unsigned Int</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -420,5 +368,31 @@ public interface TypesLibrary extends EObject {
 	 * @generated
 	 */
 	void setUnsignedShort(UnsignedShort value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.best_of_robotics.model.datatypes.DatatypesPackage#getTypesLibrary_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link org.best_of_robotics.model.datatypes.TypesLibrary#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // TypesLibrary

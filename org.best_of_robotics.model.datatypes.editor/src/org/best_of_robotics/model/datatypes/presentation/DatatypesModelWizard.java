@@ -17,76 +17,53 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
-import org.eclipse.emf.common.CommonPlugin;
-
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.xmi.XMLResource;
-
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
+import org.best_of_robotics.model.datatypes.DatatypesFactory;
+import org.best_of_robotics.model.datatypes.DatatypesPackage;
+import org.best_of_robotics.model.datatypes.TypesLibrary;
+import org.best_of_robotics.model.datatypes.impl.DatatypesFactoryImpl;
+import org.best_of_robotics.model.datatypes.provider.DataTypesEditPlugin;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
-
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.ISetSelectionTarget;
-
-import org.best_of_robotics.model.datatypes.DatatypesFactory;
-import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.provider.DataTypesEditPlugin;
-
-
-import org.eclipse.core.runtime.Path;
-
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.ISetSelectionTarget;
 
 
 /**
@@ -187,7 +164,8 @@ public class DatatypesModelWizard extends Wizard implements INewWizard {
 	 * Returns the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * Modified in order to ensure that the selected type is TypesLibrary
+	 * @generated NOT
 	 */
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
@@ -195,7 +173,9 @@ public class DatatypesModelWizard extends Wizard implements INewWizard {
 			for (EClassifier eClassifier : datatypesPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
+					// The second condition is for ensuring that the user select the right
+					// type: TypesLibrary
+					if (!eClass.isAbstract() && eClass.getName().equals("TypesLibrary")) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}
@@ -209,11 +189,27 @@ public class DatatypesModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * Modified in order to add all the simple types
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass)datatypesPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = datatypesFactory.create(eClass);
+		if(rootObject instanceof TypesLibrary){
+			TypesLibrary library = (TypesLibrary)rootObject;
+			library.setBool(DatatypesFactoryImpl.eINSTANCE.createBool());
+			library.setChar(DatatypesFactoryImpl.eINSTANCE.createChar());
+			library.setDouble(DatatypesFactoryImpl.eINSTANCE.createDouble());
+			library.setFloat(DatatypesFactoryImpl.eINSTANCE.createFloat());
+			library.setInt(DatatypesFactoryImpl.eINSTANCE.createInt());
+			library.setLong(DatatypesFactoryImpl.eINSTANCE.createLong());
+			library.setShort(DatatypesFactoryImpl.eINSTANCE.createShort());
+			library.setString(DatatypesFactoryImpl.eINSTANCE.createString());
+			library.setUnsignedChar(DatatypesFactoryImpl.eINSTANCE.createUnsignedChar());
+			library.setUnsignedInt(DatatypesFactoryImpl.eINSTANCE.createUnsignedInt());
+			library.setUnsignedLong(DatatypesFactoryImpl.eINSTANCE.createUnsignedLong());
+			library.setUnsignedShort(DatatypesFactoryImpl.eINSTANCE.createUnsignedShort());
+		}
 		return rootObject;
 	}
 
@@ -399,8 +395,7 @@ public class DatatypesModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;

@@ -21,12 +21,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -65,8 +67,31 @@ public class TypesLibraryItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypesLibrary_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypesLibrary_name_feature", "_UI_TypesLibrary_type"),
+				 DatatypesPackage.Literals.TYPES_LIBRARY__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -91,8 +116,6 @@ public class TypesLibraryItemProvider
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__SHORT);
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__STRING);
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_CHAR);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_DOUBLE);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_FLOAT);
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_INT);
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_LONG);
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_SHORT);
@@ -128,11 +151,15 @@ public class TypesLibraryItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * Modified in order to return first the library name
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TypesLibrary_type");
+		String label = ((TypesLibrary)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TypesLibrary_type") :
+				label + " - " +  getString("_UI_TypesLibrary_type");
 	}
 
 	/**
@@ -147,6 +174,9 @@ public class TypesLibraryItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TypesLibrary.class)) {
+			case DatatypesPackage.TYPES_LIBRARY__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DatatypesPackage.TYPES_LIBRARY__TYPES:
 			case DatatypesPackage.TYPES_LIBRARY__BOOL:
 			case DatatypesPackage.TYPES_LIBRARY__CHAR:
@@ -157,8 +187,6 @@ public class TypesLibraryItemProvider
 			case DatatypesPackage.TYPES_LIBRARY__SHORT:
 			case DatatypesPackage.TYPES_LIBRARY__STRING:
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_DOUBLE:
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_FLOAT:
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_LONG:
 			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_SHORT:
@@ -182,12 +210,12 @@ public class TypesLibraryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES,
-				 DatatypesFactory.eINSTANCE.createExistingType()));
+				 DatatypesFactory.eINSTANCE.createRosType()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES,
-				 DatatypesFactory.eINSTANCE.createGenericType()));
+				 DatatypesFactory.eINSTANCE.createVectorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,16 +266,6 @@ public class TypesLibraryItemProvider
 			(createChildParameter
 				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_CHAR,
 				 DatatypesFactory.eINSTANCE.createUnsignedChar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_DOUBLE,
-				 DatatypesFactory.eINSTANCE.createUnsignedDouble()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_FLOAT,
-				 DatatypesFactory.eINSTANCE.createUnsignedFloat()));
 
 		newChildDescriptors.add
 			(createChildParameter

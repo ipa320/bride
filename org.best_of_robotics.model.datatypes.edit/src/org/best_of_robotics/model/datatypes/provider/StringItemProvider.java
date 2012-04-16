@@ -82,7 +82,7 @@ public class StringItemProvider
 				 getString("_UI_DataType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DataType_name_feature", "_UI_DataType_type"),
 				 DatatypesPackage.Literals.DATA_TYPE__NAME,
-				 false,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -105,14 +105,16 @@ public class StringItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * Modified in order to return only the type name
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((org.best_of_robotics.model.datatypes.String)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_String_type") :
-			getString("_UI_String_type") + " " + label;
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_Bool_type") :
+//			getString("_UI_Bool_type") + " " + label;
+		return label;
 	}
 
 	/**

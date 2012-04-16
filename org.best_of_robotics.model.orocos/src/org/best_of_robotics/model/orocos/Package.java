@@ -6,6 +6,7 @@
  */
 package org.best_of_robotics.model.orocos;
 
+import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.best_of_robotics.model.orocos.Package#getTaskContext <em>Task Context</em>}</li>
  *   <li>{@link org.best_of_robotics.model.orocos.Package#getConnectionPolicy <em>Connection Policy</em>}</li>
  *   <li>{@link org.best_of_robotics.model.orocos.Package#getActivity <em>Activity</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.orocos.Package#getTypesLibrary <em>Types Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,5 +105,31 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	EList<IActivity> getActivity();
+
+	/**
+	 * Returns the value of the '<em><b>Types Library</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Types Library</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Types Library</em>' reference.
+	 * @see #setTypesLibrary(TypesLibrary)
+	 * @see org.best_of_robotics.model.orocos.OrocosPackage#getPackage_TypesLibrary()
+	 * @model
+	 * @generated
+	 */
+	TypesLibrary getTypesLibrary();
+
+	/**
+	 * Sets the value of the '{@link org.best_of_robotics.model.orocos.Package#getTypesLibrary <em>Types Library</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Types Library</em>' reference.
+	 * @see #getTypesLibrary()
+	 * @generated
+	 */
+	void setTypesLibrary(TypesLibrary value);
 
 } // Package

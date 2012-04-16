@@ -323,6 +323,15 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPackage_TypesLibrary() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInputPort() {
 		return inputPortEClass;
 	}
@@ -702,6 +711,7 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 		createEReference(packageEClass, PACKAGE__TASK_CONTEXT);
 		createEReference(packageEClass, PACKAGE__CONNECTION_POLICY);
 		createEReference(packageEClass, PACKAGE__ACTIVITY);
+		createEReference(packageEClass, PACKAGE__TYPES_LIBRARY);
 
 		inputPortEClass = createEClass(INPUT_PORT);
 		createEAttribute(inputPortEClass, INPUT_PORT__IS_EVENT_PORT);
@@ -799,6 +809,7 @@ public class OrocosPackageImpl extends EPackageImpl implements OrocosPackage {
 		initEReference(getPackage_TaskContext(), this.getTaskContext(), null, "taskContext", null, 0, -1, org.best_of_robotics.model.orocos.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_ConnectionPolicy(), this.getConnectionPolicy(), null, "connectionPolicy", null, 0, -1, org.best_of_robotics.model.orocos.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Activity(), this.getIActivity(), null, "activity", null, 0, -1, org.best_of_robotics.model.orocos.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_TypesLibrary(), theDatatypesPackage.getTypesLibrary(), null, "typesLibrary", null, 0, 1, org.best_of_robotics.model.orocos.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputPortEClass, InputPort.class, "InputPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputPort_IsEventPort(), ecorePackage.getEBooleanObject(), "isEventPort", "false", 1, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -36,7 +36,7 @@ public interface CustomType extends ComplexType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see org.best_of_robotics.model.datatypes.DatatypesPackage#getCustomType_Fields()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Field> getFields();

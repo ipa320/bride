@@ -13,24 +13,20 @@ import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesFactory;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.ExistingType;
 import org.best_of_robotics.model.datatypes.Field;
-import org.best_of_robotics.model.datatypes.GenericType;
 import org.best_of_robotics.model.datatypes.Int;
+import org.best_of_robotics.model.datatypes.RosType;
 import org.best_of_robotics.model.datatypes.SimpleType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
-import org.best_of_robotics.model.datatypes.UnsignedDouble;
-import org.best_of_robotics.model.datatypes.UnsignedFloat;
 import org.best_of_robotics.model.datatypes.UnsignedInt;
 import org.best_of_robotics.model.datatypes.UnsignedLong;
 import org.best_of_robotics.model.datatypes.UnsignedShort;
-
+import org.best_of_robotics.model.datatypes.VectorType;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -73,14 +69,14 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass existingTypeEClass = null;
+	private EClass rosTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass genericTypeEClass = null;
+	private EClass vectorTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,21 +153,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass unsignedDoubleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass unsignedCharEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unsignedFloatEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -359,7 +341,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypesLibrary_UnsignedDouble() {
+	public EReference getTypesLibrary_UnsignedInt() {
 		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -368,7 +350,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypesLibrary_UnsignedFloat() {
+	public EReference getTypesLibrary_UnsignedLong() {
 		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -377,7 +359,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypesLibrary_UnsignedInt() {
+	public EReference getTypesLibrary_UnsignedShort() {
 		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -386,17 +368,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypesLibrary_UnsignedLong() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_UnsignedShort() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(14);
+	public EAttribute getTypesLibrary_Name() {
+		return (EAttribute)typesLibraryEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -440,8 +413,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComplexType_Namespace() {
-		return (EAttribute)complexTypeEClass.getEStructuralFeatures().get(0);
+	public EClass getRosType() {
+		return rosTypeEClass;
 	}
 
 	/**
@@ -449,8 +422,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExistingType() {
-		return existingTypeEClass;
+	public EAttribute getRosType_Include() {
+		return (EAttribute)rosTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -458,8 +431,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExistingType_Include() {
-		return (EAttribute)existingTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRosType_Namespace() {
+		return (EAttribute)rosTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -467,8 +440,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGenericType() {
-		return genericTypeEClass;
+	public EAttribute getRosType_RosPackage() {
+		return (EAttribute)rosTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -476,8 +449,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGenericType_Template() {
-		return (EReference)genericTypeEClass.getEStructuralFeatures().get(0);
+	public EClass getVectorType() {
+		return vectorTypeEClass;
 	}
 
 	/**
@@ -485,8 +458,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenericType_Include() {
-		return (EAttribute)genericTypeEClass.getEStructuralFeatures().get(1);
+	public EReference getVectorType_Template() {
+		return (EReference)vectorTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -532,6 +505,24 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 */
 	public EReference getField_Type() {
 		return (EReference)fieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getField_Description() {
+		return (EAttribute)fieldEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getField_MeasureUnit() {
+		return (EAttribute)fieldEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -611,26 +602,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUnsignedDouble() {
-		return unsignedDoubleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUnsignedChar() {
 		return unsignedCharEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnsignedFloat() {
-		return unsignedFloatEClass;
 	}
 
 	/**
@@ -699,11 +672,10 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__SHORT);
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__STRING);
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_CHAR);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_DOUBLE);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_FLOAT);
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_INT);
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_LONG);
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_SHORT);
+		createEAttribute(typesLibraryEClass, TYPES_LIBRARY__NAME);
 
 		dataTypeEClass = createEClass(DATA_TYPE);
 		createEAttribute(dataTypeEClass, DATA_TYPE__NAME);
@@ -711,14 +683,14 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		simpleTypeEClass = createEClass(SIMPLE_TYPE);
 
 		complexTypeEClass = createEClass(COMPLEX_TYPE);
-		createEAttribute(complexTypeEClass, COMPLEX_TYPE__NAMESPACE);
 
-		existingTypeEClass = createEClass(EXISTING_TYPE);
-		createEAttribute(existingTypeEClass, EXISTING_TYPE__INCLUDE);
+		rosTypeEClass = createEClass(ROS_TYPE);
+		createEAttribute(rosTypeEClass, ROS_TYPE__INCLUDE);
+		createEAttribute(rosTypeEClass, ROS_TYPE__NAMESPACE);
+		createEAttribute(rosTypeEClass, ROS_TYPE__ROS_PACKAGE);
 
-		genericTypeEClass = createEClass(GENERIC_TYPE);
-		createEReference(genericTypeEClass, GENERIC_TYPE__TEMPLATE);
-		createEAttribute(genericTypeEClass, GENERIC_TYPE__INCLUDE);
+		vectorTypeEClass = createEClass(VECTOR_TYPE);
+		createEReference(vectorTypeEClass, VECTOR_TYPE__TEMPLATE);
 
 		customTypeEClass = createEClass(CUSTOM_TYPE);
 		createEReference(customTypeEClass, CUSTOM_TYPE__FIELDS);
@@ -726,6 +698,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		fieldEClass = createEClass(FIELD);
 		createEAttribute(fieldEClass, FIELD__NAME);
 		createEReference(fieldEClass, FIELD__TYPE);
+		createEAttribute(fieldEClass, FIELD__DESCRIPTION);
+		createEAttribute(fieldEClass, FIELD__MEASURE_UNIT);
 
 		intEClass = createEClass(INT);
 
@@ -743,11 +717,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		unsignedIntEClass = createEClass(UNSIGNED_INT);
 
-		unsignedDoubleEClass = createEClass(UNSIGNED_DOUBLE);
-
 		unsignedCharEClass = createEClass(UNSIGNED_CHAR);
-
-		unsignedFloatEClass = createEClass(UNSIGNED_FLOAT);
 
 		unsignedShortEClass = createEClass(UNSIGNED_SHORT);
 
@@ -786,8 +756,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		// Add supertypes to classes
 		simpleTypeEClass.getESuperTypes().add(this.getDataType());
 		complexTypeEClass.getESuperTypes().add(this.getDataType());
-		existingTypeEClass.getESuperTypes().add(this.getComplexType());
-		genericTypeEClass.getESuperTypes().add(this.getComplexType());
+		rosTypeEClass.getESuperTypes().add(this.getComplexType());
+		vectorTypeEClass.getESuperTypes().add(this.getComplexType());
 		customTypeEClass.getESuperTypes().add(this.getComplexType());
 		intEClass.getESuperTypes().add(this.getSimpleType());
 		doubleEClass.getESuperTypes().add(this.getSimpleType());
@@ -797,9 +767,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		stringEClass.getESuperTypes().add(this.getSimpleType());
 		longEClass.getESuperTypes().add(this.getSimpleType());
 		unsignedIntEClass.getESuperTypes().add(this.getSimpleType());
-		unsignedDoubleEClass.getESuperTypes().add(this.getSimpleType());
 		unsignedCharEClass.getESuperTypes().add(this.getSimpleType());
-		unsignedFloatEClass.getESuperTypes().add(this.getSimpleType());
 		unsignedShortEClass.getESuperTypes().add(this.getSimpleType());
 		unsignedLongEClass.getESuperTypes().add(this.getSimpleType());
 		boolEClass.getESuperTypes().add(this.getSimpleType());
@@ -816,33 +784,36 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEReference(getTypesLibrary_Short(), this.getShort(), null, "short", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypesLibrary_String(), this.getString(), null, "string", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypesLibrary_UnsignedChar(), this.getUnsignedChar(), null, "unsignedChar", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_UnsignedDouble(), this.getUnsignedDouble(), null, "unsignedDouble", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_UnsignedFloat(), this.getUnsignedFloat(), null, "unsignedFloat", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypesLibrary_UnsignedInt(), this.getUnsignedInt(), null, "unsignedInt", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypesLibrary_UnsignedLong(), this.getUnsignedLong(), null, "unsignedLong", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypesLibrary_UnsignedShort(), this.getUnsignedShort(), null, "unsignedShort", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypesLibrary_Name(), ecorePackage.getEString(), "name", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataType_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataType_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(simpleTypeEClass, SimpleType.class, "SimpleType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(complexTypeEClass, ComplexType.class, "ComplexType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComplexType_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, ComplexType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(existingTypeEClass, ExistingType.class, "ExistingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExistingType_Include(), ecorePackage.getEString(), "include", null, 1, 1, ExistingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		addEOperation(complexTypeEClass, ecorePackage.getEString(), "getLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(genericTypeEClass, GenericType.class, "GenericType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGenericType_Template(), this.getDataType(), null, "template", null, 1, 1, GenericType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenericType_Include(), ecorePackage.getEString(), "include", null, 0, 1, GenericType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rosTypeEClass, RosType.class, "RosType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRosType_Include(), ecorePackage.getEString(), "include", null, 1, 1, RosType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRosType_Namespace(), ecorePackage.getEString(), "namespace", null, 1, 1, RosType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRosType_RosPackage(), ecorePackage.getEString(), "rosPackage", null, 1, 1, RosType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vectorTypeEClass, VectorType.class, "VectorType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVectorType_Template(), this.getDataType(), null, "template", null, 1, 1, VectorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(customTypeEClass, CustomType.class, "CustomType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCustomType_Fields(), this.getField(), null, "fields", null, 0, -1, CustomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomType_Fields(), this.getField(), null, "fields", null, 1, -1, CustomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getField_Type(), this.getDataType(), null, "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_Type(), this.getDataType(), null, "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_Description(), ecorePackage.getEString(), "description", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_MeasureUnit(), ecorePackage.getEString(), "measureUnit", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intEClass, Int.class, "Int", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -860,11 +831,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		initEClass(unsignedIntEClass, UnsignedInt.class, "UnsignedInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(unsignedDoubleEClass, UnsignedDouble.class, "UnsignedDouble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(unsignedCharEClass, UnsignedChar.class, "UnsignedChar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(unsignedFloatEClass, UnsignedFloat.class, "UnsignedFloat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(unsignedShortEClass, UnsignedShort.class, "UnsignedShort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
