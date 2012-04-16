@@ -1,0 +1,17 @@
+[%var dependsCollection : Sequence;%]
+<package>
+    <description brief="[%=package.name%] package">
+        This package contains the components of the [%=package.name%] package
+    </description>
+    <!--NOTE: set the license and author before you publish this code-->
+    <license></license>
+    <author>Unknown Author</author>
+    <depend package="rtt"/>
+    <depend package="rtt_[%=package.typesLibrary.name%]_msgs"/>
+    [%for(aComplexType in package.typesLibrary.types){%]
+    [%if(aComplexType.isKindOf(RosType) and (not dependsCollection.includes(aComplexType.rosPackage))){%]
+    <depend package="rtt_[%=aComplexType.rosPackage%]"/>
+    [%dependsCollection.add(aComplexType.rosPackage);%]
+    [%}%]
+    [%}%]
+</package>

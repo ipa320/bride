@@ -1,0 +1,105 @@
+/*
+ * [%=taskContext.type%].hpp
+ *
+ */
+
+#ifndef [%=taskContext.type.toUpperCase()%]_HPP_
+#define [%=taskContext.type.toUpperCase()%]_HPP_
+
+[%var addCustomType : Boolean = true;%]
+[%var addVectorType : Boolean = true;%]
+[%var includeCollection : Sequence;%]
+[%for(anInputPort in taskContext.inputPort) {%]
+[%if(anInputPort.type.isKindOf(RosType)){%]
+[%if(not includeCollection.contains(anInputPort.type.rosPackage)){%]
+#include <[%=anInputPort.type.rosPackage%]/typekit/Types.h>
+[%includeCollection.add(anInputPort.type.rosPackage);%]
+[%}%]
+[%}else if(anInputPort.type.isKindOf(VectorType) and addVectorType){%]
+#include <vector>
+[%addVectorType = false;%]
+[%}else if(anInputPort.type.isKindOf(CustomType) and addCustomType){%]
+#include "dataTypes.hpp"
+#include <[%=typesLibraryName%]_msgs/typekit/Types.h>
+[%addCustomType = false;%]
+[%}%]
+[%}%]
+	
+[%for(anOutputPort in taskContext.outputPort){%]
+[%if(anOutputPort.type.isKindOf(RosType)){%]
+[%if(not includeCollection.contains(anOutputPort.type.rosPackage)){%]
+#include <[%=anOutputPort.type.rosPackage%]/typekit/Types.h>
+[%includeCollection.add(anOutputPort.type.rosPackage);%]
+[%}%]
+[%}else if(anOutputPort.type.isKindOf(VectorType) and addVectorType){%]
+#include <vector>
+[%addVectorType = false;%]
+[%}else if(anOutputPort.type.isKindOf(CustomType) and addCustomType){%]
+#include "dataTypes.hpp"
+[%addCustomType = false;%]
+[%}%]
+[%}%]
+
+
+using namespace RTT;
+
+namespace [%=taskContext.namespace%] 
+{
+	class [%=taskContext.type%]: public RTT::TaskContext
+	{
+		[%for(anInputPort in taskContext.inputPort) {%]
+		
+		[%if(anInputPort.type.isKindOf(CustomType)) {%]
+		InputPort<[%=typesLibraryName%]::[%=anInputPort.type.name%] > [%=anInputPort.name%];
+		[%}else if(anInputPort.type.isKindOf(ComplexType)) {%]
+		InputPort<[%=anInputPort.type.getLabel()%] > [%=anInputPort.name%];
+		[%}else{%]
+		InputPort<[%=anInputPort.type.name%] > [%=anInputPort.name%];
+		[%}%]
+		[%}%]
+		
+		[%for(anOutputPort in taskContext.outputPort) {%]
+		[%if(anOutputPort.type.isKindOf(CustomType)) {%]
+		OutputPort<[%=typesLibraryName%]::[%=anOutputPort.type.getName()%] > [%=anOutputPort.name%];
+		[%}else if(anOutputPort.type.isKindOf(ComplexType)) {%]
+		OutputPort<[%=anOutputPort.type.getLabel()%] > [%=anOutputPort.name%];
+		[%}else{%]
+		OutputPort<[%=anOutputPort.type.getName()%] > [%=anOutputPort.name%];
+		[%}%]
+		[%}%]
+		
+		
+		
+		[%=out.startPreserve("/*", "*/", "declarations", true)%]
+		[%=out.stopPreserve()%]
+	
+    public:
+        [%=taskContext.type%](const string& name);
+        
+        bool configureHook();
+        bool startHook();
+        void updateHook();
+        void stopHook();
+        void cleanupHook();
+        [%for(anOperation in taskContext.operacion) {%]
+        [%=anOperation.returnType%] [%=anOperation.name%]();
+        [%}%]
+        
+        [%=out.startPreserve("/*", "*/", "public", true)%]
+        [%=out.stopPreserve()%]
+        
+    protected:
+    	[%for(aProperty in taskContext.property) {%]
+    	[%=aProperty.name%] [%=aProperty.name%];
+    	[%}%]
+    	[%=out.startPreserve("/*", "*/", "protected", true)%]
+    	[%=out.stopPreserve()%]
+    	
+    private:
+    	[%=out.startPreserve("/*", "*/", "private", true)%]
+    	[%=out.stopPreserve()%]
+    	
+    };
+}
+
+#endif /* [%=taskContext.type.toUpperCase()%]_HPP_ */

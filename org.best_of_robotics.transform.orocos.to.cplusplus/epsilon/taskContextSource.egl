@@ -1,0 +1,87 @@
+#include <rtt/RTT.hpp>
+#include <rtt/Component.hpp>
+#include <iostream>
+#include "[%=taskContext.type%].hpp"
+[%=out.startPreserve("/*", "*/", "include", true)%]
+[%=out.stopPreserve()%]
+
+using namespace RTT;
+using namespace [%=taskContext.namespace%];
+
+[%=taskContext.type%]::[%=taskContext.type%](string const& name = "[%=taskContext.name%]") :
+		TaskContext(name)
+		[%for(aProperty in taskContext.property) {%]
+			,[%=aProperty.name%]("[%=aProperty.value%]")
+    	[%}%]
+{
+	[%for(aProperty in taskContext.property) {%]
+	this->addProperty("[%=aProperty.name%]", [%=aProperty.name%]).doc("[%=aProperty.description%]");
+    [%}%]
+    [%for(anOperation in taskContext.operacion) {%]
+    this->addOperation("[%=anOperation.name%]", &[%=taskContext.type%]::[%=anOperation.name%], this);
+    [%}%]
+	[%for(anInputPort in taskContext.inputPort)
+		if (anInputPort.isEventPort == true) {%]
+	this->ports()->addEventPort( "[%=anInputPort.name%]", [%=anInputPort.name%] ).doc(
+	"Input Port that raises an event." );
+	[%} else {%]
+	this->ports()->addPort( "[%=anInputPort.name%]", [%=anInputPort.name%] ).doc( "Input Port that does *not* raise an event." );
+	[%}%]
+	[%for(anOutputPort in taskContext.outputPort) {%]
+	this->ports()->addPort( "[%=anOutputPort.name%]", [%=anOutputPort.name%] ).doc( "Output Port, here write our data to." );
+	[%}%]
+	[%=out.startPreserve("/*", "*/", "constructor", true)%]
+	std::cout << "[%=taskContext.name%] constructed !" <<std::endl;
+	[%=out.stopPreserve()%]
+}
+
+bool [%=taskContext.type%]::configureHook()
+{
+    [%=out.startPreserve("/*", "*/", "configureHook", true)%]
+    std::cout << "[%=taskContext.name%] configured !" <<std::endl;
+    [%=out.stopPreserve()%]
+    return true;
+}
+
+bool [%=taskContext.type%]::startHook()
+{
+	[%=out.startPreserve("/*", "*/", "startHook", true)%]
+    std::cout << "[%=taskContext.name%] started !" <<std::endl;
+    [%=out.stopPreserve()%]
+    return true;
+}
+
+void [%=taskContext.type%]::updateHook()
+{
+	[%=out.startPreserve("/*", "*/", "updateHook", true)%]
+    std::cout << "[%=taskContext.name%] executes updateHook !" <<std::endl;
+    [%=out.stopPreserve()%]
+}
+
+void [%=taskContext.type%]::stopHook()
+{
+	[%=out.startPreserve("/*", "*/", "stopHook", true)%]
+    std::cout << "[%=taskContext.name%] executes stopping !" <<std::endl;
+    [%=out.stopPreserve()%]
+}
+
+void [%=taskContext.type%]::cleanupHook()
+{
+	[%=out.startPreserve("/*", "*/", "cleanupHook", true)%]
+    std::cout << "[%=taskContext.name%] cleaning up !" <<std::endl;
+    [%=out.stopPreserve()%]
+}
+
+[%for(anOperation in taskContext.operacion) {%]
+[%=anOperation.returnType%] [%=taskContext.type%]::[%=anOperation.name%]()
+{
+	[%=out.startPreserve("/*", "*/", %anOperation.name%, true)%]
+	[%=out.stopPreserve()%]
+}
+
+[%}%]
+
+[%=out.startPreserve("/*", "*/", "User Code", true)%]
+[%=out.stopPreserve()%]
+
+ORO_CREATE_COMPONENT([%=taskContext.namespace%]::[%=taskContext.type%])

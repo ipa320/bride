@@ -1,0 +1,31 @@
+/**
+ * Data Types Library
+ */
+
+[%for(aComplexType in typesLibrary.types) {%]
+[%if(aComplexType.isKindOf(CustomType)){%]
+[%for(aField in aComplexType.fields) {%]
+[%if(aField.type.isTypeOf(RosType)){%]
+#include <[%=aField.type.include%]>
+[%}%]
+[%}%]
+[%}%]
+[%}%]
+namespace [%=typesLibrary.name%]{
+[%for(aComplexType in typesLibrary.types){%]
+[%if(aComplexType.isKindOf(CustomType)){%]
+
+	struct [%=aComplexType.name%]{
+		[%for(aField in aComplexType.fields){%]
+		[%if(aField.type.isKindOf(SimpleType)){%]
+		[%=aField.type.name%] [%=aField.name%];
+		[%}else if(aField.type.isKindOf(ComplexType)){%]
+		[%=aField.type.getLabel()%] [%=aField.name%];
+		[%}%]
+		[%}%]
+	};
+
+
+[%}%]
+[%}%]
+};
