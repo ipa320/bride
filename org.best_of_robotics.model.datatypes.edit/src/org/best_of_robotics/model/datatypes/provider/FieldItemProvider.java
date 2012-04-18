@@ -14,6 +14,7 @@ import org.best_of_robotics.model.datatypes.ComplexType;
 import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
+import org.best_of_robotics.model.datatypes.SimpleType;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -183,7 +184,10 @@ public class FieldItemProvider
 		DataType field = ((Field)object).getType();
 		if(field instanceof ComplexType){
 			label = ((ComplexType) field).getLabel() + " " + label;
+		}else{
+			label = ((SimpleType) field).getName() + " " + label;
 		}
+		
 		return label == null || label.length() == 0 ?
 			getString("_UI_Field_type") :
 				label + " - " + getString("_UI_Field_type");
