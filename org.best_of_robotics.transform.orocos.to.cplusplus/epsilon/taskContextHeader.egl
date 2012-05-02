@@ -42,6 +42,7 @@
 
 
 using namespace RTT;
+using namespace std;
 
 namespace [%=taskContext.namespace%] 
 {
