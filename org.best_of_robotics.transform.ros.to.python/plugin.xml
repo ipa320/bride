@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.best_of_robotics.transform.ros.to.python.category"
+            name="ROS Python">
+      </category>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.python.category"
+            id="org.best_of_robotics.transform.ros.to.python.command.transform"
+            name="Generate Python Code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.best_of_robotics.transform.ros.to.python.handler.RosCppTransform"
+            commandId="org.best_of_robotics.transform.ros.to.python.command.transform">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
+         <menu
+               label="ROS2">
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.python.command.transform"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
