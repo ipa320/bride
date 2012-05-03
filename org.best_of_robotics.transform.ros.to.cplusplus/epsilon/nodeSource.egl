@@ -1,58 +1,198 @@
+[%
+	var componentClassName    = "Component_" + node.name;
+	var componentROSClassName = "Component_ROS_" + node.name;
+
+	//get includes
+	var includes : Sequence;
+	for (publisher in node.publisher)
+		//TODO: substitude "::" with "/"
+		includes.add(publisher.msg);
+
+	// determine computational model
+	var compModel : String;
+	if (node.loopRate > 0) 
+		compModel = "cyclic";
+
+	// split up publishers into dataflow and event
+	var dataflowPublisher : Sequence;
+	var eventPublisher : Sequence;
+	for (publisher in node.publisher)
+		if (publisher.eventHandler.isDefined())
+			eventPublisher.add(publisher);
+		else
+			dataflowPublisher.add(publisher);
+
+	// split up subscribers into dataflow and event
+	var dataflowSubscriber : Sequence;
+	var eventSubscriber : Sequence;
+	for (subscriber in node.subscriber)
+		if (subscriber.eventHandler.isDefined())
+			eventSubscriber.add(subscriber);
+		else
+			dataflowSubscriber.add(subscriber);	
+
+	// define names for callbacks
+	for (publisher in dataflowPublisher)
+		publisher.~callback = publisher.name + "Callback";
+	for (subscriber in dataflowSubscriber)
+		subscriber.~callback = subscriber.name + "Callback";
+	for (publisher in eventPublisher)
+		publisher.~callback = publisher.eventHandler;
+	for (subscriber in eventSubscriber)
+		subscriber.~callback = subscriber.eventHandler;
+
+	// define names for data
+	for (publisher in dataflowPublisher)
+		publisher.~dataName = publisher.name + "Data";
+	for (subscriber in dataflowSubscriber)
+		subscriber.~dataName = subscriber.name + "Data";
+			
+%]
 #include <ros/ros.h>
-
-[%for (publisher in node.publisher) {%]
-#include "std_msgs/[%=publisher.msg.asString()%].h"
+[%for (incs in includes) {%]
+#include <[%=incs%].h>
 [%}%]
-[%for (subscriber in node.subscriber) {%]
-#include "std_msgs/[%=subscriber.msg.asString()%].h"
-[%}%]
-
 [%=out.startPreserve("/*", "*/", "include", true)%]
 [%=out.stopPreserve()%]
 
-using std::string;
-const string NODE_NAME = "[%=node.name%]";
+const std::string NODE_NAME = "[%=node.name%]";
 
-[%for (subscriber in node.subscriber) {%]
-void [%=subscriber.topic.name%]Callback(const std_msgs::[%=subscriber.msg.asString()%]::ConstPtr& msg)
-{
-[%=out.startPreserve("/*", "*/", "callbackCode", true)%]
+//
+// component implementation
+//
 
+class [%=componentClassName%] {
+public:
+	[%=componentClassName%]() {
+[%for (param in node.parameter) {%]
+		[%=param.name%] = [%=param.value%];
+[%}%]	
+[%=out.startPreserve("/*", "*/", "constructor", true)%]
 [%=out.stopPreserve()%]
+	}
 
-	ROS_INFO("Received: %s", msg->data.c_str());
-}
+	void execute([%for (subscriber in dataflowSubscriber) {%]const [%=subscriber.msg.asString()%]& [%=subscriber.~dataName%] [%if (hasMore) {%], [%}%] [%}%] [%if (dataflowPublisher.size() > 0 and dataflowSubscriber.size() > 0) {%], [%}%] [%for (publisher in dataflowPublisher) {%][%=publisher.msg.asString()%]& [%=publisher.~dataName%] [%if (hasMore) {%], [%}%] [%}%]) {
+[%=out.startPreserve("/*", "*/", "execute", true)%]
+[%=out.stopPreserve()%]
+	}
+
+[%for (subscriber in eventSubscriber) {%]
+	void [%=subscriber.eventHandler%](const [%=subscriber.msg.asString()%]& event) {
+[%=out.startPreserve("/*", "*/", "eventHandler", true)%]
+[%=out.stopPreserve()%]
+	}
 [%}%]
+
+[%for (publisher in eventPublisher) {%]
+	boost::function< void(const [%=publisher.msg.asString()%]&)> [%=publisher.eventHandler%];
+[%}%]	
+[%for (param in node.parameter) {%]
+	[%=param.type%] [%=param.name%];
+[%}%]	
+[%=out.startPreserve("/*", "*/", "members and data", true)%]
+[%=out.stopPreserve()%]
+};
+
+//
+// ROS component hull
+//
+
+class [%=componentROSClassName%] {
+public:
+	bool init() {
+		ros::NodeHandle node;
+	[%for (subscriber in node.subscriber) {%]
+		[%=subscriber.name%] = node.subscribe("[%=subscriber.topic.name%]", [%=subscriber.queueSize%], &[%=componentROSClassName%]::[%=subscriber.~callback%], this); 
+	[%}%]
+	[%for (publisher in node.publisher) {%]
+		[%=publisher.name%] = node.advertise<[%=publisher.msg.asString()%]>("[%=publisher.topic.name%]", [%=publisher.queueSize%], [%=publisher.latch%]); 
+	[%}%]	
+	[%for (publisher in eventPublisher) {%]
+		component.[%=publisher.eventHandler%] = boost::bind(&[%=componentROSClassName%]::[%=publisher.eventHandler%], this, _1);
+	[%}%]
+	[%for (param in node.parameter) {%]
+		node.parameter("[%=param.name%]", component.[%=param.name%], [%=param.value%]);
+	[%}%]	
+		return true;
+	}
 	
+	void run() {
+	[%if (compModel == "cyclic") {%]	
+		ros::Rate loopRate([%=node.loopRate%]);
+		
+		while (ros::ok()) {
+			read();
+			execute();
+			write();
+		
+			loopRate.sleep();
+		}
+	[%} else {%]	
+		ros::spin();
+	[%}%]
+	}
+	
+protected:
+	void execute() {
+		component.execute([%for (subscriber in dataflowSubscriber) {%][%=subscriber.~dataName%][%if (hasMore) {%], [%}%] [%}%] [%if (dataflowPublisher.size() > 0 and dataflowSubscriber.size() > 0) {%], [%}%] [%for (publisher in dataflowPublisher) {%][%=publisher.~dataName%][%if (hasMore) {%], [%}%] [%}%]);
+	}
+
+	void read() {
+	[%if (compModel == "cyclic") {%]	
+		ros::spinOnce();
+	[%}%]
+	}
+
+	void write() {
+		twistPublisher.publish(twistPublisherData);
+	}
+		
+[%for (subscriber in dataflowSubscriber) {%]
+	void [%=subscriber.~callback%](const [%=subscriber.msg.asString()%]& data) {
+		[%=subscriber.~dataName%] = data;
+	[%if (compModel <> "cyclic") {%]	
+		execute();
+		write();
+	[%}%]
+	}
+[%}%]
+
+[%for (subscriber in eventSubscriber) {%]
+	void [%=subscriber.~callback%](const [%=subscriber.msg.asString()%]& event) {
+		component.[%=subscriber.eventHandler%](event);
+	}
+[%}%]
+
+[%for (publisher in eventPublisher) {%]
+	void [%=publisher.~callback%](const [%=publisher.msg.asString()%]& event) {
+		[%=publisher.name%].publish(event);
+	}
+[%}%]
+		
+	ros::NodeHandle node;	
+[%for (subscriber in node.subscriber) {%]
+	ros::Subscriber [%=subscriber.name%];
+[%}%]
+[%for (publisher in node.publisher) {%]
+	ros::Publisher [%=publisher.name%];
+[%}%]	
+
+[%for (subscriber in dataflowSubscriber) {%]
+	[%=subscriber.msg.asString()%] [%=subscriber.~dataName%];
+[%}%]	
+[%for (publisher in dataflowPublisher) {%]
+	[%=publisher.msg.asString()%] [%=publisher.~dataName%];
+[%}%]	
+
+	[%=componentClassName%] component;
+};
 
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, NODE_NAME);
-	ros::NodeHandle nodeHandle;
-
-	[%for (publisher in node.publisher) {%]
-	ros::Publisher [%=publisher.name%] = nodeHandle.advertise<std_msgs::[%=publisher.msg.asString()%]>("[%=publisher.topic.name%]", [%=publisher.queueSize%], [%=publisher.latch%]); 
-	[%}%]
+	[%=componentROSClassName%] component;
+	if (component.init())
+		component.run();
 	
-	[%for (subscriber in node.subscriber) {%]
-	ros::Subscriber [%=subscriber.name%] = nodeHandle.subscribe("[%=subscriber.topic.name%]", [%=subscriber.queueSize%], [%=subscriber.topic.name%]Callback); 
-	[%}%]
-	
-	
-	[%=out.startPreserve("/*", "*/", "mainCode", true)%]
-	[%=out.stopPreserve()%]
-	
-	[%if (node.loopRate > 0) {%]
-	ros::Rate loopRate([%=node.loopRate%]);
-	while(ros::ok()){
-		[%=out.startPreserve("/*", "*/", "periodicCode", true)%]
-		//PUT YOUR CODE HERE.
-		[%=out.stopPreserve()%]
-		ros::spinOnce();
-		loopRate.sleep();
-	}
-	[%} else {%]
-	ros::spin();
-	[%}%]
 	return 0;
 } 
