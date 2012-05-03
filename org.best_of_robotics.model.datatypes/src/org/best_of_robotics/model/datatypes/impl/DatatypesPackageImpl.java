@@ -14,8 +14,9 @@ import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesFactory;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
+import org.best_of_robotics.model.datatypes.IDLReference;
 import org.best_of_robotics.model.datatypes.Int;
-import org.best_of_robotics.model.datatypes.RosType;
+import org.best_of_robotics.model.datatypes.RosIDLReference;
 import org.best_of_robotics.model.datatypes.SimpleType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
@@ -69,7 +70,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rosTypeEClass = null;
+	private EClass rosIDLReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +176,13 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	private EClass boolEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass idlReferenceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -413,8 +421,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRosType() {
-		return rosTypeEClass;
+	public EClass getRosIDLReference() {
+		return rosIDLReferenceEClass;
 	}
 
 	/**
@@ -422,8 +430,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRosType_Include() {
-		return (EAttribute)rosTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRosIDLReference_Namespace() {
+		return (EAttribute)rosIDLReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -431,17 +439,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRosType_Namespace() {
-		return (EAttribute)rosTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRosType_RosPackage() {
-		return (EAttribute)rosTypeEClass.getEStructuralFeatures().get(2);
+	public EAttribute getRosIDLReference_RosPackage() {
+		return (EAttribute)rosIDLReferenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -638,6 +637,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIDLReference() {
+		return idlReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatatypesFactory getDatatypesFactory() {
 		return (DatatypesFactory)getEFactoryInstance();
 	}
@@ -684,10 +692,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		complexTypeEClass = createEClass(COMPLEX_TYPE);
 
-		rosTypeEClass = createEClass(ROS_TYPE);
-		createEAttribute(rosTypeEClass, ROS_TYPE__INCLUDE);
-		createEAttribute(rosTypeEClass, ROS_TYPE__NAMESPACE);
-		createEAttribute(rosTypeEClass, ROS_TYPE__ROS_PACKAGE);
+		rosIDLReferenceEClass = createEClass(ROS_IDL_REFERENCE);
+		createEAttribute(rosIDLReferenceEClass, ROS_IDL_REFERENCE__NAMESPACE);
+		createEAttribute(rosIDLReferenceEClass, ROS_IDL_REFERENCE__ROS_PACKAGE);
 
 		vectorTypeEClass = createEClass(VECTOR_TYPE);
 		createEReference(vectorTypeEClass, VECTOR_TYPE__TEMPLATE);
@@ -724,6 +731,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		unsignedLongEClass = createEClass(UNSIGNED_LONG);
 
 		boolEClass = createEClass(BOOL);
+
+		idlReferenceEClass = createEClass(IDL_REFERENCE);
 	}
 
 	/**
@@ -756,7 +765,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		// Add supertypes to classes
 		simpleTypeEClass.getESuperTypes().add(this.getDataType());
 		complexTypeEClass.getESuperTypes().add(this.getDataType());
-		rosTypeEClass.getESuperTypes().add(this.getComplexType());
+		rosIDLReferenceEClass.getESuperTypes().add(this.getIDLReference());
 		vectorTypeEClass.getESuperTypes().add(this.getComplexType());
 		customTypeEClass.getESuperTypes().add(this.getComplexType());
 		intEClass.getESuperTypes().add(this.getSimpleType());
@@ -771,6 +780,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		unsignedShortEClass.getESuperTypes().add(this.getSimpleType());
 		unsignedLongEClass.getESuperTypes().add(this.getSimpleType());
 		boolEClass.getESuperTypes().add(this.getSimpleType());
+		idlReferenceEClass.getESuperTypes().add(this.getComplexType());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typesLibraryEClass, TypesLibrary.class, "TypesLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -798,10 +808,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		addEOperation(complexTypeEClass, ecorePackage.getEString(), "getLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(rosTypeEClass, RosType.class, "RosType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRosType_Include(), ecorePackage.getEString(), "include", null, 1, 1, RosType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRosType_Namespace(), ecorePackage.getEString(), "namespace", null, 1, 1, RosType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRosType_RosPackage(), ecorePackage.getEString(), "rosPackage", null, 1, 1, RosType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rosIDLReferenceEClass, RosIDLReference.class, "RosIDLReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRosIDLReference_Namespace(), ecorePackage.getEString(), "namespace", null, 1, 1, RosIDLReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRosIDLReference_RosPackage(), ecorePackage.getEString(), "rosPackage", null, 1, 1, RosIDLReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vectorTypeEClass, VectorType.class, "VectorType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVectorType_Template(), this.getDataType(), null, "template", null, 1, 1, VectorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -838,6 +847,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEClass(unsignedLongEClass, UnsignedLong.class, "UnsignedLong", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(boolEClass, Bool.class, "Bool", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(idlReferenceEClass, IDLReference.class, "IDLReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

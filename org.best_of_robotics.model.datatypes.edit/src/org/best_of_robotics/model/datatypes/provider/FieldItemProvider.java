@@ -181,11 +181,14 @@ public class FieldItemProvider
 	@Override
 	public String getText(Object object) {
 		String label = ((Field)object).getName();
-		DataType field = ((Field)object).getType();
-		if(field instanceof ComplexType){
-			label = ((ComplexType) field).getLabel() + " " + label;
+		DataType fieldType = ((Field)object).getType();
+		if(fieldType == null){
+			return getString("_UI_Field_type");
+		}
+		if(fieldType instanceof ComplexType){
+			label = ((ComplexType) fieldType).getLabel() + " " + label;
 		}else{
-			label = ((SimpleType) field).getName() + " " + label;
+			label = ((SimpleType) fieldType).getName() + " " + label;
 		}
 		
 		return label == null || label.length() == 0 ?

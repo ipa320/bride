@@ -13,8 +13,9 @@ import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
+import org.best_of_robotics.model.datatypes.IDLReference;
 import org.best_of_robotics.model.datatypes.Int;
-import org.best_of_robotics.model.datatypes.RosType;
+import org.best_of_robotics.model.datatypes.RosIDLReference;
 import org.best_of_robotics.model.datatypes.SimpleType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
@@ -109,11 +110,12 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.ROS_TYPE: {
-				RosType rosType = (RosType)theEObject;
-				T result = caseRosType(rosType);
-				if (result == null) result = caseComplexType(rosType);
-				if (result == null) result = caseDataType(rosType);
+			case DatatypesPackage.ROS_IDL_REFERENCE: {
+				RosIDLReference rosIDLReference = (RosIDLReference)theEObject;
+				T result = caseRosIDLReference(rosIDLReference);
+				if (result == null) result = caseIDLReference(rosIDLReference);
+				if (result == null) result = caseComplexType(rosIDLReference);
+				if (result == null) result = caseDataType(rosIDLReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -235,6 +237,14 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatypesPackage.IDL_REFERENCE: {
+				IDLReference idlReference = (IDLReference)theEObject;
+				T result = caseIDLReference(idlReference);
+				if (result == null) result = caseComplexType(idlReference);
+				if (result == null) result = caseDataType(idlReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -300,17 +310,17 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ros Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Ros IDL Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ros Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Ros IDL Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRosType(RosType object) {
+	public T caseRosIDLReference(RosIDLReference object) {
 		return null;
 	}
 
@@ -536,6 +546,21 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBool(Bool object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IDL Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IDL Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDLReference(IDLReference object) {
 		return null;
 	}
 

@@ -210,7 +210,7 @@ public class TypesLibraryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES,
-				 DatatypesFactory.eINSTANCE.createRosType()));
+				 DatatypesFactory.eINSTANCE.createRosIDLReference()));
 
 		newChildDescriptors.add
 			(createChildParameter

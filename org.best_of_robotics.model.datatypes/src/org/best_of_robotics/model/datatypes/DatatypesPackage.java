@@ -291,14 +291,14 @@ public interface DatatypesPackage extends EPackage {
 	int COMPLEX_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.RosTypeImpl <em>Ros Type</em>}' class.
+	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.IDLReferenceImpl <em>IDL Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.best_of_robotics.model.datatypes.impl.RosTypeImpl
-	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getRosType()
+	 * @see org.best_of_robotics.model.datatypes.impl.IDLReferenceImpl
+	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getIDLReference()
 	 * @generated
 	 */
-	int ROS_TYPE = 4;
+	int IDL_REFERENCE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -307,16 +307,35 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROS_TYPE__NAME = COMPLEX_TYPE__NAME;
+	int IDL_REFERENCE__NAME = COMPLEX_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Include</b></em>' attribute.
+	 * The number of structural features of the '<em>IDL Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROS_TYPE__INCLUDE = COMPLEX_TYPE_FEATURE_COUNT + 0;
+	int IDL_REFERENCE_FEATURE_COUNT = COMPLEX_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.RosIDLReferenceImpl <em>Ros IDL Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.best_of_robotics.model.datatypes.impl.RosIDLReferenceImpl
+	 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getRosIDLReference()
+	 * @generated
+	 */
+	int ROS_IDL_REFERENCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROS_IDL_REFERENCE__NAME = IDL_REFERENCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -325,7 +344,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROS_TYPE__NAMESPACE = COMPLEX_TYPE_FEATURE_COUNT + 1;
+	int ROS_IDL_REFERENCE__NAMESPACE = IDL_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ros Package</b></em>' attribute.
@@ -334,16 +353,16 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROS_TYPE__ROS_PACKAGE = COMPLEX_TYPE_FEATURE_COUNT + 2;
+	int ROS_IDL_REFERENCE__ROS_PACKAGE = IDL_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Ros Type</em>' class.
+	 * The number of structural features of the '<em>Ros IDL Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROS_TYPE_FEATURE_COUNT = COMPLEX_TYPE_FEATURE_COUNT + 3;
+	int ROS_IDL_REFERENCE_FEATURE_COUNT = IDL_REFERENCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.best_of_robotics.model.datatypes.impl.VectorTypeImpl <em>Vector Type</em>}' class.
@@ -1017,47 +1036,36 @@ public interface DatatypesPackage extends EPackage {
 	EClass getComplexType();
 
 	/**
-	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.RosType <em>Ros Type</em>}'.
+	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.RosIDLReference <em>Ros IDL Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ros Type</em>'.
-	 * @see org.best_of_robotics.model.datatypes.RosType
+	 * @return the meta object for class '<em>Ros IDL Reference</em>'.
+	 * @see org.best_of_robotics.model.datatypes.RosIDLReference
 	 * @generated
 	 */
-	EClass getRosType();
+	EClass getRosIDLReference();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosType#getInclude <em>Include</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Include</em>'.
-	 * @see org.best_of_robotics.model.datatypes.RosType#getInclude()
-	 * @see #getRosType()
-	 * @generated
-	 */
-	EAttribute getRosType_Include();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosType#getNamespace <em>Namespace</em>}'.
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosIDLReference#getNamespace <em>Namespace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Namespace</em>'.
-	 * @see org.best_of_robotics.model.datatypes.RosType#getNamespace()
-	 * @see #getRosType()
+	 * @see org.best_of_robotics.model.datatypes.RosIDLReference#getNamespace()
+	 * @see #getRosIDLReference()
 	 * @generated
 	 */
-	EAttribute getRosType_Namespace();
+	EAttribute getRosIDLReference_Namespace();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosType#getRosPackage <em>Ros Package</em>}'.
+	 * Returns the meta object for the attribute '{@link org.best_of_robotics.model.datatypes.RosIDLReference#getRosPackage <em>Ros Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Ros Package</em>'.
-	 * @see org.best_of_robotics.model.datatypes.RosType#getRosPackage()
-	 * @see #getRosType()
+	 * @see org.best_of_robotics.model.datatypes.RosIDLReference#getRosPackage()
+	 * @see #getRosIDLReference()
 	 * @generated
 	 */
-	EAttribute getRosType_RosPackage();
+	EAttribute getRosIDLReference_RosPackage();
 
 	/**
 	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.VectorType <em>Vector Type</em>}'.
@@ -1276,6 +1284,16 @@ public interface DatatypesPackage extends EPackage {
 	EClass getBool();
 
 	/**
+	 * Returns the meta object for class '{@link org.best_of_robotics.model.datatypes.IDLReference <em>IDL Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IDL Reference</em>'.
+	 * @see org.best_of_robotics.model.datatypes.IDLReference
+	 * @generated
+	 */
+	EClass getIDLReference();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1458,22 +1476,14 @@ public interface DatatypesPackage extends EPackage {
 		EClass COMPLEX_TYPE = eINSTANCE.getComplexType();
 
 		/**
-		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.RosTypeImpl <em>Ros Type</em>}' class.
+		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.RosIDLReferenceImpl <em>Ros IDL Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.best_of_robotics.model.datatypes.impl.RosTypeImpl
-		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getRosType()
+		 * @see org.best_of_robotics.model.datatypes.impl.RosIDLReferenceImpl
+		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getRosIDLReference()
 		 * @generated
 		 */
-		EClass ROS_TYPE = eINSTANCE.getRosType();
-
-		/**
-		 * The meta object literal for the '<em><b>Include</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROS_TYPE__INCLUDE = eINSTANCE.getRosType_Include();
+		EClass ROS_IDL_REFERENCE = eINSTANCE.getRosIDLReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Namespace</b></em>' attribute feature.
@@ -1481,7 +1491,7 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ROS_TYPE__NAMESPACE = eINSTANCE.getRosType_Namespace();
+		EAttribute ROS_IDL_REFERENCE__NAMESPACE = eINSTANCE.getRosIDLReference_Namespace();
 
 		/**
 		 * The meta object literal for the '<em><b>Ros Package</b></em>' attribute feature.
@@ -1489,7 +1499,7 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ROS_TYPE__ROS_PACKAGE = eINSTANCE.getRosType_RosPackage();
+		EAttribute ROS_IDL_REFERENCE__ROS_PACKAGE = eINSTANCE.getRosIDLReference_RosPackage();
 
 		/**
 		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.VectorTypeImpl <em>Vector Type</em>}' class.
@@ -1688,6 +1698,16 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOL = eINSTANCE.getBool();
+
+		/**
+		 * The meta object literal for the '{@link org.best_of_robotics.model.datatypes.impl.IDLReferenceImpl <em>IDL Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.best_of_robotics.model.datatypes.impl.IDLReferenceImpl
+		 * @see org.best_of_robotics.model.datatypes.impl.DatatypesPackageImpl#getIDLReference()
+		 * @generated
+		 */
+		EClass IDL_REFERENCE = eINSTANCE.getIDLReference();
 
 	}
 

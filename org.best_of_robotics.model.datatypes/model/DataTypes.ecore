@@ -41,9 +41,7 @@
       eSuperTypes="#//DataType">
     <eOperations name="getLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RosType" eSuperTypes="#//ComplexType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="include" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RosIDLReference" eSuperTypes="#//IDLReference">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rosPackage" lowerBound="1"
@@ -75,4 +73,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedShort" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedLong" eSuperTypes="#//SimpleType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Bool" eSuperTypes="#//SimpleType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IDLReference" abstract="true" eSuperTypes="#//ComplexType"/>
 </ecore:EPackage>

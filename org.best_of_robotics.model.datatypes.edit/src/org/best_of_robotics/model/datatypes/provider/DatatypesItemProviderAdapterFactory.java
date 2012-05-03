@@ -99,26 +99,26 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.RosType} instances.
+	 * This keeps track of the one adapter used for all {@link org.best_of_robotics.model.datatypes.RosIDLReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RosTypeItemProvider rosTypeItemProvider;
+	protected RosIDLReferenceItemProvider rosIDLReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.RosType}.
+	 * This creates an adapter for a {@link org.best_of_robotics.model.datatypes.RosIDLReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRosTypeAdapter() {
-		if (rosTypeItemProvider == null) {
-			rosTypeItemProvider = new RosTypeItemProvider(this);
+	public Adapter createRosIDLReferenceAdapter() {
+		if (rosIDLReferenceItemProvider == null) {
+			rosIDLReferenceItemProvider = new RosIDLReferenceItemProvider(this);
 		}
 
-		return rosTypeItemProvider;
+		return rosIDLReferenceItemProvider;
 	}
 
 	/**
@@ -566,7 +566,7 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	 */
 	public void dispose() {
 		if (typesLibraryItemProvider != null) typesLibraryItemProvider.dispose();
-		if (rosTypeItemProvider != null) rosTypeItemProvider.dispose();
+		if (rosIDLReferenceItemProvider != null) rosIDLReferenceItemProvider.dispose();
 		if (vectorTypeItemProvider != null) vectorTypeItemProvider.dispose();
 		if (customTypeItemProvider != null) customTypeItemProvider.dispose();
 		if (fieldItemProvider != null) fieldItemProvider.dispose();

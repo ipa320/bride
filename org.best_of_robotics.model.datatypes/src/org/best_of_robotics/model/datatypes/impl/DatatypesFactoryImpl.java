@@ -13,7 +13,7 @@ import org.best_of_robotics.model.datatypes.DatatypesFactory;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
 import org.best_of_robotics.model.datatypes.Int;
-import org.best_of_robotics.model.datatypes.RosType;
+import org.best_of_robotics.model.datatypes.RosIDLReference;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
 import org.best_of_robotics.model.datatypes.UnsignedInt;
@@ -71,7 +71,7 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DatatypesPackage.TYPES_LIBRARY: return createTypesLibrary();
-			case DatatypesPackage.ROS_TYPE: return createRosType();
+			case DatatypesPackage.ROS_IDL_REFERENCE: return createRosIDLReference();
 			case DatatypesPackage.VECTOR_TYPE: return createVectorType();
 			case DatatypesPackage.CUSTOM_TYPE: return createCustomType();
 			case DatatypesPackage.FIELD: return createField();
@@ -107,9 +107,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RosType createRosType() {
-		RosTypeImpl rosType = new RosTypeImpl();
-		return rosType;
+	public RosIDLReference createRosIDLReference() {
+		RosIDLReferenceImpl rosIDLReference = new RosIDLReferenceImpl();
+		return rosIDLReference;
 	}
 
 	/**

@@ -6,6 +6,7 @@
  */
 package org.best_of_robotics.model.datatypes.impl;
 
+import java.lang.String;
 import java.util.Collection;
 
 import org.best_of_robotics.model.datatypes.Bool;

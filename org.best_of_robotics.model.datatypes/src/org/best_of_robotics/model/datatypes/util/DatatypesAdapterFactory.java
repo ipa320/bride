@@ -13,8 +13,9 @@ import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DataType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
+import org.best_of_robotics.model.datatypes.IDLReference;
 import org.best_of_robotics.model.datatypes.Int;
-import org.best_of_robotics.model.datatypes.RosType;
+import org.best_of_robotics.model.datatypes.RosIDLReference;
 import org.best_of_robotics.model.datatypes.SimpleType;
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.best_of_robotics.model.datatypes.UnsignedChar;
@@ -100,8 +101,8 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createComplexTypeAdapter();
 			}
 			@Override
-			public Adapter caseRosType(RosType object) {
-				return createRosTypeAdapter();
+			public Adapter caseRosIDLReference(RosIDLReference object) {
+				return createRosIDLReferenceAdapter();
 			}
 			@Override
 			public Adapter caseVectorType(VectorType object) {
@@ -162,6 +163,10 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBool(Bool object) {
 				return createBoolAdapter();
+			}
+			@Override
+			public Adapter caseIDLReference(IDLReference object) {
+				return createIDLReferenceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -240,16 +245,16 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.RosType <em>Ros Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.RosIDLReference <em>Ros IDL Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.best_of_robotics.model.datatypes.RosType
+	 * @see org.best_of_robotics.model.datatypes.RosIDLReference
 	 * @generated
 	 */
-	public Adapter createRosTypeAdapter() {
+	public Adapter createRosIDLReferenceAdapter() {
 		return null;
 	}
 
@@ -460,6 +465,20 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBoolAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.best_of_robotics.model.datatypes.IDLReference <em>IDL Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.best_of_robotics.model.datatypes.IDLReference
+	 * @generated
+	 */
+	public Adapter createIDLReferenceAdapter() {
 		return null;
 	}
 

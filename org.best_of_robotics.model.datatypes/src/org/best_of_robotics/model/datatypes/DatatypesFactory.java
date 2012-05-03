@@ -35,13 +35,13 @@ public interface DatatypesFactory extends EFactory {
 	TypesLibrary createTypesLibrary();
 
 	/**
-	 * Returns a new object of class '<em>Ros Type</em>'.
+	 * Returns a new object of class '<em>Ros IDL Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ros Type</em>'.
+	 * @return a new object of class '<em>Ros IDL Reference</em>'.
 	 * @generated
 	 */
-	RosType createRosType();
+	RosIDLReference createRosIDLReference();
 
 	/**
 	 * Returns a new object of class '<em>Vector Type</em>'.
