@@ -3,10 +3,14 @@
 	var componentROSClassName = "Component_ROS_" + node.name;
 
 	//get includes
-	var includes : Sequence;
-	for (publisher in node.publisher)
-		//TODO: substitude "::" with "/"
+	var includes : Sequence;	
+	for (publisher in node.publisher) {
 		includes.add(publisher.msg);
+	}
+	for (subscriber in node.subscriber) {
+		includes.add(subscriber.msg);
+	}
+	 
 
 	// determine computational model
 	var compModel : String;
@@ -49,8 +53,12 @@
 			
 %]
 #include <ros/ros.h>
-[%for (incs in includes) {%]
-#include <[%=incs%].h>
+[%
+var str : String;
+for (incs in includes) {
+str = incs.replace('::','/');
+%]
+#include <[%=str%].h>
 [%}%]
 [%=out.startPreserve("/*", "*/", "include", true)%]
 [%=out.stopPreserve()%]
@@ -144,7 +152,7 @@ protected:
 	}
 
 	void write() {
-		twistPublisher.publish(twistPublisherData);
+		// twistPublisher.publish(twistPublisherData);
 	}
 		
 [%for (subscriber in dataflowSubscriber) {%]
