@@ -10,7 +10,7 @@
 [%var addVectorType : Boolean = true;%]
 [%var includeCollection : Sequence;%]
 [%for(anInputPort in taskContext.inputPort) {%]
-[%if(anInputPort.type.isKindOf(RosType)){%]
+[%if(anInputPort.type.isKindOf(RosIDLReference)){%]
 [%if(not includeCollection.contains(anInputPort.type.rosPackage)){%]
 #include <[%=anInputPort.type.rosPackage%]/typekit/Types.h>
 [%includeCollection.add(anInputPort.type.rosPackage);%]
@@ -26,7 +26,7 @@
 [%}%]
 	
 [%for(anOutputPort in taskContext.outputPort){%]
-[%if(anOutputPort.type.isKindOf(RosType)){%]
+[%if(anOutputPort.type.isKindOf(RosIDLReference)){%]
 [%if(not includeCollection.contains(anOutputPort.type.rosPackage)){%]
 #include <[%=anOutputPort.type.rosPackage%]/typekit/Types.h>
 [%includeCollection.add(anOutputPort.type.rosPackage);%]

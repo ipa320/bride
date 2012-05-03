@@ -9,7 +9,7 @@
     <depend package="rtt"/>
     <depend package="rtt_[%=package.typesLibrary.name%]_msgs"/>
     [%for(aComplexType in package.typesLibrary.types){%]
-    [%if(aComplexType.isKindOf(RosType) and (not dependsCollection.includes(aComplexType.rosPackage))){%]
+    [%if(aComplexType.isKindOf(RosIDLReference) and (not dependsCollection.includes(aComplexType.rosPackage))){%]
     <depend package="rtt_[%=aComplexType.rosPackage%]"/>
     [%dependsCollection.add(aComplexType.rosPackage);%]
     [%}%]

@@ -5,8 +5,8 @@
 [%for(aComplexType in typesLibrary.types) {%]
 [%if(aComplexType.isKindOf(CustomType)){%]
 [%for(aField in aComplexType.fields) {%]
-[%if(aField.type.isTypeOf(RosType)){%]
-#include <[%=aField.type.include%]>
+[%if(aField.type.isTypeOf(RosIDLReference)){%]
+#include <[%=aField.type.namespace%]/[%=aField.type.name%].h>
 [%}%]
 [%}%]
 [%}%]
