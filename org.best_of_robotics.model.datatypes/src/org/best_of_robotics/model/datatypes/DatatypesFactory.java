@@ -35,6 +35,15 @@ public interface DatatypesFactory extends EFactory {
 	TypesLibrary createTypesLibrary();
 
 	/**
+	 * Returns a new object of class '<em>Simple Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Type</em>'.
+	 * @generated
+	 */
+	SimpleType createSimpleType();
+
+	/**
 	 * Returns a new object of class '<em>Ros IDL Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,114 +78,6 @@ public interface DatatypesFactory extends EFactory {
 	 * @generated
 	 */
 	Field createField();
-
-	/**
-	 * Returns a new object of class '<em>Int</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Int</em>'.
-	 * @generated
-	 */
-	Int createInt();
-
-	/**
-	 * Returns a new object of class '<em>Double</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Double</em>'.
-	 * @generated
-	 */
-	Double createDouble();
-
-	/**
-	 * Returns a new object of class '<em>Char</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Char</em>'.
-	 * @generated
-	 */
-	Char createChar();
-
-	/**
-	 * Returns a new object of class '<em>Float</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Float</em>'.
-	 * @generated
-	 */
-	Float createFloat();
-
-	/**
-	 * Returns a new object of class '<em>Short</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Short</em>'.
-	 * @generated
-	 */
-	Short createShort();
-
-	/**
-	 * Returns a new object of class '<em>String</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String</em>'.
-	 * @generated
-	 */
-	String createString();
-
-	/**
-	 * Returns a new object of class '<em>Long</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Long</em>'.
-	 * @generated
-	 */
-	Long createLong();
-
-	/**
-	 * Returns a new object of class '<em>Unsigned Int</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unsigned Int</em>'.
-	 * @generated
-	 */
-	UnsignedInt createUnsignedInt();
-
-	/**
-	 * Returns a new object of class '<em>Unsigned Char</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unsigned Char</em>'.
-	 * @generated
-	 */
-	UnsignedChar createUnsignedChar();
-
-	/**
-	 * Returns a new object of class '<em>Unsigned Short</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unsigned Short</em>'.
-	 * @generated
-	 */
-	UnsignedShort createUnsignedShort();
-
-	/**
-	 * Returns a new object of class '<em>Unsigned Long</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unsigned Long</em>'.
-	 * @generated
-	 */
-	UnsignedLong createUnsignedLong();
-
-	/**
-	 * Returns a new object of class '<em>Bool</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bool</em>'.
-	 * @generated
-	 */
-	Bool createBool();
 
 	/**
 	 * Returns the package supported by this factory.

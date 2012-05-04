@@ -1,7 +1,7 @@
 [%
 
 var present : Boolean = false;
-var typesLibrary : TypesLibrary = package.typesLibrary;
+//var typesLibrary : TypesLibrary = package.typesLibrary;
 for(aComplexType in typesLibrary.types) {
 if(aComplexType.isKindOf(CustomType)){
 
@@ -14,18 +14,29 @@ present = true;
 
 }
 
+if(present){
 //dataTypesRosMakefile
 var makefileTemplate := TemplateFactory.load('makefile.egl');
 makefileTemplate.generate('../' + typesLibrary.name +'_msgs/Makefile');
 	
 //dataTypesRosManifest
 var manifestTemplate := TemplateFactory.load('rosTypesManifest.egl');
-manifestTemplate.populate('package', package);
+manifestTemplate.populate('typesLibrary', typesLibrary);
 manifestTemplate.generate('../' + typesLibrary.name +'_msgs/manifest.xml');
 
 //dataTypesRosCMakelists
-var manifestTemplate := TemplateFactory.load('rosTypesCmakelists.egl');
-manifestTemplate.populate('package', package);
-manifestTemplate.generate('../' + typesLibrary.name +'_msgs/CMakeLists.txt');
+var cmakeListsTemplate := TemplateFactory.load('rosTypesCmakelists.egl');
+//manifestTemplate.populate('package', package);
+cmakeListsTemplate.generate('../' + typesLibrary.name +'_msgs/CMakeLists.txt');
+
+for(aTypesLibrary in typesLibrary.includes){
+
+//dataTypesRosMsgs
+var rosMsgsTemplate := TemplateFactory.load('rosTypesMsgs.egl');
+rosMsgsTemplate.populate('typesLibrary', aTypesLibrary);
+rosMsgsTemplate.process();
+
+}
+}
 
 }%]

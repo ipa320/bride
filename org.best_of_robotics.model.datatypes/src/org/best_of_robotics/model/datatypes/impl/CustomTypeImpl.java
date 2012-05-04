@@ -14,6 +14,7 @@ import org.best_of_robotics.model.datatypes.CustomType;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.best_of_robotics.model.datatypes.Field;
 
+import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -36,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl#getTypesLibrary <em>Types Library</em>}</li>
  *   <li>{@link org.best_of_robotics.model.datatypes.impl.CustomTypeImpl#getFields <em>Fields</em>}</li>
  * </ul>
  * </p>
@@ -118,6 +121,47 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TypesLibrary getTypesLibrary() {
+		if (eContainerFeatureID() != DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY) return null;
+		return (TypesLibrary)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTypesLibrary(TypesLibrary newTypesLibrary, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newTypesLibrary, DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypesLibrary(TypesLibrary newTypesLibrary) {
+		if (newTypesLibrary != eInternalContainer() || (eContainerFeatureID() != DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY && newTypesLibrary != null)) {
+			if (EcoreUtil.isAncestor(this, newTypesLibrary))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTypesLibrary != null)
+				msgs = ((InternalEObject)newTypesLibrary).eInverseAdd(this, DatatypesPackage.TYPES_LIBRARY__TYPES, TypesLibrary.class, msgs);
+			msgs = basicSetTypesLibrary(newTypesLibrary, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY, newTypesLibrary, newTypesLibrary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Field> getFields() {
 		if (fields == null) {
 			fields = new EObjectContainmentEList<Field>(Field.class, this, DatatypesPackage.CUSTOM_TYPE__FIELDS);
@@ -143,8 +187,26 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetTypesLibrary((TypesLibrary)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				return basicSetTypesLibrary(null, msgs);
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
@@ -157,10 +219,26 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				return eInternalContainer().eInverseRemove(this, DatatypesPackage.TYPES_LIBRARY__TYPES, TypesLibrary.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
 				return getName();
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				return getTypesLibrary();
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				return getFields();
 		}
@@ -178,6 +256,9 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 		switch (featureID) {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
 				setName((String)newValue);
+				return;
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				setTypesLibrary((TypesLibrary)newValue);
 				return;
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				getFields().clear();
@@ -198,6 +279,9 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				setTypesLibrary((TypesLibrary)null);
+				return;
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				getFields().clear();
 				return;
@@ -215,6 +299,8 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 		switch (featureID) {
 			case DatatypesPackage.CUSTOM_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY:
+				return getTypesLibrary() != null;
 			case DatatypesPackage.CUSTOM_TYPE__FIELDS:
 				return fields != null && !fields.isEmpty();
 		}

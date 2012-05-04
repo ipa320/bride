@@ -98,90 +98,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass intEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass doubleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass charEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass floatEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass shortEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass stringEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass longEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unsignedIntEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unsignedCharEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unsignedShortEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unsignedLongEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass boolEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass idlReferenceEClass = null;
 
 	/**
@@ -268,116 +184,17 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTypesLibrary_Bool() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_Char() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_Double() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_Float() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_Int() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_Long() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_Short() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_String() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_UnsignedChar() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_UnsignedInt() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_UnsignedLong() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypesLibrary_UnsignedShort() {
-		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTypesLibrary_Name() {
-		return (EAttribute)typesLibraryEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)typesLibraryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypesLibrary_Includes() {
+		return (EReference)typesLibraryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -396,6 +213,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 */
 	public EAttribute getDataType_Name() {
 		return (EAttribute)dataTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataType_TypesLibrary() {
+		return (EReference)dataTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -529,114 +355,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInt() {
-		return intEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDouble() {
-		return doubleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getChar() {
-		return charEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFloat() {
-		return floatEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getShort() {
-		return shortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getString() {
-		return stringEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLong() {
-		return longEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnsignedInt() {
-		return unsignedIntEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnsignedChar() {
-		return unsignedCharEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnsignedShort() {
-		return unsignedShortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnsignedLong() {
-		return unsignedLongEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBool() {
-		return boolEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIDLReference() {
 		return idlReferenceEClass;
 	}
@@ -671,22 +389,12 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		// Create classes and their features
 		typesLibraryEClass = createEClass(TYPES_LIBRARY);
 		createEReference(typesLibraryEClass, TYPES_LIBRARY__TYPES);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__BOOL);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__CHAR);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__DOUBLE);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__FLOAT);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__INT);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__LONG);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__SHORT);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__STRING);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_CHAR);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_INT);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_LONG);
-		createEReference(typesLibraryEClass, TYPES_LIBRARY__UNSIGNED_SHORT);
 		createEAttribute(typesLibraryEClass, TYPES_LIBRARY__NAME);
+		createEReference(typesLibraryEClass, TYPES_LIBRARY__INCLUDES);
 
 		dataTypeEClass = createEClass(DATA_TYPE);
 		createEAttribute(dataTypeEClass, DATA_TYPE__NAME);
+		createEReference(dataTypeEClass, DATA_TYPE__TYPES_LIBRARY);
 
 		simpleTypeEClass = createEClass(SIMPLE_TYPE);
 
@@ -707,30 +415,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		createEReference(fieldEClass, FIELD__TYPE);
 		createEAttribute(fieldEClass, FIELD__DESCRIPTION);
 		createEAttribute(fieldEClass, FIELD__MEASURE_UNIT);
-
-		intEClass = createEClass(INT);
-
-		doubleEClass = createEClass(DOUBLE);
-
-		charEClass = createEClass(CHAR);
-
-		floatEClass = createEClass(FLOAT);
-
-		shortEClass = createEClass(SHORT);
-
-		stringEClass = createEClass(STRING);
-
-		longEClass = createEClass(LONG);
-
-		unsignedIntEClass = createEClass(UNSIGNED_INT);
-
-		unsignedCharEClass = createEClass(UNSIGNED_CHAR);
-
-		unsignedShortEClass = createEClass(UNSIGNED_SHORT);
-
-		unsignedLongEClass = createEClass(UNSIGNED_LONG);
-
-		boolEClass = createEClass(BOOL);
 
 		idlReferenceEClass = createEClass(IDL_REFERENCE);
 	}
@@ -768,41 +452,19 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		rosIDLReferenceEClass.getESuperTypes().add(this.getIDLReference());
 		vectorTypeEClass.getESuperTypes().add(this.getComplexType());
 		customTypeEClass.getESuperTypes().add(this.getComplexType());
-		intEClass.getESuperTypes().add(this.getSimpleType());
-		doubleEClass.getESuperTypes().add(this.getSimpleType());
-		charEClass.getESuperTypes().add(this.getSimpleType());
-		floatEClass.getESuperTypes().add(this.getSimpleType());
-		shortEClass.getESuperTypes().add(this.getSimpleType());
-		stringEClass.getESuperTypes().add(this.getSimpleType());
-		longEClass.getESuperTypes().add(this.getSimpleType());
-		unsignedIntEClass.getESuperTypes().add(this.getSimpleType());
-		unsignedCharEClass.getESuperTypes().add(this.getSimpleType());
-		unsignedShortEClass.getESuperTypes().add(this.getSimpleType());
-		unsignedLongEClass.getESuperTypes().add(this.getSimpleType());
-		boolEClass.getESuperTypes().add(this.getSimpleType());
 		idlReferenceEClass.getESuperTypes().add(this.getComplexType());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typesLibraryEClass, TypesLibrary.class, "TypesLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypesLibrary_Types(), this.getComplexType(), null, "types", null, 0, -1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Bool(), this.getBool(), null, "bool", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Char(), this.getChar(), null, "char", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Double(), this.getDouble(), null, "double", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Float(), this.getFloat(), null, "float", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Int(), this.getInt(), null, "int", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Long(), this.getLong(), null, "long", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_Short(), this.getShort(), null, "short", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_String(), this.getString(), null, "string", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_UnsignedChar(), this.getUnsignedChar(), null, "unsignedChar", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_UnsignedInt(), this.getUnsignedInt(), null, "unsignedInt", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_UnsignedLong(), this.getUnsignedLong(), null, "unsignedLong", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypesLibrary_UnsignedShort(), this.getUnsignedShort(), null, "unsignedShort", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypesLibrary_Types(), this.getDataType(), this.getDataType_TypesLibrary(), "types", null, 0, -1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTypesLibrary_Name(), ecorePackage.getEString(), "name", null, 1, 1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypesLibrary_Includes(), this.getTypesLibrary(), null, "includes", null, 0, -1, TypesLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataType_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataType_TypesLibrary(), this.getTypesLibrary(), this.getTypesLibrary_Types(), "typesLibrary", null, 1, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(simpleTypeEClass, SimpleType.class, "SimpleType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(simpleTypeEClass, SimpleType.class, "SimpleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(complexTypeEClass, ComplexType.class, "ComplexType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -823,30 +485,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEReference(getField_Type(), this.getDataType(), null, "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Description(), ecorePackage.getEString(), "description", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_MeasureUnit(), ecorePackage.getEString(), "measureUnit", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(intEClass, Int.class, "Int", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(doubleEClass, org.best_of_robotics.model.datatypes.Double.class, "Double", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(charEClass, Char.class, "Char", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(floatEClass, org.best_of_robotics.model.datatypes.Float.class, "Float", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(shortEClass, org.best_of_robotics.model.datatypes.Short.class, "Short", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(stringEClass, org.best_of_robotics.model.datatypes.String.class, "String", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(longEClass, org.best_of_robotics.model.datatypes.Long.class, "Long", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(unsignedIntEClass, UnsignedInt.class, "UnsignedInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(unsignedCharEClass, UnsignedChar.class, "UnsignedChar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(unsignedShortEClass, UnsignedShort.class, "UnsignedShort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(unsignedLongEClass, UnsignedLong.class, "UnsignedLong", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(boolEClass, Bool.class, "Bool", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(idlReferenceEClass, IDLReference.class, "IDLReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

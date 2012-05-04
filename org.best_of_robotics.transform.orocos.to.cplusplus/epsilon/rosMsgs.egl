@@ -8,7 +8,7 @@
 	
 	//dataTypesRosMsgs
 	var rosMsgsTemplate := TemplateFactory.load('rosTypesMsgs.egl');
-	rosMsgsTemplate.populate('package', package);
+	rosMsgsTemplate.populate('typesLibrary', package.typesLibrary);
 	rosMsgsTemplate.process();
 	
 %]

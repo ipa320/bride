@@ -68,6 +68,7 @@ public class TypesLibraryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addIncludesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,6 +96,28 @@ public class TypesLibraryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Includes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncludesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypesLibrary_includes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypesLibrary_includes_feature", "_UI_TypesLibrary_type"),
+				 DatatypesPackage.Literals.TYPES_LIBRARY__INCLUDES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -107,18 +130,6 @@ public class TypesLibraryItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__BOOL);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__CHAR);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__DOUBLE);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__FLOAT);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__INT);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__LONG);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__SHORT);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__STRING);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_CHAR);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_INT);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_LONG);
-			childrenFeatures.add(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_SHORT);
 		}
 		return childrenFeatures;
 	}
@@ -178,18 +189,6 @@ public class TypesLibraryItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatypesPackage.TYPES_LIBRARY__TYPES:
-			case DatatypesPackage.TYPES_LIBRARY__BOOL:
-			case DatatypesPackage.TYPES_LIBRARY__CHAR:
-			case DatatypesPackage.TYPES_LIBRARY__DOUBLE:
-			case DatatypesPackage.TYPES_LIBRARY__FLOAT:
-			case DatatypesPackage.TYPES_LIBRARY__INT:
-			case DatatypesPackage.TYPES_LIBRARY__LONG:
-			case DatatypesPackage.TYPES_LIBRARY__SHORT:
-			case DatatypesPackage.TYPES_LIBRARY__STRING:
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_CHAR:
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_INT:
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_LONG:
-			case DatatypesPackage.TYPES_LIBRARY__UNSIGNED_SHORT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -210,6 +209,11 @@ public class TypesLibraryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES,
+				 DatatypesFactory.eINSTANCE.createSimpleType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES,
 				 DatatypesFactory.eINSTANCE.createRosIDLReference()));
 
 		newChildDescriptors.add
@@ -221,66 +225,6 @@ public class TypesLibraryItemProvider
 			(createChildParameter
 				(DatatypesPackage.Literals.TYPES_LIBRARY__TYPES,
 				 DatatypesFactory.eINSTANCE.createCustomType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__BOOL,
-				 DatatypesFactory.eINSTANCE.createBool()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__CHAR,
-				 DatatypesFactory.eINSTANCE.createChar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__DOUBLE,
-				 DatatypesFactory.eINSTANCE.createDouble()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__FLOAT,
-				 DatatypesFactory.eINSTANCE.createFloat()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__INT,
-				 DatatypesFactory.eINSTANCE.createInt()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__LONG,
-				 DatatypesFactory.eINSTANCE.createLong()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__SHORT,
-				 DatatypesFactory.eINSTANCE.createShort()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__STRING,
-				 DatatypesFactory.eINSTANCE.createString()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_CHAR,
-				 DatatypesFactory.eINSTANCE.createUnsignedChar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_INT,
-				 DatatypesFactory.eINSTANCE.createUnsignedInt()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_LONG,
-				 DatatypesFactory.eINSTANCE.createUnsignedLong()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.TYPES_LIBRARY__UNSIGNED_SHORT,
-				 DatatypesFactory.eINSTANCE.createUnsignedShort()));
 	}
 
 	/**
