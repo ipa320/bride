@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: BRIDE ROS to C++
-Bundle-SymbolicName: org.best_of_robotics.transform.ros.to.cplusplus;singleton:=true
+Bundle-Name: BRIDE ROS to Python
+Bundle-SymbolicName: org.best_of_robotics.transform.ros.to.python;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.best_of_robotics.transform.ros.to.python.Activator
 Bundle-Vendor: BRICS
