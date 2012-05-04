@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
+            name="Orocos Tranformations">
+      </category>
+      <command
+            categoryId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
+            name="Generate Orocos Source">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment"
+            name="Generate Deployment File">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateTypegen"
+            name="Generate Typegen Header">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.category"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateRosMsgs"
+            name="Generate Ros Messages">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.handlers.RttTransformHandler"
+            commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.handlers.CpfTransformHandler"
+            commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.handlers.TypegenTransformHandler"
+            commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateTypegen">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.handlers.RosMsgsTransformHandler"
+            commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateRosMsgs">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
+         <menu
+               id="org.best_of_robotics.transform.orocos.to.cplusplus.menus.brideMenu"
+               label="Orocos">
+            <command
+                  commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource"
+                  id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateSource">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment"
+                  id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateDeployment"
+                  mnemonic="D">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateTypegen"
+                  id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateTypegen">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateRosMsgs"
+                  id="org.best_of_robotics.transform.orocos.to.cplusplus.commands.generateRosMsgs">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.tools.FeautreMapUtilTool"
+            defaultName="FeautreMapUtilTool">
+      </tool>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.best_of_robotics.bride.ui.category.newWizard"
+            class="org.best_of_robotics.model.orocos.diagram.part.OrocosCreationWizard"
+            icon="icons/obj16/RttDiagramFile.gif"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.rttDiagram"
+            name="Orocos Model Diagram">
+      </wizard>
+      <wizard
+            category="org.best_of_robotics.bride.ui.category.newWizard"
+            class="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewMergedRttModel"
+            icon="icons/obj16/RttDiagramFile.gif"
+            id="org.best_of_robotics.transform.orocos.to.cplusplus.wizard.NewRttComposite"
+            name="Merge Orocos Models">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.core.variables.valueVariables">
+      <variable
+            description="Orocos Includes"
+            initialValue="/opt/ros/electric/stacks/orocos_toolchain/install/include"
+            name="OROCOS_INCLUDE"
+            readOnly="true">
+      </variable>
+   </extension>
+
+</plugin>

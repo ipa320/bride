@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.ros.model.ros.diagram.part.RosDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.ros.model.ros.diagram.edit.parts, 
+Export-Package: org.ros.model.ros.diagram.edit.parts,
  org.ros.model.ros.diagram.part,
  org.ros.model.ros.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,

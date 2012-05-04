@@ -30,6 +30,7 @@ import org.ros.model.ros.Topic;
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getMsg <em>Msg</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getQueueSize <em>Queue Size</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getEventHandler <em>Event Handler</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,7 +75,7 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final StandardMessageType MSG_EDEFAULT = StandardMessageType.BOOL;
+	protected static final String MSG_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMsg() <em>Msg</em>}' attribute.
@@ -84,7 +85,7 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * @generated
 	 * @ordered
 	 */
-	protected StandardMessageType msg = MSG_EDEFAULT;
+	protected String msg = MSG_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getQueueSize() <em>Queue Size</em>}' attribute.
@@ -105,6 +106,26 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * @ordered
 	 */
 	protected int queueSize = QUEUE_SIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEventHandler() <em>Event Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventHandler()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EVENT_HANDLER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEventHandler() <em>Event Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventHandler()
+	 * @generated
+	 * @ordered
+	 */
+	protected String eventHandler = EVENT_HANDLER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,7 +210,7 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StandardMessageType getMsg() {
+	public String getMsg() {
 		return msg;
 	}
 
@@ -198,9 +219,9 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMsg(StandardMessageType newMsg) {
-		StandardMessageType oldMsg = msg;
-		msg = newMsg == null ? MSG_EDEFAULT : newMsg;
+	public void setMsg(String newMsg) {
+		String oldMsg = msg;
+		msg = newMsg;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.SUBSCRIBER__MSG, oldMsg, msg));
 	}
@@ -231,6 +252,27 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEventHandler() {
+		return eventHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventHandler(String newEventHandler) {
+		String oldEventHandler = eventHandler;
+		eventHandler = newEventHandler;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.SUBSCRIBER__EVENT_HANDLER, oldEventHandler, eventHandler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -243,6 +285,8 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 				return getMsg();
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				return getQueueSize();
+			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
+				return getEventHandler();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,10 +306,13 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 				setTopic((Topic)newValue);
 				return;
 			case RosPackage.SUBSCRIBER__MSG:
-				setMsg((StandardMessageType)newValue);
+				setMsg((String)newValue);
 				return;
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				setQueueSize((Integer)newValue);
+				return;
+			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
+				setEventHandler((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,6 +338,9 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				setQueueSize(QUEUE_SIZE_EDEFAULT);
 				return;
+			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
+				setEventHandler(EVENT_HANDLER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -308,9 +358,11 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 			case RosPackage.SUBSCRIBER__TOPIC:
 				return topic != null;
 			case RosPackage.SUBSCRIBER__MSG:
-				return msg != MSG_EDEFAULT;
+				return MSG_EDEFAULT == null ? msg != null : !MSG_EDEFAULT.equals(msg);
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				return queueSize != QUEUE_SIZE_EDEFAULT;
+			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
+				return EVENT_HANDLER_EDEFAULT == null ? eventHandler != null : !EVENT_HANDLER_EDEFAULT.equals(eventHandler);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,6 +383,8 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 		result.append(msg);
 		result.append(", queueSize: ");
 		result.append(queueSize);
+		result.append(", eventHandler: ");
+		result.append(eventHandler);
 		result.append(')');
 		return result.toString();
 	}

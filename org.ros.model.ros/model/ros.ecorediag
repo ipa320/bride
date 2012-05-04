@@ -87,6 +87,10 @@
         <element xmi:type="ecore:EAttribute" href="ros.ecore#//Publisher/latch"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_C_8dESvhEeGA0Kb9U3x4ig"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_6cCvYWeWEeGpydnjQR6dYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="ros.ecore#//Publisher/eventHandler"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_6cCvYmeWEeGpydnjQR6dYg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_T_F4EivcEeGA0Kb9U3x4ig"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_T_F4EyvcEeGA0Kb9U3x4ig"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_T_F4FCvcEeGA0Kb9U3x4ig"/>
@@ -133,6 +137,10 @@
       <children xmi:type="notation:Node" xmi:id="_5KlaICvjEeGA0Kb9U3x4ig" type="2001">
         <element xmi:type="ecore:EAttribute" href="ros.ecore#//Subscriber/queueSize"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_5KlaISvjEeGA0Kb9U3x4ig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_716sYGeWEeGpydnjQR6dYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="ros.ecore#//Subscriber/eventHandler"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_716sYWeWEeGpydnjQR6dYg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_T_IUUivcEeGA0Kb9U3x4ig"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_T_IUUyvcEeGA0Kb9U3x4ig"/>
@@ -194,6 +202,10 @@
         <element xmi:type="ecore:EAttribute" href="ros.ecore#//ServiceServer/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_MUk_4WO1EeGe0dSwSCw_cQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_aZ9k8WbQEeG8Q-zO_Z3QRA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="ros.ecore#//ServiceServer/msg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aZ9k8mbQEeG8Q-zO_Z3QRA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_y6X2YmO0EeGe0dSwSCw_cQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_y6X2Y2O0EeGe0dSwSCw_cQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_y6X2ZGO0EeGe0dSwSCw_cQ"/>
@@ -213,6 +225,10 @@
       <children xmi:type="notation:Node" xmi:id="_NAMvwGO1EeGe0dSwSCw_cQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="ros.ecore#//ServiceClient/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_NAMvwWO1EeGe0dSwSCw_cQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_l8ZGUGbQEeG8Q-zO_Z3QRA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="ros.ecore#//ServiceClient/msg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_l8ZGUWbQEeG8Q-zO_Z3QRA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_1XVBAWO0EeGe0dSwSCw_cQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_1XVBAmO0EeGe0dSwSCw_cQ"/>

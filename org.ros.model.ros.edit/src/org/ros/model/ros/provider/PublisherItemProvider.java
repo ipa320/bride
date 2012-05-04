@@ -69,6 +69,7 @@ public class PublisherItemProvider
 			addMsgPropertyDescriptor(object);
 			addQueueSizePropertyDescriptor(object);
 			addLatchPropertyDescriptor(object);
+			addEventHandlerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -184,6 +185,28 @@ public class PublisherItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Event Handler feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventHandlerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Publisher_eventHandler_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Publisher_eventHandler_feature", "_UI_Publisher_type"),
+				 RosPackage.Literals.PUBLISHER__EVENT_HANDLER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Publisher.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,6 +247,7 @@ public class PublisherItemProvider
 			case RosPackage.PUBLISHER__MSG:
 			case RosPackage.PUBLISHER__QUEUE_SIZE:
 			case RosPackage.PUBLISHER__LATCH:
+			case RosPackage.PUBLISHER__EVENT_HANDLER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

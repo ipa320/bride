@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.best_of_robotics.model.datatypes.presentation.DatatypesModelWizardID"
+            name="%_UI_DatatypesModelWizard_label"
+            class="org.best_of_robotics.model.datatypes.presentation.DatatypesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DatatypesModelFile.gif">
+         <description>%_UI_DatatypesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.best_of_robotics.model.datatypes.presentation.DatatypesEditorID"
+            name="%_UI_DatatypesEditor_label"
+            icon="icons/full/obj16/DatatypesModelFile.gif"
+            extensions="datatypes"
+            class="org.best_of_robotics.model.datatypes.presentation.DatatypesEditor"
+            contributorClass="org.best_of_robotics.model.datatypes.presentation.DatatypesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

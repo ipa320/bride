@@ -192,14 +192,14 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	protected String rosdep = ROSDEP_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference.
+	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTopic()
 	 * @generated
 	 * @ordered
 	 */
-	protected Topic topic;
+	protected EList<Topic> topic;
 
 	/**
 	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference list.
@@ -385,42 +385,11 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Topic getTopic() {
+	public EList<Topic> getTopic() {
+		if (topic == null) {
+			topic = new EObjectContainmentEList<Topic>(Topic.class, this, RosPackage.PACKAGE__TOPIC);
+		}
 		return topic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTopic(Topic newTopic, NotificationChain msgs) {
-		Topic oldTopic = topic;
-		topic = newTopic;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RosPackage.PACKAGE__TOPIC, oldTopic, newTopic);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTopic(Topic newTopic) {
-		if (newTopic != topic) {
-			NotificationChain msgs = null;
-			if (topic != null)
-				msgs = ((InternalEObject)topic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RosPackage.PACKAGE__TOPIC, null, msgs);
-			if (newTopic != null)
-				msgs = ((InternalEObject)newTopic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RosPackage.PACKAGE__TOPIC, null, msgs);
-			msgs = basicSetTopic(newTopic, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.PACKAGE__TOPIC, newTopic, newTopic));
 	}
 
 	/**
@@ -446,7 +415,7 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__NODE:
 				return ((InternalEList<?>)getNode()).basicRemove(otherEnd, msgs);
 			case RosPackage.PACKAGE__TOPIC:
-				return basicSetTopic(null, msgs);
+				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case RosPackage.PACKAGE__SERVICE:
 				return ((InternalEList<?>)getService()).basicRemove(otherEnd, msgs);
 		}
@@ -521,7 +490,8 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				setRosdep((String)newValue);
 				return;
 			case RosPackage.PACKAGE__TOPIC:
-				setTopic((Topic)newValue);
+				getTopic().clear();
+				getTopic().addAll((Collection<? extends Topic>)newValue);
 				return;
 			case RosPackage.PACKAGE__SERVICE:
 				getService().clear();
@@ -564,7 +534,7 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				setRosdep(ROSDEP_EDEFAULT);
 				return;
 			case RosPackage.PACKAGE__TOPIC:
-				setTopic((Topic)null);
+				getTopic().clear();
 				return;
 			case RosPackage.PACKAGE__SERVICE:
 				getService().clear();
@@ -598,7 +568,7 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__ROSDEP:
 				return ROSDEP_EDEFAULT == null ? rosdep != null : !ROSDEP_EDEFAULT.equals(rosdep);
 			case RosPackage.PACKAGE__TOPIC:
-				return topic != null;
+				return topic != null && !topic.isEmpty();
 			case RosPackage.PACKAGE__SERVICE:
 				return service != null && !service.isEmpty();
 		}

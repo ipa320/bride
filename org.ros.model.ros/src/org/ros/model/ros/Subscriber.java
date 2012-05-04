@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Subscriber#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}</li>
  *   <li>{@link org.ros.model.ros.Subscriber#getQueueSize <em>Queue Size</em>}</li>
+ *   <li>{@link org.ros.model.ros.Subscriber#getEventHandler <em>Event Handler</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,7 +83,6 @@ public interface Subscriber extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Msg</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.ros.model.ros.StandardMessageType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Msg</em>' attribute isn't clear,
@@ -90,24 +90,22 @@ public interface Subscriber extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Msg</em>' attribute.
-	 * @see org.ros.model.ros.StandardMessageType
-	 * @see #setMsg(StandardMessageType)
+	 * @see #setMsg(String)
 	 * @see org.ros.model.ros.RosPackage#getSubscriber_Msg()
 	 * @model
 	 * @generated
 	 */
-	StandardMessageType getMsg();
+	String getMsg();
 
 	/**
 	 * Sets the value of the '{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Msg</em>' attribute.
-	 * @see org.ros.model.ros.StandardMessageType
 	 * @see #getMsg()
 	 * @generated
 	 */
-	void setMsg(StandardMessageType value);
+	void setMsg(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Queue Size</b></em>' attribute.
@@ -135,5 +133,31 @@ public interface Subscriber extends EObject {
 	 * @generated
 	 */
 	void setQueueSize(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Handler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Handler</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Handler</em>' attribute.
+	 * @see #setEventHandler(String)
+	 * @see org.ros.model.ros.RosPackage#getSubscriber_EventHandler()
+	 * @model
+	 * @generated
+	 */
+	String getEventHandler();
+
+	/**
+	 * Sets the value of the '{@link org.ros.model.ros.Subscriber#getEventHandler <em>Event Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Event Handler</em>' attribute.
+	 * @see #getEventHandler()
+	 * @generated
+	 */
+	void setEventHandler(String value);
 
 } // Subscriber

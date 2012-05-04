@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Publisher#getMsg <em>Msg</em>}</li>
  *   <li>{@link org.ros.model.ros.Publisher#getQueueSize <em>Queue Size</em>}</li>
  *   <li>{@link org.ros.model.ros.Publisher#isLatch <em>Latch</em>}</li>
+ *   <li>{@link org.ros.model.ros.Publisher#getEventHandler <em>Event Handler</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,7 +84,6 @@ public interface Publisher extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Msg</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.ros.model.ros.StandardMessageType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Msg</em>' attribute isn't clear,
@@ -91,24 +91,22 @@ public interface Publisher extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Msg</em>' attribute.
-	 * @see org.ros.model.ros.StandardMessageType
-	 * @see #setMsg(StandardMessageType)
+	 * @see #setMsg(String)
 	 * @see org.ros.model.ros.RosPackage#getPublisher_Msg()
 	 * @model
 	 * @generated
 	 */
-	StandardMessageType getMsg();
+	String getMsg();
 
 	/**
 	 * Sets the value of the '{@link org.ros.model.ros.Publisher#getMsg <em>Msg</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Msg</em>' attribute.
-	 * @see org.ros.model.ros.StandardMessageType
 	 * @see #getMsg()
 	 * @generated
 	 */
-	void setMsg(StandardMessageType value);
+	void setMsg(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Queue Size</b></em>' attribute.
@@ -162,5 +160,31 @@ public interface Publisher extends EObject {
 	 * @generated
 	 */
 	void setLatch(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Handler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Handler</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Handler</em>' attribute.
+	 * @see #setEventHandler(String)
+	 * @see org.ros.model.ros.RosPackage#getPublisher_EventHandler()
+	 * @model
+	 * @generated
+	 */
+	String getEventHandler();
+
+	/**
+	 * Sets the value of the '{@link org.ros.model.ros.Publisher#getEventHandler <em>Event Handler</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Event Handler</em>' attribute.
+	 * @see #getEventHandler()
+	 * @generated
+	 */
+	void setEventHandler(String value);
 
 } // Publisher

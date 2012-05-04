@@ -66,6 +66,7 @@ public class ServiceClientItemProvider
 
 			addServicePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addMsgPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,28 @@ public class ServiceClientItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Msg feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMsgPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceClient_msg_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceClient_msg_feature", "_UI_ServiceClient_type"),
+				 RosPackage.Literals.SERVICE_CLIENT__MSG,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ServiceClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +175,7 @@ public class ServiceClientItemProvider
 
 		switch (notification.getFeatureID(ServiceClient.class)) {
 			case RosPackage.SERVICE_CLIENT__NAME:
+			case RosPackage.SERVICE_CLIENT__MSG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

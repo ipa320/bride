@@ -27,6 +27,7 @@ import org.ros.model.ros.ServiceClient;
  * <ul>
  *   <li>{@link org.ros.model.ros.impl.ServiceClientImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.ServiceClientImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.ServiceClientImpl#getMsg <em>Msg</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +63,26 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMsg() <em>Msg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMsg()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MSG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMsg() <em>Msg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMsg()
+	 * @generated
+	 * @ordered
+	 */
+	protected String msg = MSG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +167,27 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getMsg() {
+		return msg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMsg(String newMsg) {
+		String oldMsg = msg;
+		msg = newMsg;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.SERVICE_CLIENT__MSG, oldMsg, msg));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -154,6 +196,8 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 				return basicGetService();
 			case RosPackage.SERVICE_CLIENT__NAME:
 				return getName();
+			case RosPackage.SERVICE_CLIENT__MSG:
+				return getMsg();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +215,9 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 				return;
 			case RosPackage.SERVICE_CLIENT__NAME:
 				setName((String)newValue);
+				return;
+			case RosPackage.SERVICE_CLIENT__MSG:
+				setMsg((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,6 +237,9 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 			case RosPackage.SERVICE_CLIENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case RosPackage.SERVICE_CLIENT__MSG:
+				setMsg(MSG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +256,8 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 				return service != null;
 			case RosPackage.SERVICE_CLIENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RosPackage.SERVICE_CLIENT__MSG:
+				return MSG_EDEFAULT == null ? msg != null : !MSG_EDEFAULT.equals(msg);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,6 +274,8 @@ public class ServiceClientImpl extends EObjectImpl implements ServiceClient {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", msg: ");
+		result.append(msg);
 		result.append(')');
 		return result.toString();
 	}

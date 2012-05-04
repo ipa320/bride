@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.ros.model.ros.ServiceClient#getService <em>Service</em>}</li>
  *   <li>{@link org.ros.model.ros.ServiceClient#getName <em>Name</em>}</li>
+ *   <li>{@link org.ros.model.ros.ServiceClient#getMsg <em>Msg</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,31 @@ public interface ServiceClient extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Msg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Msg</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Msg</em>' attribute.
+	 * @see #setMsg(String)
+	 * @see org.ros.model.ros.RosPackage#getServiceClient_Msg()
+	 * @model
+	 * @generated
+	 */
+	String getMsg();
+
+	/**
+	 * Sets the value of the '{@link org.ros.model.ros.ServiceClient#getMsg <em>Msg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Msg</em>' attribute.
+	 * @see #getMsg()
+	 * @generated
+	 */
+	void setMsg(String value);
 
 } // ServiceClient

@@ -70,12 +70,13 @@ public class RosDiagramUpdater {
 				continue;
 			}
 		}
-		{
-			Topic childElement = modelElement.getTopic();
+		for (Iterator<?> it = modelElement.getTopic().iterator(); it.hasNext();) {
+			Topic childElement = (Topic) it.next();
 			int visualID = RosVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == TopicEditPart.VISUAL_ID) {
 				result.add(new RosNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		for (Iterator<?> it = modelElement.getService().iterator(); it

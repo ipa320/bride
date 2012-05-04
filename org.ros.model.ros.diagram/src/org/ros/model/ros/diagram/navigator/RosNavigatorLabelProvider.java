@@ -96,33 +96,33 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (RosVisualIDRegistry.getVisualID(view)) {
-		case PackageEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Diagram?http://ros/1.0?Package", RosElementTypes.Package_1000); //$NON-NLS-1$
 		case SubscriberEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://ros/1.0?Subscriber", RosElementTypes.Subscriber_4002); //$NON-NLS-1$
-		case TopicEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://ros/1.0?Topic", RosElementTypes.Topic_2002); //$NON-NLS-1$
-		case ServiceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://ros/1.0?Service", RosElementTypes.Service_2003); //$NON-NLS-1$
-		case NodeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://ros/1.0?Node", RosElementTypes.Node_2001); //$NON-NLS-1$
-		case ServiceClientEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://ros/1.0?ServiceClient", RosElementTypes.ServiceClient_4001); //$NON-NLS-1$
-		case PublisherEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://ros/1.0?Publisher", RosElementTypes.Publisher_4004); //$NON-NLS-1$
 		case ServiceServerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://ros/1.0?ServiceServer", RosElementTypes.ServiceServer_4003); //$NON-NLS-1$
+		case TopicEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://ros/1.0?Topic", RosElementTypes.Topic_2002); //$NON-NLS-1$
+		case ServiceClientEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://ros/1.0?ServiceClient", RosElementTypes.ServiceClient_4001); //$NON-NLS-1$
 		case ParameterEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://ros/1.0?Parameter", RosElementTypes.Parameter_3001); //$NON-NLS-1$
+		case NodeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://ros/1.0?Node", RosElementTypes.Node_2001); //$NON-NLS-1$
+		case PublisherEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://ros/1.0?Publisher", RosElementTypes.Publisher_4004); //$NON-NLS-1$
+		case ServiceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://ros/1.0?Service", RosElementTypes.Service_2003); //$NON-NLS-1$
+		case PackageEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://ros/1.0?Package", RosElementTypes.Package_1000); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -175,40 +175,26 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (RosVisualIDRegistry.getVisualID(view)) {
-		case PackageEditPart.VISUAL_ID:
-			return getPackage_1000Text(view);
 		case SubscriberEditPart.VISUAL_ID:
 			return getSubscriber_4002Text(view);
-		case TopicEditPart.VISUAL_ID:
-			return getTopic_2002Text(view);
-		case ServiceEditPart.VISUAL_ID:
-			return getService_2003Text(view);
-		case NodeEditPart.VISUAL_ID:
-			return getNode_2001Text(view);
-		case ServiceClientEditPart.VISUAL_ID:
-			return getServiceClient_4001Text(view);
-		case PublisherEditPart.VISUAL_ID:
-			return getPublisher_4004Text(view);
 		case ServiceServerEditPart.VISUAL_ID:
 			return getServiceServer_4003Text(view);
+		case TopicEditPart.VISUAL_ID:
+			return getTopic_2002Text(view);
+		case ServiceClientEditPart.VISUAL_ID:
+			return getServiceClient_4001Text(view);
 		case ParameterEditPart.VISUAL_ID:
 			return getParameter_3001Text(view);
+		case NodeEditPart.VISUAL_ID:
+			return getNode_2001Text(view);
+		case PublisherEditPart.VISUAL_ID:
+			return getPublisher_4004Text(view);
+		case ServiceEditPart.VISUAL_ID:
+			return getService_2003Text(view);
+		case PackageEditPart.VISUAL_ID:
+			return getPackage_1000Text(view);
 		}
 		return getUnknownElementText(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getPackage_1000Text(View view) {
-		Package domainModelElement = (Package) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getName();
-		} else {
-			RosDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
 	}
 
 	/**
@@ -226,101 +212,6 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			RosDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 6002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getTopic_2002Text(View view) {
-		IParser parser = RosParserProvider.getParser(
-				RosElementTypes.Topic_2002,
-				view.getElement() != null ? view.getElement() : view,
-				RosVisualIDRegistry.getType(TopicNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RosDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getService_2003Text(View view) {
-		IParser parser = RosParserProvider.getParser(
-				RosElementTypes.Service_2003,
-				view.getElement() != null ? view.getElement() : view,
-				RosVisualIDRegistry.getType(ServiceNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RosDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5003); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getNode_2001Text(View view) {
-		IParser parser = RosParserProvider.getParser(RosElementTypes.Node_2001,
-				view.getElement() != null ? view.getElement() : view,
-				RosVisualIDRegistry.getType(NodeNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RosDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getServiceClient_4001Text(View view) {
-		IParser parser = RosParserProvider.getParser(
-				RosElementTypes.ServiceClient_4001,
-				view.getElement() != null ? view.getElement() : view,
-				RosVisualIDRegistry
-						.getType(ServiceClientNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RosDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getPublisher_4004Text(View view) {
-		IParser parser = RosParserProvider.getParser(
-				RosElementTypes.Publisher_4004,
-				view.getElement() != null ? view.getElement() : view,
-				RosVisualIDRegistry.getType(PublisherNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			RosDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -348,6 +239,45 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
+	private String getTopic_2002Text(View view) {
+		IParser parser = RosParserProvider.getParser(
+				RosElementTypes.Topic_2002,
+				view.getElement() != null ? view.getElement() : view,
+				RosVisualIDRegistry.getType(TopicNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RosDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5002); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getServiceClient_4001Text(View view) {
+		IParser parser = RosParserProvider.getParser(
+				RosElementTypes.ServiceClient_4001,
+				view.getElement() != null ? view.getElement() : view,
+				RosVisualIDRegistry
+						.getType(ServiceClientNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RosDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 6001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	private String getParameter_3001Text(View view) {
 		IParser parser = RosParserProvider.getParser(
 				RosElementTypes.Parameter_3001,
@@ -360,6 +290,76 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			RosDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 3001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getNode_2001Text(View view) {
+		IParser parser = RosParserProvider.getParser(RosElementTypes.Node_2001,
+				view.getElement() != null ? view.getElement() : view,
+				RosVisualIDRegistry.getType(NodeNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RosDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPublisher_4004Text(View view) {
+		IParser parser = RosParserProvider.getParser(
+				RosElementTypes.Publisher_4004,
+				view.getElement() != null ? view.getElement() : view,
+				RosVisualIDRegistry.getType(PublisherNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RosDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 6004); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getService_2003Text(View view) {
+		IParser parser = RosParserProvider.getParser(
+				RosElementTypes.Service_2003,
+				view.getElement() != null ? view.getElement() : view,
+				RosVisualIDRegistry.getType(ServiceNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			RosDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPackage_1000Text(View view) {
+		Package domainModelElement = (Package) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getName();
+		} else {
+			RosDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

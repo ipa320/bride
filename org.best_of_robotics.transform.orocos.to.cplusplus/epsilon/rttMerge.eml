@@ -1,0 +1,58 @@
+rule MergePackage
+	merge l : Left!Package with r : Right!Package into t : Target!Package {
+	
+	t.name := l.name;
+	t.taskContext ::= l.taskContext + r.taskContext;
+	t.activity ::= l.activity + r.activity;
+	t.connectionPolicy ::= l.connectionPolicy + r.connectionPolicy;
+}
+
+rule MergeTaskContext
+	merge l : Left!TaskContext with r : Right!TaskContext  into t : Target!TaskContext {
+	
+	t.name := l.name;
+}
+
+rule CopyPackage
+	transform s : Source!Package to t : Target!Package {
+	
+	t.taskContext ::= s.taskContext;
+	t.activty ::= s.activity;
+	t.connectionPolicy ::= s.connectionPolicy;
+}
+
+rule CopyTaskContext
+	transform s : Source!TaskContext to t : Target!TaskContext {
+	
+	t.name := s.name;
+	t.nameSpace = s.namespace;
+	t.type = s.type;
+	t.inputPort.addAll(s.inputPort);
+	t.outputPort.addAll(s.outputPort);
+	t.property.addAll(s.property);
+	t.operacion.addAll(s.operacion);
+}
+
+rule CopyActivity
+	transform s : Source!Activity to t : Target!Activity {
+	
+	var container : Target!Package = s.eContainer();
+	
+	t.name = s.name;
+	t.taskContext ::= s.taskContext;
+	t.cpuAffinity = s.cpuAffinity;
+	t.period = s.period;
+	t.priority = s. priority;
+	t.scheduler = s.scheduler;
+}
+
+rule CopyConnectionPolicy
+	transform s : Source!ConnectionPolicy to t : Target!ConnectionPolicy {
+	
+	t.name = s.name;
+	t.inputPort = s.inputPort;
+	t.outputPort = s.outputPort;
+	t.bufferSize = s.bufferSize;
+	t.lockPolicy = s.lockPolicy;
+	t.type = s.type;
+}

@@ -225,7 +225,7 @@ public interface RosPackage extends EPackage {
 	int PACKAGE__ROSDEP = 7;
 
 	/**
-	 * The feature id for the '<em><b>Topic</b></em>' containment reference.
+	 * The feature id for the '<em><b>Topic</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -307,13 +307,22 @@ public interface RosPackage extends EPackage {
 	int PUBLISHER__LATCH = 4;
 
 	/**
+	 * The feature id for the '<em><b>Event Handler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHER__EVENT_HANDLER = 5;
+
+	/**
 	 * The number of structural features of the '<em>Publisher</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER_FEATURE_COUNT = 5;
+	int PUBLISHER_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.SubscriberImpl <em>Subscriber</em>}' class.
@@ -362,13 +371,22 @@ public interface RosPackage extends EPackage {
 	int SUBSCRIBER__QUEUE_SIZE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Event Handler</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBSCRIBER__EVENT_HANDLER = 4;
+
+	/**
 	 * The number of structural features of the '<em>Subscriber</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSCRIBER_FEATURE_COUNT = 4;
+	int SUBSCRIBER_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.TopicImpl <em>Topic</em>}' class.
@@ -455,13 +473,22 @@ public interface RosPackage extends EPackage {
 	int SERVICE_SERVER__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Msg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SERVER__MSG = 2;
+
+	/**
 	 * The number of structural features of the '<em>Service Server</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_SERVER_FEATURE_COUNT = 2;
+	int SERVICE_SERVER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.ServiceClientImpl <em>Service Client</em>}' class.
@@ -492,13 +519,22 @@ public interface RosPackage extends EPackage {
 	int SERVICE_CLIENT__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Msg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_CLIENT__MSG = 2;
+
+	/**
 	 * The number of structural features of the '<em>Service Client</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_CLIENT_FEATURE_COUNT = 2;
+	int SERVICE_CLIENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -743,10 +779,10 @@ public interface RosPackage extends EPackage {
 	EAttribute getPackage_Rosdep();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Topic</em>'.
+	 * @return the meta object for the containment reference list '<em>Topic</em>'.
 	 * @see org.ros.model.ros.Package#getTopic()
 	 * @see #getPackage()
 	 * @generated
@@ -830,6 +866,17 @@ public interface RosPackage extends EPackage {
 	EAttribute getPublisher_Latch();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Publisher#getEventHandler <em>Event Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Event Handler</em>'.
+	 * @see org.ros.model.ros.Publisher#getEventHandler()
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	EAttribute getPublisher_EventHandler();
+
+	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.Subscriber <em>Subscriber</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -882,6 +929,17 @@ public interface RosPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSubscriber_QueueSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Subscriber#getEventHandler <em>Event Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Event Handler</em>'.
+	 * @see org.ros.model.ros.Subscriber#getEventHandler()
+	 * @see #getSubscriber()
+	 * @generated
+	 */
+	EAttribute getSubscriber_EventHandler();
 
 	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.Topic <em>Topic</em>}'.
@@ -958,6 +1016,17 @@ public interface RosPackage extends EPackage {
 	EAttribute getServiceServer_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.ServiceServer#getMsg <em>Msg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Msg</em>'.
+	 * @see org.ros.model.ros.ServiceServer#getMsg()
+	 * @see #getServiceServer()
+	 * @generated
+	 */
+	EAttribute getServiceServer_Msg();
+
+	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.ServiceClient <em>Service Client</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -988,6 +1057,17 @@ public interface RosPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getServiceClient_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ros.model.ros.ServiceClient#getMsg <em>Msg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Msg</em>'.
+	 * @see org.ros.model.ros.ServiceClient#getMsg()
+	 * @see #getServiceClient()
+	 * @generated
+	 */
+	EAttribute getServiceClient_Msg();
 
 	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.Parameter <em>Parameter</em>}'.
@@ -1205,7 +1285,7 @@ public interface RosPackage extends EPackage {
 		EAttribute PACKAGE__ROSDEP = eINSTANCE.getPackage_Rosdep();
 
 		/**
-		 * The meta object literal for the '<em><b>Topic</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Topic</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1271,6 +1351,14 @@ public interface RosPackage extends EPackage {
 		EAttribute PUBLISHER__LATCH = eINSTANCE.getPublisher_Latch();
 
 		/**
+		 * The meta object literal for the '<em><b>Event Handler</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PUBLISHER__EVENT_HANDLER = eINSTANCE.getPublisher_EventHandler();
+
+		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.SubscriberImpl <em>Subscriber</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1311,6 +1399,14 @@ public interface RosPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SUBSCRIBER__QUEUE_SIZE = eINSTANCE.getSubscriber_QueueSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Handler</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBSCRIBER__EVENT_HANDLER = eINSTANCE.getSubscriber_EventHandler();
 
 		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.TopicImpl <em>Topic</em>}' class.
@@ -1375,6 +1471,14 @@ public interface RosPackage extends EPackage {
 		EAttribute SERVICE_SERVER__NAME = eINSTANCE.getServiceServer_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Msg</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_SERVER__MSG = eINSTANCE.getServiceServer_Msg();
+
+		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.ServiceClientImpl <em>Service Client</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1399,6 +1503,14 @@ public interface RosPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SERVICE_CLIENT__NAME = eINSTANCE.getServiceClient_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Msg</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_CLIENT__MSG = eINSTANCE.getServiceClient_Msg();
 
 		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.ParameterImpl <em>Parameter</em>}' class.

@@ -225,30 +225,20 @@ public interface Package extends EObject {
 	void setRosdep(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.Topic}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Topic</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Topic</em>' containment reference.
-	 * @see #setTopic(Topic)
+	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getPackage_Topic()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Topic getTopic();
-
-	/**
-	 * Sets the value of the '{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Topic</em>' containment reference.
-	 * @see #getTopic()
-	 * @generated
-	 */
-	void setTopic(Topic value);
+	EList<Topic> getTopic();
 
 	/**
 	 * Returns the value of the '<em><b>Service</b></em>' containment reference list.
