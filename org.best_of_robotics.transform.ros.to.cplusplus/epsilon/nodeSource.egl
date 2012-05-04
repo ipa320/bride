@@ -53,6 +53,9 @@
 			
 %]
 #include <ros/ros.h>
+#include <dynamic_reconfigure/server.h>
+#include <[%=node.name%]/[%=node.name%]Config.h>
+
 [%
 var str : String;
 for (incs in includes) {
@@ -72,12 +75,24 @@ const std::string NODE_NAME = "[%=node.name%]";
 class [%=componentClassName%] {
 public:
 	[%=componentClassName%]() {
+	
+	dynamic_reconfigure::Server<[%=node.name%]::[%=node.name%]Config> server;
+  	dynamic_reconfigure::Server<[%=node.name%]::[%=node.name%]Config>::CallbackType f;
+
+	f = boost::bind(&[%=componentClassName%]::callback, this, _1, _2);
+	server.setCallback(f);
+	
 [%for (param in node.parameter) {%]
 		[%=param.name%] = [%=param.value%];
 [%}%]	
 [%=out.startPreserve("/*", "*/", "constructor", true)%]
 [%=out.stopPreserve()%]
 	}
+
+	void callback([%=node.name%]::[%=node.name%]Config &config, uint32_t level) {
+  			ROS_INFO("Reconfigure Request");
+	}
+
 
 	void execute([%for (subscriber in dataflowSubscriber) {%]const [%=subscriber.msg.asString()%]& [%=subscriber.~dataName%] [%if (hasMore) {%], [%}%] [%}%] [%if (dataflowPublisher.size() > 0 and dataflowSubscriber.size() > 0) {%], [%}%] [%for (publisher in dataflowPublisher) {%][%=publisher.msg.asString()%]& [%=publisher.~dataName%] [%if (hasMore) {%], [%}%] [%}%]) {
 [%=out.startPreserve("/*", "*/", "execute", true)%]

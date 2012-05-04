@@ -17,6 +17,12 @@
 		
 		//nodePropertiesTemplate.populate('node', node);
 		//nodePropertiesTemplate.generate('deployment/' + node.type + '.cpf');
+		
+		//dynamic_reconfigure
+		var configureTemplate := TemplateFactory.load('configure.egl');
+		configureTemplate.populate('node', node);
+		configureTemplate.populate('package', package);
+		configureTemplate.generate('cfg/'+ node.name +'.cfg');
 	}
 	
 	//CMakeList
@@ -33,5 +39,8 @@
 	var manifestTemplate := TemplateFactory.load('manifest.egl');
 	manifestTemplate.populate('package', package);
 	manifestTemplate.generate('manifest.xml');
+	
+
+	
 	
 %]
