@@ -2,30 +2,13 @@
  * Data Types Library
  */
 
-[%for(aComplexType in typesLibrary.types) {%]
-[%if(aComplexType.isKindOf(CustomType)){%]
-[%for(aField in aComplexType.fields) {%]
-[%if(aField.type.isTypeOf(RosIDLReference)){%]
-#include <[%=aField.type.namespace%]/[%=aField.type.name%].h>
-[%}%]
-[%}%]
-[%}%]
-[%}%]
-namespace [%=typesLibrary.name%]{
-[%for(aComplexType in typesLibrary.types){%]
-[%if(aComplexType.isKindOf(CustomType)){%]
-
-	struct [%=aComplexType.name%]{
-		[%for(aField in aComplexType.fields){%]
-		[%if(aField.type.isKindOf(SimpleType)){%]
-		[%=aField.type.name%] [%=aField.name%];
-		[%}else if(aField.type.isKindOf(ComplexType)){%]
-		[%=aField.type.getLabel()%] [%=aField.name%];
-		[%}%]
-		[%}%]
-	};
-
-
-[%}%]
-[%}%]
-};
+[%
+	
+	var typesLibrary : TypesLibrary := Package.allInstances().at(0).typesLibrary;
+	
+	//dataTypesHeader
+	var typegenTemplate := TemplateFactory.load('typegenTransf.egl');
+	typegenTemplate.populate('typesLibrary', typesLibrary);
+	typegenTemplate.generate('src/dataTypes.hpp');
+	
+%]

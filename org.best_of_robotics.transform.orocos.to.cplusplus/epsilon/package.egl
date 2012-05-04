@@ -37,14 +37,6 @@
 	manifestTemplate.populate('package', package);
 	manifestTemplate.generate('manifest.xml');
 	
-	//dataTypesHeader
-	var typegenTemplate := TemplateFactory.load('typegen.egl');
-	typegenTemplate.populate('typesLibrary', package.typesLibrary);
-	typegenTemplate.generate('src/dataTypes.hpp');
 	
-	//dataTypesRosMsgs
-	var rosMsgsTemplate := TemplateFactory.load('rosTypesMsgs.egl');
-	rosMsgsTemplate.populate('package', package);
-	rosMsgsTemplate.process();
 	
 %]
