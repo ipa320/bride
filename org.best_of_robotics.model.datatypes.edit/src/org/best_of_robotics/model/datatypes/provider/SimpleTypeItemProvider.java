@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.UnsignedChar;
+import org.best_of_robotics.model.datatypes.SimpleType;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -30,12 +30,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.best_of_robotics.model.datatypes.UnsignedChar} object.
+ * This is the item provider adapter for a {@link org.best_of_robotics.model.datatypes.SimpleType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnsignedCharItemProvider
+public class SimpleTypeItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -49,7 +49,7 @@ public class UnsignedCharItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnsignedCharItemProvider(AdapterFactory adapterFactory) {
+	public SimpleTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -92,30 +92,18 @@ public class UnsignedCharItemProvider
 	}
 
 	/**
-	 * This returns UnsignedChar.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnsignedChar"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * Modified in order to return only the type name
+	 * Modified in order to return first the type name
 	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((UnsignedChar)object).getName();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_Bool_type") :
-//			getString("_UI_Bool_type") + " " + label;
-		return label;
+		String label = ((SimpleType)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SimpleType_type") :
+			label + " - " + getString("_UI_SimpleType_type");
 	}
 
 	/**
@@ -129,8 +117,8 @@ public class UnsignedCharItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(UnsignedChar.class)) {
-			case DatatypesPackage.UNSIGNED_CHAR__NAME:
+		switch (notification.getFeatureID(SimpleType.class)) {
+			case DatatypesPackage.SIMPLE_TYPE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
