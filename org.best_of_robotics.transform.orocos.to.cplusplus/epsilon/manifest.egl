@@ -14,4 +14,12 @@
     [%dependsCollection.add(aComplexType.rosPackage);%]
     [%}%]
     [%}%]
+    [%for(aTypesLibrary in package.typesLibrary.includes){%]
+    [%for(aDataType in aTypesLibrary.types){%]
+    [%if(aDataType.isKindOf(RosIDLReference)){%]
+    <depend package="rtt_[%=aTypesLibrary.name%]"/>
+    [%break;%]
+    [%}%]
+    [%}%]
+    [%}%]
 </package>

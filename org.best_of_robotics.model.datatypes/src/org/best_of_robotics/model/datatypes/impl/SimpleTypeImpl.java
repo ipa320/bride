@@ -6,10 +6,8 @@
  */
 package org.best_of_robotics.model.datatypes.impl;
 
-import java.lang.String;
-
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.IDLReference;
+import org.best_of_robotics.model.datatypes.SimpleType;
 
 import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.eclipse.emf.common.notify.Notification;
@@ -24,19 +22,19 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>IDL Reference</b></em>'.
+ * An implementation of the model object '<em><b>Simple Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.best_of_robotics.model.datatypes.impl.IDLReferenceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.best_of_robotics.model.datatypes.impl.IDLReferenceImpl#getTypesLibrary <em>Types Library</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.datatypes.impl.SimpleTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.best_of_robotics.model.datatypes.impl.SimpleTypeImpl#getTypesLibrary <em>Types Library</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReference {
+public class SimpleTypeImpl extends EObjectImpl implements SimpleType {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +60,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IDLReferenceImpl() {
+	protected SimpleTypeImpl() {
 		super();
 	}
 
@@ -73,7 +71,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatatypesPackage.Literals.IDL_REFERENCE;
+		return DatatypesPackage.Literals.SIMPLE_TYPE;
 	}
 
 	/**
@@ -94,7 +92,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.IDL_REFERENCE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.SIMPLE_TYPE__NAME, oldName, name));
 	}
 
 	/**
@@ -103,7 +101,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	 * @generated
 	 */
 	public TypesLibrary getTypesLibrary() {
-		if (eContainerFeatureID() != DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY) return null;
+		if (eContainerFeatureID() != DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY) return null;
 		return (TypesLibrary)eContainer();
 	}
 
@@ -113,7 +111,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	 * @generated
 	 */
 	public NotificationChain basicSetTypesLibrary(TypesLibrary newTypesLibrary, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newTypesLibrary, DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newTypesLibrary, DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY, msgs);
 		return msgs;
 	}
 
@@ -123,7 +121,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	 * @generated
 	 */
 	public void setTypesLibrary(TypesLibrary newTypesLibrary) {
-		if (newTypesLibrary != eInternalContainer() || (eContainerFeatureID() != DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY && newTypesLibrary != null)) {
+		if (newTypesLibrary != eInternalContainer() || (eContainerFeatureID() != DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY && newTypesLibrary != null)) {
 			if (EcoreUtil.isAncestor(this, newTypesLibrary))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -135,18 +133,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY, newTypesLibrary, newTypesLibrary));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getLabel() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY, newTypesLibrary, newTypesLibrary));
 	}
 
 	/**
@@ -157,7 +144,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetTypesLibrary((TypesLibrary)otherEnd, msgs);
@@ -173,7 +160,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				return basicSetTypesLibrary(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -187,7 +174,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				return eInternalContainer().eInverseRemove(this, DatatypesPackage.TYPES_LIBRARY__TYPES, TypesLibrary.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -201,9 +188,9 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatypesPackage.IDL_REFERENCE__NAME:
+			case DatatypesPackage.SIMPLE_TYPE__NAME:
 				return getName();
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				return getTypesLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -217,10 +204,10 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatypesPackage.IDL_REFERENCE__NAME:
+			case DatatypesPackage.SIMPLE_TYPE__NAME:
 				setName((String)newValue);
 				return;
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				setTypesLibrary((TypesLibrary)newValue);
 				return;
 		}
@@ -235,10 +222,10 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.IDL_REFERENCE__NAME:
+			case DatatypesPackage.SIMPLE_TYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				setTypesLibrary((TypesLibrary)null);
 				return;
 		}
@@ -253,9 +240,9 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.IDL_REFERENCE__NAME:
+			case DatatypesPackage.SIMPLE_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY:
+			case DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY:
 				return getTypesLibrary() != null;
 		}
 		return super.eIsSet(featureID);
@@ -277,4 +264,4 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 		return result.toString();
 	}
 
-} //IDLReferenceImpl
+} //SimpleTypeImpl

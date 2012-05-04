@@ -19,8 +19,6 @@ import java.util.StringTokenizer;
 
 import org.best_of_robotics.model.datatypes.DatatypesFactory;
 import org.best_of_robotics.model.datatypes.DatatypesPackage;
-import org.best_of_robotics.model.datatypes.TypesLibrary;
-import org.best_of_robotics.model.datatypes.impl.DatatypesFactoryImpl;
 import org.best_of_robotics.model.datatypes.provider.DataTypesEditPlugin;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -195,21 +193,21 @@ public class DatatypesModelWizard extends Wizard implements INewWizard {
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass)datatypesPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = datatypesFactory.create(eClass);
-		if(rootObject instanceof TypesLibrary){
-			TypesLibrary library = (TypesLibrary)rootObject;
-			library.setBool(DatatypesFactoryImpl.eINSTANCE.createBool());
-			library.setChar(DatatypesFactoryImpl.eINSTANCE.createChar());
-			library.setDouble(DatatypesFactoryImpl.eINSTANCE.createDouble());
-			library.setFloat(DatatypesFactoryImpl.eINSTANCE.createFloat());
-			library.setInt(DatatypesFactoryImpl.eINSTANCE.createInt());
-			library.setLong(DatatypesFactoryImpl.eINSTANCE.createLong());
-			library.setShort(DatatypesFactoryImpl.eINSTANCE.createShort());
-			library.setString(DatatypesFactoryImpl.eINSTANCE.createString());
-			library.setUnsignedChar(DatatypesFactoryImpl.eINSTANCE.createUnsignedChar());
-			library.setUnsignedInt(DatatypesFactoryImpl.eINSTANCE.createUnsignedInt());
-			library.setUnsignedLong(DatatypesFactoryImpl.eINSTANCE.createUnsignedLong());
-			library.setUnsignedShort(DatatypesFactoryImpl.eINSTANCE.createUnsignedShort());
-		}
+//		if(rootObject instanceof TypesLibrary){
+//			TypesLibrary library = (TypesLibrary)rootObject;
+//			library.setBool(DatatypesFactoryImpl.eINSTANCE.createBool());
+//			library.setChar(DatatypesFactoryImpl.eINSTANCE.createChar());
+//			library.setDouble(DatatypesFactoryImpl.eINSTANCE.createDouble());
+//			library.setFloat(DatatypesFactoryImpl.eINSTANCE.createFloat());
+//			library.setInt(DatatypesFactoryImpl.eINSTANCE.createInt());
+//			library.setLong(DatatypesFactoryImpl.eINSTANCE.createLong());
+//			library.setShort(DatatypesFactoryImpl.eINSTANCE.createShort());
+//			library.setString(DatatypesFactoryImpl.eINSTANCE.createString());
+//			library.setUnsignedChar(DatatypesFactoryImpl.eINSTANCE.createUnsignedChar());
+//			library.setUnsignedInt(DatatypesFactoryImpl.eINSTANCE.createUnsignedInt());
+//			library.setUnsignedLong(DatatypesFactoryImpl.eINSTANCE.createUnsignedLong());
+//			library.setUnsignedShort(DatatypesFactoryImpl.eINSTANCE.createUnsignedShort());
+//		}
 		return rootObject;
 	}
 

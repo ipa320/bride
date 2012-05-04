@@ -6,6 +6,7 @@
  */
 package org.best_of_robotics.model.datatypes.impl;
 
+import org.best_of_robotics.model.datatypes.*;
 import org.best_of_robotics.model.datatypes.Bool;
 import org.best_of_robotics.model.datatypes.Char;
 import org.best_of_robotics.model.datatypes.CustomType;
@@ -71,22 +72,11 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DatatypesPackage.TYPES_LIBRARY: return createTypesLibrary();
+			case DatatypesPackage.SIMPLE_TYPE: return createSimpleType();
 			case DatatypesPackage.ROS_IDL_REFERENCE: return createRosIDLReference();
 			case DatatypesPackage.VECTOR_TYPE: return createVectorType();
 			case DatatypesPackage.CUSTOM_TYPE: return createCustomType();
 			case DatatypesPackage.FIELD: return createField();
-			case DatatypesPackage.INT: return createInt();
-			case DatatypesPackage.DOUBLE: return createDouble();
-			case DatatypesPackage.CHAR: return createChar();
-			case DatatypesPackage.FLOAT: return createFloat();
-			case DatatypesPackage.SHORT: return createShort();
-			case DatatypesPackage.STRING: return createString();
-			case DatatypesPackage.LONG: return createLong();
-			case DatatypesPackage.UNSIGNED_INT: return createUnsignedInt();
-			case DatatypesPackage.UNSIGNED_CHAR: return createUnsignedChar();
-			case DatatypesPackage.UNSIGNED_SHORT: return createUnsignedShort();
-			case DatatypesPackage.UNSIGNED_LONG: return createUnsignedLong();
-			case DatatypesPackage.BOOL: return createBool();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +90,16 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public TypesLibrary createTypesLibrary() {
 		TypesLibraryImpl typesLibrary = new TypesLibraryImpl();
 		return typesLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimpleType createSimpleType() {
+		SimpleTypeImpl simpleType = new SimpleTypeImpl();
+		return simpleType;
 	}
 
 	/**
@@ -140,126 +140,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public Field createField() {
 		FieldImpl field = new FieldImpl();
 		return field;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Int createInt() {
-		IntImpl int_ = new IntImpl();
-		return int_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.best_of_robotics.model.datatypes.Double createDouble() {
-		DoubleImpl double_ = new DoubleImpl();
-		return double_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Char createChar() {
-		CharImpl char_ = new CharImpl();
-		return char_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.best_of_robotics.model.datatypes.Float createFloat() {
-		FloatImpl float_ = new FloatImpl();
-		return float_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.best_of_robotics.model.datatypes.Short createShort() {
-		ShortImpl short_ = new ShortImpl();
-		return short_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.best_of_robotics.model.datatypes.String createString() {
-		StringImpl string = new StringImpl();
-		return string;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.best_of_robotics.model.datatypes.Long createLong() {
-		LongImpl long_ = new LongImpl();
-		return long_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnsignedInt createUnsignedInt() {
-		UnsignedIntImpl unsignedInt = new UnsignedIntImpl();
-		return unsignedInt;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnsignedChar createUnsignedChar() {
-		UnsignedCharImpl unsignedChar = new UnsignedCharImpl();
-		return unsignedChar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnsignedShort createUnsignedShort() {
-		UnsignedShortImpl unsignedShort = new UnsignedShortImpl();
-		return unsignedShort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnsignedLong createUnsignedLong() {
-		UnsignedLongImpl unsignedLong = new UnsignedLongImpl();
-		return unsignedLong;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Bool createBool() {
-		BoolImpl bool = new BoolImpl();
-		return bool;
 	}
 
 	/**

@@ -14,7 +14,7 @@ package org.best_of_robotics.model.datatypes;
  *
  *
  * @see org.best_of_robotics.model.datatypes.DatatypesPackage#getSimpleType()
- * @model interface="true" abstract="true"
+ * @model
  * @generated
  */
 public interface SimpleType extends DataType {
