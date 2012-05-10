@@ -6,8 +6,8 @@
  */
 package org.ros.model.ros;
 
+import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Package#getRosdep <em>Rosdep</em>}</li>
  *   <li>{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.Package#getService <em>Service</em>}</li>
+ *   <li>{@link org.ros.model.ros.Package#getTypesLibrary <em>Types Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -255,5 +256,31 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	EList<Service> getService();
+
+	/**
+	 * Returns the value of the '<em><b>Types Library</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Types Library</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Types Library</em>' reference.
+	 * @see #setTypesLibrary(TypesLibrary)
+	 * @see org.ros.model.ros.RosPackage#getPackage_TypesLibrary()
+	 * @model required="true"
+	 * @generated
+	 */
+	TypesLibrary getTypesLibrary();
+
+	/**
+	 * Sets the value of the '{@link org.ros.model.ros.Package#getTypesLibrary <em>Types Library</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Types Library</em>' reference.
+	 * @see #getTypesLibrary()
+	 * @generated
+	 */
+	void setTypesLibrary(TypesLibrary value);
 
 } // Package

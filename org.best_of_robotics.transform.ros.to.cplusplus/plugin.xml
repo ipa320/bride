@@ -12,12 +12,21 @@
             id="org.best_of_robotics.transform.ros.to.cplusplus.command.transform"
             name="Generate C++ Code">
       </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
+            name="Generate Ros Messages">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosCppTransform"
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transform">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosMsgsTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs">
       </handler>
    </extension>
    <extension
@@ -31,8 +40,19 @@
                   commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transform"
                   style="push">
             </command>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
+                  style="push">
+            </command>
          </menu>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.best_of_robotics.transform.ros.to.cplusplus.tools.FileChmodTool"
+            defaultName="FileChmodTool">
+      </tool>
    </extension>
 
 </plugin>

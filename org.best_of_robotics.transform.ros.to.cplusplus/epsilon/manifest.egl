@@ -8,9 +8,11 @@
   <depend package="std_msgs"/>
   <depend package="rospy"/>
   <depend package="dynamic_reconfigure"/>
+  <depend package="[%=package.typesLibrary.name%]_msgs"/>
   [%for(dependency in package.depend) {%]
   <depend package="[%=dependency%]" />
   [%}%]
+  
 </package>
 
 

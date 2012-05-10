@@ -3,6 +3,7 @@
 	var package : Package := Package.allInstances().at(0);
 	var s : OrderedSet := package.node;
 
+
 	//node
 	for(node in package.node) {
 		//var nodeHeaderTemplate := TemplateFactory.load('nodeHeader.egl');
@@ -13,6 +14,7 @@
 		//nodeHeaderTemplate.generate('src/' + node.type + '.hpp');
 		
 		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('typesLibrary', package.typesLibrary);
 		sourceTemplate.generate('src/' + node.name + '.cpp');
 		
 		//nodePropertiesTemplate.populate('node', node);

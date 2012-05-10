@@ -14,5 +14,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.ros.model.ros.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ org.best_of_robotics.model.datatypes.editor;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

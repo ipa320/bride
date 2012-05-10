@@ -37,13 +37,13 @@ import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.ros.model.ros.RosPackage;
 
-public class EglTransformOperationJob extends WorkspaceJob {
+public class RosMsgsTransformOperationJob extends WorkspaceJob {
 
-	private String transformEntryPath = "epsilon/package.egl";
+	private String transformEntryPath = "epsilon/rosMsgs.egl";
 	private IProject project;
 	private InMemoryEmfModel sourceModel;
 
-	public EglTransformOperationJob(String name) {
+	public RosMsgsTransformOperationJob(String name) {
 		super(name);
 	}
 
@@ -90,7 +90,6 @@ public class EglTransformOperationJob extends WorkspaceJob {
 			}
 		}
 		eglModule.getContext().getModelRepository().addModel(sourceModel);
-		System.out.println(eglModule.getContext().toString());
 		try {
 			eglModule.execute();
 		} catch (EolRuntimeException e) {
@@ -100,14 +99,7 @@ public class EglTransformOperationJob extends WorkspaceJob {
 		monitor.done();
 		
 		//change file permisions
-		System.out.println("Hello Welt");
-		try {
-			Runtime.getRuntime().exec("chmod a+x " + project.getLocation().toOSString() + "/cfg/schunk_sdh.cfg");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			
+		
 		return Status.OK_STATUS;
 	}
 

@@ -6,6 +6,7 @@
  */
 package org.ros.model.ros.impl;
 
+import org.best_of_robotics.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -148,6 +149,9 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 		RosPackageImpl theRosPackage = (RosPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RosPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RosPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		DatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theRosPackage.createPackageContents();
@@ -340,6 +344,15 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPackage_TypesLibrary() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPublisher() {
 		return publisherEClass;
 	}
@@ -367,8 +380,8 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPublisher_Msg() {
-		return (EAttribute)publisherEClass.getEStructuralFeatures().get(2);
+	public EReference getPublisher_Msg() {
+		return (EReference)publisherEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -377,7 +390,7 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * @generated
 	 */
 	public EAttribute getPublisher_QueueSize() {
-		return (EAttribute)publisherEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)publisherEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -386,7 +399,7 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * @generated
 	 */
 	public EAttribute getPublisher_Latch() {
-		return (EAttribute)publisherEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)publisherEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -395,7 +408,7 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * @generated
 	 */
 	public EAttribute getPublisher_EventHandler() {
-		return (EAttribute)publisherEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)publisherEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -430,8 +443,8 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSubscriber_Msg() {
-		return (EAttribute)subscriberEClass.getEStructuralFeatures().get(2);
+	public EReference getSubscriber_Msg() {
+		return (EReference)subscriberEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -440,7 +453,7 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * @generated
 	 */
 	public EAttribute getSubscriber_QueueSize() {
-		return (EAttribute)subscriberEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)subscriberEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -449,7 +462,7 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 	 * @generated
 	 */
 	public EAttribute getSubscriber_EventHandler() {
-		return (EAttribute)subscriberEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)subscriberEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -653,21 +666,22 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 		createEAttribute(packageEClass, PACKAGE__ROSDEP);
 		createEReference(packageEClass, PACKAGE__TOPIC);
 		createEReference(packageEClass, PACKAGE__SERVICE);
+		createEReference(packageEClass, PACKAGE__TYPES_LIBRARY);
 
 		publisherEClass = createEClass(PUBLISHER);
 		createEAttribute(publisherEClass, PUBLISHER__NAME);
 		createEReference(publisherEClass, PUBLISHER__TOPIC);
-		createEAttribute(publisherEClass, PUBLISHER__MSG);
 		createEAttribute(publisherEClass, PUBLISHER__QUEUE_SIZE);
 		createEAttribute(publisherEClass, PUBLISHER__LATCH);
 		createEAttribute(publisherEClass, PUBLISHER__EVENT_HANDLER);
+		createEReference(publisherEClass, PUBLISHER__MSG);
 
 		subscriberEClass = createEClass(SUBSCRIBER);
 		createEAttribute(subscriberEClass, SUBSCRIBER__NAME);
 		createEReference(subscriberEClass, SUBSCRIBER__TOPIC);
-		createEAttribute(subscriberEClass, SUBSCRIBER__MSG);
 		createEAttribute(subscriberEClass, SUBSCRIBER__QUEUE_SIZE);
 		createEAttribute(subscriberEClass, SUBSCRIBER__EVENT_HANDLER);
+		createEReference(subscriberEClass, SUBSCRIBER__MSG);
 
 		topicEClass = createEClass(TOPIC);
 		createEAttribute(topicEClass, TOPIC__NAME);
@@ -717,6 +731,9 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -744,21 +761,22 @@ public class RosPackageImpl extends EPackageImpl implements RosPackage {
 		initEAttribute(getPackage_Rosdep(), ecorePackage.getEString(), "rosdep", null, 0, 1, org.ros.model.ros.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Topic(), this.getTopic(), null, "topic", null, 0, -1, org.ros.model.ros.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Service(), this.getService(), null, "service", null, 0, -1, org.ros.model.ros.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_TypesLibrary(), theDatatypesPackage.getTypesLibrary(), null, "typesLibrary", null, 1, 1, org.ros.model.ros.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(publisherEClass, Publisher.class, "Publisher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPublisher_Name(), ecorePackage.getEString(), "name", null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPublisher_Name(), ecorePackage.getEString(), "name", null, 1, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPublisher_Topic(), this.getTopic(), null, "topic", null, 1, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPublisher_Msg(), ecorePackage.getEString(), "msg", null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPublisher_QueueSize(), ecorePackage.getEInt(), "queueSize", "1", 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPublisher_Latch(), ecorePackage.getEBoolean(), "latch", null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPublisher_EventHandler(), ecorePackage.getEString(), "eventHandler", null, 0, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPublisher_Msg(), theDatatypesPackage.getDataType(), null, "msg", null, 1, 1, Publisher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subscriberEClass, Subscriber.class, "Subscriber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSubscriber_Name(), ecorePackage.getEString(), "name", null, 0, 1, Subscriber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSubscriber_Topic(), this.getTopic(), null, "topic", null, 1, 1, Subscriber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSubscriber_Msg(), ecorePackage.getEString(), "msg", null, 0, 1, Subscriber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSubscriber_QueueSize(), ecorePackage.getEInt(), "queueSize", "1", 0, 1, Subscriber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSubscriber_EventHandler(), ecorePackage.getEString(), "eventHandler", null, 0, 1, Subscriber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubscriber_Msg(), theDatatypesPackage.getDataType(), null, "msg", null, 1, 1, Subscriber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(topicEClass, Topic.class, "Topic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTopic_Name(), ecorePackage.getEString(), "name", null, 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -159,6 +159,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import org.ros.model.ros.provider.RosItemProviderAdapterFactory;
 
+import org.best_of_robotics.model.datatypes.provider.DatatypesItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -695,6 +696,7 @@ public class RosEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RosItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new DatatypesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

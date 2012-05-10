@@ -114,6 +114,8 @@ public class RosDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new RosItemProviderAdapterFactory());
+		factories
+				.add(new org.best_of_robotics.model.datatypes.provider.DatatypesItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

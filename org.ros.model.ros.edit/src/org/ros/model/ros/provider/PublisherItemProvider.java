@@ -66,10 +66,10 @@ public class PublisherItemProvider
 
 			addNamePropertyDescriptor(object);
 			addTopicPropertyDescriptor(object);
-			addMsgPropertyDescriptor(object);
 			addQueueSizePropertyDescriptor(object);
 			addLatchPropertyDescriptor(object);
 			addEventHandlerPropertyDescriptor(object);
+			addMsgPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,7 +135,7 @@ public class PublisherItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -244,10 +244,10 @@ public class PublisherItemProvider
 
 		switch (notification.getFeatureID(Publisher.class)) {
 			case RosPackage.PUBLISHER__NAME:
-			case RosPackage.PUBLISHER__MSG:
 			case RosPackage.PUBLISHER__QUEUE_SIZE:
 			case RosPackage.PUBLISHER__LATCH:
 			case RosPackage.PUBLISHER__EVENT_HANDLER:
+			case RosPackage.PUBLISHER__MSG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

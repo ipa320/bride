@@ -96,33 +96,33 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (RosVisualIDRegistry.getVisualID(view)) {
+		case ServiceClientEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://ros/1.0?ServiceClient", RosElementTypes.ServiceClient_4001); //$NON-NLS-1$
+		case PublisherEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://ros/1.0?Publisher", RosElementTypes.Publisher_4004); //$NON-NLS-1$
 		case SubscriberEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://ros/1.0?Subscriber", RosElementTypes.Subscriber_4002); //$NON-NLS-1$
+		case ServiceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://ros/1.0?Service", RosElementTypes.Service_2003); //$NON-NLS-1$
+		case NodeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://ros/1.0?Node", RosElementTypes.Node_2001); //$NON-NLS-1$
 		case ServiceServerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://ros/1.0?ServiceServer", RosElementTypes.ServiceServer_4003); //$NON-NLS-1$
 		case TopicEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://ros/1.0?Topic", RosElementTypes.Topic_2002); //$NON-NLS-1$
-		case ServiceClientEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://ros/1.0?ServiceClient", RosElementTypes.ServiceClient_4001); //$NON-NLS-1$
-		case ParameterEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://ros/1.0?Parameter", RosElementTypes.Parameter_3001); //$NON-NLS-1$
-		case NodeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://ros/1.0?Node", RosElementTypes.Node_2001); //$NON-NLS-1$
-		case PublisherEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://ros/1.0?Publisher", RosElementTypes.Publisher_4004); //$NON-NLS-1$
-		case ServiceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://ros/1.0?Service", RosElementTypes.Service_2003); //$NON-NLS-1$
 		case PackageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://ros/1.0?Package", RosElementTypes.Package_1000); //$NON-NLS-1$
+		case ParameterEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://ros/1.0?Parameter", RosElementTypes.Parameter_3001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -175,24 +175,24 @@ public class RosNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (RosVisualIDRegistry.getVisualID(view)) {
+		case ServiceClientEditPart.VISUAL_ID:
+			return getServiceClient_4001Text(view);
+		case PublisherEditPart.VISUAL_ID:
+			return getPublisher_4004Text(view);
 		case SubscriberEditPart.VISUAL_ID:
 			return getSubscriber_4002Text(view);
+		case ServiceEditPart.VISUAL_ID:
+			return getService_2003Text(view);
+		case NodeEditPart.VISUAL_ID:
+			return getNode_2001Text(view);
 		case ServiceServerEditPart.VISUAL_ID:
 			return getServiceServer_4003Text(view);
 		case TopicEditPart.VISUAL_ID:
 			return getTopic_2002Text(view);
-		case ServiceClientEditPart.VISUAL_ID:
-			return getServiceClient_4001Text(view);
-		case ParameterEditPart.VISUAL_ID:
-			return getParameter_3001Text(view);
-		case NodeEditPart.VISUAL_ID:
-			return getNode_2001Text(view);
-		case PublisherEditPart.VISUAL_ID:
-			return getPublisher_4004Text(view);
-		case ServiceEditPart.VISUAL_ID:
-			return getService_2003Text(view);
 		case PackageEditPart.VISUAL_ID:
 			return getPackage_1000Text(view);
+		case ParameterEditPart.VISUAL_ID:
+			return getParameter_3001Text(view);
 		}
 		return getUnknownElementText(view);
 	}

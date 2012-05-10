@@ -6,6 +6,7 @@
  */
 package org.ros.model.ros.impl;
 
+import org.best_of_robotics.model.datatypes.DataType;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,10 +29,10 @@ import org.ros.model.ros.Topic;
  * <ul>
  *   <li>{@link org.ros.model.ros.impl.PublisherImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PublisherImpl#getTopic <em>Topic</em>}</li>
- *   <li>{@link org.ros.model.ros.impl.PublisherImpl#getMsg <em>Msg</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PublisherImpl#getQueueSize <em>Queue Size</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PublisherImpl#isLatch <em>Latch</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PublisherImpl#getEventHandler <em>Event Handler</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.PublisherImpl#getMsg <em>Msg</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,26 +68,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @ordered
 	 */
 	protected Topic topic;
-
-	/**
-	 * The default value of the '{@link #getMsg() <em>Msg</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMsg()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MSG_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMsg() <em>Msg</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMsg()
-	 * @generated
-	 * @ordered
-	 */
-	protected String msg = MSG_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getQueueSize() <em>Queue Size</em>}' attribute.
@@ -147,6 +128,16 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * @ordered
 	 */
 	protected String eventHandler = EVENT_HANDLER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMsg() <em>Msg</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMsg()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType msg;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,7 +222,15 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMsg() {
+	public DataType getMsg() {
+		if (msg != null && msg.eIsProxy()) {
+			InternalEObject oldMsg = (InternalEObject)msg;
+			msg = (DataType)eResolveProxy(oldMsg);
+			if (msg != oldMsg) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RosPackage.PUBLISHER__MSG, oldMsg, msg));
+			}
+		}
 		return msg;
 	}
 
@@ -240,8 +239,17 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMsg(String newMsg) {
-		String oldMsg = msg;
+	public DataType basicGetMsg() {
+		return msg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMsg(DataType newMsg) {
+		DataType oldMsg = msg;
 		msg = newMsg;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.PUBLISHER__MSG, oldMsg, msg));
@@ -323,14 +331,15 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			case RosPackage.PUBLISHER__TOPIC:
 				if (resolve) return getTopic();
 				return basicGetTopic();
-			case RosPackage.PUBLISHER__MSG:
-				return getMsg();
 			case RosPackage.PUBLISHER__QUEUE_SIZE:
 				return getQueueSize();
 			case RosPackage.PUBLISHER__LATCH:
 				return isLatch();
 			case RosPackage.PUBLISHER__EVENT_HANDLER:
 				return getEventHandler();
+			case RosPackage.PUBLISHER__MSG:
+				if (resolve) return getMsg();
+				return basicGetMsg();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -349,9 +358,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			case RosPackage.PUBLISHER__TOPIC:
 				setTopic((Topic)newValue);
 				return;
-			case RosPackage.PUBLISHER__MSG:
-				setMsg((String)newValue);
-				return;
 			case RosPackage.PUBLISHER__QUEUE_SIZE:
 				setQueueSize((Integer)newValue);
 				return;
@@ -360,6 +366,9 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				return;
 			case RosPackage.PUBLISHER__EVENT_HANDLER:
 				setEventHandler((String)newValue);
+				return;
+			case RosPackage.PUBLISHER__MSG:
+				setMsg((DataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -379,9 +388,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 			case RosPackage.PUBLISHER__TOPIC:
 				setTopic((Topic)null);
 				return;
-			case RosPackage.PUBLISHER__MSG:
-				setMsg(MSG_EDEFAULT);
-				return;
 			case RosPackage.PUBLISHER__QUEUE_SIZE:
 				setQueueSize(QUEUE_SIZE_EDEFAULT);
 				return;
@@ -390,6 +396,9 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				return;
 			case RosPackage.PUBLISHER__EVENT_HANDLER:
 				setEventHandler(EVENT_HANDLER_EDEFAULT);
+				return;
+			case RosPackage.PUBLISHER__MSG:
+				setMsg((DataType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -407,14 +416,14 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RosPackage.PUBLISHER__TOPIC:
 				return topic != null;
-			case RosPackage.PUBLISHER__MSG:
-				return MSG_EDEFAULT == null ? msg != null : !MSG_EDEFAULT.equals(msg);
 			case RosPackage.PUBLISHER__QUEUE_SIZE:
 				return queueSize != QUEUE_SIZE_EDEFAULT;
 			case RosPackage.PUBLISHER__LATCH:
 				return latch != LATCH_EDEFAULT;
 			case RosPackage.PUBLISHER__EVENT_HANDLER:
 				return EVENT_HANDLER_EDEFAULT == null ? eventHandler != null : !EVENT_HANDLER_EDEFAULT.equals(eventHandler);
+			case RosPackage.PUBLISHER__MSG:
+				return msg != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -431,8 +440,6 @@ public class PublisherImpl extends EObjectImpl implements Publisher {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", msg: ");
-		result.append(msg);
 		result.append(", queueSize: ");
 		result.append(queueSize);
 		result.append(", latch: ");

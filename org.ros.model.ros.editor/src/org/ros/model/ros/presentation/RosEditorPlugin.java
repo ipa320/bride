@@ -6,6 +6,7 @@
  */
 package org.ros.model.ros.presentation;
 
+import org.best_of_robotics.model.datatypes.provider.DataTypesEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -44,6 +45,7 @@ public final class RosEditorPlugin extends EMFPlugin {
 	public RosEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				DataTypesEditPlugin.INSTANCE,
 			});
 	}
 

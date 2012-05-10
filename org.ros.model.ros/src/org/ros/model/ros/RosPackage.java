@@ -243,13 +243,22 @@ public interface RosPackage extends EPackage {
 	int PACKAGE__SERVICE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Types Library</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__TYPES_LIBRARY = 10;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 10;
+	int PACKAGE_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link org.ros.model.ros.impl.PublisherImpl <em>Publisher</em>}' class.
@@ -280,22 +289,13 @@ public interface RosPackage extends EPackage {
 	int PUBLISHER__TOPIC = 1;
 
 	/**
-	 * The feature id for the '<em><b>Msg</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PUBLISHER__MSG = 2;
-
-	/**
 	 * The feature id for the '<em><b>Queue Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__QUEUE_SIZE = 3;
+	int PUBLISHER__QUEUE_SIZE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Latch</b></em>' attribute.
@@ -304,7 +304,7 @@ public interface RosPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__LATCH = 4;
+	int PUBLISHER__LATCH = 3;
 
 	/**
 	 * The feature id for the '<em><b>Event Handler</b></em>' attribute.
@@ -313,7 +313,16 @@ public interface RosPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PUBLISHER__EVENT_HANDLER = 5;
+	int PUBLISHER__EVENT_HANDLER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Msg</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PUBLISHER__MSG = 5;
 
 	/**
 	 * The number of structural features of the '<em>Publisher</em>' class.
@@ -353,22 +362,13 @@ public interface RosPackage extends EPackage {
 	int SUBSCRIBER__TOPIC = 1;
 
 	/**
-	 * The feature id for the '<em><b>Msg</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBSCRIBER__MSG = 2;
-
-	/**
 	 * The feature id for the '<em><b>Queue Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSCRIBER__QUEUE_SIZE = 3;
+	int SUBSCRIBER__QUEUE_SIZE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Event Handler</b></em>' attribute.
@@ -377,7 +377,16 @@ public interface RosPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBSCRIBER__EVENT_HANDLER = 4;
+	int SUBSCRIBER__EVENT_HANDLER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Msg</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBSCRIBER__MSG = 4;
 
 	/**
 	 * The number of structural features of the '<em>Subscriber</em>' class.
@@ -801,6 +810,17 @@ public interface RosPackage extends EPackage {
 	EReference getPackage_Service();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.ros.model.ros.Package#getTypesLibrary <em>Types Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Types Library</em>'.
+	 * @see org.ros.model.ros.Package#getTypesLibrary()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_TypesLibrary();
+
+	/**
 	 * Returns the meta object for class '{@link org.ros.model.ros.Publisher <em>Publisher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -833,15 +853,15 @@ public interface RosPackage extends EPackage {
 	EReference getPublisher_Topic();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Publisher#getMsg <em>Msg</em>}'.
+	 * Returns the meta object for the reference '{@link org.ros.model.ros.Publisher#getMsg <em>Msg</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Msg</em>'.
+	 * @return the meta object for the reference '<em>Msg</em>'.
 	 * @see org.ros.model.ros.Publisher#getMsg()
 	 * @see #getPublisher()
 	 * @generated
 	 */
-	EAttribute getPublisher_Msg();
+	EReference getPublisher_Msg();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Publisher#getQueueSize <em>Queue Size</em>}'.
@@ -909,15 +929,15 @@ public interface RosPackage extends EPackage {
 	EReference getSubscriber_Topic();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}'.
+	 * Returns the meta object for the reference '{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Msg</em>'.
+	 * @return the meta object for the reference '<em>Msg</em>'.
 	 * @see org.ros.model.ros.Subscriber#getMsg()
 	 * @see #getSubscriber()
 	 * @generated
 	 */
-	EAttribute getSubscriber_Msg();
+	EReference getSubscriber_Msg();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.ros.model.ros.Subscriber#getQueueSize <em>Queue Size</em>}'.
@@ -1301,6 +1321,14 @@ public interface RosPackage extends EPackage {
 		EReference PACKAGE__SERVICE = eINSTANCE.getPackage_Service();
 
 		/**
+		 * The meta object literal for the '<em><b>Types Library</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__TYPES_LIBRARY = eINSTANCE.getPackage_TypesLibrary();
+
+		/**
 		 * The meta object literal for the '{@link org.ros.model.ros.impl.PublisherImpl <em>Publisher</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1327,12 +1355,12 @@ public interface RosPackage extends EPackage {
 		EReference PUBLISHER__TOPIC = eINSTANCE.getPublisher_Topic();
 
 		/**
-		 * The meta object literal for the '<em><b>Msg</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Msg</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PUBLISHER__MSG = eINSTANCE.getPublisher_Msg();
+		EReference PUBLISHER__MSG = eINSTANCE.getPublisher_Msg();
 
 		/**
 		 * The meta object literal for the '<em><b>Queue Size</b></em>' attribute feature.
@@ -1385,12 +1413,12 @@ public interface RosPackage extends EPackage {
 		EReference SUBSCRIBER__TOPIC = eINSTANCE.getSubscriber_Topic();
 
 		/**
-		 * The meta object literal for the '<em><b>Msg</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Msg</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SUBSCRIBER__MSG = eINSTANCE.getSubscriber_Msg();
+		EReference SUBSCRIBER__MSG = eINSTANCE.getSubscriber_Msg();
 
 		/**
 		 * The meta object literal for the '<em><b>Queue Size</b></em>' attribute feature.

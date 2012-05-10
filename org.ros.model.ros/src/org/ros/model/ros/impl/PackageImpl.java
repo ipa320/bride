@@ -8,6 +8,7 @@ package org.ros.model.ros.impl;
 
 import java.util.Collection;
 
+import org.best_of_robotics.model.datatypes.TypesLibrary;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -45,6 +46,7 @@ import org.ros.model.ros.Topic;
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getRosdep <em>Rosdep</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.PackageImpl#getTypesLibrary <em>Types Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -210,6 +212,16 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 * @ordered
 	 */
 	protected EList<Service> service;
+
+	/**
+	 * The cached value of the '{@link #getTypesLibrary() <em>Types Library</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypesLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypesLibrary typesLibrary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -409,6 +421,44 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TypesLibrary getTypesLibrary() {
+		if (typesLibrary != null && typesLibrary.eIsProxy()) {
+			InternalEObject oldTypesLibrary = (InternalEObject)typesLibrary;
+			typesLibrary = (TypesLibrary)eResolveProxy(oldTypesLibrary);
+			if (typesLibrary != oldTypesLibrary) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RosPackage.PACKAGE__TYPES_LIBRARY, oldTypesLibrary, typesLibrary));
+			}
+		}
+		return typesLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypesLibrary basicGetTypesLibrary() {
+		return typesLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypesLibrary(TypesLibrary newTypesLibrary) {
+		TypesLibrary oldTypesLibrary = typesLibrary;
+		typesLibrary = newTypesLibrary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.PACKAGE__TYPES_LIBRARY, oldTypesLibrary, typesLibrary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -450,6 +500,9 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				return getTopic();
 			case RosPackage.PACKAGE__SERVICE:
 				return getService();
+			case RosPackage.PACKAGE__TYPES_LIBRARY:
+				if (resolve) return getTypesLibrary();
+				return basicGetTypesLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -497,6 +550,9 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				getService().clear();
 				getService().addAll((Collection<? extends Service>)newValue);
 				return;
+			case RosPackage.PACKAGE__TYPES_LIBRARY:
+				setTypesLibrary((TypesLibrary)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -539,6 +595,9 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__SERVICE:
 				getService().clear();
 				return;
+			case RosPackage.PACKAGE__TYPES_LIBRARY:
+				setTypesLibrary((TypesLibrary)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -571,6 +630,8 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				return topic != null && !topic.isEmpty();
 			case RosPackage.PACKAGE__SERVICE:
 				return service != null && !service.isEmpty();
+			case RosPackage.PACKAGE__TYPES_LIBRARY:
+				return typesLibrary != null;
 		}
 		return super.eIsSet(featureID);
 	}

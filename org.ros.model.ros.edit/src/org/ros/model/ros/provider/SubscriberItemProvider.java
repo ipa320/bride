@@ -66,9 +66,9 @@ public class SubscriberItemProvider
 
 			addNamePropertyDescriptor(object);
 			addTopicPropertyDescriptor(object);
-			addMsgPropertyDescriptor(object);
 			addQueueSizePropertyDescriptor(object);
 			addEventHandlerPropertyDescriptor(object);
+			addMsgPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,7 +134,7 @@ public class SubscriberItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -221,9 +221,9 @@ public class SubscriberItemProvider
 
 		switch (notification.getFeatureID(Subscriber.class)) {
 			case RosPackage.SUBSCRIBER__NAME:
-			case RosPackage.SUBSCRIBER__MSG:
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
+			case RosPackage.SUBSCRIBER__MSG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

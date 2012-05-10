@@ -6,6 +6,8 @@
  */
 package org.ros.model.ros;
 
+
+import org.best_of_robotics.model.datatypes.DataType;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,9 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.ros.model.ros.Subscriber#getName <em>Name</em>}</li>
  *   <li>{@link org.ros.model.ros.Subscriber#getTopic <em>Topic</em>}</li>
- *   <li>{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}</li>
  *   <li>{@link org.ros.model.ros.Subscriber#getQueueSize <em>Queue Size</em>}</li>
  *   <li>{@link org.ros.model.ros.Subscriber#getEventHandler <em>Event Handler</em>}</li>
+ *   <li>{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,30 +84,30 @@ public interface Subscriber extends EObject {
 	void setTopic(Topic value);
 
 	/**
-	 * Returns the value of the '<em><b>Msg</b></em>' attribute.
+	 * Returns the value of the '<em><b>Msg</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Msg</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Msg</em>' attribute.
-	 * @see #setMsg(String)
+	 * @return the value of the '<em>Msg</em>' reference.
+	 * @see #setMsg(DataType)
 	 * @see org.ros.model.ros.RosPackage#getSubscriber_Msg()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	String getMsg();
+	DataType getMsg();
 
 	/**
-	 * Sets the value of the '{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}' attribute.
+	 * Sets the value of the '{@link org.ros.model.ros.Subscriber#getMsg <em>Msg</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Msg</em>' attribute.
+	 * @param value the new value of the '<em>Msg</em>' reference.
 	 * @see #getMsg()
 	 * @generated
 	 */
-	void setMsg(String value);
+	void setMsg(DataType value);
 
 	/**
 	 * Returns the value of the '<em><b>Queue Size</b></em>' attribute.
