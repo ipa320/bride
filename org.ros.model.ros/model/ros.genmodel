@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ros.model.ros/src"
     modelPluginID="org.ros.model.ros" modelName="Ros" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.best_of_robotics.model.datatypes/model/DataTypes.genmodel#//datatypes">
+    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.best_of_robotics.model.datatypes/model/DataTypes.genmodel#//datatypes">
   <foreignModel>ros.ecore</foreignModel>
   <genPackages prefix="Ros" basePackage="org.ros.model" disposableProviderFactory="true"
       ecorePackage="ros.ecore#/">
@@ -16,9 +16,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/loopRate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/publisher"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/subscriber"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Node/serviceClient"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Node/serviceServer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/serviceClient"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/serviceServer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/actionserver"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/actionclient"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/name"/>
@@ -32,35 +34,36 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/topic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/service"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Package/typesLibrary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/action"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Publisher">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Publisher/topic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/queueSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/latch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/eventHandler"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ros.ecore#//Publisher/msg"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Publisher/msg"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Subscriber">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Subscriber/topic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/queueSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/eventHandler"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ros.ecore#//Subscriber/msg"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Subscriber/msg"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Topic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Topic/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Topic/publisher"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Topic/subscriber"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Service">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Service/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Service/serviceserver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Service/serviceclient"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//ServiceServer">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//ServiceServer/service"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ServiceServer/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ServiceServer/msg"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//ServiceClient">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//ServiceClient/service"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ServiceClient/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ServiceClient/msg"/>
     </genClasses>
@@ -68,6 +71,21 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Action/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Action/actionserver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Action/actionclient"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//ActionServer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ActionServer/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//ActionClient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ActionClient/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//Architecture">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Architecture/packages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

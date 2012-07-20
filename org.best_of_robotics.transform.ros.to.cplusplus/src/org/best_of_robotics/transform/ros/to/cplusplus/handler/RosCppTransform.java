@@ -24,7 +24,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.ros.model.ros.diagram.part.RosDiagramEditor;
+import org.ros.model.ros_package.diagram.part.RosPackageDiagramEditor;
 
 /**
  * @author hugo
@@ -32,7 +32,7 @@ import org.ros.model.ros.diagram.part.RosDiagramEditor;
  */
 public class RosCppTransform extends AbstractHandler {
 	
-	private RosDiagramEditor rosDiagramEditor;
+	private RosPackageDiagramEditor rosDiagramEditor;
 	private IProject project;
 	private EglTransformOperationJob eglJob;
 	private ArrayList<IMarker> problems = new ArrayList<IMarker>();
@@ -52,7 +52,7 @@ public class RosCppTransform extends AbstractHandler {
 		IEditorPart editor = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
-		if (!(editor instanceof RosDiagramEditor)) {
+		if (!(editor instanceof RosPackageDiagramEditor)) {
 			MessageDialog
 					.openError(
 							PlatformUI.getWorkbench()
@@ -61,7 +61,7 @@ public class RosCppTransform extends AbstractHandler {
 							"Please select the editor from which you want to generate code and execute command again.");
 			return null;
 		} else {
-			rosDiagramEditor = (RosDiagramEditor) editor;
+			rosDiagramEditor = (RosPackageDiagramEditor) editor;
 		}
 
 		String commandName = "rosHandler";

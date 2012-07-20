@@ -6,16 +6,27 @@
 
 	//node
 	for(node in package.node) {
+		//ROS Node code
+		var sourceTemplate := TemplateFactory.load('ros_nodeSource.egl');
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('typesLibrary', package.typesLibrary);
+		sourceTemplate.generate('ros/src/' + node.name + '_ros.cpp');
+		
+		//Common node code
+		var sourceTemplate := TemplateFactory.load('common_nodeSource.egl');
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('typesLibrary', package.typesLibrary);
+		sourceTemplate.generate('common/src/' + node.name + '_common.cpp');
+		
+		
 		//var nodeHeaderTemplate := TemplateFactory.load('nodeHeader.egl');
-		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
+		
 		//var nodePropertiesTemplate := TemplateFactory.load('nodeProperties.egl');
 		
 		//nodeHeaderTemplate.populate('node', node);
 		//nodeHeaderTemplate.generate('src/' + node.type + '.hpp');
 		
-		sourceTemplate.populate('node', node);
-		sourceTemplate.populate('typesLibrary', package.typesLibrary);
-		sourceTemplate.generate('src/' + node.name + '.cpp');
+		
 		
 		//nodePropertiesTemplate.populate('node', node);
 		//nodePropertiesTemplate.generate('deployment/' + node.type + '.cpf');

@@ -1,0 +1,90 @@
+// ROS includes
+#include <ros/ros.h>
+
+// ROS message includes
+#include <std_msgs/Float64.h>
+#include <sensor_msgs/JointState.h>
+#include <diagnostic_msgs/DiagnosticStatus.h>
+#include <diagnostic_msgs/DiagnosticArray.h>
+#include <pr2_controllers_msgs/JointTrajectoryControllerState.h>
+#include <pr2_controllers_msgs/JointControllerState.h>
+
+#include <cob_base_drive_chain_common.cpp>
+
+
+class cob_base_drive_chain_ros
+{
+	public:
+		ros::NodeHandle n_;
+
+[%
+for (publisher in node.publisher)
+{
+%]
+		ros::Publisher [%=publisher.name%]_;
+[%
+}
+%]		
+        ros::Publisher topicPub_JointState;
+		ros::Publisher topicPub_ControllerState;
+		ros::Publisher topicPub_DiagnosticGlobal_;
+        ros::Publisher topicPub_Diagnostic;
+
+  		ros::Subscriber topicSub_JointStateCmd;
+
+        cob_base_drive_chain_data component_data_;
+        cob_base_drive_chain_impl component_implementation_;
+
+        cob_base_drive_chain_ros()
+        {
+
+            topicPub_JointState = n_.advertise<sensor_msgs::JointState>("/joint_states", 1);
+			topicPub_ControllerState = n_.advertise<pr2_controllers_msgs::JointTrajectoryControllerState>("state", 1);
+			topicPub_DiagnosticGlobal_ = n_.advertise<diagnostic_msgs::DiagnosticArray>("/diagnostics", 1);
+			
+			topicPub_Diagnostic = n_.advertise<diagnostic_msgs::DiagnosticStatus>("diagnostic", 1);
+
+			// subscribed topics
+			topicSub_JointStateCmd = n_.subscribe("joint_command", 1, &cob_base_drive_chain_ros::topicCallback_JointStateCmd, this);
+ 
+            
+        }
+
+        void topicCallback_JointStateCmd(const pr2_controllers_msgs::JointTrajectoryControllerState::ConstPtr& msg)
+		{
+            component_data_.in_JointStateCmd_ = *msg;
+            update(); //call only if defined as event port, not called if it is an data port
+        }
+
+        void configure()
+        {
+
+        }
+
+        void update()
+        {
+            component_implementation_.update(component_data_);
+            topicPub_JointState.publish(component_data_.out_JointStates_);
+			topicPub_ControllerState.publish(component_data_.out_ControllerState_);
+    
+        }
+};
+
+int main(int argc, char** argv)
+{
+
+	ros::init(argc, argv, "base_drive_chain");
+
+	cob_base_drive_chain_ros node;
+    node.configure();
+
+ 	ros::Rate loop_rate(100); // Hz // if cycle time == 0 do a spin() here without calling node.update() 
+
+	while(node.n_.ok())
+	{
+        node.update();
+		loop_rate.sleep();
+		ros::spinOnce();
+	}
+    return 0;
+}
