@@ -90,7 +90,6 @@ public class EglTransformOperationJob extends WorkspaceJob {
 			}
 		}
 		eglModule.getContext().getModelRepository().addModel(sourceModel);
-		System.out.println(eglModule.getContext().toString());
 		try {
 			eglModule.execute();
 		} catch (EolRuntimeException e) {
@@ -105,6 +104,7 @@ public class EglTransformOperationJob extends WorkspaceJob {
 			Runtime.getRuntime().exec("chmod a+x " + project.getLocation().toOSString() + "/cfg/schunk_sdh.cfg");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			System.out.println("Der node name muss noch ausgelesen werden.");
 			e.printStackTrace();
 		}
 			

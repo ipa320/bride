@@ -162,6 +162,9 @@
           xsi:type="gmfgraph:Label"
           name="ParameterNameFigure"
           text="&lt;...>"/>
+      <accessors
+          accessor="getFigureParameterNameFigure"
+          figure="//@figures.0/@descriptors.8/@actualFigure"/>
     </descriptors>
     <descriptors
         name="NodeFigure2">
@@ -250,47 +253,10 @@
           accessor="getFigureSubscriberNameFigure"
           figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
     </descriptors>
-    <descriptors
-        name="PackageFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="PackageFigure"
-          cornerWidth="12"
-          cornerHeight="12">
-        <border
-            xsi:type="gmfgraph:MarginBorder">
-          <insets
-              top="5"
-              left="5"
-              bottom="5"
-              right="5"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="PackageNameFigure"
-            text="&lt;..>">
-          <maximumSize
-              dx="10000"
-              dy="50"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="PackageContentCompartmentFigure"/>
-      </actualFigure>
-      <accessors
-          accessor="getFigurePackageNameFigure"
-          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
-      <accessors
-          accessor="getPackageContentCompartmentFigure"
-          figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
-    </descriptors>
   </figures>
   <nodes
       name="Node"
       figure="NodeFigure2"/>
-  <nodes
-      name="Package"
-      figure="PackageFigure"/>
   <nodes
       name="Subscriber"
       figure="Subscriber2Figure"
@@ -333,11 +299,6 @@
       collapsible="true"
       needsTitle="true"
       accessor="//@figures.0/@descriptors.9/@accessors.1"/>
-  <compartments
-      name="PackageContentCompartment"
-      figure="PackageFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
   <labels
       name="NodeName"
       figure="NodeFigure2"
@@ -381,9 +342,6 @@
       accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels
       name="ParameterName"
-      figure="ParameterFigure"/>
-  <labels
-      name="PackageName"
-      figure="PackageFigure"
-      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+      figure="NodeFigure2"
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
 </gmfgraph:Canvas>

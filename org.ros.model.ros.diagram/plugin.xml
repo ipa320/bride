@@ -2,6 +2,22 @@
 <?eclipse version="3.0"?>
 <plugin>
 
+	<extension point = "org.eclipse.ui.popupMenus">
+     <objectContribution
+        id="org.eclipse.ui.examples.readmetool"
+        objectClass="org.ros.model.ros.diagram.edit.parts.PackageEditPart">
+	    <action id="org.eclipse.ui.examples.readmetool.action1"
+	       label="Import ROS Packages"
+	       icon="icons/obj16/RosDiagramFile.gif"
+	       menubarPath="additions"
+	       helpContextId="org.eclipse.ui.examples.readmetool.open_browser_action_context"
+	       class="org.ros.model.ros.diagram.part.PackageImportAction"	
+           definitionId="org.eclipse.ui.examples.readmetool.action1"
+	       enablesFor="1">
+	    </action>
+	 </objectContribution>	
+   </extension>
+
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
       <fileTypes type="text" extension="ros_diagram"/>
@@ -51,22 +67,7 @@
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
-      <?gmfgen generated="true"?>
-      <objectContribution
-            id="org.ros.model.ros.diagram.InitDiagram"
-            nameFilter="*.ros"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="org.ros.model.ros.diagram.part.RosInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="org.ros.model.ros.diagram.InitDiagramAction">
-         </action>
-      </objectContribution>
-   </extension>
-	
+   	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
@@ -207,7 +208,6 @@
             class="org.ros.model.ros.diagram.sheet.RosPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
@@ -217,8 +217,8 @@
       <viewProvider class="org.ros.model.ros.diagram.providers.RosViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Ros"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,3001"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2003,3008,3001,3009,3010,3011,3012,3013,3014"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
       </viewProvider>
    </extension>
 
@@ -230,16 +230,16 @@
             <method name="getType()" value="Ros"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2002,2003,3001"/>
+            <method name="getType()" value="2003,3008,3001,3009,3010,3011,3012,3013,3014"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001,4002,4003,4004"/>
+            <method name="getType()" value="4001,4002,4003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003"/>
+            <method name="getType()" value="5013,5012,5011,5014,5015,5016,5017,5018,5019"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001"/>
+            <method name="getType()" value="7002,7003"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -249,11 +249,9 @@
       <?gmfgen generated="true"?>
       <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.RosModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.PackageEditPart" id="Package_1000"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.NodeEditPart" id="Node_2001"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.TopicEditPart" id="Topic_2002"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.ServiceEditPart" id="Service_2003"/>
-         <context elements="Package_1000,Node_2001,Topic_2002,Service_2003"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.PackageEditPart" id="Architecture_1000"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.Package2EditPart" id="Package_2003"/>
+         <context elements="Architecture_1000,Package_2003"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -275,42 +273,32 @@
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Package_1000"
-               name="%metatype.name.Package_1000"
+               id="org.ros.model.ros.diagram.Architecture_1000"
+               name="%metatype.name.Architecture_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Package"
+               eclass="Architecture"
                edithelper="org.ros.model.ros.diagram.edit.helpers.PackageEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Node_2001"
-               name="%metatype.name.Node_2001"
+               id="org.ros.model.ros.diagram.Package_2003"
+               name="%metatype.name.Package_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Package"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.Package2EditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.Node_3008"
+               name="%metatype.name.Node_3008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Node"
                edithelper="org.ros.model.ros.diagram.edit.helpers.NodeEditHelper">
-            <param name="semanticHint" value="2001"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://ros/1.0">
-         <metamodelType
-               id="org.ros.model.ros.diagram.Topic_2002"
-               name="%metatype.name.Topic_2002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Topic"
-               edithelper="org.ros.model.ros.diagram.edit.helpers.TopicEditHelper">
-            <param name="semanticHint" value="2002"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://ros/1.0">
-         <metamodelType
-               id="org.ros.model.ros.diagram.Service_2003"
-               name="%metatype.name.Service_2003"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Service"
-               edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceEditHelper">
-            <param name="semanticHint" value="2003"/>
+            <param name="semanticHint" value="3008"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
@@ -325,42 +313,92 @@
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.ServiceClient_4001"
-               name="%metatype.name.ServiceClient_4001"
+               id="org.ros.model.ros.diagram.Publisher_3009"
+               name="%metatype.name.Publisher_3009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Publisher"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.PublisherEditHelper">
+            <param name="semanticHint" value="3009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.Subscriber_3010"
+               name="%metatype.name.Subscriber_3010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Subscriber"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.SubscriberEditHelper">
+            <param name="semanticHint" value="3010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.ActionServer_3011"
+               name="%metatype.name.ActionServer_3011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ActionServer"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.ActionServerEditHelper">
+            <param name="semanticHint" value="3011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.ActionClient_3012"
+               name="%metatype.name.ActionClient_3012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ActionClient"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.ActionClientEditHelper">
+            <param name="semanticHint" value="3012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.ServiceServer_3013"
+               name="%metatype.name.ServiceServer_3013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ServiceServer"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceServerEditHelper">
+            <param name="semanticHint" value="3013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.ServiceClient_3014"
+               name="%metatype.name.ServiceClient_3014"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ServiceClient"
                edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceClientEditHelper">
+            <param name="semanticHint" value="3014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.Topic_4001"
+               name="%metatype.name.Topic_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Topic"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.TopicEditHelper">
             <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Subscriber_4002"
-               name="%metatype.name.Subscriber_4002"
+               id="org.ros.model.ros.diagram.Service_4002"
+               name="%metatype.name.Service_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Subscriber"
-               edithelper="org.ros.model.ros.diagram.edit.helpers.SubscriberEditHelper">
+               eclass="Service"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceEditHelper">
             <param name="semanticHint" value="4002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.ServiceServer_4003"
-               name="%metatype.name.ServiceServer_4003"
+               id="org.ros.model.ros.diagram.Action_4003"
+               name="%metatype.name.Action_4003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ServiceServer"
-               edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceServerEditHelper">
+               eclass="Action"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.ActionEditHelper">
             <param name="semanticHint" value="4003"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://ros/1.0">
-         <metamodelType
-               id="org.ros.model.ros.diagram.Publisher_4004"
-               name="%metatype.name.Publisher_4004"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Publisher"
-               edithelper="org.ros.model.ros.diagram.edit.helpers.PublisherEditHelper">
-            <param name="semanticHint" value="4004"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -375,132 +413,26 @@
          </enablement>
       </clientContext> 
       <binding context="org.ros.model.ros.diagram.TypeContext">
-         <elementType ref="org.ros.model.ros.diagram.Package_1000"/>
-         <elementType ref="org.ros.model.ros.diagram.Node_2001"/>
-         <elementType ref="org.ros.model.ros.diagram.Topic_2002"/>
-         <elementType ref="org.ros.model.ros.diagram.Service_2003"/>
+         <elementType ref="org.ros.model.ros.diagram.Architecture_1000"/>
+         <elementType ref="org.ros.model.ros.diagram.Package_2003"/>
+         <elementType ref="org.ros.model.ros.diagram.Node_3008"/>
          <elementType ref="org.ros.model.ros.diagram.Parameter_3001"/>
-         <elementType ref="org.ros.model.ros.diagram.ServiceClient_4001"/>
-         <elementType ref="org.ros.model.ros.diagram.Subscriber_4002"/>
-         <elementType ref="org.ros.model.ros.diagram.ServiceServer_4003"/>
-         <elementType ref="org.ros.model.ros.diagram.Publisher_4004"/>
+         <elementType ref="org.ros.model.ros.diagram.Publisher_3009"/>
+         <elementType ref="org.ros.model.ros.diagram.Subscriber_3010"/>
+         <elementType ref="org.ros.model.ros.diagram.ActionServer_3011"/>
+         <elementType ref="org.ros.model.ros.diagram.ActionClient_3012"/>
+         <elementType ref="org.ros.model.ros.diagram.ServiceServer_3013"/>
+         <elementType ref="org.ros.model.ros.diagram.ServiceClient_3014"/>
+         <elementType ref="org.ros.model.ros.diagram.Topic_4001"/>
+         <elementType ref="org.ros.model.ros.diagram.Service_4002"/>
+         <elementType ref="org.ros.model.ros.diagram.Action_4003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
-	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
-      <?gmfgen generated="true"?>
-       <propertyTester
-           id="org.ros.model.ros.diagram.URIEditorInputPropertyTester"
-           type="org.eclipse.emf.common.ui.URIEditorInput"
-           namespace="org.ros.model.ros.diagram"
-           properties="isURIEditorInput"
-           class="org.ros.model.ros.diagram.part.RosUriEditorInputTester">
-       </propertyTester>
-   </extension>
-
-	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
-      <?gmfgen generated="true"?>
-      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-         <includes>
-            <contentExtension pattern="org.ros.model.ros.diagram.resourceContent"/>
-			<contentExtension pattern="org.ros.model.ros.diagram.domainResourceContent"/>
-            <contentExtension pattern="org.ros.model.ros.diagram.navigatorLinkHelper"/>
-         </includes>
-      </viewerContentBinding>
-      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-         <includes>
-            <actionExtension pattern="org.ros.model.ros.diagram.navigatorActionProvider"/>
-         </includes>
-      </viewerActionBinding>
-   </extension>
-
-   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
-      <?gmfgen generated="true"?>
-      <navigatorContent
-            id="org.ros.model.ros.diagram.resourceContent" 
-            name="%navigatorContentName" 
-            priority="normal" 
-            contentProvider="org.ros.model.ros.diagram.navigator.RosNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros.diagram.navigator.RosNavigatorLabelProvider"
-            icon="icons/obj16/RosDiagramFile.gif"
-            activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros_diagram"/>
-               </and>
-               <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <or>
-         	   <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
-            </or>
-         </possibleChildren>
-         <commonSorter 
-               id="org.ros.model.ros.diagram.navigatorSorter" 
-               class="org.ros.model.ros.diagram.navigator.RosNavigatorSorter">
-            <parentExpression>
-               <or>
-	              <and>
-    	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="ros_diagram"/>
-                  </and>
-                  <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
-               </or>
-            </parentExpression>
-         </commonSorter>
-      </navigatorContent>
-      <navigatorContent
-            id="org.ros.model.ros.diagram.domainResourceContent" 
-            name="%domainNavigatorContentName" 
-            priority="normal" 
-            contentProvider="org.ros.model.ros.diagram.navigator.RosDomainNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros.diagram.navigator.RosDomainNavigatorLabelProvider"
-            icon="icons/obj16/RosDiagramFile.gif"
-            activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros"/>
-               </and>
-               <instanceof value="org.ros.model.ros.diagram.navigator.RosDomainNavigatorItem"/>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <instanceof value="org.ros.model.ros.diagram.navigator.RosDomainNavigatorItem"/>
-         </possibleChildren>
-      </navigatorContent>
-      <actionProvider
-            id="org.ros.model.ros.diagram.navigatorActionProvider"
-            class="org.ros.model.ros.diagram.navigator.RosNavigatorActionProvider">
-         <enablement>
-            <or>
-               <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
-            </or>
-         </enablement>
-      </actionProvider>
-   </extension>
-   
-	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
-      <?gmfgen generated="true"?>
-      <linkHelper
-            id="org.ros.model.ros.diagram.navigatorLinkHelper"
-            class="org.ros.model.ros.diagram.navigator.RosNavigatorLinkHelper">
-         <editorInputEnablement>
-            <and>
-               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
-               <test property="org.ros.model.ros.diagram.isURIEditorInput"/>
-            </and>
-         </editorInputEnablement>
-         <selectionEnablement>
-            <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
-         </selectionEnablement>
-      </linkHelper>
-   </extension>
-   <extension point="org.eclipse.ui.commands" id="update-cmd">
+	   
+	   
+      
+	      <extension point="org.eclipse.ui.commands" id="update-cmd">
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
@@ -551,6 +483,25 @@
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>
+
+
+	<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.ros.model.ros.diagram.InitDiagram"
+            nameFilter="*.ros"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.ros.model.ros.diagram.part.RosInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.ros.model.ros.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+
 
    <!-- optionally, specify keybindings -->
 </plugin>
