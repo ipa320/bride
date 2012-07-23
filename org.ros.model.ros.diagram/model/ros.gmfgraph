@@ -110,11 +110,16 @@
         name="TopicFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="TopicFigure">
+          name="TopicFigure"
+          lineWidth="2"
+          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
         <children
             xsi:type="gmfgraph:Label"
             name="TopicNameFigure"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="OpenArrow"/>
       </actualFigure>
       <accessors
           accessor="getFigureTopicNameFigure"

@@ -217,7 +217,7 @@
       <viewProvider class="org.ros.model.ros.diagram.providers.RosViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Ros"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2003,3008,3001,3009,3010,3011,3012,3013,3014"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3006,3007,3008"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
       </viewProvider>
    </extension>
@@ -230,16 +230,16 @@
             <method name="getType()" value="Ros"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2003,3008,3001,3009,3010,3011,3012,3013,3014"/>
+            <method name="getType()" value="2001,3001,3002,3003,3004,3005,3006,3007,3008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001,4002,4003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5013,5012,5011,5014,5015,5016,5017,5018,5019"/>
+            <method name="getType()" value="5009,5008,5001,5002,5003,5004,5005,5006,5007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7002,7003"/>
+            <method name="getType()" value="7001,7002"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -250,8 +250,8 @@
       <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.RosModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="org.ros.model.ros.diagram.edit.parts.PackageEditPart" id="Architecture_1000"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.Package2EditPart" id="Package_2003"/>
-         <context elements="Architecture_1000,Package_2003"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.Package2EditPart" id="Package_2001"/>
+         <context elements="Architecture_1000,Package_2001"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -283,92 +283,92 @@
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Package_2003"
-               name="%metatype.name.Package_2003"
+               id="org.ros.model.ros.diagram.Package_2001"
+               name="%metatype.name.Package_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Package"
                edithelper="org.ros.model.ros.diagram.edit.helpers.Package2EditHelper">
-            <param name="semanticHint" value="2003"/>
+            <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Node_3008"
-               name="%metatype.name.Node_3008"
+               id="org.ros.model.ros.diagram.Node_3001"
+               name="%metatype.name.Node_3001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Node"
-               edithelper="org.ros.model.ros.diagram.edit.helpers.NodeEditHelper">
-            <param name="semanticHint" value="3008"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://ros/1.0">
-         <metamodelType
-               id="org.ros.model.ros.diagram.Parameter_3001"
-               name="%metatype.name.Parameter_3001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Parameter"
                edithelper="org.ros.model.ros.diagram.edit.helpers.ParameterEditHelper">
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Publisher_3009"
-               name="%metatype.name.Publisher_3009"
+               id="org.ros.model.ros.diagram.Parameter_3002"
+               name="%metatype.name.Parameter_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Parameter"
+               edithelper="org.ros.model.ros.diagram.edit.helpers.Parameter2EditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://ros/1.0">
+         <metamodelType
+               id="org.ros.model.ros.diagram.Publisher_3003"
+               name="%metatype.name.Publisher_3003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Publisher"
                edithelper="org.ros.model.ros.diagram.edit.helpers.PublisherEditHelper">
-            <param name="semanticHint" value="3009"/>
+            <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.Subscriber_3010"
-               name="%metatype.name.Subscriber_3010"
+               id="org.ros.model.ros.diagram.Subscriber_3004"
+               name="%metatype.name.Subscriber_3004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Subscriber"
                edithelper="org.ros.model.ros.diagram.edit.helpers.SubscriberEditHelper">
-            <param name="semanticHint" value="3010"/>
+            <param name="semanticHint" value="3004"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.ActionServer_3011"
-               name="%metatype.name.ActionServer_3011"
+               id="org.ros.model.ros.diagram.ActionServer_3005"
+               name="%metatype.name.ActionServer_3005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ActionServer"
                edithelper="org.ros.model.ros.diagram.edit.helpers.ActionServerEditHelper">
-            <param name="semanticHint" value="3011"/>
+            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.ActionClient_3012"
-               name="%metatype.name.ActionClient_3012"
+               id="org.ros.model.ros.diagram.ActionClient_3006"
+               name="%metatype.name.ActionClient_3006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ActionClient"
                edithelper="org.ros.model.ros.diagram.edit.helpers.ActionClientEditHelper">
-            <param name="semanticHint" value="3012"/>
+            <param name="semanticHint" value="3006"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.ServiceServer_3013"
-               name="%metatype.name.ServiceServer_3013"
+               id="org.ros.model.ros.diagram.ServiceServer_3007"
+               name="%metatype.name.ServiceServer_3007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ServiceServer"
                edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceServerEditHelper">
-            <param name="semanticHint" value="3013"/>
+            <param name="semanticHint" value="3007"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
          <metamodelType
-               id="org.ros.model.ros.diagram.ServiceClient_3014"
-               name="%metatype.name.ServiceClient_3014"
+               id="org.ros.model.ros.diagram.ServiceClient_3008"
+               name="%metatype.name.ServiceClient_3008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ServiceClient"
                edithelper="org.ros.model.ros.diagram.edit.helpers.ServiceClientEditHelper">
-            <param name="semanticHint" value="3014"/>
+            <param name="semanticHint" value="3008"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
@@ -414,15 +414,15 @@
       </clientContext> 
       <binding context="org.ros.model.ros.diagram.TypeContext">
          <elementType ref="org.ros.model.ros.diagram.Architecture_1000"/>
-         <elementType ref="org.ros.model.ros.diagram.Package_2003"/>
-         <elementType ref="org.ros.model.ros.diagram.Node_3008"/>
-         <elementType ref="org.ros.model.ros.diagram.Parameter_3001"/>
-         <elementType ref="org.ros.model.ros.diagram.Publisher_3009"/>
-         <elementType ref="org.ros.model.ros.diagram.Subscriber_3010"/>
-         <elementType ref="org.ros.model.ros.diagram.ActionServer_3011"/>
-         <elementType ref="org.ros.model.ros.diagram.ActionClient_3012"/>
-         <elementType ref="org.ros.model.ros.diagram.ServiceServer_3013"/>
-         <elementType ref="org.ros.model.ros.diagram.ServiceClient_3014"/>
+         <elementType ref="org.ros.model.ros.diagram.Package_2001"/>
+         <elementType ref="org.ros.model.ros.diagram.Node_3001"/>
+         <elementType ref="org.ros.model.ros.diagram.Parameter_3002"/>
+         <elementType ref="org.ros.model.ros.diagram.Publisher_3003"/>
+         <elementType ref="org.ros.model.ros.diagram.Subscriber_3004"/>
+         <elementType ref="org.ros.model.ros.diagram.ActionServer_3005"/>
+         <elementType ref="org.ros.model.ros.diagram.ActionClient_3006"/>
+         <elementType ref="org.ros.model.ros.diagram.ServiceServer_3007"/>
+         <elementType ref="org.ros.model.ros.diagram.ServiceClient_3008"/>
          <elementType ref="org.ros.model.ros.diagram.Topic_4001"/>
          <elementType ref="org.ros.model.ros.diagram.Service_4002"/>
          <elementType ref="org.ros.model.ros.diagram.Action_4003"/>
