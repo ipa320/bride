@@ -162,9 +162,6 @@
           xsi:type="gmfgraph:Label"
           name="ParameterNameFigure"
           text="&lt;...>"/>
-      <accessors
-          accessor="getFigureParameterNameFigure"
-          figure="//@figures.0/@descriptors.8/@actualFigure"/>
     </descriptors>
     <descriptors
         name="NodeFigure2">
@@ -342,6 +339,5 @@
       accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels
       name="ParameterName"
-      figure="NodeFigure2"
-      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+      figure="ParameterFigure"/>
 </gmfgraph:Canvas>
