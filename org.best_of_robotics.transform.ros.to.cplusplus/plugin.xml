@@ -17,6 +17,11 @@
             id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
             name="Generate Ros Messages">
       </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
+            name="Generate Launch File for ros system">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -27,6 +32,10 @@
       <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosMsgsTransform"
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosLaunchTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch">
       </handler>
    </extension>
    <extension
@@ -42,6 +51,10 @@
             </command>
             <command
                   commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
                   style="push">
             </command>
          </menu>
