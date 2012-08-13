@@ -2,6 +2,10 @@
 import roslib; roslib.load_manifest('[%=package.name%]')
 import rospy
 
+from std_msgs.msg import String
+from std_msgs.msg import Float64
+
+
 [%for (publisher in node.publisher) {%]
 ##include "std_msgs/[%=publisher.msg.asString()%].h"
 [%}%]
@@ -12,20 +16,26 @@ import rospy
 class [%=node.name%]:
 	def __init__(self):
 		[%for (publisher in node.publisher) {%]
-			self.[%=publisher.name%] = rospy.Publisher('[%=publisher.topic.name%]', [%=publisher.msg.asString()%])
+			self.[%=publisher.name%] = rospy.Publisher('[%=publisher.name%]', [%=publisher.eventHandler.asString()%])
 		[%}%]
 		[%for (subscriber in node.subscriber) {%]
-			self.[%=subscriber.name%] = rospy.Subscriber("[%=subscriber.topic.name%]", self.[%=subscriber.topic.name%]Callback) 
+			self.[%=subscriber.name%] = rospy.Subscriber("[%=subscriber.name%]",[%=subscriber.eventHandler.asString()%], self.[%=subscriber.name%]Callback) 
 		[%}%]
 
 [%for (subscriber in node.subscriber) {%]
-	def [%=subscriber.topic.name%]Callback(self, a):
+	def [%=subscriber.name%]Callback(self, a):
 [%=out.startPreserve("#", "#", "callbackCode", true)%]
+
+
 [%=out.stopPreserve()%]
 		pass
 [%}%]	
 		
 	def run(self):
+[%=out.startPreserve("#", "#", "runCode", true)%]
+
+
+[%=out.stopPreserve()%]
 		pass
 
 if __name__ == "__main__":
@@ -38,55 +48,5 @@ if __name__ == "__main__":
 	except rospy.ROSInterruptException:
 		print "Exit"
 
-###### Old C++ template ####
-
-#include <ros/ros.h>
 
 
-
-[%=out.startPreserve("/*", "*/", "include", true)%]
-[%=out.stopPreserve()%]
-//Test234
-using std::string;
-const string NODE_NAME = "[%=node.name%]";
-
-[%for (subscriber in node.subscriber) {%]
-void [%=subscriber.topic.name%]Callback(const std_msgs::[%=subscriber.msg.asString()%]::ConstPtr& msg)
-{
-
-	ROS_INFO("Received: %s", msg->data.c_str());
-}
-[%}%]
-	
-
-int main(int argc, char **argv)
-{
-	ros::init(argc, argv, NODE_NAME);
-	ros::NodeHandle nodeHandle;
-
-	[%for (publisher in node.publisher) {%]
-	ros::Publisher [%=publisher.name%] = nodeHandle.advertise<std_msgs::[%=publisher.msg.asString()%]>("[%=publisher.topic.name%]", [%=publisher.queueSize%], [%=publisher.latch%]); 
-	[%}%]
-	
-	[%for (subscriber in node.subscriber) {%]
-	ros::Subscriber [%=subscriber.name%] = nodeHandle.subscribe("[%=subscriber.topic.name%]", [%=subscriber.queueSize%], [%=subscriber.topic.name%]Callback); 
-	[%}%]
-	
-	
-	[%=out.startPreserve("/*", "*/", "mainCode", true)%]
-	[%=out.stopPreserve()%]
-	
-	[%if (node.loopRate > 0) {%]
-	ros::Rate loopRate([%=node.loopRate%]);
-	while(ros::ok()){
-		[%=out.startPreserve("/*", "*/", "periodicCode", true)%]
-		//PUT YOUR CODE HERE.
-		[%=out.stopPreserve()%]
-		ros::spinOnce();
-		loopRate.sleep();
-	}
-	[%} else {%]
-	ros::spin();
-	[%}%]
-	return 0;
-} 

@@ -9,9 +9,6 @@
   [%for(dependency in package.depend) {%]
   <depend package="[%=dependency%]" />
   [%}%]
-  [%for(dependency in package.rosdep) {%]
-  <rosdep name="[%=dependency%]" />
-  [%}%]
 </package>
 
 
