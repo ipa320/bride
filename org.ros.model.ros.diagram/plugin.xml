@@ -60,7 +60,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="org.best_of_robotics.bride.ui.category.newWizard"
   	     class="org.ros.model.ros.diagram.part.RosCreationWizard"
   	     id="org.ros.model.ros.diagram.part.RosCreationWizardID">
   	  	 <description>%newWizardDesc</description>  

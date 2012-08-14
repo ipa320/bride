@@ -39,12 +39,14 @@
       </context>
    </extension>
 
+
+
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="true"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="org.best_of_robotics.bride.ui.category.newWizard"
   	     class="org.ros.model.ros_package.diagram.part.RosCreationWizard"
   	     id="org.ros.model.ros_package.diagram.part.RosCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
