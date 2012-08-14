@@ -36,6 +36,7 @@ import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.ros.model.ros.RosPackage;
+import org.eclipse.epsilon.eol.dt.*;
 
 public class EglTransformOperationJob extends WorkspaceJob {
 
@@ -68,6 +69,7 @@ public class EglTransformOperationJob extends WorkspaceJob {
 
 		monitor.worked(1);
 
+		
 		EglFileGeneratingTemplateFactory eglTemplateFactory = new EglFileGeneratingTemplateFactory();
 		IEolExecutableModule eglModule = new EglTemplateFactoryModuleAdapter(
 				eglTemplateFactory);
@@ -89,6 +91,9 @@ public class EglTransformOperationJob extends WorkspaceJob {
 				System.err.println(problem.toString());
 			}
 		}
+		
+		eglModule.getContext().getNativeTypeDelegates().add(new ExtensionPointToolNativeTypeDelegate());
+		
 		eglModule.getContext().getModelRepository().addModel(sourceModel);
 		try {
 			eglModule.execute();
@@ -99,7 +104,8 @@ public class EglTransformOperationJob extends WorkspaceJob {
 		monitor.done();
 		
 		//change file permisions
-		System.out.println("Hello Welt");
+		
+		System.out.println("Hello Welt, Falsches File!!");
 		try {
 			Runtime.getRuntime().exec("chmod a+x " + project.getLocation().toOSString() + "/cfg/schunk_sdh.cfg");
 		} catch (IOException e) {
