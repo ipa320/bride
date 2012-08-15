@@ -12,14 +12,14 @@
  * 
  *     Herman Bruyninckx - Supervisor.
  */
-package org.best_of_robotics.transform.ros.to.python.jobs;
+package org.best_of_robotics.transform.ros.to.cplusplus.jobs;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.best_of_robotics.transform.ros.to.python.Activator;
+import org.best_of_robotics.transform.ros.to.cplusplus.Activator;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
@@ -37,13 +37,13 @@ import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.ros.model.ros.RosPackage;
 
-public class EglTransformOperationJob extends WorkspaceJob {
+public class Python_EglTransformOperationJob extends WorkspaceJob {
 
-	private String transformEntryPath = "epsilon/package.egl";
+	private String transformEntryPath = "epsilon/python_package.egl";
 	private IProject project;
 	private InMemoryEmfModel sourceModel;
 
-	public EglTransformOperationJob(String name) {
+	public Python_EglTransformOperationJob(String name) {
 		super(name);
 	}
 

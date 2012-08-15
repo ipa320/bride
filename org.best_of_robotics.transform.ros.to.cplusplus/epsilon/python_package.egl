@@ -6,7 +6,7 @@
 	//node
 	for(node in package.node) {
 		//var nodeHeaderTemplate := TemplateFactory.load('nodeHeader.egl');
-		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
+		var sourceTemplate := TemplateFactory.load('python_nodeSource.egl');
 		//var nodePropertiesTemplate := TemplateFactory.load('nodeProperties.egl');
 		
 		//nodeHeaderTemplate.populate('node', node);

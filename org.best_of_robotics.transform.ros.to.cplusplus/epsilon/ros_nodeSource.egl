@@ -3,16 +3,11 @@
 
 // ROS message includes
 #include <std_msgs/Float64.h>
-#include <sensor_msgs/JointState.h>
-#include <diagnostic_msgs/DiagnosticStatus.h>
-#include <diagnostic_msgs/DiagnosticArray.h>
-#include <pr2_controllers_msgs/JointTrajectoryControllerState.h>
-#include <pr2_controllers_msgs/JointControllerState.h>
 
 #include <cob_base_drive_chain_common.cpp>
 
 
-class cob_base_drive_chain_ros
+class [%=node.name%]_ros
 {
 	public:
 		ros::NodeHandle n_;
@@ -25,17 +20,20 @@ for (publisher in node.publisher)
 [%
 }
 %]		
-        ros::Publisher topicPub_JointState;
-		ros::Publisher topicPub_ControllerState;
-		ros::Publisher topicPub_DiagnosticGlobal_;
-        ros::Publisher topicPub_Diagnostic;
 
-  		ros::Subscriber topicSub_JointStateCmd;
+[%
+for (subscriber in node.subscriber)
+{
+%]
+		ros::Publisher [%=subscriber.name%]_;
+[%
+}
+%]        
+ 
+        [%=node.name%]_data component_data_;
+        [%=node.name%]_impl component_implementation_;
 
-        cob_base_drive_chain_data component_data_;
-        cob_base_drive_chain_impl component_implementation_;
-
-        cob_base_drive_chain_ros()
+        [%=node.name%]_ros()
         {
 
             topicPub_JointState = n_.advertise<sensor_msgs::JointState>("/joint_states", 1);
@@ -73,9 +71,9 @@ for (publisher in node.publisher)
 int main(int argc, char** argv)
 {
 
-	ros::init(argc, argv, "base_drive_chain");
+	ros::init(argc, argv, "[%=node.name%]");
 
-	cob_base_drive_chain_ros node;
+	[%=node.name%]_ros node;
     node.configure();
 
  	ros::Rate loop_rate(100); // Hz // if cycle time == 0 do a spin() here without calling node.update() 
