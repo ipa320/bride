@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.ros.model.ros.ActionClient;
+import org.ros.model.ros.ActionServer;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
@@ -44,6 +46,8 @@ import org.ros.model.ros.Subscriber;
  *   <li>{@link org.ros.model.ros.impl.NodeImpl#getServiceClient <em>Service Client</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.NodeImpl#getServiceServer <em>Service Server</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.NodeImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.NodeImpl#getActionserver <em>Actionserver</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.NodeImpl#getActionclient <em>Actionclient</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,6 +145,26 @@ public class NodeImpl extends EObjectImpl implements Node {
 	protected EList<Parameter> parameter;
 
 	/**
+	 * The cached value of the '{@link #getActionserver() <em>Actionserver</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionserver()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActionServer> actionserver;
+
+	/**
+	 * The cached value of the '{@link #getActionclient() <em>Actionclient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionclient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActionClient> actionclient;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -208,7 +232,7 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 */
 	public EList<Publisher> getPublisher() {
 		if (publisher == null) {
-			publisher = new EObjectContainmentEList<Publisher>(Publisher.class, this, RosPackage.NODE__PUBLISHER);
+			publisher = new EObjectContainmentEList.Resolving<Publisher>(Publisher.class, this, RosPackage.NODE__PUBLISHER);
 		}
 		return publisher;
 	}
@@ -220,7 +244,7 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 */
 	public EList<Subscriber> getSubscriber() {
 		if (subscriber == null) {
-			subscriber = new EObjectContainmentEList<Subscriber>(Subscriber.class, this, RosPackage.NODE__SUBSCRIBER);
+			subscriber = new EObjectContainmentEList.Resolving<Subscriber>(Subscriber.class, this, RosPackage.NODE__SUBSCRIBER);
 		}
 		return subscriber;
 	}
@@ -232,7 +256,7 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 */
 	public EList<ServiceClient> getServiceClient() {
 		if (serviceClient == null) {
-			serviceClient = new EObjectContainmentEList<ServiceClient>(ServiceClient.class, this, RosPackage.NODE__SERVICE_CLIENT);
+			serviceClient = new EObjectContainmentEList.Resolving<ServiceClient>(ServiceClient.class, this, RosPackage.NODE__SERVICE_CLIENT);
 		}
 		return serviceClient;
 	}
@@ -244,7 +268,7 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 */
 	public EList<ServiceServer> getServiceServer() {
 		if (serviceServer == null) {
-			serviceServer = new EObjectContainmentEList<ServiceServer>(ServiceServer.class, this, RosPackage.NODE__SERVICE_SERVER);
+			serviceServer = new EObjectContainmentEList.Resolving<ServiceServer>(ServiceServer.class, this, RosPackage.NODE__SERVICE_SERVER);
 		}
 		return serviceServer;
 	}
@@ -256,9 +280,33 @@ public class NodeImpl extends EObjectImpl implements Node {
 	 */
 	public EList<Parameter> getParameter() {
 		if (parameter == null) {
-			parameter = new EObjectContainmentEList<Parameter>(Parameter.class, this, RosPackage.NODE__PARAMETER);
+			parameter = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, RosPackage.NODE__PARAMETER);
 		}
 		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ActionServer> getActionserver() {
+		if (actionserver == null) {
+			actionserver = new EObjectContainmentEList.Resolving<ActionServer>(ActionServer.class, this, RosPackage.NODE__ACTIONSERVER);
+		}
+		return actionserver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ActionClient> getActionclient() {
+		if (actionclient == null) {
+			actionclient = new EObjectContainmentEList.Resolving<ActionClient>(ActionClient.class, this, RosPackage.NODE__ACTIONCLIENT);
+		}
+		return actionclient;
 	}
 
 	/**
@@ -279,6 +327,10 @@ public class NodeImpl extends EObjectImpl implements Node {
 				return ((InternalEList<?>)getServiceServer()).basicRemove(otherEnd, msgs);
 			case RosPackage.NODE__PARAMETER:
 				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
+			case RosPackage.NODE__ACTIONSERVER:
+				return ((InternalEList<?>)getActionserver()).basicRemove(otherEnd, msgs);
+			case RosPackage.NODE__ACTIONCLIENT:
+				return ((InternalEList<?>)getActionclient()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -305,6 +357,10 @@ public class NodeImpl extends EObjectImpl implements Node {
 				return getServiceServer();
 			case RosPackage.NODE__PARAMETER:
 				return getParameter();
+			case RosPackage.NODE__ACTIONSERVER:
+				return getActionserver();
+			case RosPackage.NODE__ACTIONCLIENT:
+				return getActionclient();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,6 +400,14 @@ public class NodeImpl extends EObjectImpl implements Node {
 				getParameter().clear();
 				getParameter().addAll((Collection<? extends Parameter>)newValue);
 				return;
+			case RosPackage.NODE__ACTIONSERVER:
+				getActionserver().clear();
+				getActionserver().addAll((Collection<? extends ActionServer>)newValue);
+				return;
+			case RosPackage.NODE__ACTIONCLIENT:
+				getActionclient().clear();
+				getActionclient().addAll((Collection<? extends ActionClient>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -377,6 +441,12 @@ public class NodeImpl extends EObjectImpl implements Node {
 			case RosPackage.NODE__PARAMETER:
 				getParameter().clear();
 				return;
+			case RosPackage.NODE__ACTIONSERVER:
+				getActionserver().clear();
+				return;
+			case RosPackage.NODE__ACTIONCLIENT:
+				getActionclient().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -403,6 +473,10 @@ public class NodeImpl extends EObjectImpl implements Node {
 				return serviceServer != null && !serviceServer.isEmpty();
 			case RosPackage.NODE__PARAMETER:
 				return parameter != null && !parameter.isEmpty();
+			case RosPackage.NODE__ACTIONSERVER:
+				return actionserver != null && !actionserver.isEmpty();
+			case RosPackage.NODE__ACTIONCLIENT:
+				return actionclient != null && !actionclient.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

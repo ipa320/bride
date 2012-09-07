@@ -13,6 +13,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.ros.model.ros.Action;
+import org.ros.model.ros.ActionClient;
+import org.ros.model.ros.ActionServer;
+import org.ros.model.ros.Architecture;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
@@ -114,6 +118,22 @@ public class RosAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameter(Parameter object) {
 				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
+			}
+			@Override
+			public Adapter caseActionServer(ActionServer object) {
+				return createActionServerAdapter();
+			}
+			@Override
+			public Adapter caseActionClient(ActionClient object) {
+				return createActionClientAdapter();
+			}
+			@Override
+			public Adapter caseArchitecture(Architecture object) {
+				return createArchitectureAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -258,6 +278,62 @@ public class RosAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.Action
+	 * @generated
+	 */
+	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.ActionServer <em>Action Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.ActionServer
+	 * @generated
+	 */
+	public Adapter createActionServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.ActionClient <em>Action Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.ActionClient
+	 * @generated
+	 */
+	public Adapter createActionClientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ros.model.ros.Architecture <em>Architecture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ros.model.ros.Architecture
+	 * @generated
+	 */
+	public Adapter createArchitectureAdapter() {
 		return null;
 	}
 

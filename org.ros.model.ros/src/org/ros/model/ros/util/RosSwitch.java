@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.ros.model.ros.Action;
+import org.ros.model.ros.ActionClient;
+import org.ros.model.ros.ActionServer;
+import org.ros.model.ros.Architecture;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
@@ -129,6 +133,30 @@ public class RosSwitch<T> extends Switch<T> {
 			case RosPackage.PARAMETER: {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RosPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RosPackage.ACTION_SERVER: {
+				ActionServer actionServer = (ActionServer)theEObject;
+				T result = caseActionServer(actionServer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RosPackage.ACTION_CLIENT: {
+				ActionClient actionClient = (ActionClient)theEObject;
+				T result = caseActionClient(actionClient);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RosPackage.ARCHITECTURE: {
+				Architecture architecture = (Architecture)theEObject;
+				T result = caseArchitecture(architecture);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -268,6 +296,66 @@ public class RosSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Server</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionServer(ActionServer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Client</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Client</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionClient(ActionClient object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Architecture</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArchitecture(Architecture object) {
 		return null;
 	}
 

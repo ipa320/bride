@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.ros.model.ros.Action;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.RosPackage;
 import org.ros.model.ros.Service;
@@ -47,6 +48,7 @@ import org.ros.model.ros.Topic;
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.PackageImpl#getTypesLibrary <em>Types Library</em>}</li>
+ *   <li>{@link org.ros.model.ros.impl.PackageImpl#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -224,6 +226,16 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	protected TypesLibrary typesLibrary;
 
 	/**
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Action> action;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -270,7 +282,7 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 */
 	public EList<Node> getNode() {
 		if (node == null) {
-			node = new EObjectContainmentEList<Node>(Node.class, this, RosPackage.PACKAGE__NODE);
+			node = new EObjectContainmentEList.Resolving<Node>(Node.class, this, RosPackage.PACKAGE__NODE);
 		}
 		return node;
 	}
@@ -399,7 +411,7 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 */
 	public EList<Topic> getTopic() {
 		if (topic == null) {
-			topic = new EObjectContainmentEList<Topic>(Topic.class, this, RosPackage.PACKAGE__TOPIC);
+			topic = new EObjectContainmentEList.Resolving<Topic>(Topic.class, this, RosPackage.PACKAGE__TOPIC);
 		}
 		return topic;
 	}
@@ -411,7 +423,7 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 */
 	public EList<Service> getService() {
 		if (service == null) {
-			service = new EObjectContainmentEList<Service>(Service.class, this, RosPackage.PACKAGE__SERVICE);
+			service = new EObjectContainmentEList.Resolving<Service>(Service.class, this, RosPackage.PACKAGE__SERVICE);
 		}
 		return service;
 	}
@@ -459,6 +471,18 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Action> getAction() {
+		if (action == null) {
+			action = new EObjectContainmentEList.Resolving<Action>(Action.class, this, RosPackage.PACKAGE__ACTION);
+		}
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -468,6 +492,8 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case RosPackage.PACKAGE__SERVICE:
 				return ((InternalEList<?>)getService()).basicRemove(otherEnd, msgs);
+			case RosPackage.PACKAGE__ACTION:
+				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -503,6 +529,8 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__TYPES_LIBRARY:
 				if (resolve) return getTypesLibrary();
 				return basicGetTypesLibrary();
+			case RosPackage.PACKAGE__ACTION:
+				return getAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -553,6 +581,10 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__TYPES_LIBRARY:
 				setTypesLibrary((TypesLibrary)newValue);
 				return;
+			case RosPackage.PACKAGE__ACTION:
+				getAction().clear();
+				getAction().addAll((Collection<? extends Action>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -598,6 +630,9 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 			case RosPackage.PACKAGE__TYPES_LIBRARY:
 				setTypesLibrary((TypesLibrary)null);
 				return;
+			case RosPackage.PACKAGE__ACTION:
+				getAction().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -632,6 +667,8 @@ public class PackageImpl extends EObjectImpl implements org.ros.model.ros.Packag
 				return service != null && !service.isEmpty();
 			case RosPackage.PACKAGE__TYPES_LIBRARY:
 				return typesLibrary != null;
+			case RosPackage.PACKAGE__ACTION:
+				return action != null && !action.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

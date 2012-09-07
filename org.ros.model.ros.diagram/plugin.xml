@@ -60,7 +60,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
-  	     category="org.best_of_robotics.bride.ui.category.newWizard"
+  	     category="org.eclipse.ui.Examples"
   	     class="org.ros.model.ros.diagram.part.RosCreationWizard"
   	     id="org.ros.model.ros.diagram.part.RosCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
@@ -216,6 +216,10 @@
       <?gmfgen generated="true"?>
       <viewProvider class="org.ros.model.ros.diagram.providers.RosViewProvider">
          <Priority name="Lowest"/>
+         <object id="referencing-diagrams" class="org.eclipse.gmf.runtime.notation.Diagram">
+            <method name="getType()" value="RosPackage"/>
+         </object>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Ros"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3006,3007,3008"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
@@ -251,7 +255,15 @@
          <Priority name="Lowest"/>
          <object class="org.ros.model.ros.diagram.edit.parts.PackageEditPart" id="Architecture_1000"/>
          <object class="org.ros.model.ros.diagram.edit.parts.Package2EditPart" id="Package_2001"/>
-         <context elements="Architecture_1000,Package_2001"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ParameterEditPart" id="Node_3001"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.Parameter2EditPart" id="Parameter_3002"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.PublisherEditPart" id="Publisher_3003"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.SubscriberEditPart" id="Subscriber_3004"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ActionServerEditPart" id="ActionServer_3005"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ActionClientEditPart" id="ActionClient_3006"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ServiceServerEditPart" id="ServiceServer_3007"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ServiceClientEditPart" id="ServiceClient_3008"/>
+         <context elements="Architecture_1000,Package_2001,Node_3001,Parameter_3002,Publisher_3003,Subscriber_3004,ActionServer_3005,ActionClient_3006,ServiceServer_3007,ServiceClient_3008"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -500,6 +512,26 @@
          </action>
       </objectContribution>
    </extension>
+<extension point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" id="decorator-provider">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="org.ros.model.ros.diagram.providers.RosShortcutsDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
+            <method name="getType()" value="2001"/>
+         </object>
+         <context decoratorTargets="generated-top-nodes"/>
+      </decoratorProvider>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.ros.model.ros.diagram.SystemDeveloperPerspectiveFactory"
+            id="org.ros.model.ros.diagram.ComponentDeveloperPerspective"
+            name="System Developer">
+      </perspective>
+   </extension>   
+
 
 
 

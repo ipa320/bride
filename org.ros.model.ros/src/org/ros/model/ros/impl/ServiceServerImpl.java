@@ -25,7 +25,6 @@ import org.ros.model.ros.ServiceServer;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ros.model.ros.impl.ServiceServerImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.ServiceServerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.ServiceServerImpl#getMsg <em>Msg</em>}</li>
  * </ul>
@@ -34,16 +33,6 @@ import org.ros.model.ros.ServiceServer;
  * @generated
  */
 public class ServiceServerImpl extends EObjectImpl implements ServiceServer {
-	/**
-	 * The cached value of the '{@link #getService() <em>Service</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getService()
-	 * @generated
-	 * @ordered
-	 */
-	protected Service service;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,44 +97,6 @@ public class ServiceServerImpl extends EObjectImpl implements ServiceServer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Service getService() {
-		if (service != null && service.eIsProxy()) {
-			InternalEObject oldService = (InternalEObject)service;
-			service = (Service)eResolveProxy(oldService);
-			if (service != oldService) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RosPackage.SERVICE_SERVER__SERVICE, oldService, service));
-			}
-		}
-		return service;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Service basicGetService() {
-		return service;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setService(Service newService) {
-		Service oldService = service;
-		service = newService;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.SERVICE_SERVER__SERVICE, oldService, service));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -191,9 +142,6 @@ public class ServiceServerImpl extends EObjectImpl implements ServiceServer {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RosPackage.SERVICE_SERVER__SERVICE:
-				if (resolve) return getService();
-				return basicGetService();
 			case RosPackage.SERVICE_SERVER__NAME:
 				return getName();
 			case RosPackage.SERVICE_SERVER__MSG:
@@ -210,9 +158,6 @@ public class ServiceServerImpl extends EObjectImpl implements ServiceServer {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RosPackage.SERVICE_SERVER__SERVICE:
-				setService((Service)newValue);
-				return;
 			case RosPackage.SERVICE_SERVER__NAME:
 				setName((String)newValue);
 				return;
@@ -231,9 +176,6 @@ public class ServiceServerImpl extends EObjectImpl implements ServiceServer {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RosPackage.SERVICE_SERVER__SERVICE:
-				setService((Service)null);
-				return;
 			case RosPackage.SERVICE_SERVER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -252,8 +194,6 @@ public class ServiceServerImpl extends EObjectImpl implements ServiceServer {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RosPackage.SERVICE_SERVER__SERVICE:
-				return service != null;
 			case RosPackage.SERVICE_SERVER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RosPackage.SERVICE_SERVER__MSG:

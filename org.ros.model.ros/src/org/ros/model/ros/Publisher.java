@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.ros.model.ros.Publisher#getName <em>Name</em>}</li>
- *   <li>{@link org.ros.model.ros.Publisher#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.Publisher#getQueueSize <em>Queue Size</em>}</li>
  *   <li>{@link org.ros.model.ros.Publisher#isLatch <em>Latch</em>}</li>
  *   <li>{@link org.ros.model.ros.Publisher#getEventHandler <em>Event Handler</em>}</li>
@@ -56,32 +55,6 @@ public interface Publisher extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Topic</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Topic</em>' reference.
-	 * @see #setTopic(Topic)
-	 * @see org.ros.model.ros.RosPackage#getPublisher_Topic()
-	 * @model required="true"
-	 * @generated
-	 */
-	Topic getTopic();
-
-	/**
-	 * Sets the value of the '{@link org.ros.model.ros.Publisher#getTopic <em>Topic</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Topic</em>' reference.
-	 * @see #getTopic()
-	 * @generated
-	 */
-	void setTopic(Topic value);
 
 	/**
 	 * Returns the value of the '<em><b>Msg</b></em>' reference.

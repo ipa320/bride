@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Package#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.Package#getService <em>Service</em>}</li>
  *   <li>{@link org.ros.model.ros.Package#getTypesLibrary <em>Types Library</em>}</li>
+ *   <li>{@link org.ros.model.ros.Package#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,7 +75,7 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Node</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getPackage_Node()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Node> getNode();
@@ -236,7 +237,7 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getPackage_Topic()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Topic> getTopic();
@@ -252,7 +253,7 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getPackage_Service()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Service> getService();
@@ -282,5 +283,21 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	void setTypesLibrary(TypesLibrary value);
+
+	/**
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.Action}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Action</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getPackage_Action()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<Action> getAction();
 
 } // Package

@@ -15,6 +15,10 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.ros.model.ros.Action;
+import org.ros.model.ros.ActionClient;
+import org.ros.model.ros.ActionServer;
+import org.ros.model.ros.Architecture;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.Parameter;
 import org.ros.model.ros.Publisher;
@@ -80,6 +84,10 @@ public class RosFactoryImpl extends EFactoryImpl implements RosFactory {
 			case RosPackage.SERVICE_SERVER: return createServiceServer();
 			case RosPackage.SERVICE_CLIENT: return createServiceClient();
 			case RosPackage.PARAMETER: return createParameter();
+			case RosPackage.ACTION: return createAction();
+			case RosPackage.ACTION_SERVER: return createActionServer();
+			case RosPackage.ACTION_CLIENT: return createActionClient();
+			case RosPackage.ARCHITECTURE: return createArchitecture();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -203,6 +211,46 @@ public class RosFactoryImpl extends EFactoryImpl implements RosFactory {
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action createAction() {
+		ActionImpl action = new ActionImpl();
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionServer createActionServer() {
+		ActionServerImpl actionServer = new ActionServerImpl();
+		return actionServer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionClient createActionClient() {
+		ActionClientImpl actionClient = new ActionClientImpl();
+		return actionClient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Architecture createArchitecture() {
+		ArchitectureImpl architecture = new ArchitectureImpl();
+		return architecture;
 	}
 
 	/**

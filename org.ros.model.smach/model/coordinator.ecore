@@ -13,6 +13,8 @@
         eType="#//Statemachine" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialstate" lowerBound="1"
         eType="#//InitialState" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finalStates" upperBound="-1"
+        eType="#//FinalState"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleActionState" eSuperTypes="#//State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="call_type" eType="#//action_call_types"/>
@@ -48,4 +50,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//State"/>
 </ecore:EPackage>

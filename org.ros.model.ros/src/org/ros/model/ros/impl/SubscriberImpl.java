@@ -28,7 +28,6 @@ import org.ros.model.ros.Topic;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getQueueSize <em>Queue Size</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getEventHandler <em>Event Handler</em>}</li>
  *   <li>{@link org.ros.model.ros.impl.SubscriberImpl#getMsg <em>Msg</em>}</li>
@@ -57,16 +56,6 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTopic()
-	 * @generated
-	 * @ordered
-	 */
-	protected Topic topic;
 
 	/**
 	 * The default value of the '{@link #getQueueSize() <em>Queue Size</em>}' attribute.
@@ -163,44 +152,6 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Topic getTopic() {
-		if (topic != null && topic.eIsProxy()) {
-			InternalEObject oldTopic = (InternalEObject)topic;
-			topic = (Topic)eResolveProxy(oldTopic);
-			if (topic != oldTopic) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RosPackage.SUBSCRIBER__TOPIC, oldTopic, topic));
-			}
-		}
-		return topic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Topic basicGetTopic() {
-		return topic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTopic(Topic newTopic) {
-		Topic oldTopic = topic;
-		topic = newTopic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RosPackage.SUBSCRIBER__TOPIC, oldTopic, topic));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DataType getMsg() {
 		if (msg != null && msg.eIsProxy()) {
 			InternalEObject oldMsg = (InternalEObject)msg;
@@ -286,9 +237,6 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 		switch (featureID) {
 			case RosPackage.SUBSCRIBER__NAME:
 				return getName();
-			case RosPackage.SUBSCRIBER__TOPIC:
-				if (resolve) return getTopic();
-				return basicGetTopic();
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				return getQueueSize();
 			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
@@ -310,9 +258,6 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 		switch (featureID) {
 			case RosPackage.SUBSCRIBER__NAME:
 				setName((String)newValue);
-				return;
-			case RosPackage.SUBSCRIBER__TOPIC:
-				setTopic((Topic)newValue);
 				return;
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				setQueueSize((Integer)newValue);
@@ -338,9 +283,6 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 			case RosPackage.SUBSCRIBER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case RosPackage.SUBSCRIBER__TOPIC:
-				setTopic((Topic)null);
-				return;
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				setQueueSize(QUEUE_SIZE_EDEFAULT);
 				return;
@@ -364,8 +306,6 @@ public class SubscriberImpl extends EObjectImpl implements Subscriber {
 		switch (featureID) {
 			case RosPackage.SUBSCRIBER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RosPackage.SUBSCRIBER__TOPIC:
-				return topic != null;
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 				return queueSize != QUEUE_SIZE_EDEFAULT;
 			case RosPackage.SUBSCRIBER__EVENT_HANDLER:

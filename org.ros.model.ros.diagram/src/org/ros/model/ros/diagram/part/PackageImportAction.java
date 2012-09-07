@@ -36,11 +36,11 @@ public class PackageImportAction implements IObjectActionDelegate  {
 	@Override
 	public void run(IAction action) {
 		System.out.println("Hallo Pallo!");
-		if (eObject == null)
-			{
-				System.out.println("No eObject selected");
-				return;
-			}
+//		if (eObject == null)
+//			{
+//				System.out.println("No eObject selected");
+//				return;
+//			}
 		Shell shell = new Shell();
 		IWorkspaceRoot workSpaceRoot = ResourcesPlugin.getWorkspace().getRoot(); 
 
@@ -55,7 +55,7 @@ public class PackageImportAction implements IObjectActionDelegate  {
 		if (res == null) return;
 		System.out.println(res.toString());
 		System.out.println(res.getContents().toString());
-		//command = new AddCommand(domain, res.getContents(), eObject);
+		command = new AddCommand(domain, res.getContents(), eObject);
 		
 	}
 

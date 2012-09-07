@@ -18,6 +18,8 @@
     <viewmap
         xsi:type="gmfgen:FigureViewmap"
         figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
+    <containsShortcutsTo>ros_package</containsShortcutsTo>
+    <shortcutsProvidedFor>RosPackage</shortcutsProvidedFor>
     <domainDiagramElement
         href="../../org.ros.model.ros/model/ros.genmodel#//ros/Architecture"/>
     <childNodes

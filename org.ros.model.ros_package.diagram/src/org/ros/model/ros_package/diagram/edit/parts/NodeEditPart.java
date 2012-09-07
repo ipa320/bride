@@ -13,6 +13,8 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -37,6 +39,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -74,8 +77,10 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						org.ros.model.ros_package.diagram.part.RosVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
@@ -225,7 +230,6 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof org.ros.model.ros_package.diagram.edit.parts.NodeParametersEditPart) {
 			IFigure pane = getPrimaryShape()
 					.getFigureParameterCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane.remove(((org.ros.model.ros_package.diagram.edit.parts.NodeParametersEditPart) childEditPart)
 					.getFigure());
 			return true;
@@ -423,114 +427,134 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	protected void handleNotificationEvent(Notification event) {
+		if (event.getNotifier() == getModel()
+				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
+						.equals(event.getFeature())) {
+			handleMajorSemanticChange();
+		} else {
+			super.handleNotificationEvent(event);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
 	public class NodeFigure2 extends RoundedRectangle {
 
-		
 		public static final int BLUR_SHADOW_WIDTH = 5;
+
 		/**
-         * This function fills a rounded rectangle with a vertical gradient. This
-         * implementation does not use the gradient mechanism based on background
-         * patterns since they do not work stable on all systems.
-         * 
-         * @param graphics
-         * @param bounds
-         * @param corner
-         * @param c1
-         * @param c2
-         */
-        public void fillVerticalGradientRoundedRectangle(Graphics graphics, Rectangle bounds, Dimension corner, Color c1, Color c2) {
+		 * This function fills a rounded rectangle with a vertical gradient. This
+		 * implementation does not use the gradient mechanism based on background
+		 * patterns since they do not work stable on all systems.
+		 * 
+		 * @param graphics
+		 * @param bounds
+		 * @param corner
+		 * @param c1
+		 * @param c2
+		 */
+		public void fillVerticalGradientRoundedRectangle(Graphics graphics,
+				Rectangle bounds, Dimension corner, Color c1, Color c2) {
 
-                graphics.pushState();
+			graphics.pushState();
 
-                graphics.setForegroundColor(c2);
-                graphics.setBackgroundColor(c1);
+			graphics.setForegroundColor(c2);
+			graphics.setBackgroundColor(c1);
 
-                graphics.fillGradient(bounds.x, bounds.y + (corner.height >> 1), bounds.width, bounds.height - corner.height,
-                                true);
+			graphics.fillGradient(bounds.x, bounds.y + (corner.height >> 1),
+					bounds.width, bounds.height - corner.height, true);
 
-                Path p = new Path(null);
-                p.addArc(bounds.x, bounds.y + bounds.height - corner.height - 1, corner.width, corner.height, 180, 90);
-                p.addArc(bounds.x + bounds.width - corner.width - 1, bounds.y + bounds.height - corner.height - 1,
-                                corner.width, corner.height, 270, 90);
-                graphics.fillPath(p);
-                p.dispose();
+			Path p = new Path(null);
+			p.addArc(bounds.x, bounds.y + bounds.height - corner.height - 1,
+					corner.width, corner.height, 180, 90);
+			p.addArc(bounds.x + bounds.width - corner.width - 1, bounds.y
+					+ bounds.height - corner.height - 1, corner.width,
+					corner.height, 270, 90);
+			graphics.fillPath(p);
+			p.dispose();
 
-                p = new Path(null);
-                graphics.setBackgroundColor(c2);
-                p.addArc(bounds.x + bounds.width - corner.width - 1, bounds.y, corner.width, corner.height, 0, 90);
-                p.addArc(bounds.x, bounds.y, corner.width, corner.height, 90, 90);
-                graphics.fillPath(p);
-                p.dispose();
+			p = new Path(null);
+			graphics.setBackgroundColor(c2);
+			p.addArc(bounds.x + bounds.width - corner.width - 1, bounds.y,
+					corner.width, corner.height, 0, 90);
+			p.addArc(bounds.x, bounds.y, corner.width, corner.height, 90, 90);
+			graphics.fillPath(p);
+			p.dispose();
 
-                graphics.popState();
-        }
+			graphics.popState();
+		}
 
-        /**
-         * Calculates a mixed color from two colors by interpolating the rgb parts
-         * using a mix ratio.
-         * 
-         * @param baseColor
-         * @param mixinColor
-         * @param ratio
-         *            a value from 0 to 255 that defines the mix ratio. Using 0 will
-         *            return the base color and 255 the mixin color.
-         * @return
-         */
-        public Color mixColor(Color baseColor, Color mixinColor, int ratio) {
-                return new Color(baseColor.getDevice(), baseColor.getRed() + (mixinColor.getRed() - baseColor.getRed()) * ratio
-                                / 255, baseColor.getGreen() + (mixinColor.getGreen() - baseColor.getGreen()) * ratio / 255,
-                                baseColor.getBlue() + (mixinColor.getBlue() - baseColor.getBlue()) * ratio / 255);
-        }
-        
-        @Override
-        public void paintFigure(Graphics graphics) {
-                drawBlurredShadow(graphics);
-                super.paintFigure(graphics);
-        }
+		/**
+		 * Calculates a mixed color from two colors by interpolating the rgb parts
+		 * using a mix ratio.
+		 * 
+		 * @param baseColor
+		 * @param mixinColor
+		 * @param ratio
+		 *            a value from 0 to 255 that defines the mix ratio. Using 0 will
+		 *            return the base color and 255 the mixin color.
+		 * @return
+		 */
+		public Color mixColor(Color baseColor, Color mixinColor, int ratio) {
+			return new Color(baseColor.getDevice(), baseColor.getRed()
+					+ (mixinColor.getRed() - baseColor.getRed()) * ratio / 255,
+					baseColor.getGreen()
+							+ (mixinColor.getGreen() - baseColor.getGreen())
+							* ratio / 255, baseColor.getBlue()
+							+ (mixinColor.getBlue() - baseColor.getBlue())
+							* ratio / 255);
+		}
 
-        /**
-         * Fill the shape with a vertical color gradient. The gradient mixes a white
-         * into the configured background color.
-         */
-        @Override
-        protected void fillShape(Graphics graphics) {
-                Color c = mixColor(getBackgroundColor(), ColorConstants.white, 224);
-                fillVerticalGradientRoundedRectangle(graphics, getBounds(),
-                                getCornerDimensions(), getBackgroundColor(), c);
-                c.dispose();
-        }
+		@Override
+		public void paintFigure(Graphics graphics) {
+			drawBlurredShadow(graphics);
+			super.paintFigure(graphics);
+		}
 
-        private void drawBlurredShadow(Graphics graphics) {
-                // draw the shadow...
-                graphics.pushState();
+		/**
+		 * Fill the shape with a vertical color gradient. The gradient mixes a white
+		 * into the configured background color.
+		 */
+		@Override
+		protected void fillShape(Graphics graphics) {
+			Color c = mixColor(getBackgroundColor(), ColorConstants.white, 224);
+			fillVerticalGradientRoundedRectangle(graphics, getBounds(),
+					getCornerDimensions(), getBackgroundColor(), c);
+			c.dispose();
+		}
 
-                int size = MapModeUtil.getMapMode(this).DPtoLP(BLUR_SHADOW_WIDTH);
-                int step = MapModeUtil.getMapMode(this).DPtoLP(-1);
+		private void drawBlurredShadow(Graphics graphics) {
+			// draw the shadow...
+			graphics.pushState();
 
-                graphics.setForegroundColor(ColorConstants.gray);
-                graphics.setLineWidth(MapModeUtil.getMapMode(this).DPtoLP(2));
-                graphics.translate(size, size);
-                graphics.setClip(graphics.getClip(new Rectangle(getBounds())).expand(
-                                size, size));
-                graphics.setAlpha(20);
-                outlineShape(graphics);
-                graphics.translate(step, step);
-                graphics.setAlpha(30);
-                outlineShape(graphics);
-                graphics.translate(step, step);
-                graphics.setAlpha(60);
-                outlineShape(graphics);
-                graphics.translate(step, step);
-                graphics.setAlpha(100);
-                outlineShape(graphics);
-                graphics.translate(step, step);
-                graphics.setAlpha(150);
-                outlineShape(graphics);
+			int size = MapModeUtil.getMapMode(this).DPtoLP(BLUR_SHADOW_WIDTH);
+			int step = MapModeUtil.getMapMode(this).DPtoLP(-1);
 
-                graphics.popState();
-        }
-        
-        
+			graphics.setForegroundColor(ColorConstants.gray);
+			graphics.setLineWidth(MapModeUtil.getMapMode(this).DPtoLP(2));
+			graphics.translate(size, size);
+			graphics.setClip(graphics.getClip(new Rectangle(getBounds()))
+					.expand(size, size));
+			graphics.setAlpha(20);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(30);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(60);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(100);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(150);
+			outlineShape(graphics);
+
+			graphics.popState();
+		}
+
 		/**
 		 * @generated
 		 */

@@ -107,6 +107,42 @@ public interface RosFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
+	 * Returns a new object of class '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action</em>'.
+	 * @generated
+	 */
+	Action createAction();
+
+	/**
+	 * Returns a new object of class '<em>Action Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Server</em>'.
+	 * @generated
+	 */
+	ActionServer createActionServer();
+
+	/**
+	 * Returns a new object of class '<em>Action Client</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Client</em>'.
+	 * @generated
+	 */
+	ActionClient createActionClient();
+
+	/**
+	 * Returns a new object of class '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Architecture</em>'.
+	 * @generated
+	 */
+	Architecture createArchitecture();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

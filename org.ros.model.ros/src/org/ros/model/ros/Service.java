@@ -6,6 +6,7 @@
  */
 package org.ros.model.ros;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.ros.model.ros.Service#getName <em>Name</em>}</li>
+ *   <li>{@link org.ros.model.ros.Service#getServiceserver <em>Serviceserver</em>}</li>
+ *   <li>{@link org.ros.model.ros.Service#getServiceclient <em>Serviceclient</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +53,37 @@ public interface Service extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Serviceserver</b></em>' reference list.
+	 * The list contents are of type {@link org.ros.model.ros.ServiceServer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serviceserver</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serviceserver</em>' reference list.
+	 * @see org.ros.model.ros.RosPackage#getService_Serviceserver()
+	 * @model
+	 * @generated
+	 */
+	EList<ServiceServer> getServiceserver();
+
+	/**
+	 * Returns the value of the '<em><b>Serviceclient</b></em>' reference list.
+	 * The list contents are of type {@link org.ros.model.ros.ServiceClient}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serviceclient</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serviceclient</em>' reference list.
+	 * @see org.ros.model.ros.RosPackage#getService_Serviceclient()
+	 * @model
+	 * @generated
+	 */
+	EList<ServiceClient> getServiceclient();
 
 } // Service

@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ros.model.ros.Node#getServiceClient <em>Service Client</em>}</li>
  *   <li>{@link org.ros.model.ros.Node#getServiceServer <em>Service Server</em>}</li>
  *   <li>{@link org.ros.model.ros.Node#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.ros.model.ros.Node#getActionserver <em>Actionserver</em>}</li>
+ *   <li>{@link org.ros.model.ros.Node#getActionclient <em>Actionclient</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,7 +98,7 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getNode_Publisher()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Publisher> getPublisher();
@@ -112,7 +114,7 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subscriber</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getNode_Subscriber()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Subscriber> getSubscriber();
@@ -128,7 +130,7 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service Client</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getNode_ServiceClient()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<ServiceClient> getServiceClient();
@@ -144,7 +146,7 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service Server</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getNode_ServiceServer()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<ServiceServer> getServiceServer();
@@ -160,9 +162,41 @@ public interface Node extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter</em>' containment reference list.
 	 * @see org.ros.model.ros.RosPackage#getNode_Parameter()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Parameter> getParameter();
+
+	/**
+	 * Returns the value of the '<em><b>Actionserver</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.ActionServer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actionserver</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actionserver</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getNode_Actionserver()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<ActionServer> getActionserver();
+
+	/**
+	 * Returns the value of the '<em><b>Actionclient</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ros.model.ros.ActionClient}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actionclient</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actionclient</em>' containment reference list.
+	 * @see org.ros.model.ros.RosPackage#getNode_Actionclient()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<ActionClient> getActionclient();
 
 } // Node
