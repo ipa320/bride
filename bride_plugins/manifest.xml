@@ -1,0 +1,14 @@
+<package>
+  <description brief="bride_plugins">
+
+     bride_plugins
+
+  </description>
+  <author>Alexander Bubeck</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bride_plugins</url>
+
+</package>
+
+
