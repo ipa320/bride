@@ -30,7 +30,7 @@ public class GmfDropListener extends DiagramDropTargetListener{
     		System.out.println("Filename: " + ((String[])getCurrentEvent().data)[0]);
     		*/
         List a = new ArrayList<String>();  
-        a.add(new RosPackageImpl()); // Job is the model class of my figure node  
+//        a.add(new RosPackageImpl()); // Job is the model class of my figure node  
         return a;    
     }    
 

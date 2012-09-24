@@ -90,18 +90,18 @@ public class DropObjectEditPolicy extends DiagramDragDropEditPolicy {
                 
         CreateElementRequest cer = new CreateElementRequest(type);
         
-        RosPackageImpl mypackage = new RosPackageImpl();
-        mypackage.setName("HalloPallo");
+       // RosPackageImpl mypackage = new RosPackageImpl();
+        //mypackage.setName("HalloPallo");
         
-        cer.setContainer(((View) getHost().getModel()).getElement());
-        cer.setNewElement(mypackage);
+        //cer.setContainer(((View) getHost().getModel()).getElement());
+        //cer.setNewElement(mypackage);
         
         
         if(res.getContents().size() != 0)
         {
         	System.out.println("Creating Link");
-        	org.eclipse.emf.common.command.Command c4 = new AddCommand(domain, res.getContents(), mypackage);
-        	domain.getCommandStack().execute(c4);
+        	//org.eclipse.emf.common.command.Command c4 = new AddCommand(domain, res.getContents(), mypackage);
+        	//domain.getCommandStack().execute(c4);
         }
         else
         {
