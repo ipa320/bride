@@ -103,16 +103,6 @@ public class EglTransformOperationJob extends WorkspaceJob {
 		eglModule.getContext().getModelRepository().dispose();
 		monitor.done();
 		
-		//change file permisions
-		
-		System.out.println("Hello Welt, Falsches File!!");
-		try {
-			Runtime.getRuntime().exec("chmod a+x " + project.getLocation().toOSString() + "/cfg/schunk_sdh.cfg");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Der node name muss noch ausgelesen werden.");
-			e.printStackTrace();
-		}
 			
 		return Status.OK_STATUS;
 	}

@@ -1,16 +1,51 @@
 // ROS includes
 #include <ros/ros.h>
+#include <dynamic_reconfigure/server.h>
+#include <[%=node.name%]/[%=node.name%]Config.h>
 
 // ROS message includes
-#include <std_msgs/Float64.h>
+[%
+var str : String;
+for (publisher in node.publisher)
+{
+	str = publisher.eventHandler.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (subscriber in node.subscriber)
+{
+	str = subscriber.eventHandler.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (serviceServer in node.serviceServer)
+{
+	str = serviceServer.msg.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
 
-#include <cob_base_drive_chain_common.cpp>
+#include <[%=node.name%]_common.cpp>
 
 
 class [%=node.name%]_ros
 {
 	public:
 		ros::NodeHandle n_;
+		
+		dynamic_reconfigure::Server<[%=node.name%]::[%=node.name%]Config> server;
+  		dynamic_reconfigure::Server<[%=node.name%]::[%=node.name%]Config>::CallbackType f;
+		
 
 [%
 for (publisher in node.publisher)
@@ -25,47 +60,130 @@ for (publisher in node.publisher)
 for (subscriber in node.subscriber)
 {
 %]
-		ros::Publisher [%=subscriber.name%]_;
+		ros::Subscriber [%=subscriber.name%]_;
+[%
+}
+%]
+[%
+for (service in node.serviceServer)
+{
+%]
+	ros::ServiceServer [%=service.name%]_;
 [%
 }
 %]        
  
         [%=node.name%]_data component_data_;
+        [%=node.name%]_config component_config_;
         [%=node.name%]_impl component_implementation_;
 
         [%=node.name%]_ros()
         {
+        	//TODO: read parameters for service naming
+        	//n_.param("")
+        	
+  			f = boost::bind(&[%=node.name%]_ros::configure_callback, this, _1, _2);
+  			server.setCallback(f);
+        	
+        	
+        	[%
+        	for (service in node.serviceServer)
+        	{
+        	%]
+        		std::string [%=service.name%]_remap;
+        		n_.param("[%=service.name%]_remap", [%=service.name%]_remap, (std::string)"[%=service.name%]");
+        		[%=service.name%]_ = n_.advertiseService([%=service.name%]_remap, &[%=node.name%]_impl::callback_[%=service.name%], &component_implementation_);
+        	[%
+        	}
+        	%]
+        
+			[%
+			for (publisher in node.publisher)
+			{
+			%]
+				[%=publisher.name%]_ = 	n_.advertise<[%=publisher.eventHandler%]>("[%=publisher.name%]", 1);
+			[%
+			}
+			%]
+			[%
+			for (subscriber in node.subscriber)
+			{
+			%]
+					[%=subscriber.name%]_ =  n_.subscribe("[%=subscriber.name%]_", 1, &[%=node.name%]_ros::topicCallback_[%=subscriber.name%], this);
+			[%
+			}
+			%]  	
 
-            topicPub_JointState = n_.advertise<sensor_msgs::JointState>("/joint_states", 1);
-			topicPub_ControllerState = n_.advertise<pr2_controllers_msgs::JointTrajectoryControllerState>("state", 1);
-			topicPub_DiagnosticGlobal_ = n_.advertise<diagnostic_msgs::DiagnosticArray>("/diagnostics", 1);
-			
-			topicPub_Diagnostic = n_.advertise<diagnostic_msgs::DiagnosticStatus>("diagnostic", 1);
-
-			// subscribed topics
-			topicSub_JointStateCmd = n_.subscribe("joint_command", 1, &cob_base_drive_chain_ros::topicCallback_JointStateCmd, this);
- 
+			[%
+			for (parameter in node.parameter)
+			{
+				if(parameter.type == "string"){
+			%]
+				n_.param("[%=parameter.name%]", component_config_.[%=parameter.name%], (std::[%=parameter.type%])"[%=parameter.value%]");
+			[%
+			}
+				else{
+			%]
+				n_.param("[%=parameter.name%]", component_config_.[%=parameter.name%], ([%=parameter.type%])[%=parameter.value%]);
+			[%
+			}
+			}
+			%]
             
         }
-
-        void topicCallback_JointStateCmd(const pr2_controllers_msgs::JointTrajectoryControllerState::ConstPtr& msg)
+        [%
+		for (service in node.serviceServer)
 		{
-            component_data_.in_JointStateCmd_ = *msg;
-            update(); //call only if defined as event port, not called if it is an data port
+		%]
+		
+		[%
+		}
+		%]
+        
+		[%
+		for (subscriber in node.subscriber)
+		{
+		%]
+        void topicCallback_[%=subscriber.name%](const [%=subscriber.eventHandler%]::ConstPtr& msg)
+		{
+            component_data_.in_[%=subscriber.name%] = *msg;
+            //update(); //call only if defined as event port, not called if it is an data port
         }
+        [%
+		}
+		%]
+		
+		void configure_callback([%=node.name%]::[%=node.name%]Config &config, uint32_t level) 
+		{
+		[%
+			for (parameter in node.parameter)
+			{
+			%]
+				component_config_.[%=parameter.name%] = config.[%=parameter.name%];
+			[%
+			}
+			%]
+		}
 
         void configure()
         {
-
+			component_implementation_.configure(component_config_);
         }
 
         void update()
         {
-            component_implementation_.update(component_data_);
-            topicPub_JointState.publish(component_data_.out_JointStates_);
-			topicPub_ControllerState.publish(component_data_.out_ControllerState_);
+            component_implementation_.update(component_data_, component_config_);
+            [%
+			for (publisher in node.publisher)
+			{
+			%]
+				[%=publisher.name%]_.publish(component_data_.out_[%=publisher.name%]);
+			[%
+			}
+			%]
     
         }
+ 
 };
 
 int main(int argc, char** argv)

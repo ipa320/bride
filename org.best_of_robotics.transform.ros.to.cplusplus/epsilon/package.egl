@@ -40,8 +40,8 @@
 		configureTemplate.populate('package', package);
 		configureTemplate.generate('cfg/'+ node.name +'.cfg');
 		
-		chmodTool.filename = node.name;
-		chmodTool.directory = TemplateFactory.getOutputRoot();
+		chmodTool.setName(node.name);
+		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
 		chmodTool.chmod("a+x"); // makes executable
 	}
 	
