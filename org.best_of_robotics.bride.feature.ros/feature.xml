@@ -59,13 +59,40 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
+         
+   <plugin
+         id="org.best_of_robotics.model.datatypes"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+   <plugin
+         id="org.best_of_robotics.model.datatypes.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+   <plugin
+         id="org.best_of_robotics.model.datatypes.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
    <plugin
          id="org.ros.model.ros.diagram"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.ros.model.ros_package.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 
    <plugin
          id="org.ros.model.ros.edit"
@@ -83,6 +110,12 @@
 
    <plugin
          id="org.best_of_robotics.bride.cdt.ros"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+         
+   <plugin
+         id="org.best_of_robotics.transform.ros.to.cplusplus"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
