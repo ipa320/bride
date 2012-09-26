@@ -5,7 +5,7 @@ Checkout repository into a directory that is part of your $ROS_PACKAGE_PATH (or 
 
 Install eclipse and all necessary plugins
 # roscd bride
-# rosmake
+# make
 
 To start bride use:
-rosrun bride eclipse
+# rosrun bride eclipse

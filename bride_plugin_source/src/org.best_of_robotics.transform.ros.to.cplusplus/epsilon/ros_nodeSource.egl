@@ -8,7 +8,7 @@
 var str : String;
 for (publisher in node.publisher)
 {
-	str = publisher.eventHandler.replace('::','/');
+	str = publisher.msg.replace('::','/');
 %]
 #include <[%=str%].h>
 [%
@@ -18,7 +18,7 @@ for (publisher in node.publisher)
 var str : String;
 for (subscriber in node.subscriber)
 {
-	str = subscriber.eventHandler.replace('::','/');
+	str = subscriber.msg.replace('::','/');
 %]
 #include <[%=str%].h>
 [%
@@ -34,6 +34,8 @@ for (serviceServer in node.serviceServer)
 [%
 }
 %]
+
+
 
 #include <[%=node.name%]_common.cpp>
 
@@ -79,9 +81,7 @@ for (service in node.serviceServer)
 
         [%=node.name%]_ros()
         {
-        	//TODO: read parameters for service naming
-        	//n_.param("")
-        	
+       	
   			f = boost::bind(&[%=node.name%]_ros::configure_callback, this, _1, _2);
   			server.setCallback(f);
         	
@@ -101,7 +101,7 @@ for (service in node.serviceServer)
 			for (publisher in node.publisher)
 			{
 			%]
-				[%=publisher.name%]_ = 	n_.advertise<[%=publisher.eventHandler%]>("[%=publisher.name%]", 1);
+				[%=publisher.name%]_ = 	n_.advertise<[%=publisher.msg%]>("[%=publisher.name%]", 1);
 			[%
 			}
 			%]
@@ -144,7 +144,7 @@ for (service in node.serviceServer)
 		for (subscriber in node.subscriber)
 		{
 		%]
-        void topicCallback_[%=subscriber.name%](const [%=subscriber.eventHandler%]::ConstPtr& msg)
+        void topicCallback_[%=subscriber.name%](const [%=subscriber.msg%]::ConstPtr& msg)
 		{
             component_data_.in_[%=subscriber.name%] = *msg;
             //update(); //call only if defined as event port, not called if it is an data port
