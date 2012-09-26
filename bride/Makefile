@@ -25,6 +25,8 @@ installed: $(SOURCE_DIR)/unpacked
 	./installer.py installcdt
 	./installer.py installbrics
 
+update:
+	./installer.py reinstallbrics
 
 clean:
 	rm -rf $(SOURCE_DIR) $(TARBALL) build

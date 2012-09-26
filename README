@@ -9,3 +9,10 @@ Install eclipse and all necessary plugins
 
 To start bride use:
 # rosrun bride eclipse
+
+== Updating Installation ==
+After updates in the brics plugins a complete installation is not necessary. 
+To reinstall the updated brics plugins in your existing bride installation do the following steps:
+
+# roscd bride
+# make update

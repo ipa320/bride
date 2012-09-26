@@ -15,15 +15,12 @@ eclipse_opts = "-nosplash"
 def install(eclipse_repo, eclipse_component):
 	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
-	print "sts: ", sts
 	#str = subprocess.check_output(["./eclipse/eclipse", eclipse_opts, "-application", eclipse_app, "-repository", eclipse_repo, "-installIU", eclipse_component])
 	#print str
 
 def uninstall(eclipse_repo, eclipse_component):
 	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -uninstallIU " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
-	print "sts: ", sts
-
 	#str = subprocess.check_output(["./eclipse/eclipse", eclipse_opts, "-application", eclipse_app, "-repository", eclipse_repo, "-uninstallIU", eclipse_component])
 	#print str
 
