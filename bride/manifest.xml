@@ -1,7 +1,7 @@
 <package>
   <description brief="bride">
 
-     bride
+     installer.py installs a full eclipse installation in this package. Additionally CDT and the BRIDE plugins will be installed. After rosmake you have the full model driven engineering tool chain accessible inside this package.
 
   </description>
   <author>Alexander Bubeck</author>
