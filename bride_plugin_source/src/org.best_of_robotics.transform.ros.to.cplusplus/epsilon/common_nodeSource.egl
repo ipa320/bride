@@ -4,7 +4,7 @@
 var str : String;
 for (publisher in node.publisher)
 {
-	str = publisher.eventHandler.replace('::','/');
+	str = publisher.msg.replace('::','/');
 %]
 #include <[%=str%].h>
 [%
@@ -14,7 +14,7 @@ for (publisher in node.publisher)
 var str : String;
 for (subscriber in node.subscriber)
 {
-	str = subscriber.eventHandler.replace('::','/');
+	str = subscriber.msg.replace('::','/');
 %]
 #include <[%=str%].h>
 [%
@@ -64,7 +64,7 @@ public:
 	for (subscriber in node.subscriber)
 	{
 	%]
-    	[%=subscriber.eventHandler%] in_[%=subscriber.name%];
+    	[%=subscriber.msg%] in_[%=subscriber.name%];
     [%
 	}
 	%]  
@@ -74,7 +74,7 @@ public:
 	for (publisher in node.publisher)
 	{
 	%]
-    	[%=publisher.eventHandler%] out_[%=publisher.name%];
+    	[%=publisher.msg%] out_[%=publisher.name%];
     [%
 	}
 	%] 
