@@ -147,7 +147,10 @@ for (service in node.serviceServer)
         void topicCallback_[%=subscriber.name%](const [%=subscriber.msg%]::ConstPtr& msg)
 		{
             component_data_.in_[%=subscriber.name%] = *msg;
-            //update(); //call only if defined as event port, not called if it is an data port
+            [%if(subscriber.eventPort == true){%]
+            update(); //call only if defined as event port, not called if it is an data port
+            [%}%]
+            
         }
         [%
 		}
@@ -194,7 +197,11 @@ int main(int argc, char** argv)
 	[%=node.name%]_ros node;
     node.configure();
 
- 	ros::Rate loop_rate(100); // Hz // if cycle time == 0 do a spin() here without calling node.update() 
+	[%	if(node.loopRate == 0)	{%] // if cycle time == 0 do a spin() here without calling node.update() 
+	ros::spin();
+	[% } else {	%]
+	
+ 	ros::Rate loop_rate([%=node.loopRate%]); // Hz
 
 	while(node.n_.ok())
 	{
@@ -202,5 +209,7 @@ int main(int argc, char** argv)
 		loop_rate.sleep();
 		ros::spinOnce();
 	}
+	[%}%]
+	
     return 0;
 }

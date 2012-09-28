@@ -53,6 +53,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/queueSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/eventHandler"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/msg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Subscriber/eventPort"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Topic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Topic/name"/>
