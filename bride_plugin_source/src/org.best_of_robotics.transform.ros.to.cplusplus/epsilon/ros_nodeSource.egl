@@ -1,7 +1,7 @@
 // ROS includes
 #include <ros/ros.h>
 #include <dynamic_reconfigure/server.h>
-#include <[%=node.name.replace(" ", "_")%]/[%=node.name.replace(" ", "_")%]Config.h>
+#include <[%=package.name.replace(" ", "_")%]/[%=node.name.replace(" ", "_")%]Config.h>
 
 // ROS message includes
 [%
@@ -45,8 +45,8 @@ class [%=node.name.replace(" ", "_")%]_ros
 	public:
 		ros::NodeHandle n_;
 		
-		dynamic_reconfigure::Server<[%=node.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config> server;
-  		dynamic_reconfigure::Server<[%=node.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config>::CallbackType f;
+		dynamic_reconfigure::Server<[%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config> server;
+  		dynamic_reconfigure::Server<[%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config>::CallbackType f;
 		
 
 [%
@@ -156,7 +156,7 @@ for (service in node.serviceServer)
 		}
 		%]
 		
-		void configure_callback([%=node.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config &config, uint32_t level) 
+		void configure_callback([%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config &config, uint32_t level) 
 		{
 		[%
 			for (parameter in node.parameter)

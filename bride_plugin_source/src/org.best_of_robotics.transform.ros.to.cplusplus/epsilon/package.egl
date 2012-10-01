@@ -13,12 +13,14 @@
 		var sourceTemplate := TemplateFactory.load('ros_nodeSource.egl');
 		sourceTemplate.populate('node', node);
 		sourceTemplate.populate('typesLibrary', package.typesLibrary);
+		sourceTemplate.populate('package', package);
 		sourceTemplate.generate('ros/src/' + node.name + '_ros.cpp');
 		
 		//Common node code
 		var sourceTemplate := TemplateFactory.load('common_nodeSource.egl');
 		sourceTemplate.populate('node', node);
 		sourceTemplate.populate('typesLibrary', package.typesLibrary);
+		sourceTemplate.populate('package', package);
 		sourceTemplate.generate('common/src/' + node.name + '_common.cpp');
 		
 		
