@@ -107,7 +107,7 @@ public:
 for (service in node.serviceServer)
 {
 %]
-	bool callback_[%=service.name.replace(" ", "_")%]([%=service.msg%]::Request  &req, [%=service.msg%]::Response &res )
+	bool callback_[%=service.name.replace(" ", "_")%]([%=service.msg%]::Request  &req, [%=service.msg%]::Response &res , [%=node.name.replace(" ", "_")%]_config config)
 	{
 		[%=out.startPreserve("/*", "*/", "user implementation of service callback", true)%]
 		[%=out.stopPreserve()%]

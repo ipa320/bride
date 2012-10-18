@@ -1,6 +1,8 @@
 <launch>
 [%
 for(package in architecture.packages) {
+%]
+[%
 for(node in package.node) {
 %]
 	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen">

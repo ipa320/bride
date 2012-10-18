@@ -92,7 +92,7 @@ for (service in node.serviceServer)
         	%]
         		std::string [%=service.name.replace(" ", "_")%]_remap;
         		n_.param("[%=service.name.replace(" ", "_")%]_remap", [%=service.name.replace(" ", "_")%]_remap, (std::string)"[%=service.name.replace(" ", "_")%]");
-        		[%=service.name.replace(" ", "_")%]_ = n_.advertiseService([%=service.name.replace(" ", "_")%]_remap, &[%=node.name.replace(" ", "_")%]_impl::callback_[%=service.name.replace(" ", "_")%], &component_implementation_);
+        		[%=service.name.replace(" ", "_")%]_ = n_.advertiseService<[%=service.msg%]::Request , [%=service.msg%]::Response>([%=service.name.replace(" ", "_")%]_remap, boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=service.name.replace(" ", "_")%], &component_implementation_,_1,_2,component_config_));
         	[%
         	}
         	%]
@@ -109,7 +109,7 @@ for (service in node.serviceServer)
 			for (subscriber in node.subscriber)
 			{
 			%]
-					[%=subscriber.name.replace(" ", "_")%]_ =  n_.subscribe("[%=subscriber.name.replace(" ", "_")%]_", 1, &[%=node.name.replace(" ", "_")%]_ros::topicCallback_[%=subscriber.name.replace(" ", "_")%], this);
+					[%=subscriber.name.replace(" ", "_")%]_ =  n_.subscribe("[%=subscriber.name.replace(" ", "_")%]", 1, &[%=node.name.replace(" ", "_")%]_ros::topicCallback_[%=subscriber.name.replace(" ", "_")%], this);
 			[%
 			}
 			%]  	

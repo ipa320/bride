@@ -71,6 +71,7 @@ public class SubscriberItemProvider
 			addQueueSizePropertyDescriptor(object);
 			addEventHandlerPropertyDescriptor(object);
 			addMsgPropertyDescriptor(object);
+			addEventPortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -194,6 +195,28 @@ public class SubscriberItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Event Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Subscriber_eventPort_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Subscriber_eventPort_feature", "_UI_Subscriber_type"),
+				 RosPackage.Literals.SUBSCRIBER__EVENT_PORT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Subscriber.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,6 +257,7 @@ public class SubscriberItemProvider
 			case RosPackage.SUBSCRIBER__QUEUE_SIZE:
 			case RosPackage.SUBSCRIBER__EVENT_HANDLER:
 			case RosPackage.SUBSCRIBER__MSG:
+			case RosPackage.SUBSCRIBER__EVENT_PORT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
