@@ -104,12 +104,12 @@ public:
     }
 
 [%
-for (service in node.serviceServer)
+for (service_here in node.serviceServer)
 {
 %]
-	bool callback_[%=service.name.replace(" ", "_")%]([%=service.msg%]::Request  &req, [%=service.msg%]::Response &res , [%=node.name.replace(" ", "_")%]_config config)
+	bool callback_[%=service_here.name.replace(" ", "_")%]([%=service_here.msg%]::Request  &req, [%=service_here.msg%]::Response &res , [%=node.name.replace(" ", "_")%]_config config)
 	{
-		[%=out.startPreserve("/*", "*/", "user implementation of service callback", true)%]
+		[%=out.startPreserve("/*", "*/", "user implementation of service callback for " + service_here.name.replace(" ", "_"), true)%]
 		[%=out.stopPreserve()%]
 		return true;
 	}
