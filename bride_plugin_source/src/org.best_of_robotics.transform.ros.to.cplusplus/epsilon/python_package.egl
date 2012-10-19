@@ -2,11 +2,14 @@
 	
 	var package : Package := Package.allInstances().at(0);
 	var s : OrderedSet := package.node;
+	
+	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
 
 	//node
 	for(node in package.node) {
 		//var nodeHeaderTemplate := TemplateFactory.load('nodeHeader.egl');
 		var sourceTemplate := TemplateFactory.load('python_nodeSource.egl');
+		var startTemplate := TemplateFactory.load('start.egl');
 		//var nodePropertiesTemplate := TemplateFactory.load('nodeProperties.egl');
 		
 		//nodeHeaderTemplate.populate('node', node);
@@ -15,6 +18,11 @@
 		sourceTemplate.populate('node', node);
 		sourceTemplate.populate('package', package);
 		sourceTemplate.generate('src/' + node.name + '.py');
+		
+		startTemplate.generate('src/' + node.name);
+		chmodTool.setName(node.name);
+		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
+		chmodTool.chmod2("a+x"); // makes executable
 		
 		//nodePropertiesTemplate.populate('node', node);
 		//nodePropertiesTemplate.generate('deployment/' + node.type + '.cpf');

@@ -36,6 +36,7 @@ import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.ros.model.ros.RosPackage;
+import org.eclipse.epsilon.eol.dt.*;
 
 public class Python_EglTransformOperationJob extends WorkspaceJob {
 
@@ -89,6 +90,9 @@ public class Python_EglTransformOperationJob extends WorkspaceJob {
 				System.err.println(problem.toString());
 			}
 		}
+		
+		eglModule.getContext().getNativeTypeDelegates().add(new ExtensionPointToolNativeTypeDelegate());
+		
 		eglModule.getContext().getModelRepository().addModel(sourceModel);
 		try {
 			eglModule.execute();

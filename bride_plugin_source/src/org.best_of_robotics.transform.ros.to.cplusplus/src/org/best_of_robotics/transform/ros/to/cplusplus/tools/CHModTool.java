@@ -36,6 +36,15 @@ public class CHModTool extends AbstractTool {
 			e.printStackTrace();
 		} 
   }
+  
+  public void chmod2(String rights)
+  {
+	  try {
+			Runtime.getRuntime().exec("chmod " + rights + " " + directory + "/src/" + filename);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+  }
 	  
   
 }
