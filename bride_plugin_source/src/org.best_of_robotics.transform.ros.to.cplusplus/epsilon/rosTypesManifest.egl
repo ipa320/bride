@@ -1,0 +1,23 @@
+[%var dependsCollection : Sequence;%]
+<package>
+    <description brief="[%=typesLibrary.name%]_msgs">
+        This package contains the messages for the [%=typesLibrary.name%] package
+    </description>
+    <!--NOTE: set the license and author before you publish this code-->
+    <license></license>
+    <author>Unknown Author</author>
+    [%for(aComplexType in typesLibrary.types){%]
+    [%if(aComplexType.isKindOf(RosIDLReference) and (not dependsCollection.includes(aComplexType.rosPackage))){%]
+    <depend package="[%=aComplexType.rosPackage%]"/>
+    [%dependsCollection.add(aComplexType.rosPackage);%]
+    [%}%]
+    [%}%]
+    [%for(aTypesLibrary in typesLibrary.includes){%]
+    [%for(aDataType in aTypesLibrary.types){%]
+    [%if(aDataType.isKindOf(RosIDLReference)){%]
+    <depend package="[%=aTypesLibrary.name%]_msgs"/>
+    [%break;%]
+    [%}%]
+    [%}%]
+    [%}%]
+</package>

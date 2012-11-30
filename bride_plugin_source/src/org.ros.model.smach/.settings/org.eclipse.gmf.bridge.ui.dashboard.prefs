@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/coordinator/model/coordinator.genmodel
+gmf_dashboard/domainModel=platform\:/resource/coordinator/model/coordinator.ecore
+gmf_dashboard/generationModel=platform\:/resource/coordinator/model/coordinator.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/coordinator/model/coordinator.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/coordinator/model/coordinator.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/coordinator/model/coordinator.gmftool

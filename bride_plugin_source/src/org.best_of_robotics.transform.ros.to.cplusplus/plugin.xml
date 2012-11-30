@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            name="ROS C++">
+      </category>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transform"
+            name="Generate C++ Code">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformPython"
+            name="Generate Python Code">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
+            name="Generate Ros Messages">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
+            name="Generate Launch File for ros system">
+      </command>
+
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosCppTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transform">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosPythonTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformPython">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosMsgsTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosLaunchTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
+         <menu
+               label="ROS">
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transform"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformPython"
+                  style="push">
+            </command>
+            <separator
+                  name="test"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
+                  style="push">
+            </command>
+            <separator
+                  name="test2"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      
+   </extension>
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool"
+            defaultName="CHModTool">
+      </tool>
+   </extension>
+
+</plugin>
