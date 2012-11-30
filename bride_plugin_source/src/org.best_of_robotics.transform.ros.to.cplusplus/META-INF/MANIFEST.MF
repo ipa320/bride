@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BRIDE ROS to C++
+Bundle-SymbolicName: org.best_of_robotics.transform.ros.to.cplusplus;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.best_of_robotics.transform.ros.to.cplusplus.Activator
+Bundle-Vendor: BRICS
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.ui.ide;bundle-version="3.7.0",
+ org.ros.model.ros;bundle-version="0.1.0",
+ org.eclipse.epsilon.egl.engine;bundle-version="0.9.1",
+ org.eclipse.epsilon.emc.emf;bundle-version="0.9.1",
+ org.eclipse.epsilon.eol.engine;bundle-version="0.9.1",
+ org.best_of_robotics.bride;bundle-version="1.0.0",
+ org.ros.model.ros.diagram;bundle-version="1.0.0",
+ org.eclipse.emf.transaction;bundle-version="1.4.0",
+ org.eclipse.gmf.runtime.emf.core;bundle-version="1.4.1",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.5.0",
+ org.eclipse.gmf.runtime.diagram.ui.resources.editor;bundle-version="1.4.1",
+ org.eclipse.epsilon.common.dt;bundle-version="0.9.1",
+ org.ros.model.ros_package.diagram;bundle-version="1.0.0",
+ org.eclipse.epsilon.eol.dt;bundle-version="0.9.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.best_of_robotics.transform.ros.to.cplusplus.tools

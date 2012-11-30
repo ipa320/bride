@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ros.model.smach/src"
+    modelPluginID="org.ros.model.smach" modelName="Coordinator" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>coordinator.ecore</foreignModel>
+  <genPackages prefix="Coordinator" disposableProviderFactory="true" ecorePackage="coordinator.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="coordinator.ecore#//action_outcomes">
+      <genEnumLiterals ecoreEnumLiteral="coordinator.ecore#//action_outcomes/succeeded"/>
+      <genEnumLiterals ecoreEnumLiteral="coordinator.ecore#//action_outcomes/aborted"/>
+      <genEnumLiterals ecoreEnumLiteral="coordinator.ecore#//action_outcomes/preempted"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="coordinator.ecore#//action_call_types">
+      <genEnumLiterals ecoreEnumLiteral="coordinator.ecore#//action_call_types/execute"/>
+      <genEnumLiterals ecoreEnumLiteral="coordinator.ecore#//action_call_types/cancel"/>
+    </genEnums>
+    <genClasses ecoreClass="coordinator.ecore#//Statemachine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//Statemachine/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coordinator.ecore#//Statemachine/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coordinator.ecore#//Statemachine/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coordinator.ecore#//Statemachine/statemachines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coordinator.ecore#//Statemachine/initialstate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coordinator.ecore#//Statemachine/finalStates"/>
+    </genClasses>
+    <genClasses ecoreClass="coordinator.ecore#//SimpleActionState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//SimpleActionState/call_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//SimpleActionState/action_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//SimpleActionState/action_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//SimpleActionState/goal_fields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//SimpleActionState/result_fields"/>
+    </genClasses>
+    <genClasses ecoreClass="coordinator.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//Transition/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coordinator.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coordinator.ecore#//Transition/target"/>
+    </genClasses>
+    <genClasses ecoreClass="coordinator.ecore#//InitialState"/>
+    <genClasses ecoreClass="coordinator.ecore#//PreConditionCheckerState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//PreConditionCheckerState/configuration_file"/>
+    </genClasses>
+    <genClasses ecoreClass="coordinator.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coordinator.ecore#//State/name"/>
+    </genClasses>
+    <genClasses ecoreClass="coordinator.ecore#//FinalState"/>
+  </genPackages>
+</genmodel:GenModel>

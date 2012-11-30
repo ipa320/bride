@@ -1,0 +1,14 @@
+<package>
+  <description brief="bride_plugin_source">
+
+     Source code for BRICS eclipse plugins.
+
+  </description>
+  <author>Alexander Bubeck</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bride_plugin_source</url>
+
+</package>
+
+

@@ -1,0 +1,14 @@
+<package>
+  <description brief="bride_plugins">
+
+    The necessary eclipse plugins for model driven development for ROS inside Eclipse. 
+
+  </description>
+  <author>Alexander Bubeck</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bride_plugins</url>
+
+</package>
+
+

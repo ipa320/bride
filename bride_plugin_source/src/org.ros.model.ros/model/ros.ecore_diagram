@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="__Qd5QbusEeGF-L3AOX6JYg" type="Ecore" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_yNRxgcEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNTmsMEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNU00MEXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNU00cEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNU00sEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNU008EXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNU01MEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNU01cEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNU01sEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNVb4MEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNVb4cEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Node"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNRxgsEXEeGPRpCYowwBsw" x="625" y="-180"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNVb4sEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNVb5MEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNVb5cEXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNVb5sEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNVb58EXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNWC8MEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNWC8cEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNWC8sEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNWC88EXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNWC9MEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNWC9cEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Package"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNVb48EXEeGPRpCYowwBsw" x="570" y="224"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNWC9sEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNWC-MEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNWC-cEXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNWC-sEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNWC-8EXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNWqAMEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNWqAcEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNWqAsEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNWqA8EXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNWqBMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNWqBcEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Publisher"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNWC98EXEeGPRpCYowwBsw" x="319"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNXREMEXEeGPRpCYowwBsw" type="2005" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNXREsEXEeGPRpCYowwBsw" type="5005"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNXRE8EXEeGPRpCYowwBsw" type="7011">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNXRFMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNXRFcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNXRFsEXEeGPRpCYowwBsw" type="7012">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNXRF8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNXRGMEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EEnum" href="ros.ecore#//StandardMessageType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNXREcEXEeGPRpCYowwBsw"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNXRGcEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNX4IMEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNX4IcEXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNX4IsEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNX4I8EXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNX4JMEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNX4JcEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNX4JsEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNX4J8EXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNX4KMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNX4KcEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Subscriber"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNXRGsEXEeGPRpCYowwBsw" x="189"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNX4KsEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNYfMMEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNYfMcEXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNYfMsEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNYfM8EXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNYfNMEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNYfNcEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNYfNsEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNYfN8EXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNYfOMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNYfOcEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Topic"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNX4K8EXEeGPRpCYowwBsw" x="260" y="110"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNZGQMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNZGQsEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNZGQ8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNZGRMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNZGRcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNZGRsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNZGR8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNZGSMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNZGScEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNZGSsEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNZGS8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Service"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNZGQcEXEeGPRpCYowwBsw" x="500" y="125"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNZtUMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNZtUsEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNZtU8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNZtVMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNZtVcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNZtVsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNZtV8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNZtWMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNZtWcEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNZtWsEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNZtW8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//ServiceServer"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNZtUcEXEeGPRpCYowwBsw" x="587"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNaUYMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNaUYsEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNaUY8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNaUZMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNaUZcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNaUZsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNaUZ8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNaUaMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNaUacEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNaUasEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNaUa8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//ServiceClient"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNaUYcEXEeGPRpCYowwBsw" x="444"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNa7cMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNa7csEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNa7c8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNa7dMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNa7dcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNa7dsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNa7d8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNa7eMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNa7ecEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNa7esEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNa7e8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Parameter"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNa7ccEXEeGPRpCYowwBsw" x="282" y="-145"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNbigMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNbigsEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNbig8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNbihMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNbihcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNbihsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNbih8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNbiiMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNbiicEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNbiisEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNbii8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Action"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNbigcEXEeGPRpCYowwBsw" x="810" y="95"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNcJkMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNcJksEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNcJk8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNcJlMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNcJlcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNcJlsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNcJl8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNcJmMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNcJmcEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNcJmsEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNcJm8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//ActionServer"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNcJkcEXEeGPRpCYowwBsw" x="860"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNcwoMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNcwosEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNcwo8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNcwpMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNcwpcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNcwpsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNcwp8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNcwqMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNcwqcEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNcwqsEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNcwq8EXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//ActionClient"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNcwocEXEeGPRpCYowwBsw" x="735"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yNdXsMEXEeGPRpCYowwBsw" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yNdXssEXEeGPRpCYowwBsw" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNdXs8EXEeGPRpCYowwBsw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNdXtMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNdXtcEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNdXtsEXEeGPRpCYowwBsw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNdXt8EXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNdXuMEXEeGPRpCYowwBsw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yNdXucEXEeGPRpCYowwBsw" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yNd-wMEXEeGPRpCYowwBsw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yNd-wcEXEeGPRpCYowwBsw"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//Architecture"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNdXscEXEeGPRpCYowwBsw" x="561" y="336"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="__Qd5QrusEeGF-L3AOX6JYg"/>
+  <element xmi:type="ecore:EPackage" href="ros.ecore#/"/>
+</notation:Diagram>
