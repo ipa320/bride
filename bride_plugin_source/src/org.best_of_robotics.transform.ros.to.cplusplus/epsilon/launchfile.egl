@@ -1,4 +1,8 @@
 <launch>
+[%=out.startPreserve("<!--", "-->", "additional custom Launchfile statements in the beginning", true)%]
+[%=out.stopPreserve()%]
+  
+
 [%
 for(package in architecture.packages) {
 %]
@@ -7,8 +11,8 @@ for(node in package.node) {
 %]
 	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen">
 	[%
-for(p in architecture.packages) {
-for(topic in p.topic) {
+	for(p in architecture.packages) {
+		for(topic in p.topic) {
 	if(node.publisher.contains(topic.publisher))
 	{
 %] 		<remap from="[%=topic.publisher.name%]" to="[%=topic.name%]"/> 
@@ -18,14 +22,24 @@ for(topic in p.topic) {
 %]		<remap from="[%=topic.subscriber.name%]" to="[%=topic.name%]"/>
 [%  
 	} 
-} 
+		}
+		}
+	for(param in node.parameter)
+	{
+%]
+		<param name=[%=param.name%] value=[%=param.value%]/>
+[%
+	} 
 } %]
 	</node>
 	
 [%
 }
-}
 %]
+
+[%=out.startPreserve("<!--", "-->", "additional custom Launchfile statements in the end of launch file", true)%]
+[%=out.stopPreserve()%]
+
 </launch>
 
 
