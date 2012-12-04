@@ -29,11 +29,11 @@ for(node in package.node) {
 %]
 		<param name="[%=param.name%]" value="[%=param.value%]"/>
 [%
-	} 
-} %]
+	}  %]
 	</node>
 	
 [%
+}
 }
 %]
 
