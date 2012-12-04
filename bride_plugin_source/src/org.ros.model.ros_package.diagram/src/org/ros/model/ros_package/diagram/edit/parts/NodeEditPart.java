@@ -192,7 +192,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof org.ros.model.ros_package.diagram.edit.parts.ActionServerEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NONE);
+					PositionConstants.NORTH);
 			getBorderedFigure()
 					.getBorderItemContainer()
 					.add(((org.ros.model.ros_package.diagram.edit.parts.ActionServerEditPart) childEditPart)
@@ -201,7 +201,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof org.ros.model.ros_package.diagram.edit.parts.ActionClientEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NONE);
+					PositionConstants.SOUTH);
 			getBorderedFigure()
 					.getBorderItemContainer()
 					.add(((org.ros.model.ros_package.diagram.edit.parts.ActionClientEditPart) childEditPart)
