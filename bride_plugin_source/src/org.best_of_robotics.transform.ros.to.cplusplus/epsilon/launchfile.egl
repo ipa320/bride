@@ -27,7 +27,7 @@ for(node in package.node) {
 	for(param in node.parameter)
 	{
 %]
-		<param name=[%=param.name%] value=[%=param.value%]/>
+		<param name="[%=param.name%]" value="[%=param.value%]"/>
 [%
 	} 
 } %]
