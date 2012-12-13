@@ -15,6 +15,14 @@ ifeq ($(UNAME),x86_64)
 	MD5SUM_FILE 	= eclipse-modeling-juno-linux-gtk-x86_64.tar.gz.md5sum	
 endif
 
+SYSNAME = $(shell uname)
+ifeq ($(SYSNAME),Darwin)
+        TARBALL         = build/eclipse-modeling-juno-SR1-macosx-cocoa-x86_64.tar.gz
+        TARBALL_URL     = http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/juno/SR1/eclipse-modeling-juno-SR1-macosx-cocoa-x86_64.tar.gz
+        MD5SUM_FILE     = eclipse-modeling-juno-SR1-macosx-cocoa-x86_64.tar.gz.md5sum
+endif
+
+
 
 include $(shell rospack find mk)/download_unpack_build.mk
 
