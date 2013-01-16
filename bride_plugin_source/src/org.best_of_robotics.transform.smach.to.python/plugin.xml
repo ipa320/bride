@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.best_of_robotics.transform.smach.to.python.category"
+            name="smach.to.python.category">
+      </category>
+      <command
+            categoryId="org.best_of_robotics.transform.smach.to.python.category"
+            description="Create PSM artifacts."
+            id="org.best_of_robotics.transform.smach.to.python.command"
+            name="SMACH to Python">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.best_of_robotics.transform.smach.to.python.handler.SmachToCodeHandler"
+            commandId="org.best_of_robotics.transform.smach.to.python.command">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.best_of_robotics.bride.menu?after=additions">
+         <menu
+               id="org.best_of_robotics.transform.smach.to.python.menu"
+               label="Generate Python code for SMACH model">
+            <command
+                  commandId="org.best_of_robotics.transform.smach.to.python.command"
+                  id="org.best_of_robotics.transform.smach.to.python.command.menuItem"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

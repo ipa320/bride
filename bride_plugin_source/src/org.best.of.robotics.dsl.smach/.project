@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.ros.model.ros</name>
+	<name>org.best.of.robotics.dsl.smach</name>
 	<comment></comment>
 	<projects>
+		<project>org.ros.model.ros</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
