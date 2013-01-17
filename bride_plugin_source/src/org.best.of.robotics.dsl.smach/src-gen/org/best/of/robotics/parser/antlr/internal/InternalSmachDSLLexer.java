@@ -13,6 +13,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSmachDSLLexer extends Lexer {
     public static final int RULE_ID=4;
+    public static final int T__26=26;
     public static final int T__25=25;
     public static final int T__24=24;
     public static final int T__23=23;
@@ -136,10 +137,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:15:7: ( 'name:' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:15:9: 'name:'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:15:7: ( 'aname:' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:15:9: 'aname:'
             {
-            match("name:"); 
+            match("aname:"); 
 
 
             }
@@ -177,10 +178,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:17:7: ( 'type:' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:17:9: 'type:'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:17:7: ( 'atype:' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:17:9: 'atype:'
             {
-            match("type:"); 
+            match("atype:"); 
 
 
             }
@@ -219,10 +220,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:19:7: ( 'srv:' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:19:9: 'srv:'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:19:7: ( 'name:' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:19:9: 'name:'
             {
-            match("srv:"); 
+            match("name:"); 
 
 
             }
@@ -240,10 +241,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:20:7: ( 'actionstate' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:20:9: 'actionstate'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:20:7: ( 'srv:' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:20:9: 'srv:'
             {
-            match("actionstate"); 
+            match("srv:"); 
 
 
             }
@@ -261,10 +262,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:21:7: ( 'client:' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:21:9: 'client:'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:21:7: ( 'actionstate' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:21:9: 'actionstate'
             {
-            match("client:"); 
+            match("actionstate"); 
 
 
             }
@@ -282,10 +283,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:22:7: ( '=>' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:22:9: '=>'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:22:7: ( 'client:' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:22:9: 'client:'
             {
-            match("=>"); 
+            match("client:"); 
 
 
             }
@@ -303,10 +304,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:23:7: ( 'succeeded' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:23:9: 'succeeded'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:23:7: ( '=>' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:23:9: '=>'
             {
-            match("succeeded"); 
+            match("=>"); 
 
 
             }
@@ -324,10 +325,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:24:7: ( 'preempted' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:24:9: 'preempted'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:24:7: ( 'succeeded' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:24:9: 'succeeded'
             {
-            match("preempted"); 
+            match("succeeded"); 
 
 
             }
@@ -345,10 +346,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:25:7: ( 'aborted' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:25:9: 'aborted'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:25:7: ( 'preempted' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:25:9: 'preempted'
             {
-            match("aborted"); 
+            match("preempted"); 
 
 
             }
@@ -361,15 +362,36 @@ public class InternalSmachDSLLexer extends Lexer {
     }
     // $ANTLR end "T__25"
 
+    // $ANTLR start "T__26"
+    public final void mT__26() throws RecognitionException {
+        try {
+            int _type = T__26;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:26:7: ( 'aborted' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:26:9: 'aborted'
+            {
+            match("aborted"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__26"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:601:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:601:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:601:11: ( '^' )?
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -378,7 +400,7 @@ public class InternalSmachDSLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:601:11: '^'
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:11: '^'
                     {
                     match('^'); 
 
@@ -396,7 +418,7 @@ public class InternalSmachDSLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:601:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -445,10 +467,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:10: ( ( '0' .. '9' )+ )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:12: ( '0' .. '9' )+
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:10: ( ( '0' .. '9' )+ )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:12: ( '0' .. '9' )+
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:12: ( '0' .. '9' )+
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -462,7 +484,7 @@ public class InternalSmachDSLLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:603:13: '0' .. '9'
+            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -494,10 +516,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -515,10 +537,10 @@ public class InternalSmachDSLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -534,7 +556,7 @@ public class InternalSmachDSLLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -550,7 +572,7 @@ public class InternalSmachDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -575,10 +597,10 @@ public class InternalSmachDSLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -594,7 +616,7 @@ public class InternalSmachDSLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -610,7 +632,7 @@ public class InternalSmachDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:605:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -653,12 +675,12 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:24: ( options {greedy=false; } : . )*
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -683,7 +705,7 @@ public class InternalSmachDSLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:607:52: .
+            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:52: .
             	    {
             	    matchAny(); 
 
@@ -713,12 +735,12 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -731,7 +753,7 @@ public class InternalSmachDSLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -751,7 +773,7 @@ public class InternalSmachDSLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:40: ( ( '\\r' )? '\\n' )?
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -760,9 +782,9 @@ public class InternalSmachDSLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:41: ( '\\r' )? '\\n'
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:41: ( '\\r' )?
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -771,7 +793,7 @@ public class InternalSmachDSLLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:609:41: '\\r'
+                            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:41: '\\r'
                             {
                             match('\r'); 
 
@@ -803,10 +825,10 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:613:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:613:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:611:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:613:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -860,8 +882,8 @@ public class InternalSmachDSLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:613:16: ( . )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:613:18: .
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:615:16: ( . )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:615:18: .
             {
             matchAny(); 
 
@@ -876,8 +898,8 @@ public class InternalSmachDSLLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=22;
+        // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=23;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -986,49 +1008,56 @@ public class InternalSmachDSLLexer extends Lexer {
                 }
                 break;
             case 16 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:100: RULE_ID
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:100: T__26
+                {
+                mT__26(); 
+
+                }
+                break;
+            case 17 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:106: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 17 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:108: RULE_INT
+            case 18 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:114: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 18 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:117: RULE_STRING
+            case 19 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:123: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 19 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:129: RULE_ML_COMMENT
+            case 20 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:135: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 20 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:145: RULE_SL_COMMENT
+            case 21 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:151: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 21 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:161: RULE_WS
+            case 22 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:167: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 22 :
-                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:169: RULE_ANY_OTHER
+            case 23 :
+                // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:1:175: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1042,61 +1071,62 @@ public class InternalSmachDSLLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\30\2\uffff\2\30\1\uffff\4\30\1\24\1\30\1\24\2\uffff\3"+
-        "\24\2\uffff\3\30\3\uffff\2\30\1\uffff\5\30\1\uffff\1\30\5\uffff"+
-        "\14\30\1\uffff\14\30\2\uffff\22\30\1\137\1\uffff\6\30\1\uffff\2"+
-        "\30\1\150\3\30\1\154\1\30\1\uffff\3\30\1\uffff\3\30\1\164\1\165"+
-        "\1\166\1\30\3\uffff\1\170\1\uffff";
+        "\1\uffff\1\27\2\uffff\2\27\1\uffff\3\27\1\23\1\27\1\23\2\uffff\3"+
+        "\23\2\uffff\3\27\3\uffff\5\27\1\uffff\3\27\1\uffff\1\27\5\uffff"+
+        "\15\27\1\uffff\22\27\1\uffff\5\27\2\uffff\11\27\1\143\1\27\1\uffff"+
+        "\5\27\1\uffff\3\27\1\155\3\27\1\161\1\27\1\uffff\3\27\1\uffff\2"+
+        "\27\1\170\1\27\1\172\1\173\1\uffff\1\27\2\uffff\1\175\1\uffff";
     static final String DFA12_eofS =
-        "\171\uffff";
+        "\176\uffff";
     static final String DFA12_minS =
-        "\1\0\1\162\2\uffff\1\143\1\141\1\uffff\1\171\1\145\1\142\1\154\1"+
-        "\76\1\162\1\101\2\uffff\2\0\1\52\2\uffff\1\141\1\166\1\143\3\uffff"+
-        "\1\164\1\155\1\uffff\1\160\1\162\1\164\1\157\1\151\1\uffff\1\145"+
-        "\5\uffff\1\164\1\72\1\143\1\151\2\145\1\166\1\151\1\162\3\145\1"+
-        "\uffff\1\145\1\157\2\72\1\151\1\157\1\164\1\156\2\155\1\145\1\156"+
-        "\2\uffff\1\143\1\156\1\145\1\164\1\160\1\141\1\144\1\103\1\145\1"+
-        "\163\1\144\1\72\1\164\1\143\1\145\1\154\1\103\1\164\1\60\1\uffff"+
-        "\1\145\1\150\1\144\1\151\1\154\1\141\1\uffff\1\144\1\151\1\60\1"+
-        "\145\1\151\1\164\1\60\1\156\1\uffff\1\156\2\145\1\uffff\1\145\1"+
-        "\164\1\156\3\60\1\164\3\uffff\1\60\1\uffff";
+        "\1\0\1\162\2\uffff\1\143\1\142\1\uffff\1\145\1\141\1\154\1\76\1"+
+        "\162\1\101\2\uffff\2\0\1\52\2\uffff\1\141\1\166\1\143\3\uffff\1"+
+        "\164\1\141\1\171\1\164\1\157\1\uffff\1\162\1\155\1\151\1\uffff\1"+
+        "\145\5\uffff\1\164\1\72\1\143\1\151\1\155\1\160\1\151\1\162\1\166"+
+        "\4\145\1\uffff\1\145\1\157\2\145\1\157\1\164\1\151\1\72\1\156\2"+
+        "\155\1\145\1\156\2\72\1\156\1\145\1\143\1\uffff\1\164\1\160\1\141"+
+        "\1\144\1\103\2\uffff\1\163\1\144\1\145\1\72\1\164\1\143\1\145\1"+
+        "\154\1\164\1\60\1\103\1\uffff\1\145\1\150\1\144\1\151\1\141\1\uffff"+
+        "\1\154\1\144\1\151\1\60\1\145\1\164\1\151\1\60\1\156\1\uffff\1\156"+
+        "\2\145\1\uffff\1\145\1\164\1\60\1\156\2\60\1\uffff\1\164\2\uffff"+
+        "\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\165\2\uffff\1\143\1\141\1\uffff\1\171\1\145\1\143\1\154"+
-        "\1\76\1\162\1\172\2\uffff\2\uffff\1\57\2\uffff\1\141\1\166\1\143"+
-        "\3\uffff\1\164\1\155\1\uffff\1\160\1\162\1\164\1\157\1\151\1\uffff"+
-        "\1\145\5\uffff\1\164\1\72\1\143\1\151\2\145\1\166\1\151\1\162\3"+
-        "\145\1\uffff\1\145\1\157\2\72\1\151\1\157\1\164\1\156\2\155\1\145"+
-        "\1\156\2\uffff\1\143\1\156\1\145\1\164\1\160\1\141\1\144\1\103\1"+
-        "\145\1\163\1\144\1\72\1\164\1\143\1\145\1\154\1\103\1\164\1\172"+
-        "\1\uffff\1\145\1\150\1\144\1\151\1\154\1\141\1\uffff\1\144\1\151"+
-        "\1\172\1\145\1\151\1\164\1\172\1\156\1\uffff\1\156\2\145\1\uffff"+
-        "\1\145\1\164\1\156\3\172\1\164\3\uffff\1\172\1\uffff";
+        "\1\uffff\1\165\2\uffff\1\143\1\164\1\uffff\1\145\1\141\1\154\1\76"+
+        "\1\162\1\172\2\uffff\2\uffff\1\57\2\uffff\1\141\1\166\1\143\3\uffff"+
+        "\1\164\1\141\1\171\1\164\1\157\1\uffff\1\162\1\155\1\151\1\uffff"+
+        "\1\145\5\uffff\1\164\1\72\1\143\1\151\1\155\1\160\1\151\1\162\1"+
+        "\166\4\145\1\uffff\1\145\1\157\2\145\1\157\1\164\1\151\1\72\1\156"+
+        "\2\155\1\145\1\156\2\72\1\156\1\145\1\143\1\uffff\1\164\1\160\1"+
+        "\141\1\144\1\103\2\uffff\1\163\1\144\1\145\1\72\1\164\1\143\1\145"+
+        "\1\154\1\164\1\172\1\103\1\uffff\1\145\1\150\1\144\1\151\1\141\1"+
+        "\uffff\1\154\1\144\1\151\1\172\1\145\1\164\1\151\1\172\1\156\1\uffff"+
+        "\1\156\2\145\1\uffff\1\145\1\164\1\172\1\156\2\172\1\uffff\1\164"+
+        "\2\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\2\uffff\1\6\7\uffff\1\20\1\21\3\uffff\1\25\1\26"+
-        "\3\uffff\1\20\1\2\1\3\2\uffff\1\6\5\uffff\1\14\1\uffff\1\21\1\22"+
-        "\1\23\1\24\1\25\14\uffff\1\11\14\uffff\1\5\1\7\23\uffff\1\13\6\uffff"+
-        "\1\17\10\uffff\1\15\3\uffff\1\16\7\uffff\1\12\1\1\1\4\1\uffff\1"+
-        "\10";
+        "\2\uffff\1\2\1\3\2\uffff\1\6\6\uffff\1\21\1\22\3\uffff\1\26\1\27"+
+        "\3\uffff\1\21\1\2\1\3\5\uffff\1\6\3\uffff\1\15\1\uffff\1\22\1\23"+
+        "\1\24\1\25\1\26\15\uffff\1\12\22\uffff\1\11\5\uffff\1\5\1\7\13\uffff"+
+        "\1\14\5\uffff\1\20\11\uffff\1\16\3\uffff\1\17\6\uffff\1\13\1\uffff"+
+        "\1\1\1\4\1\uffff\1\10";
     static final String DFA12_specialS =
-        "\1\0\17\uffff\1\2\1\1\147\uffff}>";
+        "\1\0\16\uffff\1\2\1\1\155\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\24\2\23\2\24\1\23\22\24\1\23\1\24\1\20\4\24\1\21\4\24\1"+
-            "\6\2\24\1\22\12\17\3\24\1\13\3\24\1\4\21\16\1\10\7\16\3\24\1"+
-            "\15\1\16\1\24\1\11\1\16\1\12\12\16\1\5\1\16\1\14\2\16\1\1\1"+
-            "\7\6\16\1\2\1\24\1\3\uff82\24",
-            "\1\26\1\uffff\1\25\1\27",
+            "\11\23\2\22\2\23\1\22\22\23\1\22\1\23\1\17\4\23\1\20\4\23\1"+
+            "\6\2\23\1\21\12\16\3\23\1\12\3\23\1\4\21\15\1\7\7\15\3\23\1"+
+            "\14\1\15\1\23\1\5\1\15\1\11\12\15\1\10\1\15\1\13\2\15\1\1\7"+
+            "\15\1\2\1\23\1\3\uff82\23",
+            "\1\25\1\uffff\1\24\1\26",
             "",
             "",
-            "\1\33",
-            "\1\34",
+            "\1\32",
+            "\1\36\1\35\12\uffff\1\33\5\uffff\1\34",
             "",
-            "\1\36",
-            "\1\37",
-            "\1\41\1\40",
+            "\1\40",
+            "\1\41",
             "\1\42",
             "\1\43",
             "\1\44",
-            "\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\32\27\4\uffff\1\27\1\uffff\32\27",
             "",
             "",
             "\0\46",
@@ -1112,20 +1142,20 @@ public class InternalSmachDSLLexer extends Lexer {
             "",
             "\1\55",
             "\1\56",
-            "",
             "\1\57",
             "\1\60",
             "\1\61",
+            "",
             "\1\62",
             "\1\63",
-            "",
             "\1\64",
             "",
-            "",
-            "",
-            "",
-            "",
             "\1\65",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\66",
             "\1\67",
             "\1\70",
@@ -1137,9 +1167,9 @@ public class InternalSmachDSLLexer extends Lexer {
             "\1\76",
             "\1\77",
             "\1\100",
-            "",
             "\1\101",
             "\1\102",
+            "",
             "\1\103",
             "\1\104",
             "\1\105",
@@ -1150,8 +1180,6 @@ public class InternalSmachDSLLexer extends Lexer {
             "\1\112",
             "\1\113",
             "\1\114",
-            "",
-            "",
             "\1\115",
             "\1\116",
             "\1\117",
@@ -1160,49 +1188,57 @@ public class InternalSmachDSLLexer extends Lexer {
             "\1\122",
             "\1\123",
             "\1\124",
+            "",
             "\1\125",
             "\1\126",
             "\1\127",
             "\1\130",
             "\1\131",
+            "",
+            "",
             "\1\132",
             "\1\133",
             "\1\134",
             "\1\135",
             "\1\136",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
-            "",
+            "\1\137",
             "\1\140",
             "\1\141",
             "\1\142",
-            "\1\143",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             "\1\144",
-            "\1\145",
             "",
+            "\1\145",
             "\1\146",
             "\1\147",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\1\150",
             "\1\151",
+            "",
             "\1\152",
             "\1\153",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
-            "\1\155",
-            "",
+            "\1\154",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             "\1\156",
             "\1\157",
             "\1\160",
-            "",
-            "\1\161",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             "\1\162",
+            "",
             "\1\163",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\1\164",
+            "\1\165",
+            "",
+            "\1\166",
             "\1\167",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\1\171",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
+            "",
+            "\1\174",
             "",
             "",
-            "",
-            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\12\27\7\uffff\32\27\4\uffff\1\27\1\uffff\32\27",
             ""
     };
 
@@ -1236,7 +1272,7 @@ public class InternalSmachDSLLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1254,57 +1290,55 @@ public class InternalSmachDSLLexer extends Lexer {
 
                         else if ( (LA12_0=='A') ) {s = 4;}
 
-                        else if ( (LA12_0=='n') ) {s = 5;}
+                        else if ( (LA12_0=='a') ) {s = 5;}
 
                         else if ( (LA12_0==',') ) {s = 6;}
 
-                        else if ( (LA12_0=='t') ) {s = 7;}
+                        else if ( (LA12_0=='S') ) {s = 7;}
 
-                        else if ( (LA12_0=='S') ) {s = 8;}
+                        else if ( (LA12_0=='n') ) {s = 8;}
 
-                        else if ( (LA12_0=='a') ) {s = 9;}
+                        else if ( (LA12_0=='c') ) {s = 9;}
 
-                        else if ( (LA12_0=='c') ) {s = 10;}
+                        else if ( (LA12_0=='=') ) {s = 10;}
 
-                        else if ( (LA12_0=='=') ) {s = 11;}
+                        else if ( (LA12_0=='p') ) {s = 11;}
 
-                        else if ( (LA12_0=='p') ) {s = 12;}
+                        else if ( (LA12_0=='^') ) {s = 12;}
 
-                        else if ( (LA12_0=='^') ) {s = 13;}
+                        else if ( ((LA12_0>='B' && LA12_0<='R')||(LA12_0>='T' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='b'||(LA12_0>='d' && LA12_0<='m')||LA12_0=='o'||(LA12_0>='q' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='z')) ) {s = 13;}
 
-                        else if ( ((LA12_0>='B' && LA12_0<='R')||(LA12_0>='T' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='b'||(LA12_0>='d' && LA12_0<='m')||LA12_0=='o'||(LA12_0>='q' && LA12_0<='r')||(LA12_0>='u' && LA12_0<='z')) ) {s = 14;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 14;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 15;}
+                        else if ( (LA12_0=='\"') ) {s = 15;}
 
-                        else if ( (LA12_0=='\"') ) {s = 16;}
+                        else if ( (LA12_0=='\'') ) {s = 16;}
 
-                        else if ( (LA12_0=='\'') ) {s = 17;}
+                        else if ( (LA12_0=='/') ) {s = 17;}
 
-                        else if ( (LA12_0=='/') ) {s = 18;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 18;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 19;}
-
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 20;}
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 19;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_17 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_17>='\u0000' && LA12_17<='\uFFFF')) ) {s = 38;}
-
-                        else s = 20;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_16 = input.LA(1);
 
                         s = -1;
                         if ( ((LA12_16>='\u0000' && LA12_16<='\uFFFF')) ) {s = 38;}
 
-                        else s = 20;
+                        else s = 19;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_15 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_15>='\u0000' && LA12_15<='\uFFFF')) ) {s = 38;}
+
+                        else s = 19;
 
                         if ( s>=0 ) return s;
                         break;

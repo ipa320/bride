@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.best.of.robotics.smachDSL.impl.ActionClientImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.best.of.robotics.smachDSL.impl.ActionClientImpl#getActioname <em>Actioname</em>}</li>
- *   <li>{@link org.best.of.robotics.smachDSL.impl.ActionClientImpl#getActiotype <em>Actiotype</em>}</li>
+ *   <li>{@link org.best.of.robotics.smachDSL.impl.ActionClientImpl#getActionname <em>Actionname</em>}</li>
+ *   <li>{@link org.best.of.robotics.smachDSL.impl.ActionClientImpl#getActiontype <em>Actiontype</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,44 +50,44 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getActioname() <em>Actioname</em>}' attribute.
+   * The default value of the '{@link #getActionname() <em>Actionname</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActioname()
+   * @see #getActionname()
    * @generated
    * @ordered
    */
-  protected static final String ACTIONAME_EDEFAULT = null;
+  protected static final String ACTIONNAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getActioname() <em>Actioname</em>}' attribute.
+   * The cached value of the '{@link #getActionname() <em>Actionname</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActioname()
+   * @see #getActionname()
    * @generated
    * @ordered
    */
-  protected String actioname = ACTIONAME_EDEFAULT;
+  protected String actionname = ACTIONNAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getActiotype() <em>Actiotype</em>}' attribute.
+   * The default value of the '{@link #getActiontype() <em>Actiontype</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActiotype()
+   * @see #getActiontype()
    * @generated
    * @ordered
    */
-  protected static final String ACTIOTYPE_EDEFAULT = null;
+  protected static final String ACTIONTYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getActiotype() <em>Actiotype</em>}' attribute.
+   * The cached value of the '{@link #getActiontype() <em>Actiontype</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActiotype()
+   * @see #getActiontype()
    * @generated
    * @ordered
    */
-  protected String actiotype = ACTIOTYPE_EDEFAULT;
+  protected String actiontype = ACTIONTYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,9 +138,9 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getActioname()
+  public String getActionname()
   {
-    return actioname;
+    return actionname;
   }
 
   /**
@@ -148,12 +148,12 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setActioname(String newActioname)
+  public void setActionname(String newActionname)
   {
-    String oldActioname = actioname;
-    actioname = newActioname;
+    String oldActionname = actionname;
+    actionname = newActionname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmachDSLPackage.ACTION_CLIENT__ACTIONAME, oldActioname, actioname));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmachDSLPackage.ACTION_CLIENT__ACTIONNAME, oldActionname, actionname));
   }
 
   /**
@@ -161,9 +161,9 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getActiotype()
+  public String getActiontype()
   {
-    return actiotype;
+    return actiontype;
   }
 
   /**
@@ -171,12 +171,12 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setActiotype(String newActiotype)
+  public void setActiontype(String newActiontype)
   {
-    String oldActiotype = actiotype;
-    actiotype = newActiotype;
+    String oldActiontype = actiontype;
+    actiontype = newActiontype;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmachDSLPackage.ACTION_CLIENT__ACTIOTYPE, oldActiotype, actiotype));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmachDSLPackage.ACTION_CLIENT__ACTIONTYPE, oldActiontype, actiontype));
   }
 
   /**
@@ -191,10 +191,10 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
     {
       case SmachDSLPackage.ACTION_CLIENT__NAME:
         return getName();
-      case SmachDSLPackage.ACTION_CLIENT__ACTIONAME:
-        return getActioname();
-      case SmachDSLPackage.ACTION_CLIENT__ACTIOTYPE:
-        return getActiotype();
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONNAME:
+        return getActionname();
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONTYPE:
+        return getActiontype();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -212,11 +212,11 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
       case SmachDSLPackage.ACTION_CLIENT__NAME:
         setName((String)newValue);
         return;
-      case SmachDSLPackage.ACTION_CLIENT__ACTIONAME:
-        setActioname((String)newValue);
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONNAME:
+        setActionname((String)newValue);
         return;
-      case SmachDSLPackage.ACTION_CLIENT__ACTIOTYPE:
-        setActiotype((String)newValue);
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONTYPE:
+        setActiontype((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +235,11 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
       case SmachDSLPackage.ACTION_CLIENT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SmachDSLPackage.ACTION_CLIENT__ACTIONAME:
-        setActioname(ACTIONAME_EDEFAULT);
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONNAME:
+        setActionname(ACTIONNAME_EDEFAULT);
         return;
-      case SmachDSLPackage.ACTION_CLIENT__ACTIOTYPE:
-        setActiotype(ACTIOTYPE_EDEFAULT);
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONTYPE:
+        setActiontype(ACTIONTYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -257,10 +257,10 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
     {
       case SmachDSLPackage.ACTION_CLIENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SmachDSLPackage.ACTION_CLIENT__ACTIONAME:
-        return ACTIONAME_EDEFAULT == null ? actioname != null : !ACTIONAME_EDEFAULT.equals(actioname);
-      case SmachDSLPackage.ACTION_CLIENT__ACTIOTYPE:
-        return ACTIOTYPE_EDEFAULT == null ? actiotype != null : !ACTIOTYPE_EDEFAULT.equals(actiotype);
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONNAME:
+        return ACTIONNAME_EDEFAULT == null ? actionname != null : !ACTIONNAME_EDEFAULT.equals(actionname);
+      case SmachDSLPackage.ACTION_CLIENT__ACTIONTYPE:
+        return ACTIONTYPE_EDEFAULT == null ? actiontype != null : !ACTIONTYPE_EDEFAULT.equals(actiontype);
     }
     return super.eIsSet(featureID);
   }
@@ -278,10 +278,10 @@ public class ActionClientImpl extends MinimalEObjectImpl.Container implements Ac
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", actioname: ");
-    result.append(actioname);
-    result.append(", actiotype: ");
-    result.append(actiotype);
+    result.append(", actionname: ");
+    result.append(actionname);
+    result.append(", actiontype: ");
+    result.append(actiontype);
     result.append(')');
     return result.toString();
   }

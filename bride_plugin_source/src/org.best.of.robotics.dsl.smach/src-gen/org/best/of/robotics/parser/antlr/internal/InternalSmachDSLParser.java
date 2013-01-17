@@ -21,9 +21,10 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'statemachine'", "'{'", "'}'", "'ActionClient'", "'name:'", "','", "'type:'", "'ServiceClient'", "'srv:'", "'actionstate'", "'client:'", "'=>'", "'succeeded'", "'preempted'", "'aborted'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'statemachine'", "'{'", "'}'", "'ActionClient'", "'aname:'", "','", "'atype:'", "'ServiceClient'", "'name:'", "'srv:'", "'actionstate'", "'client:'", "'=>'", "'succeeded'", "'preempted'", "'aborted'"
     };
     public static final int RULE_ID=4;
+    public static final int T__26=26;
     public static final int T__25=25;
     public static final int T__24=24;
     public static final int T__23=23;
@@ -400,7 +401,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==20) ) {
+                if ( (LA4_0==21) ) {
                     alt4=1;
                 }
 
@@ -504,7 +505,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActionClient"
-    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:222:1: ruleActionClient returns [EObject current=null] : (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'name:' ( (lv_actioname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type:' ( (lv_actiotype_7_0= RULE_STRING ) ) otherlv_8= '}' ) ;
+    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:222:1: ruleActionClient returns [EObject current=null] : (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'aname:' ( (lv_actionname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'atype:' ( (lv_actiontype_7_0= RULE_STRING ) ) otherlv_8= '}' ) ;
     public final EObject ruleActionClient() throws RecognitionException {
         EObject current = null;
 
@@ -512,20 +513,20 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
         Token lv_name_1_0=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        Token lv_actioname_4_0=null;
+        Token lv_actionname_4_0=null;
         Token otherlv_5=null;
         Token otherlv_6=null;
-        Token lv_actiotype_7_0=null;
+        Token lv_actiontype_7_0=null;
         Token otherlv_8=null;
 
          enterRule(); 
             
         try {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:225:28: ( (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'name:' ( (lv_actioname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type:' ( (lv_actiotype_7_0= RULE_STRING ) ) otherlv_8= '}' ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:226:1: (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'name:' ( (lv_actioname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type:' ( (lv_actiotype_7_0= RULE_STRING ) ) otherlv_8= '}' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:225:28: ( (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'aname:' ( (lv_actionname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'atype:' ( (lv_actiontype_7_0= RULE_STRING ) ) otherlv_8= '}' ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:226:1: (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'aname:' ( (lv_actionname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'atype:' ( (lv_actiontype_7_0= RULE_STRING ) ) otherlv_8= '}' )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:226:1: (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'name:' ( (lv_actioname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type:' ( (lv_actiotype_7_0= RULE_STRING ) ) otherlv_8= '}' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:226:3: otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'name:' ( (lv_actioname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type:' ( (lv_actiotype_7_0= RULE_STRING ) ) otherlv_8= '}'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:226:1: (otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'aname:' ( (lv_actionname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'atype:' ( (lv_actiontype_7_0= RULE_STRING ) ) otherlv_8= '}' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:226:3: otherlv_0= 'ActionClient' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'aname:' ( (lv_actionname_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'atype:' ( (lv_actiontype_7_0= RULE_STRING ) ) otherlv_8= '}'
             {
             otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleActionClient410); 
 
@@ -563,17 +564,17 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
                 
             otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleActionClient456); 
 
-                	newLeafNode(otherlv_3, grammarAccess.getActionClientAccess().getNameKeyword_3());
+                	newLeafNode(otherlv_3, grammarAccess.getActionClientAccess().getAnameKeyword_3());
                 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:256:1: ( (lv_actioname_4_0= RULE_STRING ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:257:1: (lv_actioname_4_0= RULE_STRING )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:256:1: ( (lv_actionname_4_0= RULE_STRING ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:257:1: (lv_actionname_4_0= RULE_STRING )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:257:1: (lv_actioname_4_0= RULE_STRING )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:258:3: lv_actioname_4_0= RULE_STRING
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:257:1: (lv_actionname_4_0= RULE_STRING )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:258:3: lv_actionname_4_0= RULE_STRING
             {
-            lv_actioname_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleActionClient473); 
+            lv_actionname_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleActionClient473); 
 
-            			newLeafNode(lv_actioname_4_0, grammarAccess.getActionClientAccess().getActionameSTRINGTerminalRuleCall_4_0()); 
+            			newLeafNode(lv_actionname_4_0, grammarAccess.getActionClientAccess().getActionnameSTRINGTerminalRuleCall_4_0()); 
             		
 
             	        if (current==null) {
@@ -581,8 +582,8 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
             	        }
                    		setWithLastConsumed(
                    			current, 
-                   			"actioname",
-                    		lv_actioname_4_0, 
+                   			"actionname",
+                    		lv_actionname_4_0, 
                     		"STRING");
             	    
 
@@ -597,17 +598,17 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
                 
             otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleActionClient502); 
 
-                	newLeafNode(otherlv_6, grammarAccess.getActionClientAccess().getTypeKeyword_6());
+                	newLeafNode(otherlv_6, grammarAccess.getActionClientAccess().getAtypeKeyword_6());
                 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:282:1: ( (lv_actiotype_7_0= RULE_STRING ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:283:1: (lv_actiotype_7_0= RULE_STRING )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:282:1: ( (lv_actiontype_7_0= RULE_STRING ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:283:1: (lv_actiontype_7_0= RULE_STRING )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:283:1: (lv_actiotype_7_0= RULE_STRING )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:284:3: lv_actiotype_7_0= RULE_STRING
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:283:1: (lv_actiontype_7_0= RULE_STRING )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:284:3: lv_actiontype_7_0= RULE_STRING
             {
-            lv_actiotype_7_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleActionClient519); 
+            lv_actiontype_7_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleActionClient519); 
 
-            			newLeafNode(lv_actiotype_7_0, grammarAccess.getActionClientAccess().getActiotypeSTRINGTerminalRuleCall_7_0()); 
+            			newLeafNode(lv_actiontype_7_0, grammarAccess.getActionClientAccess().getActiontypeSTRINGTerminalRuleCall_7_0()); 
             		
 
             	        if (current==null) {
@@ -615,8 +616,8 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
             	        }
                    		setWithLastConsumed(
                    			current, 
-                   			"actiotype",
-                    		lv_actiotype_7_0, 
+                   			"actiontype",
+                    		lv_actiontype_7_0, 
                     		"STRING");
             	    
 
@@ -743,7 +744,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_2, grammarAccess.getServiceClientAccess().getLeftCurlyBracketKeyword_2());
                 
-            otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleServiceClient665); 
+            otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleServiceClient665); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getServiceClientAccess().getNameKeyword_3());
                 
@@ -777,7 +778,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_5, grammarAccess.getServiceClientAccess().getCommaKeyword_5());
                 
-            otherlv_6=(Token)match(input,19,FOLLOW_19_in_ruleServiceClient711); 
+            otherlv_6=(Token)match(input,20,FOLLOW_20_in_ruleServiceClient711); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getServiceClientAccess().getSrvKeyword_6());
                 
@@ -868,7 +869,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActionState"
-    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:420:1: ruleActionState returns [EObject current=null] : (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' otherlv_8= '}' ) ;
+    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:420:1: ruleActionState returns [EObject current=null] : (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' )? otherlv_8= '}' ) ;
     public final EObject ruleActionState() throws RecognitionException {
         EObject current = null;
 
@@ -886,13 +887,13 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:423:28: ( (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' otherlv_8= '}' ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:424:1: (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' otherlv_8= '}' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:423:28: ( (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' )? otherlv_8= '}' ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:424:1: (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' )? otherlv_8= '}' )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:424:1: (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' otherlv_8= '}' )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:424:3: otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' otherlv_8= '}'
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:424:1: (otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' )? otherlv_8= '}' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:424:3: otherlv_0= 'actionstate' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'client:' ( (otherlv_4= RULE_ID ) ) otherlv_5= ',' ( ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' )? otherlv_8= '}'
             {
-            otherlv_0=(Token)match(input,20,FOLLOW_20_in_ruleActionState828); 
+            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleActionState828); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getActionStateAccess().getActionstateKeyword_0());
                 
@@ -926,7 +927,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_2, grammarAccess.getActionStateAccess().getLeftCurlyBracketKeyword_2());
                 
-            otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleActionState874); 
+            otherlv_3=(Token)match(input,22,FOLLOW_22_in_ruleActionState874); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getActionStateAccess().getClientKeyword_3());
                 
@@ -955,62 +956,79 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_5, grammarAccess.getActionStateAccess().getCommaKeyword_5());
                 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:471:1: ( (lv_transitions_6_0= ruleTransition ) )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:471:1: ( ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ',' )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-                if ( ((LA5_0>=23 && LA5_0<=25)) ) {
-                    alt5=1;
-                }
+            if ( (LA6_0==16||(LA6_0>=24 && LA6_0<=26)) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:471:2: ( (lv_transitions_6_0= ruleTransition ) )* otherlv_7= ','
+                    {
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:471:2: ( (lv_transitions_6_0= ruleTransition ) )*
+                    loop5:
+                    do {
+                        int alt5=2;
+                        int LA5_0 = input.LA(1);
 
-
-                switch (alt5) {
-            	case 1 :
-            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:472:1: (lv_transitions_6_0= ruleTransition )
-            	    {
-            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:472:1: (lv_transitions_6_0= ruleTransition )
-            	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:473:3: lv_transitions_6_0= ruleTransition
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getActionStateAccess().getTransitionsTransitionParserRuleCall_6_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleTransition_in_ruleActionState927);
-            	    lv_transitions_6_0=ruleTransition();
-
-            	    state._fsp--;
+                        if ( ((LA5_0>=24 && LA5_0<=26)) ) {
+                            alt5=1;
+                        }
 
 
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getActionStateRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"transitions",
-            	            		lv_transitions_6_0, 
-            	            		"Transition");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
+                        switch (alt5) {
+                    	case 1 :
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:472:1: (lv_transitions_6_0= ruleTransition )
+                    	    {
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:472:1: (lv_transitions_6_0= ruleTransition )
+                    	    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:473:3: lv_transitions_6_0= ruleTransition
+                    	    {
+                    	     
+                    	    	        newCompositeNode(grammarAccess.getActionStateAccess().getTransitionsTransitionParserRuleCall_6_0_0()); 
+                    	    	    
+                    	    pushFollow(FOLLOW_ruleTransition_in_ruleActionState928);
+                    	    lv_transitions_6_0=ruleTransition();
 
-            	    }
+                    	    state._fsp--;
 
 
-            	    }
-            	    break;
+                    	    	        if (current==null) {
+                    	    	            current = createModelElementForParent(grammarAccess.getActionStateRule());
+                    	    	        }
+                    	           		add(
+                    	           			current, 
+                    	           			"transitions",
+                    	            		lv_transitions_6_0, 
+                    	            		"Transition");
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
 
-            	default :
-            	    break loop5;
-                }
-            } while (true);
+                    	    }
 
-            otherlv_7=(Token)match(input,16,FOLLOW_16_in_ruleActionState940); 
 
-                	newLeafNode(otherlv_7, grammarAccess.getActionStateAccess().getCommaKeyword_7());
-                
-            otherlv_8=(Token)match(input,13,FOLLOW_13_in_ruleActionState952); 
+                    	    }
+                    	    break;
 
-                	newLeafNode(otherlv_8, grammarAccess.getActionStateAccess().getRightCurlyBracketKeyword_8());
+                    	default :
+                    	    break loop5;
+                        }
+                    } while (true);
+
+                    otherlv_7=(Token)match(input,16,FOLLOW_16_in_ruleActionState941); 
+
+                        	newLeafNode(otherlv_7, grammarAccess.getActionStateAccess().getCommaKeyword_6_1());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_8=(Token)match(input,13,FOLLOW_13_in_ruleActionState955); 
+
+                	newLeafNode(otherlv_8, grammarAccess.getActionStateAccess().getRightCurlyBracketKeyword_7());
                 
 
             }
@@ -1033,7 +1051,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTransition"
-    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:505:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:507:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -1041,17 +1059,17 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:506:2: (iv_ruleTransition= ruleTransition EOF )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:507:2: iv_ruleTransition= ruleTransition EOF
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:508:2: (iv_ruleTransition= ruleTransition EOF )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:509:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
-            pushFollow(FOLLOW_ruleTransition_in_entryRuleTransition988);
+            pushFollow(FOLLOW_ruleTransition_in_entryRuleTransition993);
             iv_ruleTransition=ruleTransition();
 
             state._fsp--;
 
              current =iv_ruleTransition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTransition998); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTransition1003); 
 
             }
 
@@ -1069,7 +1087,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:514:1: ruleTransition returns [EObject current=null] : ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) ;
+    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:516:1: ruleTransition returns [EObject current=null] : ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -1081,22 +1099,22 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:517:28: ( ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:518:1: ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:519:28: ( ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:520:1: ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:518:1: ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:518:2: ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:520:1: ( ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:520:2: ( (lv_outcome_0_0= ruleOUTCOME ) ) otherlv_1= '=>' ( (otherlv_2= RULE_ID ) )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:518:2: ( (lv_outcome_0_0= ruleOUTCOME ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:519:1: (lv_outcome_0_0= ruleOUTCOME )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:520:2: ( (lv_outcome_0_0= ruleOUTCOME ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:521:1: (lv_outcome_0_0= ruleOUTCOME )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:519:1: (lv_outcome_0_0= ruleOUTCOME )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:520:3: lv_outcome_0_0= ruleOUTCOME
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:521:1: (lv_outcome_0_0= ruleOUTCOME )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:522:3: lv_outcome_0_0= ruleOUTCOME
             {
              
             	        newCompositeNode(grammarAccess.getTransitionAccess().getOutcomeOUTCOMEParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleOUTCOME_in_ruleTransition1044);
+            pushFollow(FOLLOW_ruleOUTCOME_in_ruleTransition1049);
             lv_outcome_0_0=ruleOUTCOME();
 
             state._fsp--;
@@ -1118,22 +1136,22 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleTransition1056); 
+            otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleTransition1061); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_1());
                 
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:540:1: ( (otherlv_2= RULE_ID ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:541:1: (otherlv_2= RULE_ID )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:542:1: ( (otherlv_2= RULE_ID ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:543:1: (otherlv_2= RULE_ID )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:541:1: (otherlv_2= RULE_ID )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:542:3: otherlv_2= RULE_ID
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:543:1: (otherlv_2= RULE_ID )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:544:3: otherlv_2= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getTransitionRule());
             	        }
                     
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition1076); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransition1081); 
 
             		newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getStateActionStateCrossReference_2_0()); 
             	
@@ -1164,7 +1182,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOUTCOME"
-    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:561:1: entryRuleOUTCOME returns [String current=null] : iv_ruleOUTCOME= ruleOUTCOME EOF ;
+    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:563:1: entryRuleOUTCOME returns [String current=null] : iv_ruleOUTCOME= ruleOUTCOME EOF ;
     public final String entryRuleOUTCOME() throws RecognitionException {
         String current = null;
 
@@ -1172,17 +1190,17 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:562:2: (iv_ruleOUTCOME= ruleOUTCOME EOF )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:563:2: iv_ruleOUTCOME= ruleOUTCOME EOF
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:564:2: (iv_ruleOUTCOME= ruleOUTCOME EOF )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:565:2: iv_ruleOUTCOME= ruleOUTCOME EOF
             {
              newCompositeNode(grammarAccess.getOUTCOMERule()); 
-            pushFollow(FOLLOW_ruleOUTCOME_in_entryRuleOUTCOME1113);
+            pushFollow(FOLLOW_ruleOUTCOME_in_entryRuleOUTCOME1118);
             iv_ruleOUTCOME=ruleOUTCOME();
 
             state._fsp--;
 
              current =iv_ruleOUTCOME.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOUTCOME1124); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOUTCOME1129); 
 
             }
 
@@ -1200,7 +1218,7 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOUTCOME"
-    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:570:1: ruleOUTCOME returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' ) ;
+    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:572:1: ruleOUTCOME returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' ) ;
     public final AntlrDatatypeRuleToken ruleOUTCOME() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1209,39 +1227,39 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:573:28: ( (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' ) )
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:574:1: (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:575:28: ( (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' ) )
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:576:1: (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' )
             {
-            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:574:1: (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' )
-            int alt6=3;
+            // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:576:1: (kw= 'succeeded' | kw= 'preempted' | kw= 'aborted' )
+            int alt7=3;
             switch ( input.LA(1) ) {
-            case 23:
-                {
-                alt6=1;
-                }
-                break;
             case 24:
                 {
-                alt6=2;
+                alt7=1;
                 }
                 break;
             case 25:
                 {
-                alt6=3;
+                alt7=2;
+                }
+                break;
+            case 26:
+                {
+                alt7=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:575:2: kw= 'succeeded'
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:577:2: kw= 'succeeded'
                     {
-                    kw=(Token)match(input,23,FOLLOW_23_in_ruleOUTCOME1162); 
+                    kw=(Token)match(input,24,FOLLOW_24_in_ruleOUTCOME1167); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getOUTCOMEAccess().getSucceededKeyword_0()); 
@@ -1250,9 +1268,9 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:582:2: kw= 'preempted'
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:584:2: kw= 'preempted'
                     {
-                    kw=(Token)match(input,24,FOLLOW_24_in_ruleOUTCOME1181); 
+                    kw=(Token)match(input,25,FOLLOW_25_in_ruleOUTCOME1186); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getOUTCOMEAccess().getPreemptedKeyword_1()); 
@@ -1261,9 +1279,9 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:589:2: kw= 'aborted'
+                    // ../org.best.of.robotics.dsl.smach/src-gen/org/best/of/robotics/parser/antlr/internal/InternalSmachDSL.g:591:2: kw= 'aborted'
                     {
-                    kw=(Token)match(input,25,FOLLOW_25_in_ruleOUTCOME1200); 
+                    kw=(Token)match(input,26,FOLLOW_26_in_ruleOUTCOME1205); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getOUTCOMEAccess().getAbortedKeyword_2()); 
@@ -1302,10 +1320,10 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleStateMachine178 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_ruleStateMachine215 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleStateMachine232 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleStateMachine249 = new BitSet(new long[]{0x0000000000146000L});
-    public static final BitSet FOLLOW_ruleActionClient_in_ruleStateMachine270 = new BitSet(new long[]{0x0000000000146000L});
-    public static final BitSet FOLLOW_ruleServiceClient_in_ruleStateMachine292 = new BitSet(new long[]{0x0000000000142000L});
-    public static final BitSet FOLLOW_ruleActionState_in_ruleStateMachine314 = new BitSet(new long[]{0x0000000000102000L});
+    public static final BitSet FOLLOW_12_in_ruleStateMachine249 = new BitSet(new long[]{0x0000000000246000L});
+    public static final BitSet FOLLOW_ruleActionClient_in_ruleStateMachine270 = new BitSet(new long[]{0x0000000000246000L});
+    public static final BitSet FOLLOW_ruleServiceClient_in_ruleStateMachine292 = new BitSet(new long[]{0x0000000000242000L});
+    public static final BitSet FOLLOW_ruleActionState_in_ruleStateMachine314 = new BitSet(new long[]{0x0000000000202000L});
     public static final BitSet FOLLOW_13_in_ruleStateMachine327 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleActionClient_in_entryRuleActionClient363 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleActionClient373 = new BitSet(new long[]{0x0000000000000002L});
@@ -1322,33 +1340,33 @@ public class InternalSmachDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleServiceClient582 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_ruleServiceClient619 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleServiceClient636 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleServiceClient653 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleServiceClient665 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_12_in_ruleServiceClient653 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleServiceClient665 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleServiceClient682 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleServiceClient699 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleServiceClient711 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_16_in_ruleServiceClient699 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleServiceClient711 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleServiceClient728 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_ruleServiceClient745 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleActionState_in_entryRuleActionState781 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleActionState791 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleActionState828 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_21_in_ruleActionState828 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleActionState845 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleActionState862 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleActionState874 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_12_in_ruleActionState862 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleActionState874 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleActionState894 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleActionState906 = new BitSet(new long[]{0x0000000003810000L});
-    public static final BitSet FOLLOW_ruleTransition_in_ruleActionState927 = new BitSet(new long[]{0x0000000003810000L});
-    public static final BitSet FOLLOW_16_in_ruleActionState940 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleActionState952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition988 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTransition998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOUTCOME_in_ruleTransition1044 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleTransition1056 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition1076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOUTCOME_in_entryRuleOUTCOME1113 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOUTCOME1124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleOUTCOME1162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleOUTCOME1181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleOUTCOME1200 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_ruleActionState906 = new BitSet(new long[]{0x0000000007012000L});
+    public static final BitSet FOLLOW_ruleTransition_in_ruleActionState928 = new BitSet(new long[]{0x0000000007010000L});
+    public static final BitSet FOLLOW_16_in_ruleActionState941 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleActionState955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition993 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTransition1003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOUTCOME_in_ruleTransition1049 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleTransition1061 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransition1081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOUTCOME_in_entryRuleOUTCOME1118 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOUTCOME1129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleOUTCOME1167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleOUTCOME1186 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleOUTCOME1205 = new BitSet(new long[]{0x0000000000000002L});
 
 }

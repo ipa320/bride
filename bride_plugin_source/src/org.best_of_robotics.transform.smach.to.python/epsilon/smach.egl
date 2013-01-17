@@ -23,8 +23,10 @@ class SkillImplementation():
     	with self.sm:
 [%for(actionsstate in sm.actionsstates) {%]
 			self.sm.add('[%=actionsstate.name%]',
-						SimpleActionState('[%=actionsstate.clientname.name%], [%=actionsstate.clientname.type%]),
-						transitions={})
+						SimpleActionState('[%=actionsstate.clientname.actionname%]', 
+											'[%=actionsstate.clientname.actiontype%]'),
+						transitions={[%for(trans in actionsstate.transitions){%]'[%=trans.outcome%]':'[%=trans.state.name%]', [%}%] }
+			
 [%}%]
 
 if __name__ == "__main__":

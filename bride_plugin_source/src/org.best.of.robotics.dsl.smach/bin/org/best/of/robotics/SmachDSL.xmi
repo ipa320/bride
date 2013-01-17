@@ -55,13 +55,13 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
-        <elements xsi:type="xtext:Keyword" value="name:"/>
-        <elements xsi:type="xtext:Assignment" feature="actioname" operator="=">
+        <elements xsi:type="xtext:Keyword" value="aname:"/>
+        <elements xsi:type="xtext:Assignment" feature="actionname" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=","/>
-        <elements xsi:type="xtext:Keyword" value="type:"/>
-        <elements xsi:type="xtext:Assignment" feature="actiotype" operator="=">
+        <elements xsi:type="xtext:Keyword" value="atype:"/>
+        <elements xsi:type="xtext:Assignment" feature="actiontype" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
@@ -109,12 +109,20 @@
           </terminal>
         </elements>
         <elements xsi:type="xtext:Keyword" value=","/>
-        <elements xsi:type="xtext:Assignment" cardinality="*" feature="transitions" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Assignment" cardinality="*" feature="transitions" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=","/>
         </elements>
-        <elements xsi:type="xtext:Keyword" value=","/>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TO_SPECIFY">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="TO_SPECIFY"/>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Transition">
       <type metamodel="/0/@metamodelDeclarations.1">
@@ -122,7 +130,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="outcome" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="=>"/>
         <elements xsi:type="xtext:Assignment" feature="state" operator="=">

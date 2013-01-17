@@ -21,8 +21,8 @@
     </genClasses>
     <genClasses ecoreClass="SmachDSL.ecore#//ActionClient">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/actioname"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/actiotype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/actionname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/actiontype"/>
     </genClasses>
     <genClasses ecoreClass="SmachDSL.ecore#//ServiceClient">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ServiceClient/name"/>

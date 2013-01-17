@@ -254,7 +254,7 @@ public class SmachDSLPackageImpl extends EPackageImpl implements SmachDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActionClient_Actioname()
+  public EAttribute getActionClient_Actionname()
   {
     return (EAttribute)actionClientEClass.getEStructuralFeatures().get(1);
   }
@@ -264,7 +264,7 @@ public class SmachDSLPackageImpl extends EPackageImpl implements SmachDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getActionClient_Actiotype()
+  public EAttribute getActionClient_Actiontype()
   {
     return (EAttribute)actionClientEClass.getEStructuralFeatures().get(2);
   }
@@ -423,8 +423,8 @@ public class SmachDSLPackageImpl extends EPackageImpl implements SmachDSLPackage
 
     actionClientEClass = createEClass(ACTION_CLIENT);
     createEAttribute(actionClientEClass, ACTION_CLIENT__NAME);
-    createEAttribute(actionClientEClass, ACTION_CLIENT__ACTIONAME);
-    createEAttribute(actionClientEClass, ACTION_CLIENT__ACTIOTYPE);
+    createEAttribute(actionClientEClass, ACTION_CLIENT__ACTIONNAME);
+    createEAttribute(actionClientEClass, ACTION_CLIENT__ACTIONTYPE);
 
     serviceClientEClass = createEClass(SERVICE_CLIENT);
     createEAttribute(serviceClientEClass, SERVICE_CLIENT__NAME);
@@ -486,8 +486,8 @@ public class SmachDSLPackageImpl extends EPackageImpl implements SmachDSLPackage
 
     initEClass(actionClientEClass, ActionClient.class, "ActionClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActionClient_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getActionClient_Actioname(), ecorePackage.getEString(), "actioname", null, 0, 1, ActionClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getActionClient_Actiotype(), ecorePackage.getEString(), "actiotype", null, 0, 1, ActionClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActionClient_Actionname(), ecorePackage.getEString(), "actionname", null, 0, 1, ActionClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActionClient_Actiontype(), ecorePackage.getEString(), "actiontype", null, 0, 1, ActionClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(serviceClientEClass, ServiceClient.class, "ServiceClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getServiceClient_Name(), ecorePackage.getEString(), "name", null, 0, 1, ServiceClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

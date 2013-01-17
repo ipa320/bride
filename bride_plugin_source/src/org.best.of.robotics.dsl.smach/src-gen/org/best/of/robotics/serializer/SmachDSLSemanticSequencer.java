@@ -79,22 +79,22 @@ public class SmachDSLSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (name=ID actioname=STRING actiotype=STRING)
+	 *     (name=ID actionname=STRING actiontype=STRING)
 	 */
 	protected void sequence_ActionClient(EObject context, ActionClient semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIONAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIONAME));
-			if(transientValues.isValueTransient(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIOTYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIOTYPE));
+			if(transientValues.isValueTransient(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIONNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIONNAME));
+			if(transientValues.isValueTransient(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIONTYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmachDSLPackage.Literals.ACTION_CLIENT__ACTIONTYPE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getActionClientAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getActionClientAccess().getActionameSTRINGTerminalRuleCall_4_0(), semanticObject.getActioname());
-		feeder.accept(grammarAccess.getActionClientAccess().getActiotypeSTRINGTerminalRuleCall_7_0(), semanticObject.getActiotype());
+		feeder.accept(grammarAccess.getActionClientAccess().getActionnameSTRINGTerminalRuleCall_4_0(), semanticObject.getActionname());
+		feeder.accept(grammarAccess.getActionClientAccess().getActiontypeSTRINGTerminalRuleCall_7_0(), semanticObject.getActiontype());
 		feeder.finish();
 	}
 	

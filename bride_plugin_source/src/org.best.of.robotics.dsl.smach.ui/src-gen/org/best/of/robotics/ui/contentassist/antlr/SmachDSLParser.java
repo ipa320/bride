@@ -42,6 +42,7 @@ public class SmachDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getActionClientAccess().getGroup(), "rule__ActionClient__Group__0");
 					put(grammarAccess.getServiceClientAccess().getGroup(), "rule__ServiceClient__Group__0");
 					put(grammarAccess.getActionStateAccess().getGroup(), "rule__ActionState__Group__0");
+					put(grammarAccess.getActionStateAccess().getGroup_6(), "rule__ActionState__Group_6__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getPrimitivePackageAccess().getStatemachinesAssignment(), "rule__PrimitivePackage__StatemachinesAssignment");
 					put(grammarAccess.getTestAccess().getRosAssignment(), "rule__Test__RosAssignment");
@@ -50,14 +51,14 @@ public class SmachDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateMachineAccess().getServiceclientsAssignment_4(), "rule__StateMachine__ServiceclientsAssignment_4");
 					put(grammarAccess.getStateMachineAccess().getActionsstatesAssignment_5(), "rule__StateMachine__ActionsstatesAssignment_5");
 					put(grammarAccess.getActionClientAccess().getNameAssignment_1(), "rule__ActionClient__NameAssignment_1");
-					put(grammarAccess.getActionClientAccess().getActionameAssignment_4(), "rule__ActionClient__ActionameAssignment_4");
-					put(grammarAccess.getActionClientAccess().getActiotypeAssignment_7(), "rule__ActionClient__ActiotypeAssignment_7");
+					put(grammarAccess.getActionClientAccess().getActionnameAssignment_4(), "rule__ActionClient__ActionnameAssignment_4");
+					put(grammarAccess.getActionClientAccess().getActiontypeAssignment_7(), "rule__ActionClient__ActiontypeAssignment_7");
 					put(grammarAccess.getServiceClientAccess().getNameAssignment_1(), "rule__ServiceClient__NameAssignment_1");
 					put(grammarAccess.getServiceClientAccess().getServicenameAssignment_4(), "rule__ServiceClient__ServicenameAssignment_4");
 					put(grammarAccess.getServiceClientAccess().getServicesrvAssignment_7(), "rule__ServiceClient__ServicesrvAssignment_7");
 					put(grammarAccess.getActionStateAccess().getNameAssignment_1(), "rule__ActionState__NameAssignment_1");
 					put(grammarAccess.getActionStateAccess().getClientnameAssignment_4(), "rule__ActionState__ClientnameAssignment_4");
-					put(grammarAccess.getActionStateAccess().getTransitionsAssignment_6(), "rule__ActionState__TransitionsAssignment_6");
+					put(grammarAccess.getActionStateAccess().getTransitionsAssignment_6_0(), "rule__ActionState__TransitionsAssignment_6_0");
 					put(grammarAccess.getTransitionAccess().getOutcomeAssignment_0(), "rule__Transition__OutcomeAssignment_0");
 					put(grammarAccess.getTransitionAccess().getStateAssignment_2(), "rule__Transition__StateAssignment_2");
 				}

@@ -115,20 +115,20 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cActionameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cActionameSTRINGTerminalRuleCall_4_0 = (RuleCall)cActionameAssignment_4.eContents().get(0);
+		private final Keyword cAnameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cActionnameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cActionnameSTRINGTerminalRuleCall_4_0 = (RuleCall)cActionnameAssignment_4.eContents().get(0);
 		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cTypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cActiotypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cActiotypeSTRINGTerminalRuleCall_7_0 = (RuleCall)cActiotypeAssignment_7.eContents().get(0);
+		private final Keyword cAtypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cActiontypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cActiontypeSTRINGTerminalRuleCall_7_0 = (RuleCall)cActiontypeAssignment_7.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ActionClient:
-		//	"ActionClient" name=ID "{" "name:" actioname=STRING "," "type:" actiotype=STRING "}";
+		//	"ActionClient" name=ID "{" "aname:" actionname=STRING "," "atype:" actiontype=STRING "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ActionClient" name=ID "{" "name:" actioname=STRING "," "type:" actiotype=STRING "}"
+		//"ActionClient" name=ID "{" "aname:" actionname=STRING "," "atype:" actiontype=STRING "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ActionClient"
@@ -143,26 +143,26 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//"name:"
-		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		//"aname:"
+		public Keyword getAnameKeyword_3() { return cAnameKeyword_3; }
 
-		//actioname=STRING
-		public Assignment getActionameAssignment_4() { return cActionameAssignment_4; }
+		//actionname=STRING
+		public Assignment getActionnameAssignment_4() { return cActionnameAssignment_4; }
 
 		//STRING
-		public RuleCall getActionameSTRINGTerminalRuleCall_4_0() { return cActionameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getActionnameSTRINGTerminalRuleCall_4_0() { return cActionnameSTRINGTerminalRuleCall_4_0; }
 
 		//","
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
 
-		//"type:"
-		public Keyword getTypeKeyword_6() { return cTypeKeyword_6; }
+		//"atype:"
+		public Keyword getAtypeKeyword_6() { return cAtypeKeyword_6; }
 
-		//actiotype=STRING
-		public Assignment getActiotypeAssignment_7() { return cActiotypeAssignment_7; }
+		//actiontype=STRING
+		public Assignment getActiontypeAssignment_7() { return cActiontypeAssignment_7; }
 
 		//STRING
-		public RuleCall getActiotypeSTRINGTerminalRuleCall_7_0() { return cActiotypeSTRINGTerminalRuleCall_7_0; }
+		public RuleCall getActiontypeSTRINGTerminalRuleCall_7_0() { return cActiontypeSTRINGTerminalRuleCall_7_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -240,16 +240,17 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cClientnameActionClientCrossReference_4_0 = (CrossReference)cClientnameAssignment_4.eContents().get(0);
 		private final RuleCall cClientnameActionClientIDTerminalRuleCall_4_0_1 = (RuleCall)cClientnameActionClientCrossReference_4_0.eContents().get(1);
 		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cTransitionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cTransitionsTransitionParserRuleCall_6_0 = (RuleCall)cTransitionsAssignment_6.eContents().get(0);
-		private final Keyword cCommaKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Assignment cTransitionsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cTransitionsTransitionParserRuleCall_6_0_0 = (RuleCall)cTransitionsAssignment_6_0.eContents().get(0);
+		private final Keyword cCommaKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ActionState:
-		//	"actionstate" name=ID "{" "client:" clientname=[ActionClient] "," transitions+=Transition* "," "}";
+		//	"actionstate" name=ID "{" "client:" clientname=[ActionClient] "," (transitions+=Transition* ",")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"actionstate" name=ID "{" "client:" clientname=[ActionClient] "," transitions+=Transition* "," "}"
+		//"actionstate" name=ID "{" "client:" clientname=[ActionClient] "," (transitions+=Transition* ",")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"actionstate"
@@ -279,17 +280,32 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//","
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
 
+		//(transitions+=Transition* ",")?
+		public Group getGroup_6() { return cGroup_6; }
+
 		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_6() { return cTransitionsAssignment_6; }
+		public Assignment getTransitionsAssignment_6_0() { return cTransitionsAssignment_6_0; }
 
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_6_0() { return cTransitionsTransitionParserRuleCall_6_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_6_0_0() { return cTransitionsTransitionParserRuleCall_6_0_0; }
 
 		//","
-		public Keyword getCommaKeyword_7() { return cCommaKeyword_7; }
+		public Keyword getCommaKeyword_6_1() { return cCommaKeyword_6_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+
+	public class TO_SPECIFYElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TO_SPECIFY");
+		private final Keyword cTO_SPECIFYKeyword = (Keyword)rule.eContents().get(1);
+		
+		//TO_SPECIFY:
+		//	"TO_SPECIFY";
+		public ParserRule getRule() { return rule; }
+
+		//"TO_SPECIFY"
+		public Keyword getTO_SPECIFYKeyword() { return cTO_SPECIFYKeyword; }
 	}
 
 	public class TransitionElements extends AbstractParserRuleElementFinder {
@@ -361,6 +377,7 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private ActionClientElements pActionClient;
 	private ServiceClientElements pServiceClient;
 	private ActionStateElements pActionState;
+	private TO_SPECIFYElements pTO_SPECIFY;
 	private TransitionElements pTransition;
 	private OUTCOMEElements pOUTCOME;
 	
@@ -434,7 +451,7 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ActionClient:
-	//	"ActionClient" name=ID "{" "name:" actioname=STRING "," "type:" actiotype=STRING "}";
+	//	"ActionClient" name=ID "{" "aname:" actionname=STRING "," "atype:" actiontype=STRING "}";
 	public ActionClientElements getActionClientAccess() {
 		return (pActionClient != null) ? pActionClient : (pActionClient = new ActionClientElements());
 	}
@@ -454,13 +471,23 @@ public class SmachDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ActionState:
-	//	"actionstate" name=ID "{" "client:" clientname=[ActionClient] "," transitions+=Transition* "," "}";
+	//	"actionstate" name=ID "{" "client:" clientname=[ActionClient] "," (transitions+=Transition* ",")? "}";
 	public ActionStateElements getActionStateAccess() {
 		return (pActionState != null) ? pActionState : (pActionState = new ActionStateElements());
 	}
 	
 	public ParserRule getActionStateRule() {
 		return getActionStateAccess().getRule();
+	}
+
+	//TO_SPECIFY:
+	//	"TO_SPECIFY";
+	public TO_SPECIFYElements getTO_SPECIFYAccess() {
+		return (pTO_SPECIFY != null) ? pTO_SPECIFY : (pTO_SPECIFY = new TO_SPECIFYElements());
+	}
+	
+	public ParserRule getTO_SPECIFYRule() {
+		return getTO_SPECIFYAccess().getRule();
 	}
 
 	//Transition:

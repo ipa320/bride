@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.best.of.robotics.smachDSL.ActionClient#getName <em>Name</em>}</li>
- *   <li>{@link org.best.of.robotics.smachDSL.ActionClient#getActioname <em>Actioname</em>}</li>
- *   <li>{@link org.best.of.robotics.smachDSL.ActionClient#getActiotype <em>Actiotype</em>}</li>
+ *   <li>{@link org.best.of.robotics.smachDSL.ActionClient#getActionname <em>Actionname</em>}</li>
+ *   <li>{@link org.best.of.robotics.smachDSL.ActionClient#getActiontype <em>Actiontype</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,55 +51,55 @@ public interface ActionClient extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Actioname</b></em>' attribute.
+   * Returns the value of the '<em><b>Actionname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actioname</em>' attribute isn't clear,
+   * If the meaning of the '<em>Actionname</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actioname</em>' attribute.
-   * @see #setActioname(String)
-   * @see org.best.of.robotics.smachDSL.SmachDSLPackage#getActionClient_Actioname()
+   * @return the value of the '<em>Actionname</em>' attribute.
+   * @see #setActionname(String)
+   * @see org.best.of.robotics.smachDSL.SmachDSLPackage#getActionClient_Actionname()
    * @model
    * @generated
    */
-  String getActioname();
+  String getActionname();
 
   /**
-   * Sets the value of the '{@link org.best.of.robotics.smachDSL.ActionClient#getActioname <em>Actioname</em>}' attribute.
+   * Sets the value of the '{@link org.best.of.robotics.smachDSL.ActionClient#getActionname <em>Actionname</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Actioname</em>' attribute.
-   * @see #getActioname()
+   * @param value the new value of the '<em>Actionname</em>' attribute.
+   * @see #getActionname()
    * @generated
    */
-  void setActioname(String value);
+  void setActionname(String value);
 
   /**
-   * Returns the value of the '<em><b>Actiotype</b></em>' attribute.
+   * Returns the value of the '<em><b>Actiontype</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actiotype</em>' attribute isn't clear,
+   * If the meaning of the '<em>Actiontype</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actiotype</em>' attribute.
-   * @see #setActiotype(String)
-   * @see org.best.of.robotics.smachDSL.SmachDSLPackage#getActionClient_Actiotype()
+   * @return the value of the '<em>Actiontype</em>' attribute.
+   * @see #setActiontype(String)
+   * @see org.best.of.robotics.smachDSL.SmachDSLPackage#getActionClient_Actiontype()
    * @model
    * @generated
    */
-  String getActiotype();
+  String getActiontype();
 
   /**
-   * Sets the value of the '{@link org.best.of.robotics.smachDSL.ActionClient#getActiotype <em>Actiotype</em>}' attribute.
+   * Sets the value of the '{@link org.best.of.robotics.smachDSL.ActionClient#getActiontype <em>Actiontype</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Actiotype</em>' attribute.
-   * @see #getActiotype()
+   * @param value the new value of the '<em>Actiontype</em>' attribute.
+   * @see #getActiontype()
    * @generated
    */
-  void setActiotype(String value);
+  void setActiontype(String value);
 
 } // ActionClient

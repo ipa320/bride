@@ -23,8 +23,8 @@ StateMachine:
 
 ActionClient:
 	'ActionClient' name=ID '{'
-		'name:' actioname=STRING ','
-		'type:' actiotype=STRING
+		'aname:' actionname=STRING ','
+		'atype:' actiontype=STRING
 	'}'
 ;
 
@@ -37,9 +37,13 @@ ServiceClient:
 
 ActionState:
 	'actionstate' name=ID '{'
-		'client:' clientname=[ActionClient] ','
-		transitions+=Transition* ','
+		'client:' clientname=[ActionClient] ',' 
+		(transitions+=Transition* ',')?
 	'}';
+
+TO_SPECIFY:
+	"TO_SPECIFY"
+;
 	
 Transition:
 	outcome=OUTCOME '=>' state=[ActionState];

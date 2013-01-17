@@ -249,15 +249,15 @@ ruleActionClient returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getActionClientAccess().getLeftCurlyBracketKeyword_2());
     }
-	otherlv_3='name:' 
+	otherlv_3='aname:' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getActionClientAccess().getNameKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getActionClientAccess().getAnameKeyword_3());
     }
 (
 (
-		lv_actioname_4_0=RULE_STRING
+		lv_actionname_4_0=RULE_STRING
 		{
-			newLeafNode(lv_actioname_4_0, grammarAccess.getActionClientAccess().getActionameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_actionname_4_0, grammarAccess.getActionClientAccess().getActionnameSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -265,8 +265,8 @@ ruleActionClient returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"actioname",
-        		lv_actioname_4_0, 
+       			"actionname",
+        		lv_actionname_4_0, 
         		"STRING");
 	    }
 
@@ -275,15 +275,15 @@ ruleActionClient returns [EObject current=null]
     {
     	newLeafNode(otherlv_5, grammarAccess.getActionClientAccess().getCommaKeyword_5());
     }
-	otherlv_6='type:' 
+	otherlv_6='atype:' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getActionClientAccess().getTypeKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getActionClientAccess().getAtypeKeyword_6());
     }
 (
 (
-		lv_actiotype_7_0=RULE_STRING
+		lv_actiontype_7_0=RULE_STRING
 		{
-			newLeafNode(lv_actiotype_7_0, grammarAccess.getActionClientAccess().getActiotypeSTRINGTerminalRuleCall_7_0()); 
+			newLeafNode(lv_actiontype_7_0, grammarAccess.getActionClientAccess().getActiontypeSTRINGTerminalRuleCall_7_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -291,8 +291,8 @@ ruleActionClient returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"actiotype",
-        		lv_actiotype_7_0, 
+       			"actiontype",
+        		lv_actiontype_7_0, 
         		"STRING");
 	    }
 
@@ -468,10 +468,10 @@ ruleActionState returns [EObject current=null]
     {
     	newLeafNode(otherlv_5, grammarAccess.getActionStateAccess().getCommaKeyword_5());
     }
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getActionStateAccess().getTransitionsTransitionParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getActionStateAccess().getTransitionsTransitionParserRuleCall_6_0_0()); 
 	    }
 		lv_transitions_6_0=ruleTransition		{
 	        if ($current==null) {
@@ -488,14 +488,16 @@ ruleActionState returns [EObject current=null]
 )
 )*	otherlv_7=',' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getActionStateAccess().getCommaKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getActionStateAccess().getCommaKeyword_6_1());
     }
-	otherlv_8='}' 
+)?	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getActionStateAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getActionStateAccess().getRightCurlyBracketKeyword_7());
     }
 )
 ;
+
+
 
 
 

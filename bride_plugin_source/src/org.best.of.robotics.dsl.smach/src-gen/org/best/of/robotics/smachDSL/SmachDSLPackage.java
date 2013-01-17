@@ -187,22 +187,22 @@ public interface SmachDSLPackage extends EPackage
   int ACTION_CLIENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Actioname</b></em>' attribute.
+   * The feature id for the '<em><b>Actionname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_CLIENT__ACTIONAME = 1;
+  int ACTION_CLIENT__ACTIONNAME = 1;
 
   /**
-   * The feature id for the '<em><b>Actiotype</b></em>' attribute.
+   * The feature id for the '<em><b>Actiontype</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_CLIENT__ACTIOTYPE = 2;
+  int ACTION_CLIENT__ACTIONTYPE = 2;
 
   /**
    * The number of structural features of the '<em>Action Client</em>' class.
@@ -461,26 +461,26 @@ public interface SmachDSLPackage extends EPackage
   EAttribute getActionClient_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.best.of.robotics.smachDSL.ActionClient#getActioname <em>Actioname</em>}'.
+   * Returns the meta object for the attribute '{@link org.best.of.robotics.smachDSL.ActionClient#getActionname <em>Actionname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Actioname</em>'.
-   * @see org.best.of.robotics.smachDSL.ActionClient#getActioname()
+   * @return the meta object for the attribute '<em>Actionname</em>'.
+   * @see org.best.of.robotics.smachDSL.ActionClient#getActionname()
    * @see #getActionClient()
    * @generated
    */
-  EAttribute getActionClient_Actioname();
+  EAttribute getActionClient_Actionname();
 
   /**
-   * Returns the meta object for the attribute '{@link org.best.of.robotics.smachDSL.ActionClient#getActiotype <em>Actiotype</em>}'.
+   * Returns the meta object for the attribute '{@link org.best.of.robotics.smachDSL.ActionClient#getActiontype <em>Actiontype</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Actiotype</em>'.
-   * @see org.best.of.robotics.smachDSL.ActionClient#getActiotype()
+   * @return the meta object for the attribute '<em>Actiontype</em>'.
+   * @see org.best.of.robotics.smachDSL.ActionClient#getActiontype()
    * @see #getActionClient()
    * @generated
    */
-  EAttribute getActionClient_Actiotype();
+  EAttribute getActionClient_Actiontype();
 
   /**
    * Returns the meta object for class '{@link org.best.of.robotics.smachDSL.ServiceClient <em>Service Client</em>}'.
@@ -720,20 +720,20 @@ public interface SmachDSLPackage extends EPackage
     EAttribute ACTION_CLIENT__NAME = eINSTANCE.getActionClient_Name();
 
     /**
-     * The meta object literal for the '<em><b>Actioname</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Actionname</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION_CLIENT__ACTIONAME = eINSTANCE.getActionClient_Actioname();
+    EAttribute ACTION_CLIENT__ACTIONNAME = eINSTANCE.getActionClient_Actionname();
 
     /**
-     * The meta object literal for the '<em><b>Actiotype</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Actiontype</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION_CLIENT__ACTIOTYPE = eINSTANCE.getActionClient_Actiotype();
+    EAttribute ACTION_CLIENT__ACTIONTYPE = eINSTANCE.getActionClient_Actiontype();
 
     /**
      * The meta object literal for the '{@link org.best.of.robotics.smachDSL.impl.ServiceClientImpl <em>Service Client</em>}' class.
