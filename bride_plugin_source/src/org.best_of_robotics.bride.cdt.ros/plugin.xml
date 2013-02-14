@@ -10,5 +10,51 @@
             projectType="org.eclipse.cdt.build.makefile.projectType">
       </template>
    </extension>
+   
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.best_of_robotics.bride.cdt.ros.ROSLaunchDelegate"
+            delegateDescription="Runs roslaunch to launch the generated system launch file"
+            delegateName="ROS Launch Delegate"
+            modes="run,debug"
+            public="true"
+            id="org.best_of_robotics.bride.cdt.ros.roslaunchConfiguration"
+            name="ROS Launch">
+      </launchConfigurationType>
+   </extension>
+   
+   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+   	<launchConfigurationTabGroup
+        type="org.best_of_robotics.bride.cdt.ros.roslaunchConfiguration"
+        class="org.best_of_robotics.bride.cdt.ros.InterpreterTabGroup"
+        id="org.best_of_robotics.bride.cdt.ros.roslaunchConfiguration.tabGroup">
+        <launchMode
+              mode="run"
+              description="Runs an interpreter">
+        </launchMode>
+        <launchMode
+              mode="debug"
+              description="Runs an interpreter in Debug mode"
+              perspective="org.ros.model.ros.diagram.ComponentDeveloperPerspective">
+        </launchMode>
+    </launchConfigurationTabGroup>
+   </extension>
+   
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage       
+    	configTypeID="org.best_of_robotics.bride.cdt.ros.roslaunchConfiguration"
+        icon="icons/batch.png"
+        id="org.best_of_robotics.bride.cdt.ros.roslaunchConfiguration.Image">
+    </launchConfigurationTypeImage>
+   </extension>
+   
+   
+   <extension point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.debug.ui.DebugPerspective">
+         <perspectiveShortcut id="org.ros.model.ros.diagram.ComponentDeveloperPerspective"/>
+      </perspectiveExtension>
+   </extension>
+
+ 
 
 </plugin>

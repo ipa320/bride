@@ -31,6 +31,26 @@ def install_gmf():
 	eclipse_component = "org.eclipse.gmf.tooling.runtime"
 	install(eclipse_repo, eclipse_component)
 
+def install_bcm_requirements():
+	#general dependency
+	eclipse_repo = "http://download.eclipse.org/releases/juno/"
+	eclipse_component = "org.eclipse.core.resources"
+	install(eclipse_repo, eclipse_component)	
+
+
+def install_xtext():
+	eclipse_repo = "http://download.eclipse.org/releases/juno/"
+	eclipse_component = "org.eclipse.xtext"
+	install(eclipse_repo, eclipse_component)		
+
+	eclipse_repo = "http://download.eclipse.org/releases/juno/"
+	eclipse_component = "org.eclipse.xtext.xbase.lib"
+	install(eclipse_repo, eclipse_component)		
+
+	eclipse_repo = "http://download.eclipse.org/releases/juno/"
+	eclipse_component = "org.eclipse.xtext.common.types"
+	install(eclipse_repo, eclipse_component)		
+
 def install_epsilon():
 	eclipse_repo = "http://download.eclipse.org/epsilon/updates/"
 
@@ -63,14 +83,19 @@ def install_epsilon():
 	eclipse_component = "org.eclipse.epsilon.egl.engine"
 	install(eclipse_repo, eclipse_component)
 
+	eclipse_component = "org.eclipse.epsilon.etl.engine"
+	install(eclipse_repo, eclipse_component)
+
 	eclipse_component = "org.eclipse.epsilon.emc.emf"
 	install(eclipse_repo, eclipse_component)
+
 
 
 def install_brics_from_local():
 	bride_plugins_dir = roslib.packages.get_pkg_dir("bride_plugins")
 	eclipse_repo = "file://" + bride_plugins_dir + "/features/"
-	#Capability builder
+
+	#Capability builder ROS
 	eclipse_component = "org.ros.model.ros_package.diagram"
 	install(eclipse_repo, eclipse_component)
 	
@@ -78,9 +103,31 @@ def install_brics_from_local():
 	eclipse_component = "org.best_of_robotics.bride.ui"
 	install(eclipse_repo, eclipse_component)
 	
-	#Code Generation
+	#Code Generation ROS
 	eclipse_component = "org.best_of_robotics.transform.ros.to.cplusplus"
 	install(eclipse_repo, eclipse_component)
+
+	#BCM builder
+	eclipse_repo = "http://www.best-of-robotics.org/bride/update/bride/"
+	eclipse_component = "org.best_of_robotics.model.bcmx.diagram"
+	install(eclipse_repo, eclipse_component)
+
+	#from brics update site
+	eclipse_repo = "http://www.best-of-robotics.org/bride/update/bride/"
+	eclipse_component = "org.best_of_robotics.transform.service"
+	install(eclipse_repo, eclipse_component)	
+	
+	eclipse_repo = "http://www.best-of-robotics.org/bride/update/bride/"
+	eclipse_component = "org.best_of_robotics.transform.service.access"
+	install(eclipse_repo, eclipse_component)
+
+	#BCM transform
+	eclipse_repo = "file://" + bride_plugins_dir + "/features_bcm/"
+	eclipse_component = "org.best_of_robotics.transform.bcmx.to.ros"
+	install(eclipse_repo, eclipse_component)
+
+
+
 
 def uninstall_brics_from_local():
 	bride_plugins_dir = roslib.packages.get_pkg_dir("bride_plugins")
@@ -143,5 +190,6 @@ if __name__ == "__main__":
 			install_cdt()	
 		if(sys.argv[1] == "reinstallbrics"):
 			uninstall_brics_from_local()
+			install_xtext()
 			install_brics_from_local()	
 		
