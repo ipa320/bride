@@ -266,6 +266,40 @@
     <element xmi:type="ecore:EClass" href="ros.ecore#//Architecture"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yNdXscEXEeGPRpCYowwBsw" x="561" y="336"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="_htOXQHntEeKQmJJiuyO8Wg" type="2005" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_htPlYHntEeKQmJJiuyO8Wg" type="5005"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_htPlYXntEeKQmJJiuyO8Wg" type="7011">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_htPlYnntEeKQmJJiuyO8Wg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_htPlY3ntEeKQmJJiuyO8Wg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_htPlZHntEeKQmJJiuyO8Wg" type="7012">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_htPlZXntEeKQmJJiuyO8Wg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_htPlZnntEeKQmJJiuyO8Wg"/>
+    </children>
+    <element xmi:type="ecore:EEnum" href="ros.ecore#//ParameterTypes"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htOXQXntEeKQmJJiuyO8Wg"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_htQMcHntEeKQmJJiuyO8Wg" type="2001" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_htQMcnntEeKQmJJiuyO8Wg" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_htQMc3ntEeKQmJJiuyO8Wg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_kVs1YHntEeKQmJJiuyO8Wg" type="3001">
+        <element xmi:type="ecore:EAttribute" href="ros.ecore#//StateTransition/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_kVs1YXntEeKQmJJiuyO8Wg"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_htQMdHntEeKQmJJiuyO8Wg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_htQMdXntEeKQmJJiuyO8Wg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_htQMdnntEeKQmJJiuyO8Wg" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_htQMd3ntEeKQmJJiuyO8Wg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_htQMeHntEeKQmJJiuyO8Wg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_htQzgHntEeKQmJJiuyO8Wg" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_htQzgXntEeKQmJJiuyO8Wg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_htQzgnntEeKQmJJiuyO8Wg"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="ros.ecore#//StateTransition"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htQMcXntEeKQmJJiuyO8Wg" x="70" y="-147"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="__Qd5QrusEeGF-L3AOX6JYg"/>
   <element xmi:type="ecore:EPackage" href="ros.ecore#/"/>
 </notation:Diagram>
