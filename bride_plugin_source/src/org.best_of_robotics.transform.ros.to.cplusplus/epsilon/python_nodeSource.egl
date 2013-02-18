@@ -67,6 +67,8 @@ for (parameter in node.parameter)
 [%}%]
 	
 	def	__init__(self):
+		[%=out.startPreserve("#", "#", "initCode", true)%]
+		[%=out.stopPreserve()%]
 		pass
 	
 	def	configure(self):
