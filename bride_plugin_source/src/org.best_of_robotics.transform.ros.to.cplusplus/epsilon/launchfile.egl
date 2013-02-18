@@ -9,7 +9,10 @@ for(package in architecture.packages) {
 [%
 for(node in package.node) {
 %]
-	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen">
+	[% if(node.paramSource.isDefined()) {%]
+	<rosparam command="load" ns="[%=node.name%]" file="[%=node.paramSource%]" />
+	[%}%]
+	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" [% if(node.args.isDefined()) {%] args="[%=node.args%]" [%}%][% if(node.namespace.isDefined()) {%] ns="[%=node.namespace%]"[%}%] output="screen">
 	[%
 	for(p in architecture.packages) {
 		for(topic in p.topic) {
@@ -24,12 +27,13 @@ for(node in package.node) {
 	} 
 		}
 		}
+	if(not node.paramSource.isDefined()) {
 	for(param in node.parameter)
 	{
 %]
 		<param name="[%=param.name%]" value="[%=param.value%]"/>
 [%
-	}  %]
+	}}  %]
 	</node>
 	
 [%
