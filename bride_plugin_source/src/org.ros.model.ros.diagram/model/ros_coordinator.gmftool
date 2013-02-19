@@ -41,6 +41,14 @@
         <largeIcon
             xsi:type="gmftool:BundleImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="FinalState">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

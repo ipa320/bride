@@ -20,12 +20,13 @@ public class ConfigureNodeAction implements IObjectActionDelegate {
 
 	@Override
 	public void run(IAction action) {
+		System.out.println("TTUT");
 		if (selectedElement == null) {
 			return;
 		}
 		String nodename = ((NodeNameEditPart)selectedElement.getChildBySemanticHint(RosVisualIDRegistry.getType(5008))).getEditText();
 		System.out.println(nodename);
-		String cmd = "rosrun dynamic_reconfigure reconfigure_gui " + nodename;
+		String cmd = "rosrun dynamic_reconfigure reconfigure_gui";
 		Runtime run = Runtime.getRuntime();
 		Process pr;
 		try {

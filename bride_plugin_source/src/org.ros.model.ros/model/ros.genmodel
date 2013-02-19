@@ -35,6 +35,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/paramSource"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/namespace"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/statetransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/finalStates"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/name"/>
@@ -108,6 +109,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//StateTransition/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//StateTransition/Source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//StateTransition/Target"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//State"/>
+    <genClasses ecoreClass="ros.ecore#//FinalState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//FinalState/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

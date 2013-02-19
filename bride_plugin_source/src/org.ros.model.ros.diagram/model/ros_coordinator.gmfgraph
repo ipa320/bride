@@ -9,17 +9,17 @@
         <children xsi:type="gmfgraph:Label" name="StateMachineName" text="&lt;...>">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="StateMachineCompartmentFigure" fill="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="StateMachineCompartmentFigure"/>
       </actualFigure>
       <accessors accessor="getFigureStateMachineNameFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
       <accessors accessor="getFigureStateMachineCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="ActionStateFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ActionStateFigure" fill="false" lineWidth="2" cornerWidth="20" cornerHeight="20">
-        <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
-        <minimumSize dx="240" dy="180"/>
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ActionStateFigure" lineWidth="2" cornerWidth="20" cornerHeight="20">
+        <layout xsi:type="gmfgraph:GridLayout"/>
+        <minimumSize dx="120" dy="80"/>
         <children xsi:type="gmfgraph:Label" name="ActionStateNameFigure" text="&lt;..>">
-          <layoutData xsi:type="gmfgraph:GridLayoutData" verticalAlignment="BEGINNING" horizontalAlignment="BEGINNING"/>
+          <layoutData xsi:type="gmfgraph:GridLayoutData" verticalAlignment="BEGINNING" horizontalAlignment="BEGINNING" horizontalSpan="3"/>
           <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
         </children>
       </actualFigure>
@@ -28,7 +28,7 @@
     <descriptors name="ServiceStateFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ServiceStateFigure" fill="false" lineWidth="2" cornerWidth="20" cornerHeight="20">
         <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
-        <minimumSize dx="240" dy="180"/>
+        <minimumSize dx="120" dy="80"/>
         <children xsi:type="gmfgraph:Label" name="ServiceStateNameFigure" text="&lt;..>">
           <layoutData xsi:type="gmfgraph:GridLayoutData" verticalAlignment="BEGINNING" horizontalAlignment="BEGINNING" horizontalSpan="3"/>
           <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
@@ -45,12 +45,21 @@
       </actualFigure>
       <accessors accessor="getFigureTransitionNameFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors name="FinalStateFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse" name="FinalStateFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor"/>
+        <maximumSize dx="10" dy="10"/>
+        <minimumSize dx="10" dy="10"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes name="StateMachine" figure="StateMachineFigure"/>
   <nodes name="ActionState" figure="ActionStateFigure"/>
   <nodes name="ServiceState" figure="ServiceStateFigure"/>
+  <nodes name="FinalState" figure="FinalStateFigure"/>
   <connections name="Transition" figure="TransitionFigure"/>
-  <compartments name="StateMachineCompartment" figure="StateMachineFigure" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="StateMachineCompartment" figure="StateMachineFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
   <labels name="StateMachineName" figure="StateMachineFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels name="ActionStateName" figure="ActionStateFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels name="ServiceStateName" figure="ServiceStateFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
