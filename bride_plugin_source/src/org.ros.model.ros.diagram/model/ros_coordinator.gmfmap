@@ -77,8 +77,15 @@
   <links>
     <domainMetaElement
         href="../../org.ros.model.ros/model/ros.ecore#//StateTransition"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping">
+      <diagramLabel
+          href="ros_coordinator.gmfgraph#TransitionName"/>
+      <features
+          href="../../org.ros.model.ros/model/ros.ecore#//StateTransition/name"/>
+    </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/stateTransition"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Node/statetransition"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.3"/>

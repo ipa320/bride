@@ -16,6 +16,11 @@
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/bool"/>
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/string"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ros.ecore#//StateOutcomes">
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StateOutcomes/succeeded"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StateOutcomes/preempted"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StateOutcomes/aborted"/>
+    </genEnums>
     <genClasses ecoreClass="ros.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/loopRate"/>
@@ -29,6 +34,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/args"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/paramSource"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/statetransition"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/name"/>
@@ -43,7 +49,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/service"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Package/typesLibrary"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/action"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/stateTransition"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Publisher">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Publisher/name"/>

@@ -2,32 +2,32 @@
 <gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="rosCoordinator">
   <figures name="rosCoordinator">
     <descriptors name="StateMachineFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="StateMachineFigure" cornerWidth="12" cornerHeight="12">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="StateMachineFigure" fill="false" cornerWidth="12" cornerHeight="12">
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="5" left="5" bottom="5" right="5"/>
         </border>
         <children xsi:type="gmfgraph:Label" name="StateMachineName" text="&lt;...>">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="StateMachineCompartmentFigure"/>
+        <children xsi:type="gmfgraph:Rectangle" name="StateMachineCompartmentFigure" fill="false"/>
       </actualFigure>
       <accessors accessor="getFigureStateMachineNameFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
       <accessors accessor="getFigureStateMachineCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="ActionStateFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ActionStateFigure" lineWidth="2" cornerWidth="20" cornerHeight="20">
-        <layout xsi:type="gmfgraph:GridLayout"/>
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ActionStateFigure" fill="false" lineWidth="2" cornerWidth="20" cornerHeight="20">
+        <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
         <minimumSize dx="240" dy="180"/>
         <children xsi:type="gmfgraph:Label" name="ActionStateNameFigure" text="&lt;..>">
-          <layoutData xsi:type="gmfgraph:GridLayoutData" grabExcessHorizontalSpace="true" verticalAlignment="BEGINNING" horizontalAlignment="FILL"/>
+          <layoutData xsi:type="gmfgraph:GridLayoutData" verticalAlignment="BEGINNING" horizontalAlignment="BEGINNING"/>
           <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
         </children>
       </actualFigure>
       <accessors accessor="getFigureActionStateNameFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="ServiceStateFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ServiceStateFigure" lineWidth="2" cornerWidth="20" cornerHeight="20">
-        <layout xsi:type="gmfgraph:GridLayout"/>
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ServiceStateFigure" fill="false" lineWidth="2" cornerWidth="20" cornerHeight="20">
+        <layout xsi:type="gmfgraph:GridLayout" equalWidth="false"/>
         <minimumSize dx="240" dy="180"/>
         <children xsi:type="gmfgraph:Label" name="ServiceStateNameFigure" text="&lt;..>">
           <layoutData xsi:type="gmfgraph:GridLayoutData" verticalAlignment="BEGINNING" horizontalAlignment="BEGINNING" horizontalSpan="3"/>
@@ -37,7 +37,7 @@
       <accessors accessor="getFigureServiceStateNameFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="TransitionFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TransitionFigure" lineWidth="2">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TransitionFigure" lineWidth="2" targetDecoration="//@figures.0/@descriptors.3/@actualFigure/@children.1">
         <foregroundColor xsi:type="gmfgraph:RGBColor" green="180"/>
         <backgroundColor xsi:type="gmfgraph:RGBColor" green="180"/>
         <children xsi:type="gmfgraph:Label" name="TransitionNameFigure" text="&lt;..>"/>
