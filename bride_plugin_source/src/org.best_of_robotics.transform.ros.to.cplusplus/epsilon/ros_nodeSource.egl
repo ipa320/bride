@@ -34,6 +34,17 @@ for (serviceServer in node.serviceServer)
 [%
 }
 %]
+[%
+var str : String;
+for (actionServer in node.actionserver)
+{
+	str = actionServer.ActionType.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+
 
 
 
@@ -73,7 +84,16 @@ for (service in node.serviceServer)
 	ros::ServiceServer [%=service.name.replace(" ", "_")%]_;
 [%
 }
-%]        
+%]
+[%
+for (action in node.actionserver)
+{
+%]
+	actionlib::SimpleActionServer<[%=action.ActionType%]_> as_[%=action.name.replace(" ", "_")%]_;
+[%
+}
+%]
+        
  
         [%=node.name.replace(" ", "_")%]_data component_data_;
         [%=node.name.replace(" ", "_")%]_config component_config_;

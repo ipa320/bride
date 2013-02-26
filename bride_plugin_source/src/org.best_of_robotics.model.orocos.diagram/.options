@@ -1,7 +1,0 @@
-# Tracing options for the org.best_of_robotics.model.orocos.diagram plug-in
-
-# Common issues
-org.best_of_robotics.model.orocos.diagram/debug=false
-
-# Visual IDs
-org.best_of_robotics.model.orocos.diagram/debug/visualID=false

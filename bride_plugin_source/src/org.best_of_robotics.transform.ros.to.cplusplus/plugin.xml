@@ -27,6 +27,11 @@
             id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
             name="Generate Launch File for ros system">
       </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
+            name="Generate Coordinator for ros system">
+      </command>
 
    </extension>
    <extension
@@ -46,6 +51,10 @@
       <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosLaunchTransform"
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosCoordinatorTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator">
       </handler>
    </extension>
    <extension
@@ -75,6 +84,10 @@
                   name="test2"
                   visible="true">
             </separator>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
+                  style="push">
+            </command>
             <command
                   commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
                   style="push">

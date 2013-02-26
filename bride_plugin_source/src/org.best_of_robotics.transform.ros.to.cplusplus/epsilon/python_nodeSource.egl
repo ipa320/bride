@@ -2,6 +2,9 @@
 import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
 import rospy
 
+[%=out.startPreserve("#", "#", "customHeaders", true)%]
+[%=out.stopPreserve()%]
+
 [%
 var strs : Sequence;
 for (publisher in node.publisher)
@@ -30,7 +33,7 @@ for (serviceServer in node.serviceServer)
 	strs3 = serviceServer.msg;//.split('::');
 	strs33 = strs3.split('::');
 %]
-from [%=strs33[0]%].srv import [%=strs33[1]%] 
+from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request 
 [%
 }
 %]
@@ -64,6 +67,8 @@ for (parameter in node.parameter)
 [%}%]
 	
 	def	__init__(self):
+		[%=out.startPreserve("#", "#", "initCode", true)%]
+		[%=out.stopPreserve()%]
 		pass
 	
 	def	configure(self):
@@ -83,6 +88,7 @@ for (parameter in node.parameter)
 		[%=out.startPreserve("#", "#", "user implementation of service callback for " + service_here.name.replace(" ", "_"), true)%]
 		[%=out.stopPreserve()%]
 		pass
+
 	[%
 	}%]
 	

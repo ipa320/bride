@@ -25,6 +25,7 @@
         visualID="3001"
         editPartClassName="NodeEditPart"
         itemSemanticEditPolicyClassName="NodeItemSemanticEditPolicy"
+        notationViewFactoryClassName="NodeViewFactory"
         canonicalEditPolicyClassName="NodeCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
         compartments="//@diagram/@compartments.1"
@@ -49,9 +50,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package/node"/>
       </modelFacet>
       <labels
-          visualID="5008"
+          visualID="5007"
           editPartClassName="NodeNameEditPart"
-          itemSemanticEditPolicyClassName="NodeNameItemSemanticEditPolicy">
+          itemSemanticEditPolicyClassName="NodeNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="NodeNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -72,13 +74,16 @@
       </labels>
     </childNodes>
     <childNodes
+        xsi:type="gmfgen:GenChildLabelNode"
         visualID="3002"
         editPartClassName="ParameterEditPart"
         itemSemanticEditPolicyClassName="ParameterItemSemanticEditPolicy"
+        notationViewFactoryClassName="ParameterViewFactory"
         canonicalEditPolicyClassName="ParameterCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ParameterGraphicalNodeEditPolicy"
         createCommandClassName="ParameterCreateCommand"
-        containers="//@diagram/@compartments.1">
+        containers="//@diagram/@compartments.1"
+        labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -96,31 +101,19 @@
         <childMetaFeature
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/parameter"/>
       </modelFacet>
-      <labels
-          xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5001"
-          editPartClassName="ParameterNameEditPart"
-          itemSemanticEditPolicyClassName="ParameterNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:InnerClassViewmap"
-            className="ParameterFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParameterFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParameterFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter/name"/>
-        </modelFacet>
-      </labels>
+      <labelModelFacet
+          xsi:type="gmfgen:FeatureLabelModelFacet"
+          parser="//@labelParsers/@implementations.0">
+        <metaFeatures
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter/name"/>
+      </labelModelFacet>
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildSideAffixedNode"
         visualID="3003"
         editPartClassName="PublisherEditPart"
         itemSemanticEditPolicyClassName="PublisherItemSemanticEditPolicy"
+        notationViewFactoryClassName="PublisherViewFactory"
         canonicalEditPolicyClassName="PublisherCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PublisherGraphicalNodeEditPolicy"
         createCommandClassName="PublisherCreateCommand"
@@ -149,9 +142,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/publisher"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="5001"
           editPartClassName="PublisherNameEditPart"
           itemSemanticEditPolicyClassName="PublisherNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="PublisherNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -172,6 +166,7 @@
         visualID="3004"
         editPartClassName="SubscriberEditPart"
         itemSemanticEditPolicyClassName="SubscriberItemSemanticEditPolicy"
+        notationViewFactoryClassName="SubscriberViewFactory"
         canonicalEditPolicyClassName="SubscriberCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SubscriberGraphicalNodeEditPolicy"
         createCommandClassName="SubscriberCreateCommand"
@@ -200,9 +195,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/subscriber"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="5002"
           editPartClassName="SubscriberNameEditPart"
           itemSemanticEditPolicyClassName="SubscriberNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="SubscriberNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -223,10 +219,12 @@
         visualID="3005"
         editPartClassName="ActionServerEditPart"
         itemSemanticEditPolicyClassName="ActionServerItemSemanticEditPolicy"
+        notationViewFactoryClassName="ActionServerViewFactory"
         canonicalEditPolicyClassName="ActionServerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ActionServerGraphicalNodeEditPolicy"
         createCommandClassName="ActionServerCreateCommand"
-        containers="//@diagram/@childNodes.0">
+        containers="//@diagram/@childNodes.0"
+        preferredSideName="NORTH">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -250,9 +248,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/actionserver"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="5003"
           editPartClassName="ActionServerNameEditPart"
           itemSemanticEditPolicyClassName="ActionServerNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ActionServerNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -273,10 +272,12 @@
         visualID="3006"
         editPartClassName="ActionClientEditPart"
         itemSemanticEditPolicyClassName="ActionClientItemSemanticEditPolicy"
+        notationViewFactoryClassName="ActionClientViewFactory"
         canonicalEditPolicyClassName="ActionClientCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ActionClientGraphicalNodeEditPolicy"
         createCommandClassName="ActionClientCreateCommand"
-        containers="//@diagram/@childNodes.0">
+        containers="//@diagram/@childNodes.0"
+        preferredSideName="SOUTH">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -300,9 +301,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/actionclient"/>
       </modelFacet>
       <labels
-          visualID="5005"
+          visualID="5004"
           editPartClassName="ActionClientNameEditPart"
           itemSemanticEditPolicyClassName="ActionClientNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ActionClientNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -323,6 +325,7 @@
         visualID="3007"
         editPartClassName="ServiceServerEditPart"
         itemSemanticEditPolicyClassName="ServiceServerItemSemanticEditPolicy"
+        notationViewFactoryClassName="ServiceServerViewFactory"
         canonicalEditPolicyClassName="ServiceServerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ServiceServerGraphicalNodeEditPolicy"
         createCommandClassName="ServiceServerCreateCommand"
@@ -351,9 +354,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/serviceServer"/>
       </modelFacet>
       <labels
-          visualID="5006"
+          visualID="5005"
           editPartClassName="ServiceServerNameEditPart"
           itemSemanticEditPolicyClassName="ServiceServerNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ServiceServerNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -374,6 +378,7 @@
         visualID="3008"
         editPartClassName="ServiceClientEditPart"
         itemSemanticEditPolicyClassName="ServiceClientItemSemanticEditPolicy"
+        notationViewFactoryClassName="ServiceClientViewFactory"
         canonicalEditPolicyClassName="ServiceClientCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ServiceClientGraphicalNodeEditPolicy"
         createCommandClassName="ServiceClientCreateCommand"
@@ -402,9 +407,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/serviceClient"/>
       </modelFacet>
       <labels
-          visualID="5007"
+          visualID="5006"
           editPartClassName="ServiceClientNameEditPart"
           itemSemanticEditPolicyClassName="ServiceClientNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ServiceClientNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -424,6 +430,7 @@
         visualID="2001"
         editPartClassName="PackageEditPart"
         itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
+        notationViewFactoryClassName="PackageViewFactory"
         canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
         compartments="//@diagram/@compartments.0"
         graphicalNodeEditPolicyClassName="PackageGraphicalNodeEditPolicy"
@@ -437,10 +444,6 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="PackageFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PackageFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePackageNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fPackageContentCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PackageFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePackageNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePackageNameFigure.setText(&quot;&lt;..>&quot;);&#xA;fFigurePackageNameFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigurePackageNameFigure);&#xA;&#xA;&#xA;&#xA;fPackageContentCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fPackageContentCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePackageNameFigure() {&#xA;&#x9;&#x9;return fFigurePackageNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getPackageContentCompartmentFigure() {&#xA;&#x9;&#x9;return fPackageContentCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"
-          diagramKind="RosPackage"
-          editorID="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID"/>
       <modelFacet>
         <metaClass
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package"/>
@@ -450,9 +453,10 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Architecture/packages"/>
       </modelFacet>
       <labels
-          visualID="5009"
+          visualID="5008"
           editPartClassName="PackageNameEditPart"
           itemSemanticEditPolicyClassName="PackageNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="PackageNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -472,6 +476,7 @@
         visualID="4001"
         editPartClassName="TopicEditPart"
         itemSemanticEditPolicyClassName="TopicItemSemanticEditPolicy"
+        notationViewFactoryClassName="TopicViewFactory"
         createCommandClassName="TopicCreateCommand"
         reorientCommandClassName="TopicReorientCommand">
       <diagramRunTimeClass
@@ -482,7 +487,12 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="TopicFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TopicFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTopicNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TopicFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTopicNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTopicNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureTopicNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTopicNameFigure() {&#xA;&#x9;&#x9;return fFigureTopicNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TopicFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTopicNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TopicFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTopicNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTopicNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureTopicNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTopicNameFigure() {&#xA;&#x9;&#x9;return fFigureTopicNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 180, 0, 0);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 180, 0, 0);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
@@ -500,6 +510,7 @@
           visualID="6001"
           editPartClassName="TopicNameEditPart"
           itemSemanticEditPolicyClassName="TopicNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="TopicNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -524,6 +535,7 @@
         visualID="4002"
         editPartClassName="ServiceEditPart"
         itemSemanticEditPolicyClassName="ServiceItemSemanticEditPolicy"
+        notationViewFactoryClassName="ServiceViewFactory"
         createCommandClassName="ServiceCreateCommand"
         reorientCommandClassName="ServiceReorientCommand">
       <diagramRunTimeClass
@@ -534,7 +546,12 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ServiceFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureServiceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureServiceNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 0, 0, 180);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 0, 0, 180);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
+      </viewmap>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
@@ -552,6 +569,7 @@
           visualID="6002"
           editPartClassName="ServiceNameEditPart"
           itemSemanticEditPolicyClassName="ServiceNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ServiceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -575,6 +593,7 @@
         visualID="4003"
         editPartClassName="ActionEditPart"
         itemSemanticEditPolicyClassName="ActionItemSemanticEditPolicy"
+        notationViewFactoryClassName="ActionViewFactory"
         createCommandClassName="ActionCreateCommand"
         reorientCommandClassName="ActionReorientCommand">
       <diagramRunTimeClass
@@ -608,6 +627,7 @@
           visualID="6003"
           editPartClassName="ActionNameEditPart"
           itemSemanticEditPolicyClassName="ActionNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ActionNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -631,6 +651,7 @@
         visualID="7001"
         editPartClassName="PackagePackageContentCompartmentEditPart"
         itemSemanticEditPolicyClassName="PackagePackageContentCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="PackagePackageContentCompartmentViewFactory"
         canonicalEditPolicyClassName="PackagePackageContentCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="PackageContentCompartment"
@@ -648,6 +669,7 @@
         visualID="7002"
         editPartClassName="NodeParametersEditPart"
         itemSemanticEditPolicyClassName="NodeParametersItemSemanticEditPolicy"
+        notationViewFactoryClassName="NodeParametersViewFactory"
         canonicalEditPolicyClassName="NodeParametersCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.1"
         title="Parameters"
@@ -905,7 +927,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.1/@labelModelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

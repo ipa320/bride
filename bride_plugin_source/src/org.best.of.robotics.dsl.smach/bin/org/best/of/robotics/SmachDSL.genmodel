@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.best.of.robotics.dsl.smach/src-gen" editDirectory="/org.best.of.robotics.dsl.smach.edit/src"
+    editorDirectory="/org.best.of.robotics.dsl.smach.editor/src" modelPluginID="org.best.of.robotics.dsl.smach"
+    forceOverwrite="true" modelName="SmachDSL" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.best.of.robotics.dsl.smach.edit"
+    editorPluginID="org.best.of.robotics.dsl.smach.editor" runtimeVersion="2.8">
+  <genPackages prefix="SmachDSL" basePackage="org.best.of.robotics" disposableProviderFactory="true"
+      ecorePackage="SmachDSL.ecore#/">
+    <genClasses ecoreClass="SmachDSL.ecore#//PrimitivePackage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//PrimitivePackage/statemachines"/>
+    </genClasses>
+    <genClasses ecoreClass="SmachDSL.ecore#//Test">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//Test/ros"/>
+    </genClasses>
+    <genClasses ecoreClass="SmachDSL.ecore#//StateMachine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//StateMachine/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//StateMachine/actionclients"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//StateMachine/serviceclients"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//StateMachine/actionsstates"/>
+    </genClasses>
+    <genClasses ecoreClass="SmachDSL.ecore#//ActionClient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/actionname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionClient/actiontype"/>
+    </genClasses>
+    <genClasses ecoreClass="SmachDSL.ecore#//ServiceClient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ServiceClient/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ServiceClient/servicename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ServiceClient/servicesrv"/>
+    </genClasses>
+    <genClasses ecoreClass="SmachDSL.ecore#//ActionState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//ActionState/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//ActionState/clientname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//ActionState/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="SmachDSL.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SmachDSL.ecore#//Transition/outcome"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SmachDSL.ecore#//Transition/state"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
