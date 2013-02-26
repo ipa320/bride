@@ -1,0 +1,74 @@
+rule BundleToPackage 
+	transform source : Source!Model
+	to target :  Target!PrimitivePackage {
+	for(packagedElement in source.packagedElement)
+	{
+		if(packagedElement.type.name == "StateMachine")
+		{
+			var sm = new Target!StateMachine;
+			var nonspecified_client = 0;
+			sm.name = packagedElement.name;
+			var dummy_client = new Target!ActionClient;
+			dummy_client.name = "TO_BE_SPECIFIED";
+			dummy_client.actionname = "/to_be_specified";
+			dummy_client.actiontype = "ToBeSpecifiedType";
+			sm.actionclients.add(dummy_client);
+			for(reg in packagedElement.region)
+			{
+				for(elem in reg.subvertex)
+				{
+					var state = new Target!ActionState;
+					state.name = elem.name;	
+					state.clientname = dummy_client;
+					sm.actionsstates.add(state);
+				}
+				for(trans in reg.transition)
+				{
+					for(state in sm.actionsstates)
+					{
+						if(trans.source.name == state.name)
+						{
+							var newtrans = new Target!Transition;
+							newtrans.outcome = trans.name;
+							for(ss in sm.actionsstates)
+							{
+								if(ss.name == trans.target.name)
+								{
+									newtrans.state = ss;
+								}
+							}			 
+							state.transitions.add(newtrans);
+						}
+					}
+				}
+			}
+			target.statemachines.add(sm);
+		}
+	}
+	
+	//if (not source.components.isEmpty()) {
+	//	for(component in source.components) {
+	//		var taskContext = new  Target!TaskContext;
+	//		taskContext.name = component.name;
+	//		var psmName : Sequence;
+	//		psmName = component.platformSpecificName.split("::");
+	//		taskContext.namespace = psmName.first();
+	//		taskContext.type = psmName.last();
+			//if (component.ports.isDefined()) {
+			//	for (aPort in component.ports) {
+			//		if (aPort.type == PortType#OUT) {
+			//			var outputPort = new Target!OutputPort;
+			//			outputPort.name = aPort.name;
+			//			taskContext.outputPort.add(outputPort);
+			//		}
+			//		if (aPort.type == PortType#IN) {
+			//			var inputPort = new Target!InputPort;
+			//			inputPort.name = aPort.name;
+			//			taskContext.inputPort.add(inputPort);
+			//		}
+			//	}
+			//}
+	
+		//}
+	//}
+}

@@ -1,0 +1,50 @@
+rule BundleToPackage 
+	transform source : Source!Bundle
+	to target :  Target!Package {
+	
+	target.name = source.name;
+	
+	if (not source.components.isEmpty()) {
+		for(component in source.components) {
+			var node = new  Target!Node;
+			node.name = component.name;
+			if (component.ports.isDefined()) {
+				for (aPort in component.ports) {
+					if (aPort.type == PortType#OUT) {
+						var pub = new Target!Publisher;
+						pub.name = aPort.name;
+						if (aPort.dataType.isDefined()) {
+							pub.msg = aPort.dataType;
+						}
+						node.publisher.add(pub);
+					}
+					if (aPort.type == PortType#IN) {
+						var sub = new Target!Subscriber;
+						sub.name = aPort.name;
+						node.subscriber.add(sub);
+					}
+				}
+			}
+			target.node.add(node);
+	//		var psmName : Sequence;
+	//		psmName = component.platformSpecificName.split("::");
+	//		taskContext.namespace = psmName.first();
+	//		taskContext.type = psmName.last();
+			//if (component.ports.isDefined()) {
+			//	for (aPort in component.ports) {
+			//		if (aPort.type == PortType#OUT) {
+			//			var outputPort = new Target!OutputPort;
+			//			outputPort.name = aPort.name;
+			//			taskContext.outputPort.add(outputPort);
+			//		}
+			//		if (aPort.type == PortType#IN) {
+			//			var inputPort = new Target!InputPort;
+			//			inputPort.name = aPort.name;
+			//			taskContext.inputPort.add(inputPort);
+			//		}
+			//	}
+			//}
+	//		target.taskContext.add(taskContext);
+		}
+	}
+}

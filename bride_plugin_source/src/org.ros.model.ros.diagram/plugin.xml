@@ -237,7 +237,7 @@
             <method name="getType()" value="4001,4002,4003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5009,5008,5001,5002,5003,5004,5005,5006,5007"/>
+            <method name="getType()" value="5008,5007,5001,5002,5003,5004,5005,5006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7002"/>
@@ -632,9 +632,35 @@
    </extension>
 
    
-
-
-
+<extension point="org.eclipse.ui.bindings">
+	<key commandId="org.ros.model.ros.configureNode" sequence="M1+C" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+</extension>
+<extension point="org.eclipse.ui.commands">
+	<category name="Configure" description="Configuring of Nodes." id="org.eclipse.gmf.category.configure"/>
+	<command categoryId="org.eclipse.gmf.category.configure" description="Configures as node" id="org.ros.model.ros.configureNode" name="Configure Node">
+	</command>
+</extension>
+<extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.ros.model.ros.diagram.ui.objectContribution.NodeEditPart1"
+            objectClass="org.ros.model.ros.diagram.edit.parts.NodeEditPart">
+         <menu 
+            id="NodeConfigure" 
+            label="&amp;Configure" 
+            path="additions"> 
+            <separator name="group1"/>
+         </menu>
+         <action
+               class="org.ros.model.ros.diagram.part.ConfigureNodeAction"
+               definitionId="org.ros.model.ros.configureNode"
+               enablesFor="1"
+               id="org.ros.model.ros.popup.ConfigureNodeActionID"
+               label="&amp;Node"
+               menubarPath="NodeConfigure/group1">
+         </action>
+      </objectContribution>                    
+</extension>
 
    <!-- optionally, specify keybindings -->
 </plugin>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?NLS TYPE="org.eclipse.help.toc"?>
-
-<toc label="Tasks" link_to="toc.xml#tasks"> 
-	<topic label="Using the Deployer"  href="html/tasks/usingTheDeployer.html"> 
-	</topic>
- <topic href="html/tasks/mergePackages.html" label="Merging Packages">
- </topic>
-</toc>

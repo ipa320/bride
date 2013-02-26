@@ -16,6 +16,11 @@
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/bool"/>
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/string"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ros.ecore#//StateOutcomes">
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StateOutcomes/succeeded"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StateOutcomes/preempted"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//StateOutcomes/aborted"/>
+    </genEnums>
     <genClasses ecoreClass="ros.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/loopRate"/>
@@ -26,6 +31,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/parameter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/actionserver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/actionclient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/paramSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/statetransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/finalStates"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/name"/>
@@ -85,13 +95,24 @@
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//ActionServer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ActionServer/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ActionServer/ActionType"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//ActionClient">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ActionClient/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//ActionClient/ActionType"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Architecture">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Architecture/packages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//StateTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//StateTransition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//StateTransition/Source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//StateTransition/Target"/>
+    </genClasses>
+    <genClasses ecoreClass="ros.ecore#//State"/>
+    <genClasses ecoreClass="ros.ecore#//FinalState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//FinalState/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

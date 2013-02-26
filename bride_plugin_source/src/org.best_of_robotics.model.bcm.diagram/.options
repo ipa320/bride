@@ -1,7 +1,0 @@
-# Tracing options for the org.best_of_robotics.model.bcm.diagram plug-in
-
-# Common issues
-org.best_of_robotics.model.bcm.diagram/debug=false
-
-# Visual IDs
-org.best_of_robotics.model.bcm.diagram/debug/visualID=false

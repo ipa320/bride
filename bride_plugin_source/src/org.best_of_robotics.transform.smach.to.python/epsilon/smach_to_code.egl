@@ -1,0 +1,13 @@
+[%
+
+	var package : PrimitivePackage := PrimitivePackage.allInstances().at(0);
+	var sms : OrderedSet := package.statemachines;
+	
+	//node
+	for(sm in package.statemachines) {
+		var smachTemplate := TemplateFactory.load('smach.egl');
+		smachTemplate.populate('sm', sm);
+		smachTemplate.generate(sm.name + '_primitive_component.py');
+	
+	}
+%]
