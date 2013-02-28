@@ -212,7 +212,7 @@
           href="../../org.ros.model.ros/model/ros.ecore#//Topic/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/topic"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Architecture/topic"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="ros.gmftool#//@palette/@tools.1/@tools.1"/>
@@ -236,7 +236,7 @@
           href="../../org.ros.model.ros/model/ros.ecore#//Service/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/service"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Architecture/service"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="ros.gmftool#//@palette/@tools.1/@tools.3"/>
@@ -260,7 +260,7 @@
           href="../../org.ros.model.ros/model/ros.ecore#//Action/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/action"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Architecture/action"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="ros.gmftool#//@palette/@tools.1/@tools.2"/>
