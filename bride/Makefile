@@ -28,13 +28,10 @@ include $(shell rospack find mk)/download_unpack_build.mk
 
 installed: $(SOURCE_DIR)/unpacked
 	mv build/eclipse eclipse
-	./installer.py installgmf
-	./installer.py installepsilon
-	./installer.py installcdt
-	./installer.py installbrics
+	./installer.py eclipse_plugins.yaml
 
 update:
-	./installer.py reinstallbrics
+	./installer.py -u eclipse_plugins.yaml
 
 clean:
 	rm -rf $(SOURCE_DIR) $(TARBALL) build
