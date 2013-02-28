@@ -20,6 +20,10 @@ def uninstall(eclipse_repo, eclipse_component):
 	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -uninstallIU " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
 
+def update(eclipse_repo, eclipse_component):
+	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component + " -uninstallIU " + eclipse_component, shell=True)
+	sts = os.waitpid(p.pid, 0)[1]
+
 
 def install_emfatic():
 	eclipse_repo = "http://download.eclipse.org/emfatic/update/"
@@ -35,6 +39,15 @@ if __name__ == "__main__":
 		for repo in toinstall:
 			for package in toinstall[repo]:
 				install(repo, package)
+	elif(len(sys.argv) == 3):
+		if(sys.argv[1] == '-u'):
+			stream = file(sys.argv[2], 'r') 
+			toinstall = yaml.load(stream)
+			for repo in toinstall:
+				for package in toinstall[repo]:
+					update(repo, package)
+		else:
+			print "Usage: installer.py [-u] resource_yaml_file"
 	else:
-		print "Usage: installer.py resource_yaml_file"
+		print "Usage: installer.py [-u] resource_yaml_file"
 		

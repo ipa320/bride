@@ -31,7 +31,7 @@ installed: $(SOURCE_DIR)/unpacked
 	./installer.py eclipse_plugins.yaml
 
 update:
-	./installer.py
+	./installer.py -u eclipse_plugins.yaml
 
 clean:
 	rm -rf $(SOURCE_DIR) $(TARBALL) build
