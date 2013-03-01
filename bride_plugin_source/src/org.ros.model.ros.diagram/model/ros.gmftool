@@ -89,8 +89,8 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Package"
-          description="Creates new ROS Package">
+          title="Component"
+          description="Links a ROS Component into the system">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

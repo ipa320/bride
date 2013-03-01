@@ -61,46 +61,40 @@ public class PackageCreateCommand extends EditElementCommand {
 
 	}
 
-	
-	
-
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		
+
 		//IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("Tatiana");
 		//IFolder filters = project.getFolder("filters");
-		
-		WSFileDialog dialog = new WSFileDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				SWT.SINGLE,
-				"Choose a filter to create new replayable",
-				ResourcesPlugin.getWorkspace().getRoot(),
-				true,
-				new String[]{"ros_package"},
-				null);
+
+		WSFileDialog dialog = new WSFileDialog(PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getShell(), SWT.SINGLE,
+				"Choose a filter to create new replayable", ResourcesPlugin
+						.getWorkspace().getRoot(), true,
+				new String[] { "ros_package", "ros_coordinator" }, null);
 		int result = dialog.open();
-		if(result == WSFileDialog.OK){
-				IResource resource = dialog.getSingleResult();
-				System.out.println(" ######## Selected File " + resource.getFullPath());
-				//Package newElement = RosFactory.eINSTANCE.createPackage();
-				ResourceSet resourceSet = getEditingDomain().getResourceSet();
-				Resource res = resourceSet.getResource(URI.createURI("platform:/resource/" + resource.getFullPath()), true);
-				Package newElement = (Package) res.getContents().get(0);
-				Architecture owner = (Architecture) getElementToEdit();
-				owner.getPackages().add(newElement);
-				
-				System.out.println("Adding new Element to Architecture: " + newElement.toString());
+		if (result == WSFileDialog.OK) {
+			IResource resource = dialog.getSingleResult();
+			System.out.println(" ######## Selected File "
+					+ resource.getFullPath());
+			ResourceSet resourceSet = getEditingDomain().getResourceSet();
+			Resource res = resourceSet.getResource(
+					URI.createURI("platform:/resource/"
+							+ resource.getFullPath()), true);
+			Package newElement = (Package) res.getContents().get(0);
+			Architecture owner = (Architecture) getElementToEdit();
+			owner.getPackages().add(newElement);
 
-				doConfigure(newElement, monitor, info);
+			System.out.println("Adding new Element to Architecture: "
+					+ newElement.toString());
 
-				((CreateElementRequest) getRequest()).setNewElement(newElement);
-				return CommandResult.newOKCommandResult(newElement);
-		}
-		else
+			doConfigure(newElement, monitor, info);
+
+			((CreateElementRequest) getRequest()).setNewElement(newElement);
+			return CommandResult.newOKCommandResult(newElement);
+		} else
 			return null;
-		
-		
-		
+
 	}
 
 	/**
