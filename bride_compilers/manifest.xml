@@ -1,0 +1,14 @@
+<package>
+  <description brief="bride_compilers">
+
+     bride_compilers
+
+  </description>
+  <author>Alexander Bubeck</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bride_compilers</url>
+
+</package>
+
+

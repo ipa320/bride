@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="lib/org.antlr.runtime_3.1.b1_3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.common_2.7.0.v20120127-1122.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.7.0.v20120127-1122.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.commons.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.egl.engine.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.emc.emf.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.eol.engine.jar"/>
+	<classpathentry kind="lib" path="lib/org.ros.model.ros_1.0.0.201206051513.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
