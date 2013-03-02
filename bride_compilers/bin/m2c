@@ -1,1 +1,0 @@
-java -cp $(echo lib/*.jar | tr ' ' ':'):bin/ M2CStandalone

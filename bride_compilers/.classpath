@@ -10,6 +10,7 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.egl.engine.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.emc.emf.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.eol.engine.jar"/>
-	<classpathentry kind="lib" path="lib/org.ros.model.ros_1.0.0.201206051513.jar"/>
+	<classpathentry kind="lib" path="lib/org.best_of_robotics.model.datatypes_1.0.0.201302281342.jar"/>
+	<classpathentry kind="lib" path="lib/org.ros.model.ros_1.0.0.201303022002.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
