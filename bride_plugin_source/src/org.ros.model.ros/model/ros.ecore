@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ros" nsURI="http://ros/1.0" nsPrefix="ros">
-  <eClassifiers xsi:type="ecore:EClass" name="Node">
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="smach.ecore#//SMACHStateMachine">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="loopRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
@@ -23,9 +23,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statetransition" upperBound="-1"
-        eType="#//StateTransition" containment="true"/>
+        eType="ecore:EClass smach.ecore#//SMACHTransition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="finalStates" upperBound="-1"
-        eType="#//FinalState" containment="true"/>
+        eType="ecore:EClass smach.ecore#//FinalState" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -38,8 +38,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rosdep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typesLibrary" lowerBound="1"
-        eType="ecore:EClass ../../org.best_of_robotics.model.datatypes/model/DataTypes.ecore#//TypesLibrary"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -78,7 +76,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="msg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceClient" eSuperTypes="#//State">
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceClient" eSuperTypes="smach.ecore#//SMACHState">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="msg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -96,7 +94,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionClient" eSuperTypes="#//State">
+  <eClassifiers xsi:type="ecore:EClass" name="ActionClient" eSuperTypes="smach.ecore#//SMACHState">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -116,21 +114,5 @@
     <eLiterals name="double" value="1" literal="double"/>
     <eLiterals name="bool" value="2" literal="bool"/>
     <eLiterals name="string" value="3" literal="string"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="StateOutcomes">
-    <eLiterals name="succeeded"/>
-    <eLiterals name="preempted" value="1"/>
-    <eLiterals name="aborted" value="2" literal="aborted"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StateTransition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//StateOutcomes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" lowerBound="1"
-        eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Target" lowerBound="1"
-        eType="#//State"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//StateOutcomes"/>
   </eClassifiers>
 </ecore:EPackage>
