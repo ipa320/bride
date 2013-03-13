@@ -73,7 +73,7 @@
             href="../../org.ros.model.ros/model/ros.ecore#//Node/finalStates"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.ros.model.ros/model/ros.ecore#//FinalState"/>
+              href="../../org.ros.model.ros/model/smach.ecore#//FinalState"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.4"/>
@@ -90,13 +90,13 @@
   </nodes>
   <links>
     <domainMetaElement
-        href="../../org.ros.model.ros/model/ros.ecore#//StateTransition"/>
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition"/>
     <labelMappings
         xsi:type="gmfmap:FeatureLabelMapping">
       <diagramLabel
           href="ros_coordinator.gmfgraph#TransitionName"/>
       <features
-          href="../../org.ros.model.ros/model/ros.ecore#//StateTransition/name"/>
+          href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/name"/>
     </labelMappings>
     <containmentFeature
         href="../../org.ros.model.ros/model/ros.ecore#//Node/statetransition"/>
@@ -107,10 +107,10 @@
         href="ros_coordinator.gmfgraph#Transition"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
-        href="../../org.ros.model.ros/model/ros.ecore#//StateTransition/Source"/>
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/Source"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../../org.ros.model.ros/model/ros.ecore#//StateTransition/Target"/>
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/Target"/>
   </links>
   <diagram>
     <diagramCanvas

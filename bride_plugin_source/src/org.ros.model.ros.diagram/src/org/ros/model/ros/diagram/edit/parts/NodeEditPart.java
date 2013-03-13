@@ -174,7 +174,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof ActionServerEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NORTH);
+					PositionConstants.WEST);
 			getBorderedFigure().getBorderItemContainer()
 					.add(((ActionServerEditPart) childEditPart).getFigure(),
 							locator);
@@ -403,7 +403,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public class NodeFigure2 extends RoundedRectangle {
 		public static final int BLUR_SHADOW_WIDTH = 5;
-		
+
 		@Override
 		public void paintFigure(Graphics graphics) {
 			drawBlurredShadow(graphics);
@@ -439,7 +439,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 
 			graphics.popState();
 		}
-		
+
 		/**
 		 * @generated
 		 */

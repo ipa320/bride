@@ -40,7 +40,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
@@ -314,7 +314,7 @@
             <param name="semanticHint" value="3002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://ros/1.0">
+      <metamodel nsURI="http://smach/1.0">
          <metamodelType
                id="org.ros.model.ros_coordinator.diagram.FinalState_3003"
                name="%metatype.name.FinalState_3003"
@@ -324,12 +324,12 @@
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://ros/1.0">
+      <metamodel nsURI="http://smach/1.0">
          <metamodelType
-               id="org.ros.model.ros_coordinator.diagram.StateTransition_4001"
-               name="%metatype.name.StateTransition_4001"
+               id="org.ros.model.ros_coordinator.diagram.SMACHTransition_4001"
+               name="%metatype.name.SMACHTransition_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="StateTransition"
+               eclass="SMACHTransition"
                edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.StateTransitionEditHelper">
             <param name="semanticHint" value="4001"/>
          </metamodelType>
@@ -351,7 +351,7 @@
          <elementType ref="org.ros.model.ros_coordinator.diagram.ActionClient_3001"/>
          <elementType ref="org.ros.model.ros_coordinator.diagram.ServiceClient_3002"/>
          <elementType ref="org.ros.model.ros_coordinator.diagram.FinalState_3003"/>
-         <elementType ref="org.ros.model.ros_coordinator.diagram.StateTransition_4001"/>
+         <elementType ref="org.ros.model.ros_coordinator.diagram.SMACHTransition_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

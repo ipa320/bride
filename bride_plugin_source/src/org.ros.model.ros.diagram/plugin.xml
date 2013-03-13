@@ -56,10 +56,10 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <category
-      	id="org.eclipse.ui.BRIDE"
-      	name="BRIDE"></category>
+          id="org.eclipse.ui.BRIDE"
+          name="BRIDE"></category>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"

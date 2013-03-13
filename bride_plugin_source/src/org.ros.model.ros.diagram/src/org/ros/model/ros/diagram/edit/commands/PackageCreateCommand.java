@@ -70,8 +70,8 @@ public class PackageCreateCommand extends EditElementCommand {
 		WSFileDialog dialog = new WSFileDialog(PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getShell(), SWT.SINGLE,
 				"Choose a filter to create new replayable", ResourcesPlugin
-						.getWorkspace().getRoot(), true,
-				new String[] { "ros_package", "ros_coordinator" }, null);
+						.getWorkspace().getRoot(), true, new String[] {
+						"ros_package", "ros_coordinator" }, null);
 		int result = dialog.open();
 		if (result == WSFileDialog.OK) {
 			IResource resource = dialog.getSingleResult();
@@ -81,6 +81,11 @@ public class PackageCreateCommand extends EditElementCommand {
 			Resource res = resourceSet.getResource(
 					URI.createURI("platform:/resource/"
 							+ resource.getFullPath()), true);
+			if (res.getContents().size() > 1) {
+				for (int i = 0; i < res.getContents().size(); i++)
+					System.out.println("Contents:"
+							+ res.getContents().get(i).toString());
+			}
 			Package newElement = (Package) res.getContents().get(0);
 			Architecture owner = (Architecture) getElementToEdit();
 			owner.getPackages().add(newElement);

@@ -38,8 +38,8 @@
     </descriptors>
     <descriptors name="TransitionFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TransitionFigure" lineWidth="2" targetDecoration="//@figures.0/@descriptors.3/@actualFigure/@children.1">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" green="180"/>
-        <backgroundColor xsi:type="gmfgraph:RGBColor" green="180"/>
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="180" green="180" blue="180"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="180" green="180" blue="180"/>
         <children xsi:type="gmfgraph:Label" name="TransitionNameFigure" text="&lt;..>"/>
         <children xsi:type="gmfgraph:PolylineDecoration" name="OpenArrow"/>
       </actualFigure>

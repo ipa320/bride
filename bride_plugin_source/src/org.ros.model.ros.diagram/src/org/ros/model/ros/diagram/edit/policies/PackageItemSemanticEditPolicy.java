@@ -40,7 +40,7 @@ public class PackageItemSemanticEditPolicy extends
 		}
 		return super.getSemanticCommand(request);
 	}
-	
+
 	/**
 	 * @generated
 	 */
