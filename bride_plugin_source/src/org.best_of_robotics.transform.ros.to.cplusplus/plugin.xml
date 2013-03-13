@@ -19,11 +19,6 @@
       </command>
       <command
             categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
-            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
-            name="Generate Ros Messages">
-      </command>
-      <command
-            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
             id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
             name="Generate Launch File for ros system">
       </command>
@@ -43,10 +38,6 @@
       <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosPythonTransform"
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformPython">
-      </handler>
-      <handler
-            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosMsgsTransform"
-            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs">
       </handler>
       <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosLaunchTransform"
@@ -86,10 +77,6 @@
             </separator>
             <command
                   commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
                   style="push">
             </command>
          </menu>

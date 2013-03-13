@@ -12,10 +12,17 @@
       <accessors accessor="getFigurePublisherNameFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="ActionServerFigure">
-      <actualFigure xsi:type="gmfgraph:Rectangle" name="ActionServerFigure">
-        <layout xsi:type="gmfgraph:FlowLayout"/>
-        <backgroundColor xsi:type="gmfgraph:RGBColor" green="140"/>
+      <actualFigure xsi:type="gmfgraph:ScalablePolygon" name="ActionServerFigure">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="22" green="166" blue="30"/>
+        <preferredSize dx="60" dy="20"/>
+        <insets top="2" left="2" bottom="2" right="2"/>
         <children xsi:type="gmfgraph:Label" name="ActionServerNameFigure" text="&lt;...>"/>
+        <template/>
+        <template x="30"/>
+        <template x="40" y="20"/>
+        <template x="30" y="40"/>
+        <template y="40"/>
       </actualFigure>
       <accessors accessor="getFigureActionServerNameFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
@@ -36,10 +43,17 @@
       <accessors accessor="getFigureServiceClientNameFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="ActionClientFigure">
-      <actualFigure xsi:type="gmfgraph:Rectangle" name="ActionClientFigure">
-        <layout xsi:type="gmfgraph:FlowLayout"/>
-        <backgroundColor xsi:type="gmfgraph:RGBColor" green="240"/>
+      <actualFigure xsi:type="gmfgraph:ScalablePolygon" name="ActionClientFigure">
+        <layout xsi:type="gmfgraph:FlowLayout" vertical="true" majorAlignment="CENTER" minorAlignment="CENTER"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="22" green="166" blue="30"/>
+        <preferredSize dx="60" dy="20"/>
+        <insets top="2" left="2" bottom="2" right="2"/>
         <children xsi:type="gmfgraph:Label" name="ActionClientNameFigure" text="&lt;...>"/>
+        <template/>
+        <template x="40"/>
+        <template x="40" y="40"/>
+        <template y="40"/>
+        <template x="10" y="20"/>
       </actualFigure>
       <accessors accessor="getFigureActionClientNameFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
@@ -54,9 +68,12 @@
     </descriptors>
     <descriptors name="ActionFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ActionFigure" lineWidth="2" lineKind="LINE_DASH">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" green="180"/>
-        <backgroundColor xsi:type="gmfgraph:RGBColor" green="180"/>
-        <children xsi:type="gmfgraph:Label" name="ActionNameFigure" text="&lt;...>"/>
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="22" green="166" blue="30"/>
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="22" green="166" blue="30"/>
+        <children xsi:type="gmfgraph:Label" name="ActionNameFigure" text="&lt;...>">
+          <foregroundColor xsi:type="gmfgraph:RGBColor" red="22" green="166" blue="30"/>
+          <backgroundColor xsi:type="gmfgraph:RGBColor" red="22" green="166" blue="30"/>
+        </children>
       </actualFigure>
       <accessors accessor="getFigureActionNameFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
     </descriptors>
@@ -122,7 +139,7 @@
   <nodes name="ServiceClient" figure="ServiceClientFigure" affixedParentSide="WEST"/>
   <nodes name="Parameter" figure="ParameterFigure"/>
   <nodes name="Publisher" figure="Publisher2Figure" affixedParentSide="EAST"/>
-  <nodes name="ActionServer" figure="ActionServerFigure" affixedParentSide="NORTH"/>
+  <nodes name="ActionServer" figure="ActionServerFigure" affixedParentSide="WEST"/>
   <nodes name="ActionClient" figure="ActionClientFigure" affixedParentSide="SOUTH"/>
   <connections name="Topic" figure="TopicFigure"/>
   <connections name="Action" figure="ActionFigure"/>
@@ -130,15 +147,15 @@
   <compartments name="Parameters" figure="NodeFigure2" collapsible="true" needsTitle="true" accessor="//@figures.0/@descriptors.9/@accessors.1"/>
   <compartments name="PackageContentCompartment" figure="PackageFigure" collapsible="true" accessor="//@figures.0/@descriptors.11/@accessors.1"/>
   <labels name="NodeName" figure="NodeFigure2" elementIcon="false" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
-  <labels name="ActionServerName" figure="ActionServerFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="ActionServerName" figure="ActionServerFigure" elementIcon="false" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels name="ServiceServerName" figure="ServiceServerFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
   <labels name="ServiceClientName" figure="ServiceClientFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
-  <labels name="ActionClientName" figure="ActionClientFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="ActionClientName" figure="ActionClientFigure" elementIcon="false" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels name="PublisherName" figure="NodeFigure2" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels name="SubscriberName" figure="Subscriber2Figure" accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels name="TopicName" figure="TopicFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels name="ServiceName" figure="ServiceFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
-  <labels name="ActionName" figure="ActionFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="ActionName" figure="ActionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels name="ParameterName" figure="ParameterFigure"/>
   <labels name="PackageName" figure="PackageFigure" accessor="//@figures.0/@descriptors.11/@accessors.0"/>
 </gmfgraph:Canvas>

@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.ros.model.ros.RosPackage;
 import org.ros.model.ros.ServiceClient;
+import org.ros.model.smach.provider.SMACHStateItemProvider;
 import org.ros.model.ros.ServiceServer;
 
 /**
@@ -39,7 +40,7 @@ import org.ros.model.ros.ServiceServer;
  * @generated
  */
 public class ServiceClientItemProvider
-	extends ItemProviderAdapter
+	extends SMACHStateItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

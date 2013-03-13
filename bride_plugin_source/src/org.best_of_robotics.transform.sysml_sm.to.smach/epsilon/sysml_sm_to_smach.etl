@@ -1,48 +1,63 @@
+operation Any getStateOutcome() {
+	if(self.name == "succeeded")
+		return Target!StateOutcomes#succeeded;
+	if(self.name == "aborted")
+		return Target!StateOutcomes#aborted;
+	if(self.name == "preempted")
+		return Target!StateOutcomes#preempted;
+	return Target!StateOutcomes#succeeded;
+}
+
 rule BundleToPackage 
 	transform source : Source!Model
-	to target :  Target!PrimitivePackage {
+	to target :  Target!Package {
 	for(packagedElement in source.packagedElement)
 	{
 		if(packagedElement.type.name == "StateMachine")
 		{
-			var sm = new Target!StateMachine;
+			var sm = new Target!Node;
 			var nonspecified_client = 0;
 			sm.name = packagedElement.name;
-			var dummy_client = new Target!ActionClient;
-			dummy_client.name = "TO_BE_SPECIFIED";
-			dummy_client.actionname = "/to_be_specified";
-			dummy_client.actiontype = "ToBeSpecifiedType";
-			sm.actionclients.add(dummy_client);
 			for(reg in packagedElement.region)
 			{
 				for(elem in reg.subvertex)
 				{
-					var state = new Target!ActionState;
-					state.name = elem.name;	
-					state.clientname = dummy_client;
-					sm.actionsstates.add(state);
+					if(elem.type.name == "State")
+					{
+						var state = new Target!ActionClient;
+						state.name = elem.name;
+						state.ActionType = elem.type.name.toString();
+						sm.actionclient.add(state);
+					}
+					if(elem.type.name == "FinalState")
+					{
+						var fstate = new Target!FinalState;
+						fstate.type = elem.getStateOutcome();
+						sm.finalStates.add(fstate);
+					}
 				}
 				for(trans in reg.transition)
 				{
-					for(state in sm.actionsstates)
+					for(state in sm.actionclient)
 					{
 						if(trans.source.name == state.name)
 						{
-							var newtrans = new Target!Transition;
-							newtrans.outcome = trans.name;
-							for(ss in sm.actionsstates)
+							var newtrans = new Target!StateTransition;
+							newtrans.name = trans.getStateOutcome();
+							newtrans.Source = state;
+							for(ss in sm.actionclient)
 							{
 								if(ss.name == trans.target.name)
 								{
-									newtrans.state = ss;
+									newtrans.Target = ss;
 								}
 							}			 
-							state.transitions.add(newtrans);
+							sm.statetransition.add(newtrans);
 						}
 					}
 				}
 			}
-			target.statemachines.add(sm);
+			target.node.add(sm);
 		}
 	}
 	

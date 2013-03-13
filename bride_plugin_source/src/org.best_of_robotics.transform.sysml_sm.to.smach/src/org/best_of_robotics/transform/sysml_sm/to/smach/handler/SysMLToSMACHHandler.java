@@ -31,7 +31,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.xtext.resource.XtextResource;
-import org.best.of.robotics.SmachDSLStandaloneSetup;
+//import org.best.of.robotics.SmachDSLStandaloneSetup;
 import org.eclipse.ui.IFileEditorInput;
 
 import com.google.inject.Injector;
@@ -52,7 +52,7 @@ public class SysMLToSMACHHandler extends AbstractHandler {
             if (input instanceof IFileEditorInput) {
             	sourceModelFilePath = ((IFileEditorInput)input).getFile();
             	System.out.println("File from editor: " + sourceModelFilePath.getLocation().toOSString());
-            	//System.out.println("getFileExtension: " + sourceModelFilePath.getFileExtension().toString().compareTo("di"));
+            	System.out.println("getFileExtension: " + sourceModelFilePath.getFileExtension().toString().compareTo("di"));
             	if(sourceModelFilePath.getFileExtension().toString().compareTo("di")!=0)
             	{
             		sourceModelFilePath = null;
@@ -79,9 +79,9 @@ public class SysMLToSMACHHandler extends AbstractHandler {
 		etlTransformParameter.setSourceName("Source");
 		etlTransformParameter.setSourceReadOnLoad(true);
 		etlTransformParameter.setSourceStoreOnDisposal(false);
-		etlTransformParameter.setTargetMetaModelURI("http://www.best.org/of/robotics/SmachDSL");
+		etlTransformParameter.setTargetMetaModelURI("http://ros/1.0");
 		
-		String targetModelFilePath = sourceModelFilePath.getLocation().removeFileExtension().toOSString() + ".smach_xmi";
+		String targetModelFilePath = sourceModelFilePath.getLocation().removeFileExtension().toOSString() + "gen.ros_coordinator";
 		
 		etlTransformParameter.setTargetModelFilePath(targetModelFilePath);
 		etlTransformParameter.setTargetName("Target");
@@ -97,7 +97,7 @@ public class SysMLToSMACHHandler extends AbstractHandler {
 		
 				
 		//now convert XMI to DSL file
-		Injector inj = new SmachDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		/*Injector inj = new SmachDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		ResourceSet resourceSet = inj.getInstance(ResourceSet.class);
 		System.out.println("loading");
 		XMIResource xmi_resource = (XMIResource) resourceSet.getResource(URI.createURI("file://"+targetModelFilePath), true);
@@ -117,9 +117,8 @@ public class SysMLToSMACHHandler extends AbstractHandler {
 			System.out.println("Didnt Work");
 			e.printStackTrace();
 		}
-		
+		*/
 		//now create diagram file
-		//TODO
 		
 		return null;
 	}

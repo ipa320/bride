@@ -1,0 +1,14 @@
+/**
+ * Ros messages package
+ */
+
+[%
+	
+	var package : Package := Package.allInstances().at(0);
+	
+	//dataTypesRosMsgs
+	var rosMsgsTemplate := TemplateFactory.load('rosTypesMsgs.egl');
+	rosMsgsTemplate.populate('typesLibrary', package.typesLibrary);
+	rosMsgsTemplate.process();
+	
+%]

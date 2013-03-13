@@ -21,7 +21,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="ros.gmftool#//@palette/@tools.1/@tools.0"/>
+          href="ros.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="ros.gmfgraph#Package"/>
       <children
@@ -39,9 +39,6 @@
             <features
                 href="../../org.ros.model.ros/model/ros.ecore#//Node/name"/>
           </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="ros.gmftool#//@palette/@tools.0/@tools.0"/>
           <diagramNode
               href="ros.gmfgraph#Node"/>
           <children
@@ -59,9 +56,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//Parameter/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.5"/>
               <diagramNode
                   href="ros.gmfgraph#ParameterName"/>
             </ownedChild>
@@ -79,9 +73,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//Publisher/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.1"/>
               <diagramNode
                   href="ros.gmfgraph#Publisher"/>
             </ownedChild>
@@ -99,9 +90,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//Subscriber/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.2"/>
               <diagramNode
                   href="ros.gmfgraph#Subscriber"/>
             </ownedChild>
@@ -119,9 +107,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//ActionServer/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.6"/>
               <diagramNode
                   href="ros.gmfgraph#ActionServer"/>
             </ownedChild>
@@ -139,9 +124,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//ActionClient/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.7"/>
               <diagramNode
                   href="ros.gmfgraph#ActionClient"/>
             </ownedChild>
@@ -159,9 +141,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//ServiceServer/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.3"/>
               <diagramNode
                   href="ros.gmfgraph#ServiceServer"/>
             </ownedChild>
@@ -179,9 +158,6 @@
                 <features
                     href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient/name"/>
               </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="ros.gmftool#//@palette/@tools.0/@tools.4"/>
               <diagramNode
                   href="ros.gmfgraph#ServiceClient"/>
             </ownedChild>
@@ -212,10 +188,10 @@
           href="../../org.ros.model.ros/model/ros.ecore#//Topic/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/topic"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Architecture/topic"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="ros.gmftool#//@palette/@tools.1/@tools.1"/>
+        href="ros.gmftool#//@palette/@tools.0/@tools.1"/>
     <diagramLink
         href="ros.gmfgraph#Topic"/>
     <sourceMetaFeature
@@ -236,10 +212,10 @@
           href="../../org.ros.model.ros/model/ros.ecore#//Service/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/service"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Architecture/service"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="ros.gmftool#//@palette/@tools.1/@tools.3"/>
+        href="ros.gmftool#//@palette/@tools.0/@tools.3"/>
     <diagramLink
         href="ros.gmfgraph#Service"/>
     <sourceMetaFeature
@@ -260,10 +236,10 @@
           href="../../org.ros.model.ros/model/ros.ecore#//Action/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Package/action"/>
+        href="../../org.ros.model.ros/model/ros.ecore#//Architecture/action"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="ros.gmftool#//@palette/@tools.1/@tools.2"/>
+        href="ros.gmftool#//@palette/@tools.0/@tools.2"/>
     <diagramLink
         href="ros.gmfgraph#Action"/>
     <sourceMetaFeature
