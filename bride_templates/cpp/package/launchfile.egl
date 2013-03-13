@@ -1,0 +1,49 @@
+<launch>
+[%=out.startPreserve("<!--", "-->", "additional custom Launchfile statements in the beginning", true)%]
+[%=out.stopPreserve()%]
+  
+
+[%
+for(package in architecture.packages) {
+%]
+[%
+for(node in package.node) {
+%]
+	[% if(node.paramSource.isDefined()) {%]
+	<rosparam command="load" ns="[%=node.name%]" file="[%=node.paramSource%]" />
+	[%}%]
+	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" [% if(node.args.isDefined()) {%] args="[%=node.args%]" [%}%][% if(node.namespace.isDefined()) {%] ns="[%=node.namespace%]"[%}%] output="screen">
+	[%
+	for(p in architecture.packages) {
+		for(topic in p.topic) {
+	if(node.publisher.contains(topic.publisher))
+	{
+%] 		<remap from="[%=topic.publisher.name%]" to="[%=topic.name%]"/> 
+[%	}
+	if(node.subscriber.contains(topic.subscriber))
+	{ 
+%]		<remap from="[%=topic.subscriber.name%]" to="[%=topic.name%]"/>
+[%  
+	} 
+		}
+		}
+	if(not node.paramSource.isDefined()) {
+	for(param in node.parameter)
+	{
+%]
+		<param name="[%=param.name%]" value="[%=param.value%]"/>
+[%
+	}}  %]
+	</node>
+	
+[%
+}
+}
+%]
+
+[%=out.startPreserve("<!--", "-->", "additional custom Launchfile statements in the end of launch file", true)%]
+[%=out.stopPreserve()%]
+
+</launch>
+
+

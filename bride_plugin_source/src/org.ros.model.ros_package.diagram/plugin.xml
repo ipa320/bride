@@ -42,33 +42,18 @@
 
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="org.eclipse.ui.BRIDE"
   	     class="org.ros.model.ros_package.diagram.part.RosCreationWizard"
   	     id="org.ros.model.ros_package.diagram.part.RosCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
-      <?gmfgen generated="true"?>
-      <objectContribution
-            id="org.ros.model.ros_package.diagram.InitDiagram"
-            nameFilter="*.ros_package"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="org.ros.model.ros_package.diagram.part.RosInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="org.ros.model.ros_package.diagram.InitDiagramAction">
-         </action>
-      </objectContribution>
-   </extension>
-	
+   	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
@@ -86,16 +71,6 @@
                <GlobalActionId actionId="save">
                </GlobalActionId>
             </ElementType>        
-         </ViewId>
-      </GlobalActionHandlerProvider>
-      <GlobalActionHandlerProvider
-         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
-         id="RosPackagePresentationIDE">
-         <Priority name="Lowest"/>
-         <ViewId id="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID">
-            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
-               <GlobalActionId actionId="bookmark"/>
-            </ElementType>
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
@@ -209,7 +184,6 @@
             class="org.ros.model.ros_package.diagram.sheet.RosPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
@@ -397,129 +371,10 @@
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
-	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
-      <?gmfgen generated="true"?>
-       <propertyTester
-           id="org.ros.model.ros_package.diagram.URIEditorInputPropertyTester"
-           type="org.eclipse.emf.common.ui.URIEditorInput"
-           namespace="org.ros.model.ros_package.diagram"
-           properties="isURIEditorInput"
-           class="org.ros.model.ros_package.diagram.part.RosUriEditorInputTester">
-       </propertyTester>
-   </extension>
-
-	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
-      <?gmfgen generated="true"?>
-      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-         <includes>
-            <contentExtension pattern="org.ros.model.ros_package.diagram.resourceContent"/>
-			<contentExtension pattern="org.ros.model.ros_package.diagram.domainResourceContent"/>
-            <contentExtension pattern="org.ros.model.ros_package.diagram.navigatorLinkHelper"/>
-         </includes>
-      </viewerContentBinding>
-      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-         <includes>
-            <actionExtension pattern="org.ros.model.ros_package.diagram.navigatorActionProvider"/>
-         </includes>
-      </viewerActionBinding>
-   </extension>
-
-   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
-      <?gmfgen generated="true"?>
-      <navigatorContent
-            id="org.ros.model.ros_package.diagram.resourceContent" 
-            name="%navigatorContentName" 
-            priority="normal" 
-            contentProvider="org.ros.model.ros_package.diagram.navigator.RosNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros_package.diagram.navigator.RosNavigatorLabelProvider"
-            icon="icons/obj16/RosDiagramFile.gif"
-            activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros_package_diagram"/>
-               </and>
-               <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
-           	      <test property="org.ros.model.ros_package.diagram.isShortcut"/>
-           	   </adapt>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <or>
-         	   <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
-           	      <test property="org.ros.model.ros_package.diagram.isShortcut"/>
-           	   </adapt>
-            </or>
-         </possibleChildren>
-         <commonSorter 
-               id="org.ros.model.ros_package.diagram.navigatorSorter" 
-               class="org.ros.model.ros_package.diagram.navigator.RosNavigatorSorter">
-            <parentExpression>
-               <or>
-	              <and>
-    	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="ros_package_diagram"/>
-                  </and>
-                  <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-               </or>
-            </parentExpression>
-         </commonSorter>
-      </navigatorContent>
-      <navigatorContent
-            id="org.ros.model.ros_package.diagram.domainResourceContent" 
-            name="%domainNavigatorContentName" 
-            priority="normal" 
-            contentProvider="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorLabelProvider"
-            icon="icons/obj16/RosDiagramFile.gif"
-            activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros_package"/>
-               </and>
-               <instanceof value="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorItem"/>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <instanceof value="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorItem"/>
-         </possibleChildren>
-      </navigatorContent>
-      <actionProvider
-            id="org.ros.model.ros_package.diagram.navigatorActionProvider"
-            class="org.ros.model.ros_package.diagram.navigator.RosNavigatorActionProvider">
-         <enablement>
-            <or>
-               <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
-           	      <test property="org.ros.model.ros_package.diagram.isShortcut"/>
-           	   </adapt>
-            </or>
-         </enablement>
-      </actionProvider>
-   </extension>
-   
-	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
-      <?gmfgen generated="true"?>
-      <linkHelper
-            id="org.ros.model.ros_package.diagram.navigatorLinkHelper"
-            class="org.ros.model.ros_package.diagram.navigator.RosNavigatorLinkHelper">
-         <editorInputEnablement>
-            <and>
-               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
-               <test property="org.ros.model.ros_package.diagram.isURIEditorInput"/>
-            </and>
-         </editorInputEnablement>
-         <selectionEnablement>
-            <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-         </selectionEnablement>
-      </linkHelper>
-   </extension>
-   <extension point="org.eclipse.ui.commands" id="update-cmd">
+	   
+	   
+      
+	      <extension point="org.eclipse.ui.commands" id="update-cmd">
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
@@ -591,16 +446,98 @@
       </decoratorProvider>
    </extension>
 
-<extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isShortcut">
+<extension point="org.eclipse.ui.actionSets" id="init-diagram-action">
       <?gmfgen generated="true"?>
-       <propertyTester
-           id="org.ros.model.ros_package.diagram.ShortcutPropertyTester"
-           type="org.eclipse.gmf.runtime.notation.View"
-           namespace="org.ros.model.ros_package.diagram"
-           properties="isShortcut"
-           class="org.ros.model.ros_package.diagram.part.RosShortcutPropertyTester">
-       </propertyTester>
+      <actionSet
+            label="%initDiagramActionLabel"
+            visible="true"
+            id="org.ros.model.ros_package.diagram.InitDiagram">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.ros.model.ros_package.diagram.part.RosInitDiagramFileAction"
+               menubarPath="file/additions"
+               id="org.ros.model.ros_package.diagram.InitDiagramAction">
+         </action>
+      </actionSet>
    </extension>
+
+<extension id="RosPackageApplication" point="org.eclipse.core.runtime.applications">
+      <?gmfgen generated="true"?>
+      <application>
+         <run class="org.ros.model.ros_package.diagram.application.RosApplication"/>
+      </application>
+   </extension>
+
+<extension point="org.eclipse.ui.perspectives" id="rcp-perspective">
+      <?gmfgen generated="true"?>
+      <perspective
+            id="org.ros.model.ros_package.diagram.RosPackagePerspective"
+            name="%perspectiveName"
+            class="org.ros.model.ros_package.diagram.application.DiagramEditorPerspective">
+      </perspective>
+   </extension>
+
+<extension point="org.eclipse.ui.commands" id="rcp-menu-commands">
+      <?gmfgen generated="true"?>
+      <command
+            name="%openURIActionLabel"
+            description="%openURIActionDescription"
+            categoryId="org.eclipse.ui.category.file"
+            id="org.ros.model.ros_package.diagram.OpenURICommand"/>  
+      <command
+            name="%openActionLabel"
+            description="%openActionDescription"
+            categoryId="org.eclipse.ui.category.file"
+            id="org.ros.model.ros_package.diagram.OpenCommand"/>  
+   </extension>
+
+<extension point="org.eclipse.ui.bindings" id="rcp-command-bindings">
+      <?gmfgen generated="true"?>
+      <key
+            commandId="org.ros.model.ros_package.diagram.OpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="org.ros.model.ros_package.diagram.OpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+<extension point="org.eclipse.ui.actionSets" id="rcp-actions">
+      <?gmfgen generated="true"?>
+      <actionSet
+            label="%applicationActionSetLabel"
+            visible="true"
+            id="org.ros.model.ros_package.diagram.ActionSet">
+         <action
+               label="%newDiagramActionLabel"
+               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$NewDiagramAction"
+               menubarPath="file/new/additions"
+               id="org.ros.model.ros_package.diagram.NewDiagramAction">
+         </action>
+         <action
+               label="%aboutActionLabel"
+               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="org.ros.model.ros_package.diagram.AboutAction">
+         </action>
+         <action
+               label="%openURIActionLabel"
+               definitionId="org.ros.model.ros_package.diagram.OpenURICommand"
+               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="org.ros.model.ros_package.diagram.OpenURIAction">
+         </action>
+         <action
+               label="%openActionLabel"
+               definitionId="org.ros.model.ros_package.diagram.OpenCommand"
+               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="org.ros.model.ros_package.diagram.OpenAction">
+         </action>
+      </actionSet>
+   </extension>
+
 
 
    <!-- optionally, specify keybindings -->
