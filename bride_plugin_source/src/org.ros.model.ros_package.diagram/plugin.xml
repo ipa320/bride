@@ -74,6 +74,16 @@
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="RosPackagePresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
             id="RosPackageRender">
          <Priority name="Lowest"/>
@@ -446,97 +456,27 @@
       </decoratorProvider>
    </extension>
 
-<extension point="org.eclipse.ui.actionSets" id="init-diagram-action">
+
+
+
+
+
+<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
       <?gmfgen generated="true"?>
-      <actionSet
-            label="%initDiagramActionLabel"
-            visible="true"
-            id="org.ros.model.ros_package.diagram.InitDiagram">
+      <objectContribution
+            id="org.ros.model.ros_package.diagram.InitDiagram"
+            nameFilter="*.ros_package"
+            objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
                class="org.ros.model.ros_package.diagram.part.RosInitDiagramFileAction"
-               menubarPath="file/additions"
+               menubarPath="additions"
+               enablesFor="1"
                id="org.ros.model.ros_package.diagram.InitDiagramAction">
          </action>
-      </actionSet>
+      </objectContribution>
    </extension>
 
-<extension id="RosPackageApplication" point="org.eclipse.core.runtime.applications">
-      <?gmfgen generated="true"?>
-      <application>
-         <run class="org.ros.model.ros_package.diagram.application.RosApplication"/>
-      </application>
-   </extension>
-
-<extension point="org.eclipse.ui.perspectives" id="rcp-perspective">
-      <?gmfgen generated="true"?>
-      <perspective
-            id="org.ros.model.ros_package.diagram.RosPackagePerspective"
-            name="%perspectiveName"
-            class="org.ros.model.ros_package.diagram.application.DiagramEditorPerspective">
-      </perspective>
-   </extension>
-
-<extension point="org.eclipse.ui.commands" id="rcp-menu-commands">
-      <?gmfgen generated="true"?>
-      <command
-            name="%openURIActionLabel"
-            description="%openURIActionDescription"
-            categoryId="org.eclipse.ui.category.file"
-            id="org.ros.model.ros_package.diagram.OpenURICommand"/>  
-      <command
-            name="%openActionLabel"
-            description="%openActionDescription"
-            categoryId="org.eclipse.ui.category.file"
-            id="org.ros.model.ros_package.diagram.OpenCommand"/>  
-   </extension>
-
-<extension point="org.eclipse.ui.bindings" id="rcp-command-bindings">
-      <?gmfgen generated="true"?>
-      <key
-            commandId="org.ros.model.ros_package.diagram.OpenURICommand"
-            sequence="M1+U"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            commandId="org.ros.model.ros_package.diagram.OpenCommand"
-            sequence="M1+O"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-   </extension>
-
-<extension point="org.eclipse.ui.actionSets" id="rcp-actions">
-      <?gmfgen generated="true"?>
-      <actionSet
-            label="%applicationActionSetLabel"
-            visible="true"
-            id="org.ros.model.ros_package.diagram.ActionSet">
-         <action
-               label="%newDiagramActionLabel"
-               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$NewDiagramAction"
-               menubarPath="file/new/additions"
-               id="org.ros.model.ros_package.diagram.NewDiagramAction">
-         </action>
-         <action
-               label="%aboutActionLabel"
-               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$AboutAction"
-               menubarPath="help/additions"
-               id="org.ros.model.ros_package.diagram.AboutAction">
-         </action>
-         <action
-               label="%openURIActionLabel"
-               definitionId="org.ros.model.ros_package.diagram.OpenURICommand"
-               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$OpenURIAction"
-               menubarPath="file/additions"
-               id="org.ros.model.ros_package.diagram.OpenURIAction">
-         </action>
-         <action
-               label="%openActionLabel"
-               definitionId="org.ros.model.ros_package.diagram.OpenCommand"
-               class="org.ros.model.ros_package.diagram.application.DiagramEditorActionBarAdvisor$OpenAction"
-               menubarPath="file/additions"
-               id="org.ros.model.ros_package.diagram.OpenAction">
-         </action>
-      </actionSet>
-   </extension>
 
 
 
