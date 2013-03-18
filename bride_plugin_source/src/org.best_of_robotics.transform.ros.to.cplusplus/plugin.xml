@@ -86,7 +86,7 @@
    <extension
          point="org.eclipse.epsilon.common.dt.tool">
       <tool
-            class="org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool"
+            class="org.best_of_robotics.transform.ros.to.cplusplus.CHModTool"
             defaultName="CHModTool">
       </tool>
    </extension>
