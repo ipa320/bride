@@ -3,12 +3,12 @@
 	var package : Package := Package.allInstances().at(0);
 	var s : OrderedSet := package.node;
 	
-	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
+	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.CHModTool");
 
 	//node
 	for(node in package.node) {
 		//var nodeHeaderTemplate := TemplateFactory.load('nodeHeader.egl');
-		var sourceTemplate := TemplateFactory.load('python_nodeSource.egl');
+		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
 		var startTemplate := TemplateFactory.load('start.egl');
 		//var nodePropertiesTemplate := TemplateFactory.load('nodeProperties.egl');
 		
@@ -41,7 +41,7 @@
 	
 	
 	//CMakeList
-	var cmakeListsTemplate := TemplateFactory.load('python_cmakelists.egl');
+	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
 	cmakeListsTemplate.populate('package', package);
 	cmakeListsTemplate.generate('CMakeLists.txt');
 	

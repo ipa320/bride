@@ -1,0 +1,47 @@
+[%
+	
+	var package : Package := Package.allInstances().at(0);
+	var s : OrderedSet := package.node;
+
+	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.CHModTool");
+	
+	
+
+	//node
+	for(node in package.node) {
+		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
+		var startTemplate := TemplateFactory.load('start.egl');
+		//var nodePropertiesTemplate := TemplateFactory.load('nodeProperties.egl');
+		
+		//nodeHeaderTemplate.populate('node', node);
+		//nodeHeaderTemplate.generate('src/' + node.type + '.hpp');
+		
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('package', package);
+		sourceTemplate.generate('src/' + node.name + '.py');
+		
+		startTemplate.generate('src/' + node.name);
+		chmodTool.setName(node.name);
+		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
+		chmodTool.chmod2("a+x"); // makes executable
+	}
+	
+	//CMakeList
+	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
+	cmakeListsTemplate.populate('package', package);
+	cmakeListsTemplate.generate('CMakeLists.txt');
+	
+	//Makefile
+	var makefileTemplate := TemplateFactory.load('makefile.egl');
+	makefileTemplate.generate('Makefile');
+	//Manifest
+	
+	//manifest
+	var manifestTemplate := TemplateFactory.load('manifest.egl');
+	manifestTemplate.populate('package', package);
+	manifestTemplate.generate('manifest.xml');
+	
+
+	
+	
+%]

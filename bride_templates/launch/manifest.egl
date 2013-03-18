@@ -1,0 +1,18 @@
+<package>
+  <description brief="[%=architecture.name%]"></description>
+  <author>Alexander Bubeck</author>
+  <license></license>
+  <review status="unreviewed" notes=""/>
+  <url></url>
+  
+  [%
+for(package in architecture.packages) {
+%]
+  <depend package="[%=package.name%]"/>
+ [%
+ }
+%]  
+  
+</package>
+
+
