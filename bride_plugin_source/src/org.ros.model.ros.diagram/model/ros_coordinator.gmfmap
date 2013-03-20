@@ -11,7 +11,7 @@
         href="../../org.ros.model.ros/model/ros.ecore#//Package/node"/>
     <ownedChild>
       <domainMetaElement
-          href="../../org.ros.model.ros/model/ros.ecore#//Node"/>
+          href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
           editPattern="">
@@ -31,7 +31,7 @@
             href="../../org.ros.model.ros/model/ros.ecore#//Node/actionclient"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.ros.model.ros/model/ros.ecore#//ActionClient"/>
+              href="../../org.ros.model.ros/model/smach.ecore#//ActionState"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
@@ -70,7 +70,7 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../org.ros.model.ros/model/ros.ecore#//Node/finalStates"/>
+            href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine/finalStates"/>
         <ownedChild>
           <domainMetaElement
               href="../../org.ros.model.ros/model/smach.ecore#//FinalState"/>
@@ -81,8 +81,22 @@
               href="ros_coordinator.gmfgraph#FinalState"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine/initialStates"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ros.model.ros/model/smach.ecore#//InitActionState"/>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.6"/>
+          <diagramNode
+              href="ros_coordinator.gmfgraph#InitialState"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2">
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3">
         <compartment
             href="ros_coordinator.gmfgraph#StateMachineCompartment"/>
       </compartments>
@@ -99,7 +113,7 @@
           href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/name"/>
     </labelMappings>
     <containmentFeature
-        href="../../org.ros.model.ros/model/ros.ecore#//Node/statetransition"/>
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine/transitions"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.3"/>

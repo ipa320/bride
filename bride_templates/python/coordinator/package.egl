@@ -9,27 +9,17 @@
 
 	//node
 	for(node in package.node) {
-		//ROS Node code
-		var sourceTemplate := TemplateFactory.load('ros_nodeSource.egl');
+		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
+		var startTemplate := TemplateFactory.load('start.egl');
+		
 		sourceTemplate.populate('node', node);
 		sourceTemplate.populate('package', package);
-		sourceTemplate.generate('ros/src/' + node.name + '_ros.cpp');
+		sourceTemplate.generate('src/' + node.name + '.py');
 		
-		//Common node code
-		var sourceTemplate := TemplateFactory.load('common_nodeSource.egl');
-		sourceTemplate.populate('node', node);
-		sourceTemplate.populate('package', package);
-		sourceTemplate.generate('common/src/' + node.name + '_common.cpp');
-		
-		//dynamic_reconfigure
-		var configureTemplate := TemplateFactory.load('configure.egl');
-		configureTemplate.populate('node', node);
-		configureTemplate.populate('package', package);
-		configureTemplate.generate('cfg/'+ node.name +'.cfg');
-		
+		startTemplate.generate('src/' + node.name);
 		chmodTool.setName(node.name);
 		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
-		chmodTool.chmod("a+x"); // makes executable
+		chmodTool.chmod2("a+x"); // makes executable
 	}
 	
 	//CMakeList
@@ -39,7 +29,6 @@
 	
 	//Makefile
 	var makefileTemplate := TemplateFactory.load('makefile.egl');
-	makefileTemplate.populate('package', package);
 	makefileTemplate.generate('Makefile');
 	//Manifest
 	

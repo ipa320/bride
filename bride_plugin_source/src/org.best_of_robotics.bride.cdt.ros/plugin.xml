@@ -54,6 +54,18 @@
          <perspectiveShortcut id="org.ros.model.ros.diagram.ComponentDeveloperPerspective"/>
       </perspectiveExtension>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.best_of_robotics.bride.cdt.ros.ros_package"
+            name="ROS Package ">
+      </category>
+      <wizard
+            class="org.best_of_robotics.bride.cdt.ros.ROSPackageProjectCreate"
+            id="org.best_of_robotics.bride.cdt.ros.packageProjectCreate"
+            name="RosPackageProjectCreate">
+      </wizard>
+   </extension>
 
  
 

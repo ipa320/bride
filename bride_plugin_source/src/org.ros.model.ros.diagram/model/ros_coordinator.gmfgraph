@@ -53,9 +53,16 @@
         <minimumSize dx="10" dy="10"/>
       </actualFigure>
     </descriptors>
+    <descriptors name="InitialStateFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <maximumSize dx="10" dy="10"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes name="StateMachine" figure="StateMachineFigure"/>
   <nodes name="ActionState" figure="ActionStateFigure"/>
+  <nodes name="InitialState" figure="InitialStateFigure"/>
   <nodes name="ServiceState" figure="ServiceStateFigure"/>
   <nodes name="FinalState" figure="FinalStateFigure"/>
   <connections name="Transition" figure="TransitionFigure"/>
