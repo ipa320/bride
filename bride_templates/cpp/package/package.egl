@@ -3,7 +3,7 @@
 	var package : Package := Package.allInstances().at(0);
 	var s : OrderedSet := package.node;
 
-	//var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
+	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
 	
 	
 
@@ -21,28 +21,15 @@
 		sourceTemplate.populate('package', package);
 		sourceTemplate.generate('common/src/' + node.name + '_common.cpp');
 		
-		
-		//var nodeHeaderTemplate := TemplateFactory.load('nodeHeader.egl');
-		
-		//var nodePropertiesTemplate := TemplateFactory.load('nodeProperties.egl');
-		
-		//nodeHeaderTemplate.populate('node', node);
-		//nodeHeaderTemplate.generate('src/' + node.type + '.hpp');
-		
-		
-		
-		//nodePropertiesTemplate.populate('node', node);
-		//nodePropertiesTemplate.generate('deployment/' + node.type + '.cpf');
-		
 		//dynamic_reconfigure
 		var configureTemplate := TemplateFactory.load('configure.egl');
 		configureTemplate.populate('node', node);
 		configureTemplate.populate('package', package);
 		configureTemplate.generate('cfg/'+ node.name +'.cfg');
 		
-		//chmodTool.setName(node.name);
-		//chmodTool.setDirectory(TemplateFactory.getOutputRoot());
-		//chmodTool.chmod("a+x"); // makes executable
+		chmodTool.setName(node.name);
+		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
+		chmodTool.chmod("a+x"); // makes executable
 	}
 	
 	//CMakeList
@@ -52,6 +39,7 @@
 	
 	//Makefile
 	var makefileTemplate := TemplateFactory.load('makefile.egl');
+	makefileTemplate.populate('package', package);
 	makefileTemplate.generate('Makefile');
 	//Manifest
 	

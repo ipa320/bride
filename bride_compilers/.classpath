@@ -11,7 +11,25 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.emc.emf.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.eol.engine.jar"/>
 	<classpathentry kind="lib" path="lib/org.best_of_robotics.model.datatypes_1.0.0.201302281342.jar"/>
-	<classpathentry kind="lib" path="lib/org.ros.model.ros_1.0.0.201303022002.jar"/>
-	<classpathentry kind="src" path="/org.ros.model.ros_package.dsl"/>
+	<classpathentry kind="lib" path="lib/org.ros.model.ros_1.0.0.201303201646.jar"/>
+	<classpathentry kind="lib" path="/Users/bubi/Desktop/eclipse/plugins/org.eclipse.epsilon.eol.dt_1.0.0.201211082326/org.eclipse.epsilon.eol.dt.jar">
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/debug/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/editor/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/editor/outline/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/launching/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/launching/contextual/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/launching/tabs/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/userinput/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/epsilon/eol/dt/wizards/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.eol.dt.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.common.dt.jar"/>
+	<classpathentry kind="lib" path="lib/org.best_of_robotics.transform.ros.to.cplusplus_1.0.0.201303201724.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.core.runtime_3.8.0.v20120912-155025.jar"/>
+	<classpathentry kind="src" path="/org.best_of_robotics.transform.ros.to.cplusplus"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

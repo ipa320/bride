@@ -6,30 +6,22 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException; 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 	
 
 
 import org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory;
-import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.epsilon.egl.EglTemplateFactoryModuleAdapter;
 import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.emc.emf.EmfModel;
-import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.commons.util.StringProperties;
-import org.ros.model.ROS_PackageStandaloneSetup;
-import org.ros.model.ros.RosPackage;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+//import org.ros.model.ROS_PackageStandaloneSetup;
+
 //import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
+import org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModToolNativeTypeDelegate;
+
 
 
 
@@ -72,7 +64,7 @@ public class M2CStandalone {
 	 * 
 	 * @param inputURI the xtext file
 	 */
-	public static void convertXTextToXMI(final org.eclipse.emf.common.util.URI inputURI) {
+/*	public static void convertXTextToXMI(final org.eclipse.emf.common.util.URI inputURI) {
 		ROS_PackageStandaloneSetup.doSetup();
 		if ((inputURI != null) && inputURI.isFile() && !inputURI.isEmpty()) {
 			final ResourceSet ressourceSet = new ResourceSetImpl();
@@ -91,7 +83,7 @@ public class M2CStandalone {
 		} else {
 			System.out.println("please provide a real not empty file");
 		}
-	}
+	}*/
 	
 	public static String findPackageURI(String packagename)
 	{
@@ -192,6 +184,8 @@ public class M2CStandalone {
 	        	System.out.println("Creating final model out of dsl and specific model...");
 	        	EmfModel model = createEmfModel("Model", model_uri, findPackageURI("bride_compilers")+"/bin/models/ros.ecore", true, false);
 				
+	        	module.getContext().getNativeTypeDelegates().add(new CHModToolNativeTypeDelegate());
+	        	
 				System.out.println("Adding model to template egl engine...");
 	        	module.getContext().getModelRepository().addModel(model);
 	        	
