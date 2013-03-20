@@ -23,7 +23,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 
 /**
- * @author hugo
+ * @author Alex
  *
  */
 public class RosCppTransform extends AbstractHandler {
@@ -85,7 +85,7 @@ public class RosCppTransform extends AbstractHandler {
 		
 		IEglTransformParameter eglTransformParameter = TransformParameterFactory.createEglTransformParameter();
 		eglTransformParameter.setTransformName("ROS Pacakge to cpp implementation");
-		eglTransformParameter.setEglTransform(template_dir + "/cpp/package/package.egl");
+		eglTransformParameter.setEglTransform("file://" + template_dir + "/cpp/package/package.egl");
 		eglTransformParameter.setPluginID(Activator.PLUGIN_ID);
 		eglTransformParameter.setSourceMetaModelURI("http://ros/1.0");
 		eglTransformParameter.setSourceModelFilePath(sourcefile.getLocation().removeFileExtension().toOSString() + ".ros_package");
@@ -93,9 +93,10 @@ public class RosCppTransform extends AbstractHandler {
 		eglTransformParameter.setSourceReadOnLoad(true);
 		eglTransformParameter.setSourceStoreOnDisposal(false);
 		
-		eglTransformParameter.setOutputRoot(sourcefile.getParent().getLocation().toOSString());
+		eglTransformParameter.setOutputRoot("file:" + sourcefile.getProject().getLocation().toOSString());
 		
 		//get transform service
+		
 		
 		ITransformService transformService = TransformAccessActivator.getDefault().getTransformService();
 		

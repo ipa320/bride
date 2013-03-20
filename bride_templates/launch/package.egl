@@ -1,0 +1,16 @@
+[%
+	
+	var architecture : Architecture := Architecture.allInstances().at(0);
+	var s : OrderedSet := architecture.packages;
+	
+	//launch File
+	var launchTemplate := TemplateFactory.load('launchfile.egl');
+	launchTemplate.populate('architecture', architecture);
+	launchTemplate.generate('system.launch');
+	
+	//manifest
+	var manifestTemplate := TemplateFactory.load('manifest.egl');
+	manifestTemplate.populate('architecture', architecture);
+	manifestTemplate.generate('manifest.xml');
+	
+%]

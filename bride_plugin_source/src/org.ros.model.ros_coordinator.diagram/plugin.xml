@@ -18,14 +18,14 @@
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
-         id="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID"
+         id="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/RosDiagramFile.gif"
          extensions="ros_coordinator_diagram"
          default="true"
-         class="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditor"
-         matchingStrategy="org.ros.model.ros_coordinator.diagram.part.RosMatchingStrategy"
-         contributorClass="org.ros.model.ros_coordinator.diagram.part.RosDiagramActionBarContributor">
+         class="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditor"
+         matchingStrategy="org.ros.model.ros_coordinator.diagram.part.SmachMatchingStrategy"
+         contributorClass="org.ros.model.ros_coordinator.diagram.part.SmachDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -59,7 +59,7 @@
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="org.ros.model.ros_coordinator.diagram.part.RosInitDiagramFileAction"
+               class="org.ros.model.ros_coordinator.diagram.part.SmachInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="org.ros.model.ros_coordinator.diagram.InitDiagramAction">
@@ -73,7 +73,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
          id="RosCoordinatorPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID">
+         <ViewId id="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -90,7 +90,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
          id="RosCoordinatorPresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID">
+         <ViewId id="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -100,7 +100,7 @@
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
             id="RosCoordinatorRender">
          <Priority name="Lowest"/>
-         <ViewId id="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID">
+         <ViewId id="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -153,7 +153,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="org.ros.model.ros_coordinator.diagram"
-            labelProvider="org.ros.model.ros_coordinator.diagram.sheet.RosSheetLabelProvider">
+            labelProvider="org.ros.model.ros_coordinator.diagram.sheet.SmachSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -204,42 +204,42 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="org.ros.model.ros_coordinator.diagram.sheet.RosPropertySection">
+            class="org.ros.model.ros_coordinator.diagram.sheet.SmachPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="org.ros.model.ros_coordinator.diagram.navigator.RosAbstractNavigatorItem"/>
+            <input type="org.ros.model.ros_coordinator.diagram.navigator.SmachAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="org.ros.model.ros_coordinator.diagram.providers.RosViewProvider">
+      <viewProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="RosCoordinator"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,3005,3002,3004,3007"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="org.ros.model.ros_coordinator.diagram.providers.RosEditPartProvider">
+      <editpartProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="RosCoordinator"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3002,3003"/>
+            <method name="getType()" value="2002,3005,3002,3004,3007"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5003,5001,5002"/>
+            <method name="getType()" value="5004,5005,5002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001"/>
+            <method name="getType()" value="7002"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -247,27 +247,28 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.RosModelingAssistantProvider">
+      <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="org.ros.model.ros_coordinator.diagram.edit.parts.PackageEditPart" id="Package_1000"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.NodeEditPart" id="Node_2001"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ActionClientEditPart" id="ActionClient_3001"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.SMACHStateMachineEditPart" id="SMACHStateMachine_2002"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ActionStateEditPart" id="ActionState_3005"/>
          <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ServiceClientEditPart" id="ServiceClient_3002"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.FinalStateEditPart" id="FinalState_3003"/>
-         <context elements="Package_1000,Node_2001,ActionClient_3001,ServiceClient_3002,FinalState_3003"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.FinalStateEditPart" id="FinalState_3004"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.InitActionStateEditPart" id="InitActionState_3007"/>
+         <context elements="Package_1000,SMACHStateMachine_2002,ActionState_3005,ServiceClient_3002,FinalState_3004,InitActionState_3007"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="org.ros.model.ros_coordinator.diagram.providers.RosIconProvider">
+      <IconProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="org.ros.model.ros_coordinator.diagram.providers.RosParserProvider">
+      <ParserProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
@@ -284,24 +285,24 @@
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://ros/1.0">
+      <metamodel nsURI="http://smach/1.0">
          <metamodelType
-               id="org.ros.model.ros_coordinator.diagram.Node_2001"
-               name="%metatype.name.Node_2001"
+               id="org.ros.model.ros_coordinator.diagram.SMACHStateMachine_2002"
+               name="%metatype.name.SMACHStateMachine_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Node"
-               edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.NodeEditHelper">
-            <param name="semanticHint" value="2001"/>
+               eclass="SMACHStateMachine"
+               edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.SMACHStateMachineEditHelper">
+            <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://ros/1.0">
+      <metamodel nsURI="http://smach/1.0">
          <metamodelType
-               id="org.ros.model.ros_coordinator.diagram.ActionClient_3001"
-               name="%metatype.name.ActionClient_3001"
+               id="org.ros.model.ros_coordinator.diagram.ActionState_3005"
+               name="%metatype.name.ActionState_3005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ActionClient"
-               edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.ActionClientEditHelper">
-            <param name="semanticHint" value="3001"/>
+               eclass="ActionState"
+               edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.ActionStateEditHelper">
+            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://ros/1.0">
@@ -316,12 +317,22 @@
       </metamodel>
       <metamodel nsURI="http://smach/1.0">
          <metamodelType
-               id="org.ros.model.ros_coordinator.diagram.FinalState_3003"
-               name="%metatype.name.FinalState_3003"
+               id="org.ros.model.ros_coordinator.diagram.FinalState_3004"
+               name="%metatype.name.FinalState_3004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="FinalState"
                edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.FinalStateEditHelper">
-            <param name="semanticHint" value="3003"/>
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://smach/1.0">
+         <metamodelType
+               id="org.ros.model.ros_coordinator.diagram.InitActionState_3007"
+               name="%metatype.name.InitActionState_3007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InitActionState"
+               edithelper="org.ros.model.ros_coordinator.diagram.edit.helpers.InitActionStateEditHelper">
+            <param name="semanticHint" value="3007"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://smach/1.0">
@@ -347,10 +358,11 @@
       </clientContext> 
       <binding context="org.ros.model.ros_coordinator.diagram.TypeContext">
          <elementType ref="org.ros.model.ros_coordinator.diagram.Package_1000"/>
-         <elementType ref="org.ros.model.ros_coordinator.diagram.Node_2001"/>
-         <elementType ref="org.ros.model.ros_coordinator.diagram.ActionClient_3001"/>
+         <elementType ref="org.ros.model.ros_coordinator.diagram.SMACHStateMachine_2002"/>
+         <elementType ref="org.ros.model.ros_coordinator.diagram.ActionState_3005"/>
          <elementType ref="org.ros.model.ros_coordinator.diagram.ServiceClient_3002"/>
-         <elementType ref="org.ros.model.ros_coordinator.diagram.FinalState_3003"/>
+         <elementType ref="org.ros.model.ros_coordinator.diagram.FinalState_3004"/>
+         <elementType ref="org.ros.model.ros_coordinator.diagram.InitActionState_3007"/>
          <elementType ref="org.ros.model.ros_coordinator.diagram.SMACHTransition_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
@@ -362,7 +374,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="org.ros.model.ros_coordinator.diagram"
            properties="isURIEditorInput"
-           class="org.ros.model.ros_coordinator.diagram.part.RosUriEditorInputTester">
+           class="org.ros.model.ros_coordinator.diagram.part.SmachUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -388,8 +400,8 @@
             id="org.ros.model.ros_coordinator.diagram.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="org.ros.model.ros_coordinator.diagram.navigator.RosNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros_coordinator.diagram.navigator.RosNavigatorLabelProvider"
+            contentProvider="org.ros.model.ros_coordinator.diagram.navigator.SmachNavigatorContentProvider" 
+            labelProvider="org.ros.model.ros_coordinator.diagram.navigator.SmachNavigatorLabelProvider"
             icon="icons/obj16/RosDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
@@ -398,24 +410,24 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="ros_coordinator_diagram"/>
                </and>
-               <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosAbstractNavigatorItem"/>
+               <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachAbstractNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosAbstractNavigatorItem"/>
+         	   <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachAbstractNavigatorItem"/>
             </or>
          </possibleChildren>
          <commonSorter 
                id="org.ros.model.ros_coordinator.diagram.navigatorSorter" 
-               class="org.ros.model.ros_coordinator.diagram.navigator.RosNavigatorSorter">
+               class="org.ros.model.ros_coordinator.diagram.navigator.SmachNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="ros_coordinator_diagram"/>
                   </and>
-                  <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosAbstractNavigatorItem"/>
+                  <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -424,8 +436,8 @@
             id="org.ros.model.ros_coordinator.diagram.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="org.ros.model.ros_coordinator.diagram.navigator.RosDomainNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros_coordinator.diagram.navigator.RosDomainNavigatorLabelProvider"
+            contentProvider="org.ros.model.ros_coordinator.diagram.navigator.SmachDomainNavigatorContentProvider" 
+            labelProvider="org.ros.model.ros_coordinator.diagram.navigator.SmachDomainNavigatorLabelProvider"
             icon="icons/obj16/RosDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
@@ -434,19 +446,19 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="ros_coordinator"/>
                </and>
-               <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosDomainNavigatorItem"/>
+               <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosDomainNavigatorItem"/>
+            <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="org.ros.model.ros_coordinator.diagram.navigatorActionProvider"
-            class="org.ros.model.ros_coordinator.diagram.navigator.RosNavigatorActionProvider">
+            class="org.ros.model.ros_coordinator.diagram.navigator.SmachNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosAbstractNavigatorItem"/>
+               <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachAbstractNavigatorItem"/>
             </or>
          </enablement>
       </actionProvider>
@@ -456,7 +468,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="org.ros.model.ros_coordinator.diagram.navigatorLinkHelper"
-            class="org.ros.model.ros_coordinator.diagram.navigator.RosNavigatorLinkHelper">
+            class="org.ros.model.ros_coordinator.diagram.navigator.SmachNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -464,7 +476,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.RosAbstractNavigatorItem"/>
+            <instanceof value="org.ros.model.ros_coordinator.diagram.navigator.SmachAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -472,7 +484,7 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="org.ros.model.ros_coordinator.diagram.part.RosDiagramUpdateCommand"
+         defaultHandler="org.ros.model.ros_coordinator.diagram.part.SmachDiagramUpdateCommand"
          description="%update.diagram.description"
          id="org.ros.model.ros_coordinator.diagram.updateDiagram"
          name="%update.diagram.name"/>
@@ -497,7 +509,7 @@
          <command commandId="org.ros.model.ros_coordinator.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
                      <instanceof value="org.ros.model.ros_coordinator.diagram.edit.parts.PackageEditPart"/>
                   </iterate></with>
@@ -509,10 +521,10 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="org.ros.model.ros_coordinator.diagram.LoadResourceAction"
          name="Load Resource"
-         categoryId="org.ros.model.ros_coordinator.diagram.part.RosDiagramEditorID"
+         categoryId="org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorID"
          defaultHandler="org.ros.model.ros_coordinator.diagram.part.LoadResourceAction"/>
    </extension>
 
