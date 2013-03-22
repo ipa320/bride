@@ -45,8 +45,8 @@
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
   	     category="org.eclipse.ui.BRIDE"
-  	     class="org.ros.model.ros_coordinator.diagram.part.RosCreationWizard"
-  	     id="org.ros.model.ros_coordinator.diagram.part.RosCreationWizardID">
+  	     class="org.ros.model.ros_coordinator.diagram.part.SmachCreationWizard"
+  	     id="org.ros.model.ros_coordinator.diagram.part.SmachCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>

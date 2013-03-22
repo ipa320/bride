@@ -28,13 +28,13 @@ import org.ros.model.ros.diagram.providers.RosElementTypes;
 public class RosBaseEditHelper extends GeneratedEditHelperBase {
 	@Override
 	protected ICommand getConfigureCommand(ConfigureRequest req) {
-		
+
 		return null;
 	}
 
 	@Override
 	protected ICommand getCreateCommand(CreateElementRequest req) {
-		
+
 		return super.getCreateCommand(req);
 	}
 }
