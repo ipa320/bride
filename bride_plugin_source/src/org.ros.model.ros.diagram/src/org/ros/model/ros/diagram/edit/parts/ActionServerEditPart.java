@@ -173,7 +173,8 @@ public class ActionServerEditPart extends AbstractBorderItemEditPart {
 		anchorLocations.put("EAST", new PrecisionPoint(1d, 0.5d));
 		//anchorLocations.put("NORTH", new PrecisionPoint(0.5d, 0));
 		//anchorLocations.put("SOUTH", new PrecisionPoint(0.5d, 1d));
-		DefaultSizeNodeFigureWithFixedAnchors result = new DefaultSizeNodeFigureWithFixedAnchors(60, 20, anchorLocations);
+		DefaultSizeNodeFigureWithFixedAnchors result = new DefaultSizeNodeFigureWithFixedAnchors(
+				60, 20, anchorLocations);
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
 		return result;

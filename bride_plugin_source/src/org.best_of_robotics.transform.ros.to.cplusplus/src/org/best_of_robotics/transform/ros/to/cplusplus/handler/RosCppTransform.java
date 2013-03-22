@@ -12,6 +12,7 @@ import org.best_of_robotics.transform.service.access.TransformAccessActivator;
 import org.best_of_robotics.transform.service.parameter.IEglTransformParameter;
 import org.best_of_robotics.transform.service.parameter.TransformParameterFactory;
 import org.best_of_robotics.transform.ros.to.cplusplus.Activator;
+import org.best_of_robotics.transform.ros.to.cplusplus.EGLTransformer;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -95,13 +96,9 @@ public class RosCppTransform extends AbstractHandler {
 		
 		eglTransformParameter.setOutputRoot("file:" + sourcefile.getProject().getLocation().toOSString());
 		
-		//get transform service
-		
-		
-		ITransformService transformService = TransformAccessActivator.getDefault().getTransformService();
-		
 		//do transform
-		transformService.doTransform(eglTransformParameter);
+		EGLTransformer transformer = new EGLTransformer(eglTransformParameter);
+		transformer.transform();
 		
 		return null;
 	}

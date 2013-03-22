@@ -40,7 +40,7 @@ import org.ros.model.ros.ServiceServer;
  * @generated
  */
 public class ServiceClientItemProvider
-	extends SMACHStateItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

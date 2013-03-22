@@ -8,13 +8,40 @@
     modelID="RosPackage"
     domainFileExtension="ros_package"
     pluginDirectory="/org.ros.model.ros_package.diagram/src">
+  <audits>
+    <categories
+        id="CheckTypeContainer"
+        name="CheckTypeContainer"
+        description="Checks if type is filled out"
+        path="//@audits/@categories.0"
+        audits="//@audits/@rules.0"/>
+    <rules
+        name="CheckTypeRule"
+        id="CheckTypeRule"
+        rule="//@expressionProviders/@providers.0/@expressions.0"
+        message="Please set msg type."
+        useInLiveMode="true"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Publisher"/>
+      </target>
+    </rules>
+    <clientContexts
+        ruleTargets="//@audits/@rules.0/@target"/>
+  </audits>
   <diagram
       visualID="1000"
       editPartClassName="PackageEditPart"
       itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
       canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
       iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true"
+      liveValidationUIFeedback="true">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -552,6 +579,14 @@
   </propertySheet>
   <domainGenModel
       href="../../org.ros.model.ros/model/ros.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.msg.size()>0"/>
+    </providers>
+  </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations

@@ -120,6 +120,7 @@
     </descriptors>
     <descriptors name="PackageFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PackageFigure" cornerWidth="12" cornerHeight="12">
+        <minimumSize dx="300" dy="220"/>
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="5" left="5" bottom="5" right="5"/>
         </border>
@@ -139,8 +140,8 @@
   <nodes name="ServiceClient" figure="ServiceClientFigure" affixedParentSide="WEST"/>
   <nodes name="Parameter" figure="ParameterFigure"/>
   <nodes name="Publisher" figure="Publisher2Figure" affixedParentSide="EAST"/>
-  <nodes name="ActionServer" figure="ActionServerFigure" affixedParentSide="WEST"/>
-  <nodes name="ActionClient" figure="ActionClientFigure" affixedParentSide="SOUTH"/>
+  <nodes name="ActionServer" figure="ActionServerFigure" affixedParentSide="EAST"/>
+  <nodes name="ActionClient" figure="ActionClientFigure" affixedParentSide="WEST"/>
   <connections name="Topic" figure="TopicFigure"/>
   <connections name="Action" figure="ActionFigure"/>
   <connections name="Service" figure="ServiceFigure"/>
