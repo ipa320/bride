@@ -174,7 +174,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof ActionServerEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.WEST);
+					PositionConstants.EAST);
 			getBorderedFigure().getBorderItemContainer()
 					.add(((ActionServerEditPart) childEditPart).getFigure(),
 							locator);
@@ -182,7 +182,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof ActionClientEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.SOUTH);
+					PositionConstants.WEST);
 			getBorderedFigure().getBorderItemContainer()
 					.add(((ActionClientEditPart) childEditPart).getFigure(),
 							locator);

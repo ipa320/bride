@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfmap:Mapping xmi:version="2.0"
+<gmfmap:Mapping
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfmap="http://www.eclipse.org/gmf/2008/mappings"
@@ -185,4 +186,22 @@
     <palette
         href="ros_package.gmftool#//@palette"/>
   </diagram>
+  <audits
+      id="CheckTypeContainer"
+      name="CheckTypeContainer"
+      description="Checks if type is filled out">
+    <audits
+        name="CheckTypeRule"
+        id="CheckTypeRule"
+        useInLiveMode="true"
+        message="Please set msg type.">
+      <rule
+          body="self.msg.size()>0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
+      </target>
+    </audits>
+  </audits>
 </gmfmap:Mapping>
