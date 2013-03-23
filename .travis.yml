@@ -8,7 +8,7 @@ install:
   - wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
   - sudo apt-get update -qq
   - sudo apt-get install python-rosdep python-catkin-pkg python-nose python-coverage python-wstool pep8 -qq
-  - sudo apt-get install ros-groovy-catkin -qq
+  - sudo apt-get install ros-groovy-ros-base -qq
   - sudo rosdep init
   - rosdep update
 script:
