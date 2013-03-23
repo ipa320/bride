@@ -1,3 +1,6 @@
+== Status == 
+"!https://travis-ci.org/abubeck/bride.png!":https://travis-ci.org/abubeck/bride
+
 == Installation ==
 
 Checkout repository into a directory that is part of your $ROS_PACKAGE_PATH (or add bride directory into $ROS_PACKAGE_PATH afterwards)
