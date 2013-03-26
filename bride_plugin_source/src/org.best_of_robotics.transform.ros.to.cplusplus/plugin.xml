@@ -27,6 +27,11 @@
             id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
             name="Generate Coordinator for ros system">
       </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosOrocosCPP"
+            name="Generate ROS-Orocos Component">
+      </command>
 
    </extension>
    <extension
@@ -46,6 +51,10 @@
       <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosCoordinatorTransform"
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosOrocosCppTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosOrocosCPP">
       </handler>
    </extension>
    <extension
@@ -77,6 +86,10 @@
             </separator>
             <command
                   commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosOrocosCPP"
                   style="push">
             </command>
          </menu>
