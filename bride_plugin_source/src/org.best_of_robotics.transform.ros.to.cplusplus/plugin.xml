@@ -90,5 +90,12 @@
             defaultName="CHModTool">
       </tool>
    </extension>
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator"
+            defaultName="ConfigFileCreator">
+      </tool>
+   </extension>
 
 </plugin>

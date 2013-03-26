@@ -6,6 +6,13 @@ import smach_ros
 from actionlib import *
 from actionlib.msg import *
 from smach_ros import ActionServerWrapper
+[%
+var acstypes: Sequence;
+for (ac in node.actionclient){
+	acstypes = ac.ActionType.split('::');
+	%]
+from [%=acstypes[0]%].msg import [%=acstypes[1]%]Action, [%=acstypes[1]%]Goal
+[% } %]
 
 [%=out.startPreserve("#", "#", "customHeaders", true)%]
 [%=out.stopPreserve()%]
@@ -42,6 +49,14 @@ for (parameter in node.parameter)
 %]
 	
 	def	__init__(self):
+		[%
+			var acstypes: Sequence;
+			for (ac in node.actionclient){
+			acstypes = ac.ActionType.split('::');
+		 %]
+		self.[%=ac.name.replace(" ", "_")%]_goal = [%=acstypes[1]%]Goal()
+		[%
+		}%]	
 		[%=out.startPreserve("#", "#", "initCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
@@ -54,7 +69,23 @@ for (parameter in node.parameter)
 		[%
 			for (ac in node.actionclient)
 		{ %]
-			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', MoveArmCartAction), {})
+			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', MoveArmCartAction), {
+			[%
+			for (transition in node.transitions){
+			if(transition.Source.name == ac.name){
+			if(transition.Target.type.name == "ActionState"){ 
+			%]
+				"[%=transition.name%]":"[%=transition.Target.name%]",
+			[%
+			}
+			else{
+			%]
+				"[%=transition.name%]":"[%=transition.Target.type.name%]",
+			[%
+			}
+			}
+			}%]
+			})
 		[%
 		}%]	
 		

@@ -4,7 +4,7 @@
 	var s : OrderedSet := package.node;
 
 	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
-	
+	var config_creator = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator");
 	
 
 	//node
@@ -20,6 +20,12 @@
 		chmodTool.setName(node.name);
 		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
 		chmodTool.chmod2("a+x"); // makes executable
+		
+		for(ac in node.actionclient)
+		{		
+				config_creator.setDirectory(TemplateFactory.getOutputRoot());
+				config_creator.write("config/" + ac.name + "_goal.yaml", ac.ActionType+"Goal");
+		}
 	}
 	
 	//CMakeList
@@ -29,6 +35,7 @@
 	
 	//Makefile
 	var makefileTemplate := TemplateFactory.load('makefile.egl');
+	makefileTemplate.populate('package', package);
 	makefileTemplate.generate('Makefile');
 	//Manifest
 	
