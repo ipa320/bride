@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:ros="http://ros/1.0" xmi:id="_jHE8IJenEeK7FNfjDwIS9Q" type="RosPackage" name="listener.ros_package_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_kEu3MJenEeK7FNfjDwIS9Q" type="2001" fontName="Lucida Grande">
+    <children xmi:type="notation:DecorationNode" xmi:id="_kEu3MpenEeK7FNfjDwIS9Q" type="5008"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_kEu3M5enEeK7FNfjDwIS9Q" type="7001">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_kEu3NJenEeK7FNfjDwIS9Q" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_kEveQJenEeK7FNfjDwIS9Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_kEveQZenEeK7FNfjDwIS9Q"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_lBGY0JenEeK7FNfjDwIS9Q" type="3007">
+      <children xmi:type="notation:DecorationNode" xmi:id="_lBG_4JenEeK7FNfjDwIS9Q" type="5007"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_lBGY0ZenEeK7FNfjDwIS9Q"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_lBGY0penEeK7FNfjDwIS9Q" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_lBGY05enEeK7FNfjDwIS9Q"/>
+      <element xmi:type="ros:Subscriber" href="listener.ros_package#//@node.0/@subscriber.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lBGY1JenEeK7FNfjDwIS9Q"/>
+    </children>
+    <element xmi:type="ros:Node" href="listener.ros_package#//@node.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kEu3MZenEeK7FNfjDwIS9Q" x="360" y="152" width="285" height="265"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_jHE8IZenEeK7FNfjDwIS9Q"/>
+  <element xmi:type="ros:Package" href="listener.ros_package#/"/>
+</notation:Diagram>

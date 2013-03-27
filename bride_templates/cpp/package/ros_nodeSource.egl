@@ -1,5 +1,6 @@
 // ROS includes
 #include <ros/ros.h>
+#include <actionlib/server/simple_action_server.h>
 #include <dynamic_reconfigure/server.h>
 #include <[%=package.name.replace(" ", "_")%]/[%=node.name.replace(" ", "_")%]Config.h>
 
@@ -40,7 +41,7 @@ for (actionServer in node.actionserver)
 {
 	str = actionServer.ActionType.replace('::','/');
 %]
-#include <[%=str%].h>
+#include <[%=str%]Action.h>
 [%
 }
 %]
@@ -89,7 +90,7 @@ for (service in node.serviceServer)
 for (action in node.actionserver)
 {
 %]
-	actionlib::SimpleActionServer<[%=action.ActionType%]_> as_[%=action.name.replace(" ", "_")%]_;
+	actionlib::SimpleActionServer<[%=action.ActionType%]Action> as_[%=action.name.replace(" ", "_")%]_;
 [%
 }
 %]
@@ -100,7 +101,11 @@ for (action in node.actionserver)
         [%=node.name.replace(" ", "_")%]_impl component_implementation_;
 
         [%=node.name.replace(" ", "_")%]_ros()
-        {
+	[%
+ 	for (action in node.actionserver) 	{ 	%]
+        :as_[%=action.name.replace(" ", "_")%]_(n_, "as_[%=action.name.replace(" ", "_")%]_", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
+	[% } %]
+	{
        	
   			f = boost::bind(&[%=node.name.replace(" ", "_")%]_ros::configure_callback, this, _1, _2);
   			server.setCallback(f);
