@@ -10,6 +10,7 @@ rosrun bride_compilers m2t -o talker -l cpp -p bride_tutorials model/talker.ros_
 
 # Modification and building of talker package
 cd `rospack find talker`
+cp `rospack find bride_tutorials`/src/talker_common.cpp common/src/talker_common.cpp
 rosmake
 
 # Generation of ROS package for listener
@@ -20,6 +21,7 @@ rosrun bride_compilers m2t -o listener -l cpp -p bride_tutorials model/listener.
 
 # Modification and building of listener package
 cd `rospack find listener`
+cp `rospack find bride_tutorials`/src/listener_common.cpp common/src/listener_common.cpp
 rosmake
 
 # Generation of ROS system package
