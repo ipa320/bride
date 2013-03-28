@@ -4,28 +4,29 @@
 	var s : OrderedSet := package.node;
 
 	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
-	var config_creator = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator");
+	
 	
 
 	//node
 	for(node in package.node) {
-		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
-		var startTemplate := TemplateFactory.load('start.egl');
-		
+		//ROS Node code
+		var sourceTemplate := TemplateFactory.load('orocos_nodeSource.egl');
 		sourceTemplate.populate('node', node);
 		sourceTemplate.populate('package', package);
-		sourceTemplate.generate('src/' + node.name + '.py');
+		sourceTemplate.generate('orocos/src/' + node.name + '_orocos.cpp');
 		
-		startTemplate.generate('src/' + node.name);
-		chmodTool.setName(node.name);
-		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
-		chmodTool.chmod2("a+x"); // makes executable
+		//Common node code
+		var sourceTemplate := TemplateFactory.load('common_nodeSource.egl');
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('package', package);
+		sourceTemplate.generate('common/src/' + node.name + '_common.cpp');
 		
-		for(ac in node.actionclient)
-		{		
-				config_creator.setDirectory(TemplateFactory.getOutputRoot());
-				config_creator.write("config/" + ac.name + "_goal.yaml", ac.ActionType+"Goal");
-		}
+		//Deployment code
+		var deploymentTemplate := TemplateFactory.load('deployment.egl');
+		deploymentTemplate.populate('node', node);
+		deploymentTemplate.populate('package', package);
+		deploymentTemplate.generate(node.name + '_test.ops');
+		
 	}
 	
 	//CMakeList

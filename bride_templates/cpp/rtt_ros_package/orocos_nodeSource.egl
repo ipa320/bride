@@ -1,0 +1,119 @@
+// ROS includes
+#include <rtt/TaskContext.hpp>
+#include <rtt/Port.hpp>
+#include <rtt/Component.hpp>
+
+// ROS message includes
+[%
+var str : String;
+for (publisher in node.publisher)
+{
+	str = publisher.msg.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (subscriber in node.subscriber)
+{
+	str = subscriber.msg.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (actionServer in node.actionserver)
+{
+	str = actionServer.ActionType.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+
+
+#include <[%=node.name.replace(" ", "_")%]_common.cpp>
+
+using namespace RTT;
+
+class [%=node.name.replace(" ", "_")%]_orocos : public RTT::TaskContext
+{
+	private:
+[% for (publisher in node.publisher) { %]  
+		OutputPort<[%=publisher.msg%]> outport_[%=publisher.name.replace(" ", "_")%]_;
+[% } %]
+[%for (subscriber in node.subscriber) { %]
+		InputPort<[%=subscriber.msg%]> inport_[%=subscriber.name.replace(" ", "_")%]_;
+[% } %]
+[% for (parameter in node.parameter) {
+	if(parameter.type.toString() == "string"){ %]
+		std::string [%=parameter.name.replace(" ", "_")%]_;
+[% } else{ %]
+		[%=parameter.type.toString()%] [%=parameter.name.replace(" ", "_")%]_;		
+[% } } %]
+        [%=node.name.replace(" ", "_")%]_data component_data_;
+        [%=node.name.replace(" ", "_")%]_config component_config_;
+        [%=node.name.replace(" ", "_")%]_impl component_implementation_;
+
+public:
+        [%=node.name.replace(" ", "_")%]_orocos(const std::string& name):
+        TaskContext(name)
+        [%for (publisher in node.publisher) { %] , outport_[%=publisher.name.replace(" ", "_")%]_("outport_[%=publisher.name.replace(" ", "_")%]_")[%}%]
+        [%for (subscriber in node.subscriber) { %] , inport_[%=subscriber.name.replace(" ", "_")%]_("inport_[%=subscriber.name.replace(" ", "_")%]_")[%}%]
+        [% for (parameter in node.parameter) {
+			if(parameter.type.toString() == "string"){ %] , [%=parameter.name.replace(" ", "_")%]_("[%=parameter.value%]") [% } else{ %]
+			, [%=parameter.name.replace(" ", "_")%]_([%=parameter.value%]) [% } } %]
+    	{
+       		[%for (publisher in node.publisher) { %]
+       		this->addPort(outport_[%=publisher.name.replace(" ", "_")%]_).doc("outport_[%=publisher.name.replace(" ", "_")%]_");
+			[%}%]	
+        	[%for (subscriber in node.subscriber) { %]
+        	this->addEventPort(inport_[%=subscriber.name.replace(" ", "_")%]_).doc("inport_[%=subscriber.name.replace(" ", "_")%]_");
+        	[%}%]
+        	[% for (parameter in node.parameter) { %]
+        	this->addProperty("[%=parameter.name.replace(" ", "_")%]_",[%=parameter.name.replace(" ", "_")%]_).doc("[%=parameter.name.replace(" ", "_")%]_");
+        	[%}%]
+        }
+      	~[%=node.name.replace(" ", "_")%]_orocos(){}
+
+
+private:
+  		
+        bool configureHook()
+        {
+        	[%for (parameter in node.parameter) { %]
+			component_config_.[%=parameter.name.replace(" ", "_")%] = [%=parameter.name.replace(" ", "_")%]_;
+			[% } %]
+			component_implementation_.configure(component_config_);
+			return true;
+        }
+
+        void updateHook()
+        {
+        	[%for (subscriber in node.subscriber) { %]
+        	[%=subscriber.msg%] [%=subscriber.name.replace(" ", "_")%]_data;
+        	if(NewData==inport_[%=subscriber.name.replace(" ", "_")%]_.read([%=subscriber.name.replace(" ", "_")%]_data)){
+        		component_data_.in_[%=subscriber.name.replace(" ", "_")%] = [%=subscriber.name.replace(" ", "_")%]_data;
+			}
+        	[%}%]
+        
+        	[%for (parameter in node.parameter) { %]
+			component_config_.[%=parameter.name.replace(" ", "_")%] = [%=parameter.name.replace(" ", "_")%]_;
+			[% } %]
+            component_implementation_.update(component_data_, component_config_);
+            [%
+			for (publisher in node.publisher)
+			{
+			%]
+				outport_[%=publisher.name.replace(" ", "_")%]_.write(component_data_.out_[%=publisher.name.replace(" ", "_")%]);
+			[%
+			}
+			%]
+        }
+ 
+};
+ORO_CREATE_COMPONENT([%=node.name.replace(" ", "_")%]_orocos)

@@ -116,21 +116,6 @@ for (service_here in node.serviceServer)
 [%
 }
 %]
-
-[%
-for (action in node.actionserver)
-{
-%]
-    void callback_[%=action.name.replace(" ", "_")%]_(const [%=action.ActionType%]GoalConstPtr &goal, actionlib::SimpleActionServer<[%=action.ActionType%]Action> *as_)
-    {
-    
-    }
-    
-[%
-}
-%]
-
-
     
     [%=out.startPreserve("/*", "*/", "user additional functions", true)%]
 	[%=out.stopPreserve()%]

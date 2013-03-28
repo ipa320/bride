@@ -21,6 +21,7 @@ import org.eclipse.epsilon.commons.util.StringProperties;
 //import org.eclipse.emf.common.util.URI;
 import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
 import org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModToolNativeTypeDelegate;
+import org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreatorNativeTypeDelegate;
 
 
 
@@ -30,6 +31,7 @@ public class M2CStandalone {
 	static String output_package = "";
 	static String input_package = "";
 	static String model_path = "";
+	static String language = "";
 
 	
 	/*protected static File getFile(String fileName) throws URISyntaxException {
@@ -119,7 +121,11 @@ public class M2CStandalone {
 	             if (args[i].charAt(1) == 'p') {
 	            	 input_package = args[i+1];
 	            	 break;   
-	             }          
+	             }
+	             if (args[i].charAt(1) == 'l') {
+	            	 language = args[i+1];
+	            	 break;   
+	             }
 	             break;         
 	         default:
 	        	 model_path = args[i];
@@ -128,7 +134,7 @@ public class M2CStandalone {
 	     }
 	     if(model_path == "" || output_package == "")
 	     {
-	    	 System.out.println("Usage: rosrun bride_compilers m2t -o brics_test [-p brics_test] model/brics_test.ros_package");
+	    	 System.out.println("Usage: rosrun bride_compilers m2t -o brics_test [-l language] [-p brics_test] model/brics_test.ros_package");
 		     return;
 	     }
 	    	 
@@ -143,6 +149,7 @@ public class M2CStandalone {
 		System.out.println("InputPackage: " + input_package);
 	    System.out.println("OutputPackage: " + output_package);
 	    System.out.println("ModelPath: " + model_path);
+	    System.out.println("Language: " + language);
 	    if(model_path != "" && output_package != "")
 	 	{
 	        try {
@@ -155,9 +162,18 @@ public class M2CStandalone {
 	        	System.out.println("File extension is " + ext_type);
 	        	String templ_type = "";
 	        	if(ext_type.compareTo("ros_package") == 0)
+	        	{
 	        		templ_type = "package";
+	        		if(language.compareTo("cpp") != 0 && language.compareTo("python") != 0)
+	        		{
+	        			language = "cpp";
+	        		}
+	        	}
 	        	if(ext_type.compareTo("ros_coordinator") == 0)
+	        	{
 	        		templ_type = "coordinator";
+	        		language = "python";
+	        	}
 	        	if(ext_type.compareTo("ros_system") == 0)
 	        		templ_type = "system";
 	        	if(templ_type == "")
@@ -167,7 +183,7 @@ public class M2CStandalone {
 	        	}
 	        	
 	        	// Try to find template entrance point
-	        	String template_uri = findPackageURI("bride_templates") + "/cpp/" + templ_type + "/package.egl";
+	        	String template_uri = findPackageURI("bride_templates") + "/" + language + "/" + templ_type + "/package.egl";
 	        	System.out.println("Will use template from " + template_uri);
 	        	
 	        	// Try to find output directory
@@ -185,6 +201,7 @@ public class M2CStandalone {
 	        	EmfModel model = createEmfModel("Model", model_uri, findPackageURI("bride_compilers")+"/bin/models/ros.ecore", true, false);
 				
 	        	module.getContext().getNativeTypeDelegates().add(new CHModToolNativeTypeDelegate());
+	        	module.getContext().getNativeTypeDelegates().add(new ConfigFileCreatorNativeTypeDelegate());
 	        	
 				System.out.println("Adding model to template egl engine...");
 	        	module.getContext().getModelRepository().addModel(model);

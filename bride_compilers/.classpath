@@ -28,8 +28,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.eol.dt.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.epsilon.common.dt.jar"/>
-	<classpathentry kind="lib" path="lib/org.best_of_robotics.transform.ros.to.cplusplus_1.0.0.201303201724.jar"/>
-	<classpathentry kind="lib" path="lib/org.eclipse.core.runtime_3.8.0.v20120912-155025.jar"/>
 	<classpathentry kind="src" path="/org.best_of_robotics.transform.ros.to.cplusplus"/>
+	<classpathentry kind="lib" path="lib/org.best_of_robotics.transform.ros.to.cplusplus_1.0.0.201303251731.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

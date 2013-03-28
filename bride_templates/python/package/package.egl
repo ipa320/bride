@@ -30,6 +30,7 @@
 		chmodTool.setName(node.name);
 		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
 		chmodTool.chmod("a+x"); // makes executable
+		
 	}
 	
 	
@@ -41,6 +42,7 @@
 	
 	//Makefile
 	var makefileTemplate := TemplateFactory.load('makefile.egl');
+	makefileTemplate.populate('package', package);
 	makefileTemplate.generate('Makefile');
 	//Manifest
 	

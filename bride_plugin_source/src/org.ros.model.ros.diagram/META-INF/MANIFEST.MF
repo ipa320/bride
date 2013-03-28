@@ -38,6 +38,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gef;visibility:=reexport,
  org.best_of_robotics.model.datatypes;visibility:=reexport,
  org.best_of_robotics.model.datatypes.edit;visibility:=reexport,
- org.eclipse.gmf.tooling.runtime;visibility:=reexport
+ org.eclipse.gmf.tooling.runtime;visibility:=reexport,
+ org.eclipse.epsilon.evl.emf.validation;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
