@@ -15,5 +15,10 @@ script:
   - source /opt/ros/groovy/setup.bash
   - cd bride 
   - make
+after_script:
+  - source /opt/ros/groovy/setup.bash
+  - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:.
+  - cd bride_tutorials
+  - sh ./run.sh
 notifications:
   email: false
