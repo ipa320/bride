@@ -25,10 +25,10 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_X-DZQpenEeK7FNfjDwIS9Q" fontName="Lucida Grande"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_X-DZQ5enEeK7FNfjDwIS9Q"/>
       <element xmi:type="ros:ActionServer" href="talker.ros_package#//@node.0/@actionserver.0"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X-DZRJenEeK7FNfjDwIS9Q"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X-DZRJenEeK7FNfjDwIS9Q" x="48" y="-39"/>
     </children>
     <element xmi:type="ros:Node" href="talker.ros_package#//@node.0"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UTsL4ZedEeK3c_Qif3JNZA" x="372" y="120" width="293" height="253"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UTsL4ZedEeK3c_Qif3JNZA" x="280" y="160" width="293" height="253"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_TUZ5IJedEeK3c_Qif3JNZA"/>
   <element xmi:type="ros:Package" href="talker.ros_package#/"/>

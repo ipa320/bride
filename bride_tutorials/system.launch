@@ -1,0 +1,24 @@
+<launch>
+<!-- protected region additional custom Launchfile statements in the beginning on begin -->
+<!-- protected region additional custom Launchfile statements in the beginning end -->
+  
+
+	<node pkg="talker" type="talker" name="talker"  output="screen">
+ 		<remap from="pub" to="/say"/> 
+		<param name="word" value="HelloWorld"/>
+	</node>
+	
+	<node pkg="listener" type="listener" name="listener"  output="screen">
+		<remap from="sub" to="/say"/>
+	</node>
+	
+	<node pkg="behaviour" type="tutorial_behaviour" name="tutorial_behaviour"  output="screen">
+	</node>
+	
+
+<!-- protected region additional custom Launchfile statements in the end of launch file on begin -->
+<!-- protected region additional custom Launchfile statements in the end of launch file end -->
+
+</launch>
+
+

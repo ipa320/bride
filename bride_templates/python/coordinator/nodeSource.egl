@@ -67,11 +67,15 @@ for (parameter in node.parameter)
 		sis.start()
 		with sm0:
 		[%
-			for (ac in node.actionclient)
-		{ %]
-			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', MoveArmCartAction), {
+			var acstypes: Sequence;
+			for (ac in node.actionclient){
+			acstypes = ac.ActionType.split('::');
+		 %]
+			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', [%=acstypes[1]%]Action), {
 			[%
 			for (transition in node.transitions){
+			if(transition.Source.type.name == "ActionState")
+			{
 			if(transition.Source.name == ac.name){
 			if(transition.Target.type.name == "ActionState"){ 
 			%]
@@ -84,11 +88,14 @@ for (parameter in node.parameter)
 			[%
 			}
 			}
+			}
 			}%]
 			})
 		[%
 		}%]	
 		
+		# Execute
+		outcome = sm0.execute()
 	
 		[%=out.startPreserve("#", "#", "configureCode", true)%]
 		[%=out.stopPreserve()%]

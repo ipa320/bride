@@ -48,22 +48,29 @@ public:
     void update(talker_data &data, talker_config config)
     {
         /* protected region user update on begin */
-	counter ++;
-        std::stringstream ss;
-        ss << config.word << " : " << counter;
-        data.out_pub.data = ss.str();
+    	if(running == true)
+    	{
+			counter ++;
+			std::stringstream ss;
+			ss << config.word << " : " << counter;
+			data.out_pub.data = ss.str();
+    	}
 
-	if(counter > 10)
-		running = false;
+		if(counter > 10)
+			running = false;
 		/* protected region user update end */
     }
 
 
     void callback_TriggerPublish_(const bride_tutorials::TriggerPublishGoalConstPtr &goal, actionlib::SimpleActionServer<bride_tutorials::TriggerPublishAction> *as_)
     {
-	counter = 0;
-	running = true;
-    
+    	/* protected region user implementation of action callback for TriggerPublish on begin */
+    	counter = 0;
+    	running = true;
+    	while(running == true)
+    		sleep(0.1);
+    	as_->setSucceeded();
+    	/* protected region user implementation of action callback for TriggerPublish end */
     }
     
 

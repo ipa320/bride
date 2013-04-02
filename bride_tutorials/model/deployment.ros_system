@@ -6,4 +6,9 @@
   </topic>
   <packages href="platform:/resource//bride_tutorials/model/talker.ros_package#/"/>
   <packages href="platform:/resource//bride_tutorials/model/listener.ros_package#/"/>
+  <packages href="platform:/resource//bride_tutorials/model/behaviour.ros_coordinator#/"/>
+  <action name="talk_trigger">
+    <actionserver href="platform:/resource//bride_tutorials/model/talker.ros_package#//@node.0/@actionserver.0"/>
+    <actionclient href="platform:/resource//bride_tutorials/model/behaviour.ros_coordinator#//@node.0/@actionclient.0"/>
+  </action>
 </ros:Architecture>
