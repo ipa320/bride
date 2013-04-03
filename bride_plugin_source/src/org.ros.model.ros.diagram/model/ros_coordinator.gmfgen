@@ -333,11 +333,7 @@
             genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="InitialStraightState"
-            description="Initial state that is passed straight after starting the coordinator"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="InitialActionState"
+            title="InitialState"
             description="InitialState that is finished after an action is triggered"
             genNodes="//@diagram/@childNodes.3"/>
       </groups>

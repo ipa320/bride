@@ -51,16 +51,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="InitialStraightState"
-          description="Initial state that is passed straight after starting the coordinator">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="InitialActionState"
+          title="InitialState"
           description="InitialState that is finished after an action is triggered">
         <smallIcon
             xsi:type="gmftool:BundleImage"/>
