@@ -173,7 +173,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		HashMap<String, PrecisionPoint> anchorLocations = new HashMap<String, PrecisionPoint>();
-		anchorLocations.put("WEST", new PrecisionPoint(0, 0.5d));
+		anchorLocations.put("WEST", new PrecisionPoint(0.2d, 0.5d));
 		//anchorLocations.put("EAST", new PrecisionPoint(1d, 0.5d));
 		//anchorLocations.put("NORTH", new PrecisionPoint(0.5d, 0));
 		//anchorLocations.put("SOUTH", new PrecisionPoint(0.5d, 1d));

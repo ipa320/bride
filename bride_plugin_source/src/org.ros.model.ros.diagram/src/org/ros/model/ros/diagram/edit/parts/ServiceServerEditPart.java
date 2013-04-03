@@ -1,6 +1,7 @@
 package org.ros.model.ros.diagram.edit.parts;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -33,6 +35,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.ros.model.ros.diagram.DefaultSizeNodeFigureWithFixedAnchors;
 import org.ros.model.ros.diagram.edit.policies.ServiceServerItemSemanticEditPolicy;
 import org.ros.model.ros.diagram.part.RosVisualIDRegistry;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
@@ -166,11 +169,16 @@ public class ServiceServerEditPart extends AbstractBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(80, 20);
-
+		HashMap<String, PrecisionPoint> anchorLocations = new HashMap<String, PrecisionPoint>();
+		//anchorLocations.put("WEST", new PrecisionPoint(0, 0.5d));
+		anchorLocations.put("EAST", new PrecisionPoint(1d, 0.5d));
+		//anchorLocations.put("NORTH", new PrecisionPoint(0.5d, 0));
+		//anchorLocations.put("SOUTH", new PrecisionPoint(0.5d, 1d));
+		DefaultSizeNodeFigureWithFixedAnchors result = new DefaultSizeNodeFigureWithFixedAnchors(
+				60, 20, anchorLocations);
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
 		return result;
