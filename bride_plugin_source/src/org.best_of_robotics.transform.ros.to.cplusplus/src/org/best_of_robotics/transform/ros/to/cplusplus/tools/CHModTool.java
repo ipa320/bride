@@ -1,10 +1,7 @@
 package org.best_of_robotics.transform.ros.to.cplusplus.tools;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
-import org.eclipse.epsilon.eol.execute.context.Variable;
 import org.eclipse.epsilon.eol.tools.AbstractTool;
 
 public class CHModTool extends AbstractTool {
@@ -21,7 +18,7 @@ public class CHModTool extends AbstractTool {
   }
   
   public void setDirectory(String directory) {
-	    this.directory = directory;
+	    this.directory = directory.replace("file:", "");
 	  }
 	  
 	  public String getDirectory() {
@@ -30,6 +27,7 @@ public class CHModTool extends AbstractTool {
   
   public void chmod(String rights)
   {
+	  System.out.println("Running: " + "chmod " + rights + " " + directory + "/cfg/" + filename + ".cfg");
 	  try {
 			Runtime.getRuntime().exec("chmod " + rights + " " + directory + "/cfg/" + filename + ".cfg");
 		} catch (IOException e) {
