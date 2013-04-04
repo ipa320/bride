@@ -22,7 +22,7 @@ ifeq ($(SYSNAME),Darwin)
         MD5SUM_FILE     = eclipse-modeling-juno-SR2-macosx-cocoa-x86_64.tar.gz.md5sum
 endif
 
-url 	= http://bride.cybernotic.org/eclipse_plugins.yaml
+url 	= http://bride.cybernotic.org/eclipse_plugins_0.2.yaml
 outputfile  	= eclipse_plugins.yaml
 
 
