@@ -29,7 +29,7 @@ outputfile  	= eclipse_plugins.yaml
 include $(shell rospack find mk)/download_unpack_build.mk
 
 installed: $(SOURCE_DIR)/unpacked
-	echo "Downloading eclipse_package.yaml for automated eclipse installer"
+	echo "Downloading eclipse_plugins.yaml for automated eclipse installer"
 	curl -L -v  $(url) -o $(outputfile) 2>> logfile.txt
 	mv build/eclipse eclipse
 	./installer.py eclipse_plugins.yaml
