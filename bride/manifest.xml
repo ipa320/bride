@@ -9,6 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/bride</url>
 
+  <rosdep name="curl"/>
 
 </package>
 
