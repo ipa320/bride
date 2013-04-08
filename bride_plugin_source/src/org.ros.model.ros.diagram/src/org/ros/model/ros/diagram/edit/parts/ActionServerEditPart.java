@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FlowLayout;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -15,6 +17,7 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.commands.Command;
@@ -26,6 +29,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.mapmode.MapModeUtil;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -303,6 +307,44 @@ public class ActionServerEditPart extends AbstractBorderItemEditPart {
 	 */
 	public class ActionServerFigure extends ScalablePolygonShape {
 
+		public static final int BLUR_SHADOW_WIDTH = 5;
+
+		@Override
+		public void paintFigure(Graphics graphics) {
+			drawBlurredShadow(graphics);
+			super.paintFigure(graphics);
+		}
+
+		private void drawBlurredShadow(Graphics graphics) {
+			// draw the shadow...
+			graphics.pushState();
+
+			int size = MapModeUtil.getMapMode(this).DPtoLP(BLUR_SHADOW_WIDTH);
+			int step = MapModeUtil.getMapMode(this).DPtoLP(-1);
+
+			graphics.setForegroundColor(ColorConstants.gray);
+			graphics.setLineWidth(MapModeUtil.getMapMode(this).DPtoLP(2));
+			graphics.translate(size, size);
+			graphics.setClip(graphics.getClip(new Rectangle(getBounds()))
+					.expand(size, size));
+			graphics.setAlpha(20);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(30);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(60);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(100);
+			outlineShape(graphics);
+			graphics.translate(step, step);
+			graphics.setAlpha(150);
+			outlineShape(graphics);
+
+			graphics.popState();
+		}
+
 		/**
 		 * @generated
 		 */
@@ -315,9 +357,9 @@ public class ActionServerEditPart extends AbstractBorderItemEditPart {
 
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
+			layoutThis.setMinorAlignment(FlowLayout.ALIGN_CENTER);
 
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
+			layoutThis.setMajorAlignment(FlowLayout.ALIGN_CENTER);
 			layoutThis.setMajorSpacing(5);
 			layoutThis.setMinorSpacing(5);
 			layoutThis.setHorizontal(false);
@@ -336,7 +378,7 @@ public class ActionServerEditPart extends AbstractBorderItemEditPart {
 					.DPtoLP(40)));
 			this.setFill(true);
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(60),
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(80),
 					getMapMode().DPtoLP(20)));
 
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(2),

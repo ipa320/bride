@@ -14,8 +14,7 @@ for(node in package.node) {
 	[%}%]
 	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" [% if(node.args.isDefined()) {%] args="[%=node.args%]" [%}%][% if(node.namespace.isDefined()) {%] ns="[%=node.namespace%]"[%}%] output="screen">
 	[%
-	for(p in architecture.packages) {
-		for(topic in p.topic) {
+	for(topic in architecture.topic) {
 	if(node.publisher.contains(topic.publisher))
 	{
 %] 		<remap from="[%=topic.publisher.name%]" to="[%=topic.name%]"/> 
@@ -25,7 +24,6 @@ for(node in package.node) {
 %]		<remap from="[%=topic.subscriber.name%]" to="[%=topic.name%]"/>
 [%  
 	} 
-		}
 		}
 	if(not node.paramSource.isDefined()) {
 	for(param in node.parameter)

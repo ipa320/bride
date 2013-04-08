@@ -6,16 +6,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.best_of_robotics.internal.transform.service.parameter.EtlTransformParameter;
-import org.best_of_robotics.transform.service.parameter.IEglTransformParameter;
 import org.best_of_robotics.transform.service.parameter.IEtlTransformParameter;
-import org.eclipse.core.resources.WorkspaceJob;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.IEolExecutableModule;

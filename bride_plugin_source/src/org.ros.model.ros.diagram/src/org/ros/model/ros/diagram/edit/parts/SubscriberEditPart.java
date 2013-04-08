@@ -36,19 +36,19 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.ros.model.ros.diagram.DefaultSizeNodeFigureWithFixedAnchors;
-import org.ros.model.ros.diagram.edit.policies.ActionClientItemSemanticEditPolicy;
+import org.ros.model.ros.diagram.edit.policies.SubscriberItemSemanticEditPolicy;
 import org.ros.model.ros.diagram.part.RosVisualIDRegistry;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
 
 /**
  * @generated
  */
-public class ActionClientEditPart extends AbstractBorderItemEditPart {
+public class SubscriberEditPart extends AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3006;
+	public static final int VISUAL_ID = 3004;
 
 	/**
 	 * @generated
@@ -63,7 +63,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public ActionClientEditPart(View view) {
+	public SubscriberEditPart(View view) {
 		super(view);
 	}
 
@@ -75,7 +75,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ActionClientItemSemanticEditPolicy());
+				new SubscriberItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -108,24 +108,23 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ActionClientFigure();
+		return primaryShape = new Subscriber2Figure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ActionClientFigure getPrimaryShape() {
-		return (ActionClientFigure) primaryShape;
+	public Subscriber2Figure getPrimaryShape() {
+		return (Subscriber2Figure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ActionClientNameEditPart) {
-			((ActionClientNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureActionClientNameFigure());
+		if (childEditPart instanceof SubscriberNameEditPart) {
+			((SubscriberNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureSubscriberNameFigure());
 			return true;
 		}
 		return false;
@@ -135,7 +134,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ActionClientNameEditPart) {
+		if (childEditPart instanceof SubscriberNameEditPart) {
 			return true;
 		}
 		return false;
@@ -267,7 +266,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(RosVisualIDRegistry
-				.getType(ActionClientNameEditPart.VISUAL_ID));
+				.getType(SubscriberNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -275,7 +274,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RosElementTypes.Action_4003);
+		types.add(RosElementTypes.Topic_4001);
 		return types;
 	}
 
@@ -284,8 +283,8 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Action_4003) {
-			types.add(RosElementTypes.ActionServer_3005);
+		if (relationshipType == RosElementTypes.Topic_4001) {
+			types.add(RosElementTypes.Publisher_3003);
 		}
 		return types;
 	}
@@ -293,7 +292,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public class ActionClientFigure extends ScalablePolygonShape {
+	public class Subscriber2Figure extends ScalablePolygonShape {
 		public static final int BLUR_SHADOW_WIDTH = 5;
 
 		@Override
@@ -335,12 +334,12 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureActionClientNameFigure;
+		private WrappingLabel fFigureSubscriberNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ActionClientFigure() {
+		public Subscriber2Figure() {
 
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -364,6 +363,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 			this.addPoint(new Point(getMapMode().DPtoLP(10), getMapMode()
 					.DPtoLP(20)));
 			this.setFill(true);
+			this.setForegroundColor(THIS_FORE);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(80),
 					getMapMode().DPtoLP(20)));
@@ -379,19 +379,19 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 		 */
 		private void createContents() {
 
-			fFigureActionClientNameFigure = new WrappingLabel();
+			fFigureSubscriberNameFigure = new WrappingLabel();
 
-			fFigureActionClientNameFigure.setText("<...>");
+			fFigureSubscriberNameFigure.setText("<...>");
 
-			this.add(fFigureActionClientNameFigure);
+			this.add(fFigureSubscriberNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureActionClientNameFigure() {
-			return fFigureActionClientNameFigure;
+		public WrappingLabel getFigureSubscriberNameFigure() {
+			return fFigureSubscriberNameFigure;
 		}
 
 	}
@@ -399,6 +399,11 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 22, 166, 30);
+	static final Color THIS_FORE = new Color(null, 211, 72, 54);
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 211, 72, 54);
 
 }

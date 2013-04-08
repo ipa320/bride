@@ -673,6 +673,24 @@
          </selectionEnablement>
       </linkHelper>
    </extension>
+<extension
+      point="org.eclipse.epsilon.evl.emf.validation">
+   <constraintsBinding
+         constraints="validation/ros_package.evl"
+         namespaceURI="org.ros.model.ros_package.diagram.constraintsBinding1">
+   </constraintsBinding>
+</extension>
+<extension
+      point="org.eclipse.ui.ide.markerResolution">
+   <markerResolutionGenerator
+         class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+         markerType="org.ros.model.ros_package.diagram.diagnostic">
+   </markerResolutionGenerator>
+   <markerResolutionGenerator
+         class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+         markerType="org.eclipse.emf.ecore.diagnostic">
+   </markerResolutionGenerator>
+</extension>
 
 
 

@@ -7,6 +7,8 @@
   <depend package="roscpp"/>
   <depend package="std_msgs"/>
   <depend package="rospy"/>
+  <depend package="smach"/>
+  <depend package="smach_ros"/>
   <depend package="dynamic_reconfigure"/>
   [%for (depend in package.depend) {
   %]

@@ -186,22 +186,4 @@
     <palette
         href="ros_package.gmftool#//@palette"/>
   </diagram>
-  <audits
-      id="CheckTypeContainer"
-      name="CheckTypeContainer"
-      description="Checks if type is filled out">
-    <audits
-        name="CheckTypeRule"
-        id="CheckTypeRule"
-        useInLiveMode="true"
-        message="Please set msg type.">
-      <rule
-          body="self.msg.size()>0"/>
-      <target
-          xsi:type="gmfmap:DomainElementTarget">
-        <element
-            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
-      </target>
-    </audits>
-  </audits>
 </gmfmap:Mapping>

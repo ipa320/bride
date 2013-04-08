@@ -90,7 +90,7 @@
               href="../../org.ros.model.ros/model/smach.ecore#//InitActionState"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="ros_coordinator.gmfgraph#InitialState"/>
         </ownedChild>

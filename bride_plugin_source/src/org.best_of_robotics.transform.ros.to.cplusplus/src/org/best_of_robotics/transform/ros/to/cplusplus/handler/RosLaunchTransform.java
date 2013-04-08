@@ -82,11 +82,11 @@ public class RosLaunchTransform extends AbstractHandler {
 			return null;
 		}
 		
-		System.out.println("Taking transformation: " + template_dir + "/launch/package.egl");
+		System.out.println("Taking transformation: " + template_dir + "/system/package.egl");
 		
 		IEglTransformParameter eglTransformParameter = TransformParameterFactory.createEglTransformParameter();
 		eglTransformParameter.setTransformName("ROS System to roslaunch implementation");
-		eglTransformParameter.setEglTransform("file://" + template_dir + "/launch/package.egl");
+		eglTransformParameter.setEglTransform("file://" + template_dir + "/system/package.egl");
 		eglTransformParameter.setPluginID(Activator.PLUGIN_ID);
 		eglTransformParameter.setSourceMetaModelURI("http://ros/1.0");
 		eglTransformParameter.setSourceModelFilePath(sourcefile.getLocation().removeFileExtension().toOSString() + ".ros_system");

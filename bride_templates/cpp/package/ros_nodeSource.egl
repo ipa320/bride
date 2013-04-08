@@ -103,13 +103,16 @@ for (action in node.actionserver)
         [%=node.name.replace(" ", "_")%]_ros()
 	[%
  	for (action in node.actionserver) 	{ 	%]
-        :as_[%=action.name.replace(" ", "_")%]_(n_, "as_[%=action.name.replace(" ", "_")%]_", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
+        :as_[%=action.name.replace(" ", "_")%]_(n_, "[%=action.name.replace(" ", "_")%]", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
 	[% } %]
-	{
+        {
        	
   			f = boost::bind(&[%=node.name.replace(" ", "_")%]_ros::configure_callback, this, _1, _2);
   			server.setCallback(f);
-        	
+        	[%
+ 			for (action in node.actionserver) 	{ 	%]
+ 			as_[%=action.name.replace(" ", "_")%]_.start();
+ 			[% } %]
         	
         	[%
         	for (service in node.serviceServer)

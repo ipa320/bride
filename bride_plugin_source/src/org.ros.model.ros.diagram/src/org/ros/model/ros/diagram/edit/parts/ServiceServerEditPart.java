@@ -36,19 +36,19 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.ros.model.ros.diagram.DefaultSizeNodeFigureWithFixedAnchors;
-import org.ros.model.ros.diagram.edit.policies.ActionClientItemSemanticEditPolicy;
+import org.ros.model.ros.diagram.edit.policies.ServiceServerItemSemanticEditPolicy;
 import org.ros.model.ros.diagram.part.RosVisualIDRegistry;
 import org.ros.model.ros.diagram.providers.RosElementTypes;
 
 /**
  * @generated
  */
-public class ActionClientEditPart extends AbstractBorderItemEditPart {
+public class ServiceServerEditPart extends AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3006;
+	public static final int VISUAL_ID = 3007;
 
 	/**
 	 * @generated
@@ -63,7 +63,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public ActionClientEditPart(View view) {
+	public ServiceServerEditPart(View view) {
 		super(view);
 	}
 
@@ -75,7 +75,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ActionClientItemSemanticEditPolicy());
+				new ServiceServerItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -108,24 +108,24 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ActionClientFigure();
+		return primaryShape = new ServiceServerFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ActionClientFigure getPrimaryShape() {
-		return (ActionClientFigure) primaryShape;
+	public ServiceServerFigure getPrimaryShape() {
+		return (ServiceServerFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ActionClientNameEditPart) {
-			((ActionClientNameEditPart) childEditPart)
+		if (childEditPart instanceof ServiceServerNameEditPart) {
+			((ServiceServerNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureActionClientNameFigure());
+							.getFigureServiceServerNameFigure());
 			return true;
 		}
 		return false;
@@ -135,7 +135,7 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ActionClientNameEditPart) {
+		if (childEditPart instanceof ServiceServerNameEditPart) {
 			return true;
 		}
 		return false;
@@ -173,8 +173,8 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		HashMap<String, PrecisionPoint> anchorLocations = new HashMap<String, PrecisionPoint>();
-		anchorLocations.put("WEST", new PrecisionPoint(0.2d, 0.5d));
-		//anchorLocations.put("EAST", new PrecisionPoint(1d, 0.5d));
+		//anchorLocations.put("WEST", new PrecisionPoint(0, 0.5d));
+		anchorLocations.put("EAST", new PrecisionPoint(1d, 0.5d));
 		//anchorLocations.put("NORTH", new PrecisionPoint(0.5d, 0));
 		//anchorLocations.put("SOUTH", new PrecisionPoint(0.5d, 1d));
 		DefaultSizeNodeFigureWithFixedAnchors result = new DefaultSizeNodeFigureWithFixedAnchors(
@@ -267,25 +267,26 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(RosVisualIDRegistry
-				.getType(ActionClientNameEditPart.VISUAL_ID));
+				.getType(ServiceServerNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnTarget() {
+	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RosElementTypes.Action_4003);
+		types.add(RosElementTypes.Service_4002);
 		return types;
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Action_4003) {
-			types.add(RosElementTypes.ActionServer_3005);
+		if (targetEditPart instanceof ServiceClientEditPart) {
+			types.add(RosElementTypes.Service_4002);
 		}
 		return types;
 	}
@@ -293,7 +294,18 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public class ActionClientFigure extends ScalablePolygonShape {
+	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (relationshipType == RosElementTypes.Service_4002) {
+			types.add(RosElementTypes.ServiceClient_3008);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ServiceServerFigure extends ScalablePolygonShape {
 		public static final int BLUR_SHADOW_WIDTH = 5;
 
 		@Override
@@ -335,12 +347,12 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureActionClientNameFigure;
+		private WrappingLabel fFigureServiceServerNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ActionClientFigure() {
+		public ServiceServerFigure() {
 
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(false);
@@ -355,21 +367,21 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 
 			this.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode()
 					.DPtoLP(0)));
-			this.addPoint(new Point(getMapMode().DPtoLP(40), getMapMode()
+			this.addPoint(new Point(getMapMode().DPtoLP(30), getMapMode()
 					.DPtoLP(0)));
 			this.addPoint(new Point(getMapMode().DPtoLP(40), getMapMode()
+					.DPtoLP(20)));
+			this.addPoint(new Point(getMapMode().DPtoLP(30), getMapMode()
 					.DPtoLP(40)));
 			this.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode()
 					.DPtoLP(40)));
-			this.addPoint(new Point(getMapMode().DPtoLP(10), getMapMode()
-					.DPtoLP(20)));
 			this.setFill(true);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(80),
 					getMapMode().DPtoLP(20)));
 
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
-					getMapMode().DPtoLP(22), getMapMode().DPtoLP(2),
+					getMapMode().DPtoLP(2), getMapMode().DPtoLP(2),
 					getMapMode().DPtoLP(2)));
 			createContents();
 		}
@@ -379,19 +391,19 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 		 */
 		private void createContents() {
 
-			fFigureActionClientNameFigure = new WrappingLabel();
+			fFigureServiceServerNameFigure = new WrappingLabel();
 
-			fFigureActionClientNameFigure.setText("<...>");
+			fFigureServiceServerNameFigure.setText("<...>");
 
-			this.add(fFigureActionClientNameFigure);
+			this.add(fFigureServiceServerNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureActionClientNameFigure() {
-			return fFigureActionClientNameFigure;
+		public WrappingLabel getFigureServiceServerNameFigure() {
+			return fFigureServiceServerNameFigure;
 		}
 
 	}
@@ -399,6 +411,6 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 22, 166, 30);
+	static final Color THIS_BACK = new Color(null, 150, 150, 0);
 
 }
