@@ -10,19 +10,19 @@ Checkout repository into a directory that is part of your $ROS_PACKAGE_PATH (or 
 
 Install eclipse and all necessary plugins
 
-# roscd bride
+      # roscd bride
 
-# make
+      # make
 
 To start bride use:
 
-# rosrun bride eclipse
+      # rosrun bride eclipse
 
 ## Updating Installation ##
 
 After updates in the brics plugins a complete installation is not necessary. 
 To reinstall the updated brics plugins in your existing bride installation do the following steps:
 
-# roscd bride
+      # roscd bride
 
-# make update
+      # make update
