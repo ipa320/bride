@@ -9,7 +9,15 @@ import sys
 import subprocess
 import yaml
 import yaml.constructor
-from collections import OrderedDict
+try:
+	from collections import OrderedDict
+except ImportError:
+	print "Python 2.7+ OrderedDict collection not available"
+	try:
+		from ordereddict import OrderedDict
+		print "Using backported OrderedDict implementation"
+	except ImportError:
+		print "Backported OrderedDict implementation not available"
 
 class OrderedDictYAMLLoader(yaml.Loader):
     """
