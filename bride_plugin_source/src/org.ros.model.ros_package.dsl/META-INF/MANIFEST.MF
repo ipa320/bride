@@ -13,6 +13,18 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  org.ros.model.ros,
- org.ros.model.ros
-Import-Package: org.apache.log4j
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.ros.model.ros_package.dsl,
+ org.ros.model.ros_package.dsl.services,
+ org.ros.model.ros_package.dsl.serializer,
+ org.ros.model.ros_package.dsl.parser.antlr,
+ org.ros.model.ros_package.dsl.parser.antlr.internal,
+ org.ros.model.ros_package.dsl.validation,
+ org.ros.model.ros_package.dsl.scoping,
+ org.ros.model.ros_package.dsl.generator,
+ org.ros.model.ros_package.dsl.formatting

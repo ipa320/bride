@@ -7,38 +7,39 @@ import "http://ros/1.0" as ros
 
 Package returns ros::Package:
 	{ros::Package}
-	'Package'
-	name=EString
-	'{'
-		('author' author=EString)?
-		('description' description=EString)?
-		('license' license=EString)?
-		('depend' '{' depend+=EString ( "," depend+=EString)* '}' )?
-		('url' url=EString)?
-		('rosdep' rosdep=EString)?
+	'Package:'
+	INDENT
+		('name:' name=EString)
+		('author:' author=EString)?
+		('description:' description=EString)?
+		('license:' license=EString)?
+		('depend:' '[' depend+=EString ( "," depend+=EString)* ']' )?
+		('url:' url=EString)?
+		('rosdep:' rosdep=EString)?
 		(node+=Node ( "," node+=Node)* )*
-	'}';
+	DEDENT;
 
 EString returns ecore::EString:
 	STRING | ID;
 
 Node returns ros::Node:
 	{ros::Node}
-	'Node'
-	name=EString
-	'{'
-		('loopRate' loopRate=EDouble)?
-		('args' args=EString)?
-		('paramSource' paramSource=EString)?
-		('namespace' namespace=EString)?
+	'Node: {'
+	INDENT
+		('name:' name=EString)
+		('loopRate:' loopRate=EDouble)?
+		('args:' args=EString)?
+		('paramSource:' paramSource=EString)?
+		('namespace:' namespace=EString)?
 		(publisher+=Publisher ( "," publisher+=Publisher)* )*
 		(subscriber+=Subscriber ( "," subscriber+=Subscriber)* )*
 		(serviceClient+=ServiceClient ( "," serviceClient+=ServiceClient)* )*
 		(serviceServer+=ServiceServer ( "," serviceServer+=ServiceServer)* )*
-		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* )?
+		//('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* )?
 		(actionserver+=ActionServer ( "," actionserver+=ActionServer)* )*
 		(actionclient+=ActionClient ( "," actionclient+=ActionClient)* )*
-	'}';
+	DEDENT
+	'},';
 
 
 
@@ -48,65 +49,65 @@ EDouble returns ecore::EDouble:
 Publisher returns ros::Publisher:
 	{ros::Publisher}
 	(latch?='latch')?
-	'Publisher'
-	name=EString
-	'{'
-		('queueSize' queueSize=EInt)?
-		('eventHandler' eventHandler=EString)?
-		('msg' msg=EString)?
-	'}';
+	'Publisher:'
+	INDENT
+		('name:' name=EString)
+		('queueSize:' queueSize=EInt)?
+		('eventHandler:' eventHandler=EString)?
+		('msg:' msg=EString)?
+	DEDENT;
 
 Subscriber returns ros::Subscriber:
 	{ros::Subscriber}
 	(eventPort?='eventPort')?
-	'Subscriber'
-	name=EString
-	'{'
-		('queueSize' queueSize=EInt)?
-		('eventHandler' eventHandler=EString)?
-		('msg' msg=EString)?
-	'}';
+	'Subscriber:'
+	INDENT
+		('name:' name=EString)
+		('queueSize:' queueSize=EInt)?
+		('eventHandler:' eventHandler=EString)?
+		('msg:' msg=EString)?
+	DEDENT;
 
 ServiceClient returns ros::ServiceClient:
 	{ros::ServiceClient}
-	'ServiceClient'
-	name=EString
-	'{'
-		('msg' msg=EString)?
-	'}';
+	'ServiceClient:'
+	INDENT
+		('name:' name=EString)
+		('msg:' msg=EString)?
+	DEDENT;
 
 ServiceServer returns ros::ServiceServer:
 	{ros::ServiceServer}
-	'ServiceServer'
-	name=EString
-	'{'
-		('msg' msg=EString)?
-	'}';
+	'ServiceServer:'
+	INDENT
+		('name:' name=EString)
+		('msg:' msg=EString)?
+	DEDENT;
 
 Parameter returns ros::Parameter:
 	{ros::Parameter}
-	'Parameter'
-	name=EString
-	'{'
-		('value' value=EString)?
-		('type' type=ParameterTypes)?
-	'}';
+	'Parameter:'
+	INDENT
+		('name:' name=EString)
+		('value:' value=EString)?
+		('type:' type=ParameterTypes)?
+	DEDENT;
 
 ActionServer returns ros::ActionServer:
 	{ros::ActionServer}
-	'ActionServer'
-	name=EString
-	'{'
-		('ActionType' ActionType=EString)?
-	'}';
+	'ActionServer:'
+	INDENT
+		('name:' name=EString)
+		('ActionType:' ActionType=EString)?
+	DEDENT;
 
 ActionClient returns ros::ActionClient:
 	{ros::ActionClient}
-	'ActionClient'
-	name=EString
-	'{'
-		('ActionType' ActionType=EString)?
-	'}';
+	'ActionClient:'
+	INDENT
+		('name:' name=EString)
+		('ActionType:' ActionType=EString)?
+	DEDENT;
 
 EInt returns ecore::EInt:
 	'-'? INT;
@@ -117,3 +118,6 @@ EBoolean returns ecore::EBoolean:
 ParameterTypes returns ros::ParameterTypes:
 	'ParameterTypes' /* TODO: implement this rule and an appropriate IValueConverter */;
 
+terminal INDENT: '<' ;
+
+terminal DEDENT: '>' ;
