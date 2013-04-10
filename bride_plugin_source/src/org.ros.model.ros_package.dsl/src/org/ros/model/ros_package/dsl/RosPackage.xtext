@@ -24,22 +24,23 @@ EString returns ecore::EString:
 
 Node returns ros::Node:
 	{ros::Node}
-	'Node: {'
+	'nodes:'
 	INDENT
-		('name:' name=EString)
-		('loopRate:' loopRate=EDouble)?
-		('args:' args=EString)?
-		('paramSource:' paramSource=EString)?
-		('namespace:' namespace=EString)?
-		(publisher+=Publisher ( "," publisher+=Publisher)* )*
-		(subscriber+=Subscriber ( "," subscriber+=Subscriber)* )*
-		(serviceClient+=ServiceClient ( "," serviceClient+=ServiceClient)* )*
-		(serviceServer+=ServiceServer ( "," serviceServer+=ServiceServer)* )*
-		//('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* )?
-		(actionserver+=ActionServer ( "," actionserver+=ActionServer)* )*
-		(actionclient+=ActionClient ( "," actionclient+=ActionClient)* )*
-	DEDENT
-	'},';
+		('-   node: ' name=EString)
+		INDENT
+			('loopRate:' loopRate=EDouble)?
+			('args:' args=EString)?
+			('paramSource:' paramSource=EString)?
+			('namespace:' namespace=EString)?
+			(publisher+=Publisher ( "," publisher+=Publisher)* )*
+			(subscriber+=Subscriber ( "," subscriber+=Subscriber)* )*
+			(serviceClient+=ServiceClient ( "," serviceClient+=ServiceClient)* )*
+			(serviceServer+=ServiceServer ( "," serviceServer+=ServiceServer)* )*
+			//('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* )?
+			(actionserver+=ActionServer ( "," actionserver+=ActionServer)* )*
+			(actionclient+=ActionClient ( "," actionclient+=ActionClient)* )*
+		DEDENT
+	DEDENT;
 
 
 
@@ -49,31 +50,37 @@ EDouble returns ecore::EDouble:
 Publisher returns ros::Publisher:
 	{ros::Publisher}
 	(latch?='latch')?
-	'Publisher:'
+	'publishers:'
 	INDENT
-		('name:' name=EString)
-		('queueSize:' queueSize=EInt)?
-		('eventHandler:' eventHandler=EString)?
-		('msg:' msg=EString)?
+		('-   publisher: ' name=EString)
+		INDENT
+			('queueSize:' queueSize=EInt)?
+			('eventHandler:' eventHandler=EString)?
+			('msg:' msg=EString)
+		DEDENT
 	DEDENT;
 
 Subscriber returns ros::Subscriber:
 	{ros::Subscriber}
 	(eventPort?='eventPort')?
-	'Subscriber:'
+	'subscribers:'
 	INDENT
-		('name:' name=EString)
-		('queueSize:' queueSize=EInt)?
-		('eventHandler:' eventHandler=EString)?
-		('msg:' msg=EString)?
+		('-   subscriber:' name=EString)
+		INDENT
+			('queueSize:' queueSize=EInt)?
+			('eventHandler:' eventHandler=EString)?
+			('msg:' msg=EString)
+		DEDENT
 	DEDENT;
 
 ServiceClient returns ros::ServiceClient:
 	{ros::ServiceClient}
-	'ServiceClient:'
+	'serviceClients:'
 	INDENT
-		('name:' name=EString)
-		('msg:' msg=EString)?
+		('-   serviceClient: ' name=EString)
+		INDENT
+			('msg:' msg=EString)
+		DEDENT
 	DEDENT;
 
 ServiceServer returns ros::ServiceServer:
