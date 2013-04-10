@@ -16,24 +16,8 @@ Package returns ros::Package:
 		('depend' '{' depend+=EString ( "," depend+=EString)* '}' )?
 		('url' url=EString)?
 		('rosdep' rosdep=EString)?
-		('coordinators' '(' coordinators+=[SMACHStateMachine|EString] ( "," coordinators+=[SMACHStateMachine|EString])* ')' )?
-		('node' '{' node+=Node ( "," node+=Node)* '}' )?
+		(node+=Node ( "," node+=Node)* )*
 	'}';
-
-
-
-
-
-
-
-
-
-
-SMACHState returns SMACHState:
-	SMACHState_Impl | ActionState | ServiceState | FinalState | InitStraightState | InitActionState;
-
-
-
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -47,36 +31,16 @@ Node returns ros::Node:
 		('args' args=EString)?
 		('paramSource' paramSource=EString)?
 		('namespace' namespace=EString)?
-		('publisher' '{' publisher+=Publisher ( "," publisher+=Publisher)* '}' )?
-		('subscriber' '{' subscriber+=Subscriber ( "," subscriber+=Subscriber)* '}' )?
-		('serviceClient' '{' serviceClient+=ServiceClient ( "," serviceClient+=ServiceClient)* '}' )?
-		('serviceServer' '{' serviceServer+=ServiceServer ( "," serviceServer+=ServiceServer)* '}' )?
-		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
-		('actionserver' '{' actionserver+=ActionServer ( "," actionserver+=ActionServer)* '}' )?
-		('actionclient' '{' actionclient+=ActionClient ( "," actionclient+=ActionClient)* '}' )?
+		(publisher+=Publisher ( "," publisher+=Publisher)* )*
+		(subscriber+=Subscriber ( "," subscriber+=Subscriber)* )*
+		(serviceClient+=ServiceClient ( "," serviceClient+=ServiceClient)* )*
+		(serviceServer+=ServiceServer ( "," serviceServer+=ServiceServer)* )*
+		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* )?
+		(actionserver+=ActionServer ( "," actionserver+=ActionServer)* )*
+		(actionclient+=ActionClient ( "," actionclient+=ActionClient)* )*
 	'}';
 
-SMACHStateMachine returns SMACHStateMachine:
-	{SMACHStateMachine}
-	'SMACHStateMachine'
-	name=EString
-	'{'
-		('loopRate' loopRate=EDouble)?
-		('args' args=EString)?
-		('paramSource' paramSource=EString)?
-		('namespace' namespace=EString)?
-		('publisher' '{' publisher+=Publisher ( "," publisher+=Publisher)* '}' )?
-		('subscriber' '{' subscriber+=Subscriber ( "," subscriber+=Subscriber)* '}' )?
-		('serviceClient' '{' serviceClient+=ServiceClient ( "," serviceClient+=ServiceClient)* '}' )?
-		('serviceServer' '{' serviceServer+=ServiceServer ( "," serviceServer+=ServiceServer)* '}' )?
-		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
-		('actionserver' '{' actionserver+=ActionServer ( "," actionserver+=ActionServer)* '}' )?
-		('actionclient' '{' actionclient+=ActionClient ( "," actionclient+=ActionClient)* '}' )?
-		('states' '{' states+=SMACHState ( "," states+=SMACHState)* '}' )?
-		('transitions' '{' transitions+=SMACHTransition ( "," transitions+=SMACHTransition)* '}' )?
-		('finalStates' '{' finalStates+=FinalState ( "," finalStates+=FinalState)* '}' )?
-		('initialStates' '{' initialStates+=InitActionState ( "," initialStates+=InitActionState)* '}' )?
-	'}';
+
 
 EDouble returns ecore::EDouble:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
@@ -153,75 +117,3 @@ EBoolean returns ecore::EBoolean:
 ParameterTypes returns ros::ParameterTypes:
 	'ParameterTypes' /* TODO: implement this rule and an appropriate IValueConverter */;
 
-SMACHState_Impl returns SMACHState:
-	{SMACHState}
-	'SMACHState'
-	'{'
-		('goal' goal=EString)?
-		('goal_type' goal_type=SMACHGoalTypes)?
-		('result' result=EString)?
-	'}';
-
-SMACHTransition returns SMACHTransition:
-	'SMACHTransition'
-	'{'
-		('name' name=SMACHStateOutcomes)?
-		'Source' Source=[SMACHState|EString]
-		'Target' Target=[SMACHState|EString]
-	'}';
-
-FinalState returns FinalState:
-	{FinalState}
-	'FinalState'
-	'{'
-		('goal' goal=EString)?
-		('goal_type' goal_type=SMACHGoalTypes)?
-		('result' result=EString)?
-		('type' type=SMACHStateOutcomes)?
-	'}';
-
-InitActionState returns InitActionState:
-	{InitActionState}
-	'InitActionState'
-	'{'
-		('goal' goal=EString)?
-		('goal_type' goal_type=SMACHGoalTypes)?
-		('result' result=EString)?
-	'}';
-
-SMACHGoalTypes returns SMACHGoalTypes:
-	'SMACHGoalTypes' /* TODO: implement this rule and an appropriate IValueConverter */;
-
-ActionState returns ActionState:
-	{ActionState}
-	'ActionState'
-	name=EString
-	'{'
-		('ActionType' ActionType=EString)?
-		('goal' goal=EString)?
-		('goal_type' goal_type=SMACHGoalTypes)?
-		('result' result=EString)?
-	'}';
-
-ServiceState returns ServiceState:
-	{ServiceState}
-	'ServiceState'
-	name=EString
-	'{'
-		('msg' msg=EString)?
-		('goal' goal=EString)?
-		('goal_type' goal_type=SMACHGoalTypes)?
-		('result' result=EString)?
-	'}';
-
-InitStraightState returns InitStraightState:
-	{InitStraightState}
-	'InitStraightState'
-	'{'
-		('goal' goal=EString)?
-		('goal_type' goal_type=SMACHGoalTypes)?
-		('result' result=EString)?
-	'}';
-
-SMACHStateOutcomes returns SMACHStateOutcomes:
-	'SMACHStateOutcomes' /* TODO: implement this rule and an appropriate IValueConverter */;
