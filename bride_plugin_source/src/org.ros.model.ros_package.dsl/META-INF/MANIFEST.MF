@@ -13,15 +13,6 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  org.ros.model.ros,
- org.eclipse.xtext.util,
- org.antlr.runtime
+ org.ros.model.ros
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.ros.model,
- org.ros.model.services,
- org.ros.model.parseTreeConstruction,
- org.ros.model.parser.antlr,
- org.ros.model.parser.antlr.internal,
- org.ros.model.validation,
- org.ros.model.scoping,
- org.ros.model.formatting
