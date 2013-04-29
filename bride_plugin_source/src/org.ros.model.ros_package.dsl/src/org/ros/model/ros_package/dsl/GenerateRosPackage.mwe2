@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/org/ros/model/ros_package/dsl/RosPackage.xtext"
-var fileExtensions = "ros_package_dsl"
+var fileExtensions = "ros_package"
 var projectName = "org.ros.model.ros_package.dsl"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
@@ -35,6 +35,7 @@ Workflow {
 		projectNameUi = "${projectName}.ui"
 		language = auto-inject {
 			uri = grammarURI
+			fileExtensions = fileExtensions
 
 			// Java API to access grammar elements (required by several other fragments)
 			fragment = grammarAccess.GrammarAccessFragment auto-inject {}
@@ -54,8 +55,12 @@ Workflow {
 			// fragment = parseTreeConstructor.ParseTreeConstructorFragment auto-inject {}
 
 			// a custom ResourceFactory for use with EMF 
-			fragment = resourceFactory.ResourceFactoryFragment auto-inject {}
-
+			//fragment = resourceFactory.ResourceFactoryFragment auto-inject {}
+			// a custom ResourceFactory for use with EMF 
+			fragment = resourceFactory.ResourceFactoryFragment {
+				fileExtensions = fileExtensions
+			}
+			
 			// the Antlr parser
 			fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
 				options = {
@@ -64,11 +69,17 @@ Workflow {
 			}
 
 			// Xtend-based API for validation 
-			fragment = validation.ValidatorFragment auto-inject {
+			//fragment = validation.ValidatorFragment auto-inject {
 			// composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
 			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-			}
+			//}
 
+			// java-based API for validation 
+			fragment = validation.JavaValidatorFragment {
+				composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+			
 			// old scoping and exporting API 
 			// fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
 			// fragment = exporting.QualifiedNamesFragment auto-inject {}

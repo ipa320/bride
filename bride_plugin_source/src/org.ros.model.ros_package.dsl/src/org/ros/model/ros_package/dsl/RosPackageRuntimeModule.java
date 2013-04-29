@@ -4,7 +4,12 @@
 package org.ros.model.ros_package.dsl;
 
 import org.eclipse.xtext.parser.IParser;
+import org.eclipse.xtext.parser.antlr.IReferableElementsUnloader;
+import org.eclipse.xtext.resource.IFragmentProvider;
+import org.eclipse.xtext.service.SingletonBinding;
+import org.eclipse.xtext.validation.impl.ConcreteSyntaxEValidator;
 import org.ros.model.ros_package.dsl.indenting.IndentingParser;
+import org.ros.model.ros_package.dsl.resource.QualifiedNameFragmentProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the
@@ -16,6 +21,20 @@ public class RosPackageRuntimeModule extends
 	@Override
 	public Class<? extends IParser> bindIParser() {
 		return IndentingParser.class;
+	}
+
+	@Override
+	public Class<? extends IFragmentProvider> bindIFragmentProvider() {
+		return QualifiedNameFragmentProvider.class;
+	}
+
+	public Class<? extends IReferableElementsUnloader> bindIReferableElementsUnloader() {
+		return IReferableElementsUnloader.GenericUnloader.class;
+	}
+
+	@SingletonBinding(eager = true)
+	public Class<? extends ConcreteSyntaxEValidator> bindConcreteSyntaxEValidator() {
+		return ConcreteSyntaxEValidator.class;
 	}
 
 }
