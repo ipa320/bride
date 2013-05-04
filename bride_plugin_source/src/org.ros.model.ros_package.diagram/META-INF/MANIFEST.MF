@@ -48,4 +48,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.gmf.glue;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.xtext.resource
+Import-Package: com.google.inject;version="1.3.0",
+ org.eclipse.xtext.resource,
+ org.ros.model.ros_package.dsl
