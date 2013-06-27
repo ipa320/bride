@@ -9,7 +9,8 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/bride</url>
 
-  <depend package="bride_plugins"/>
+  <rosdep name="curl"/>
+  <rosdep name="java"/>
 
 </package>
 
