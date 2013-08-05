@@ -31,9 +31,16 @@
 		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
 		chmodTool.chmod("a+x"); // makes executable
 		
+		//test_generation
+		for(action in node.actionserver) {
+			var testActionTemplate := TemplateFactory.load('test_actionclient.egl');
+			testActionTemplate.populate('node', node);
+			testActionTemplate.populate('action', action);
+			testActionTemplate.populate('package', package);
+			testActionTemplate.generate('test/test_'+ node.name + '_' + action.name + '.py');
+		}
+		
 	}
-	
-	
 	
 	//CMakeList
 	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
