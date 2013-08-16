@@ -2,6 +2,17 @@
 import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
 import rospy
 
+[%
+var strs : Sequence;
+for (actionserver in node.actionserver)
+{
+	strs = actionserver.ActionType.split('::');
+%]
+from [%=strs[0]%].msg import [%=strs[1]%]Feedback, [%=strs[1]%]Action, [%=strs[1]%]Result  
+[%
+}
+%]
+
 [%=out.startPreserve("#", "#", "customHeaders", true)%]
 [%=out.stopPreserve()%]
 
@@ -40,6 +51,17 @@ from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33
 
 
 class [%=node.name.replace(" ", "_")%]_impl:
+[%
+var strs : Sequence;
+for (actionserver in node.actionserver)
+{
+	strs = actionserver.ActionType.split('::');
+%]
+	_[%=actionserver.name%]_feedback = [%=strs[1]%]Feedback()
+	_[%=actionserver.name%]_result = [%=strs[1]%]Result()  
+[%
+}
+%]
 [%
 for (parameter in node.parameter)
 {
@@ -92,6 +114,17 @@ for (parameter in node.parameter)
 	[%
 	}%]
 	
+	[%
+	for (action_here in node.actionserver)
+	{%]
+	def	execute_[%=action_here.name.replace(" ", "_")%]_cb(self, goal):
+		[%=out.startPreserve("#", "#", "user implementation of action callback for " + action_here.name.replace(" ", "_"), true)%]
+		[%=out.stopPreserve()%]
+		pass
+
+	[%
+	}%]
+	
 
 class [%=node.name.replace(" ", "_")%]:
 	def __init__(self):
@@ -114,6 +147,18 @@ class [%=node.name.replace(" ", "_")%]:
 		[%=service_here.name.replace(" ", "_")%]_ = rospy.Service('[%=service_here.name.replace(" ", "_")%]', [%=strs33[1]%], self.impl.callback_[%=service_here.name.replace(" ", "_")%])
 	[%
 	}%]
+	[%
+	var strs : Sequence;
+	for (actionserver in node.actionserver)
+	{
+		strs = actionserver.ActionType.split('::');
+	%]
+		self._as_[%=actionserver.name.replace(" ", "_")%] = actionlib.SimpleActionServer("[%=actionserver.name.replace(" ", "_")%]", [%=strs[1]%]Action, execute_cb=self.impl.execute_[%=actionserver.name.replace(" ", "_")%]_cb)
+		self._as_[%=actionserver.name.replace(" ", "_")%].start()  
+	[%
+	}
+	%]
+	
 
 [%for (subscriber in node.subscriber) {%]
 	def [%=subscriber.name.replace(" ", "_")%]Callback(self, a):
