@@ -295,6 +295,7 @@ public class SubscriberEditPart extends AbstractBorderItemEditPart {
 
 			graphics.popState();
 		}
+
 		/**
 		 * @generated
 		 */

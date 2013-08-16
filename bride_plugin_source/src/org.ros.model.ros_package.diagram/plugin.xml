@@ -58,7 +58,7 @@
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
-         id="RosPackagePresentation">
+         id="RosPresentation">
          <Priority name="Lowest"/>
          <ViewId id="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
@@ -74,8 +74,18 @@
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="RosPresentationPrint">
+         <Priority name="Lowest"/>
+         <ViewId id="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
-         id="RosPackagePresentationIDE">
+         id="RosPresentationIDE">
          <Priority name="Lowest"/>
          <ViewId id="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
@@ -85,7 +95,7 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
-            id="RosPackageRender">
+            id="RosRender">
          <Priority name="Lowest"/>
          <ViewId id="org.ros.model.ros_package.diagram.part.RosPackageDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
@@ -206,7 +216,7 @@
             <method name="getType()" value="Ros"/>
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="RosPackage"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Ros"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3006,3007"/>
       </viewProvider>
    </extension>
@@ -216,7 +226,7 @@
       <editpartProvider class="org.ros.model.ros_package.diagram.providers.RosEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
-            <method name="getType()" value="RosPackage"/>
+            <method name="getType()" value="Ros"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
             <method name="getType()" value="2001,3001,3002,3003,3004,3005,3006,3007"/>
