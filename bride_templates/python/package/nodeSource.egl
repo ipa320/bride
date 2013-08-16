@@ -40,21 +40,6 @@ from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33
 
 
 class [%=node.name.replace(" ", "_")%]_impl:
-[%
-for (parameter in node.parameter)
-{
-	if(parameter.type.toString() == "string"){
-%]
-	config_[%=parameter.name.replace(" ", "_")%] = "[%=parameter.value%]"
-[%
-}
-	else{
-%]
-	config_[%=parameter.name.replace(" ", "_")%] = [%=parameter.value%]
-[%
-	}
-}
-%]
 [%for (subscriber in node.subscriber){
 	strs = subscriber.msg.split('::');
 %]
@@ -67,6 +52,16 @@ for (parameter in node.parameter)
 [%}%]
 	
 	def	__init__(self):
+[%for (parameter in node.parameter){
+	if(parameter.type.toString() == "string"){
+%]
+		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', "[%=parameter.value%]")
+[%
+}
+	else{
+%]
+		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', [%=parameter.value%])
+[% }}%]
 		[%=out.startPreserve("#", "#", "initCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
