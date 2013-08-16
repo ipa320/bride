@@ -3,23 +3,23 @@ all: installed
 UNPACK_CMD  	= tar zxf
 SOURCE_DIR 	= build/eclipse
 #32 bit version
-TARBALL		= build/eclipse-modeling-juno-SR2-linux-gtk.tar.gz
-TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/juno/SR2/eclipse-modeling-juno-SR2-linux-gtk.tar.gz
-MD5SUM_FILE 	= eclipse-modeling-juno-SR2-linux-gtk.tar.gz.md5sum
+TARBALL		= build/eclipse-modeling-kepler-R-linux-gtk.tar.gz
+TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-linux-gtk.tar.gz
+MD5SUM_FILE 	= eclipse-modeling-kepler-R-linux-gtk.tar.gz.md5sum
 
 #64 bit version
 UNAME = $(shell uname -m)
 ifeq ($(UNAME),x86_64)
-	TARBALL		= build/eclipse-modeling-juno-SR2-linux-gtk-x86_64.tar.gz
-	TARBALL_URL 	= http://mirror.netcologne.de/eclipse//technology/epp/downloads/release/juno/SR2/eclipse-modeling-juno-SR2-linux-gtk-x86_64.tar.gz
-	MD5SUM_FILE 	= eclipse-modeling-juno-SR2-linux-gtk-x86_64.tar.gz.md5sum	
+	TARBALL		= build/eclipse-modeling-kepler-R-linux-gtk-x86_64.tar.gz
+	TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-linux-gtk-x86_64.tar.gz
+	MD5SUM_FILE 	= eclipse-modeling-kepler-R-linux-gtk-x86_64.tar.gz.md5sum	
 endif
 
 SYSNAME = $(shell uname)
 ifeq ($(SYSNAME),Darwin)
-        TARBALL         = build/eclipse-modeling-juno-SR2-macosx-cocoa-x86_64.tar.gz
-        TARBALL_URL     = http://ftp.wh2.tu-dresden.de/pub/mirrors/eclipse/technology/epp/downloads/release/juno/SR2/eclipse-modeling-juno-SR2-macosx-cocoa-x86_64.tar.gz
-        MD5SUM_FILE     = eclipse-modeling-juno-SR2-macosx-cocoa-x86_64.tar.gz.md5sum
+        TARBALL         = build/eclipse-modeling-kepler-R-macosx-cocoa-x86_64.tar.gz
+        TARBALL_URL     = http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-macosx-cocoa-x86_64.tar.gz
+        MD5SUM_FILE     = eclipse-modeling-kepler-R-macosx-cocoa-x86_64.tar.gz.md5sum
 endif
 
 url 	= http://bride.cybernotic.org/eclipse_plugins_0.2.yaml
