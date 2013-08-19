@@ -1,0 +1,29 @@
+<package>
+  <name>bride_tutorials</name>
+  <version>0.3.0</version>
+  <description>bride_tutorials</description>
+  <maintainer email="aub@ipa.fhg.de">Alexander Bubeck</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/bride_tutorials</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author email="aub@ipa.fhg.de">Alexander Bubeck</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <!-- <test_depend>actionlib</test_depend> -->
+  <!-- <test_depend>actionlib_msgs</test_depend> -->
+
+  <export>
+
+  </export>
+</package>
