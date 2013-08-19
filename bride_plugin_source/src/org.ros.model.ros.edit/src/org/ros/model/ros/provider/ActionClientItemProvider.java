@@ -12,9 +12,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,18 +23,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.ros.model.ros.Publisher;
+import org.ros.model.ros.ActionClient;
 import org.ros.model.ros.RosPackage;
-import org.ros.model.ros.ServiceServer;
 
 /**
- * This is the item provider adapter for a {@link org.ros.model.ros.ServiceServer} object.
+ * This is the item provider adapter for a {@link org.ros.model.ros.ActionClient} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceServerItemProvider
+public class ActionClientItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -50,7 +46,7 @@ public class ServiceServerItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceServerItemProvider(AdapterFactory adapterFactory) {
+	public ActionClientItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,7 +62,7 @@ public class ServiceServerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addMsgPropertyDescriptor(object);
+			addActionTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,9 +78,9 @@ public class ServiceServerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ServiceServer_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceServer_name_feature", "_UI_ServiceServer_type"),
-				 RosPackage.Literals.SERVICE_SERVER__NAME,
+				 getString("_UI_ActionClient_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActionClient_name_feature", "_UI_ActionClient_type"),
+				 RosPackage.Literals.ACTION_CLIENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -93,34 +89,60 @@ public class ServiceServerItemProvider
 				 null));
 	}
 
-		
 	/**
-	 * Manual coded Property for pull down menu
+	 * This adds a property descriptor for the Action Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @ NOT generated
 	 */
-	protected void addMsgPropertyDescriptor(Object object) {
+	protected void addActionTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceServer_msg_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceServer_msg_feature", "_UI_ServiceServer_type"),
-				 RosPackage.Literals.SERVICE_SERVER__MSG,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null) {
+		(new ItemPropertyDescriptor
+			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			 getResourceLocator(),
+			 getString("_UI_ActionClient_ActionType_feature"),
+			 getString("_UI_PropertyDescriptor_description", "_UI_ActionClient_ActionType_feature", "_UI_ActionClient_type"),
+			 RosPackage.Literals.ACTION_CLIENT__ACTION_TYPE,
+			 true,
+			 false,
+			 false,
+			 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			 null,
+			 null){
 			@Override
-		public Collection<?> getChoiceOfValues(Object object) {
-			ServiceServer serviceserver = (ServiceServer) object;
-			org.ros.model.ros.Package pack = (org.ros.model.ros.Package) serviceserver.eContainer().eContainer();
-			System.out.println(pack.getName());
-			
-									
-			List<String> strings = new ArrayList<String>(); // Copy the students to a temporary list
-			for (String item: pack.getDepend()) {
-				String cmd = "rossrv package " + item;
+			public Collection<?> getChoiceOfValues(Object object) {
+				ActionClient actionclient = (ActionClient) object;
+				org.ros.model.ros.Package pack = (org.ros.model.ros.Package) actionclient.eContainer().eContainer();
+				System.out.println(pack.getName());
+				
+							
+				List<String> strings = new ArrayList<String>(); // Copy the students to a temporary list
+				for (String item: pack.getDepend()) {
+					String cmd = "rosmsg package " + item;
+					Runtime run = Runtime.getRuntime();
+					Process pr;
+					try {
+						pr = run.exec(cmd);
+						pr.waitFor();
+						BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+						String line = "";
+						while ((line=buf.readLine())!=null) {
+							if(line.contains("ActionGoal")){
+								String temp = line.replace("/", "::"); 
+								strings.add(temp.replace("ActionGoal", ""));
+							}
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					//strings.add(item);
+				}
+				//Check for messages in the own project
+				String cmd = "rosmsg package " + pack.getName();
 				Runtime run = Runtime.getRuntime();
 				Process pr;
 				try {
@@ -129,7 +151,10 @@ public class ServiceServerItemProvider
 					BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 					String line = "";
 					while ((line=buf.readLine())!=null) {
-						strings.add(line.replace("/", "::"));
+						if(line.contains("ActionGoal")){
+							String temp = line.replace("/", "::"); 
+							strings.add(temp.replace("ActionGoal", ""));
+						}
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -138,41 +163,20 @@ public class ServiceServerItemProvider
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//strings.add(item);
+				return strings;
 			}
-			//Check for services in the own project
-			String cmd = "rossrv package " + pack.getName();
-			Runtime run = Runtime.getRuntime();
-			Process pr;
-			try {
-				pr = run.exec(cmd);
-				pr.waitFor();
-				BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-				String line = "";
-				while ((line=buf.readLine())!=null) {
-					strings.add(line.replace("/", "::"));
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return strings;
-		}
-		});
+			});
 	}
 
 	/**
-	 * This returns ServiceServer.gif.
+	 * This returns ActionClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceServer"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActionClient"));
 	}
 
 	/**
@@ -183,10 +187,10 @@ public class ServiceServerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ServiceServer)object).getName();
+		String label = ((ActionClient)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ServiceServer_type") :
-			getString("_UI_ServiceServer_type") + " " + label;
+			getString("_UI_ActionClient_type") :
+			getString("_UI_ActionClient_type") + " " + label;
 	}
 
 	/**
@@ -200,9 +204,9 @@ public class ServiceServerItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ServiceServer.class)) {
-			case RosPackage.SERVICE_SERVER__NAME:
-			case RosPackage.SERVICE_SERVER__MSG:
+		switch (notification.getFeatureID(ActionClient.class)) {
+			case RosPackage.ACTION_CLIENT__NAME:
+			case RosPackage.ACTION_CLIENT__ACTION_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

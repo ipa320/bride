@@ -141,6 +141,25 @@ public class ServiceClientItemProvider
 				}
 				//strings.add(item);
 			}
+			//Check for services in the own project
+			String cmd = "rossrv package " + pack.getName();
+			Runtime run = Runtime.getRuntime();
+			Process pr;
+			try {
+				pr = run.exec(cmd);
+				pr.waitFor();
+				BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+				String line = "";
+				while ((line=buf.readLine())!=null) {
+					strings.add(line.replace("/", "::"));
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return strings;
 		}
 		});
