@@ -31,3 +31,5 @@
   - "org.ros.model.ros_package.diagram"
   - "org.best_of_robotics.transform.ros.to.cplusplus"
   - "org.best_of_robotics.transform.bcmx.to.ros"
+"http://update-production-pydev.s3.amazonaws.com/pydev/updates/site.xml":
+  - "org.python.pydev.feature.feature.group"
