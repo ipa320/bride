@@ -13,7 +13,6 @@
   
   <url>http://ros.org/wiki/bride</url>
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>bride_plugins</run_depend>
 
 
 </package>
