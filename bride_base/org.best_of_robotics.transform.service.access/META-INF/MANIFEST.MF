@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BRIDE Transform Service Access
+Bundle-SymbolicName: org.best_of_robotics.transform.service.access
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.best_of_robotics.transform.service.access.TransformAccessActivator
+Bundle-Vendor: BRICS
+Require-Bundle: org.eclipse.core.runtime,
+ org.best_of_robotics.transform.service;bundle-version="1.0.0";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.best_of_robotics.transform.service.access
