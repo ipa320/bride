@@ -25,9 +25,9 @@ $(TARBALL):
 	-mkdir -p build
 ifneq ($(strip $(MD5SUM_FILE)),)
 	if [ ! -f $(MD5SUM_FILE) ]; then echo "Error: Couldn't find md5sum file $(MD5SUM_FILE)" && false; fi
-	$(ROS_ROOT)/core/rosbuild/bin/download_checkmd5.py $(TARBALL_URL) $(TARBALL) `awk {'print $$1'} $(MD5SUM_FILE)`
+	./download_checkmd5.py $(TARBALL_URL) $(TARBALL) `awk {'print $$1'} $(MD5SUM_FILE)`
 else
-	$(ROS_ROOT)/core/rosbuild/bin/download_checkmd5.py $(TARBALL_URL) $(TARBALL)
+	./download_checkmd5.py $(TARBALL_URL) $(TARBALL)
 endif
 	touch -c $(TARBALL)
 
@@ -37,9 +37,9 @@ $(SOURCE_DIR)/unpacked: $(TARBALL_PATCH)
 	-mkdir -p build
 ifneq ($(strip $(MD5SUM_FILE)),)
 	if [ ! -f $(MD5SUM_FILE) ]; then echo "Error: Couldn't find md5sum file $(MD5SUM_FILE)" && false; fi
-	$(ROS_ROOT)/core/rosbuild/bin/download_checkmd5.py $(TARBALL_URL) $(TARBALL) `awk {'print $$1'} $(MD5SUM_FILE)`
+	./download_checkmd5.py $(TARBALL_URL) $(TARBALL) `awk {'print $$1'} $(MD5SUM_FILE)`
 else
-	$(ROS_ROOT)/core/rosbuild/bin/download_checkmd5.py $(TARBALL_URL) $(TARBALL)
+	./download_checkmd5.py $(TARBALL_URL) $(TARBALL)
 endif
 	touch -c $(TARBALL)
 	rm -rf $(SOURCE_DIR) $(INITIAL_DIR)
