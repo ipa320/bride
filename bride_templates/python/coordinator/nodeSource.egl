@@ -14,6 +14,14 @@ for (ac in node.actionclient){
 from [%=acstypes[0]%].msg import [%=acstypes[1]%]Action, [%=acstypes[1]%]Goal
 [% } %]
 
+[%
+var servicetypes: Sequence;
+for (service in node.serviceClient){
+	servicetypes = service.msg.split('::');
+	%]
+from [%=servicetypes[0]%].srv import [%=servicetypes[1]%]
+[% } %]
+
 [%=out.startPreserve("#", "#", "customHeaders", true)%]
 [%=out.stopPreserve()%]
 
@@ -74,10 +82,37 @@ for (parameter in node.parameter)
 			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', [%=acstypes[1]%]Action), {
 			[%
 			for (transition in node.transitions){
-			if(transition.Source.type.name == "ActionState")
+			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
 			{
 			if(transition.Source.name == ac.name){
-			if(transition.Target.type.name == "ActionState"){ 
+			if(transition.Target.type.name == "ActionState" or transition.Target.type.name == "ServiceState"){
+			%]
+				"[%=transition.name%]":"[%=transition.Target.name%]",
+			[%
+			}
+			else{
+			%]
+				"[%=transition.name%]":"[%=transition.Target.type.name%]",
+			[%
+			}
+			}
+			}
+			}%]
+			})
+		[%
+		}%]
+		[%
+			var servicetypes: Sequence;
+			for (service in node.serviceClient){
+			servicetypes = service.msg.split('::');
+		 %]
+			smach.StateMachine.add('[%=service.name.replace(" ", "_")%]', smach_ros.ServiceState('[%=service.name.replace(" ", "_")%]', [%=servicetypes[1]%]), {
+			[%
+			for (transition in node.transitions){
+			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
+			{
+			if(transition.Source.name == service.name){
+			if(transition.Target.type.name == "ActionState" or transition.Target.type.name == "ServiceState"){ 
 			%]
 				"[%=transition.name%]":"[%=transition.Target.name%]",
 			[%
@@ -93,9 +128,14 @@ for (parameter in node.parameter)
 			})
 		[%
 		}%]	
-		
+
+		[%if(node.SkillInterface == false){%]
 		# Execute
 		outcome = sm0.execute()
+		[% } else{ %]
+		asw = ActionServerWrapper( '[%=node.name.replace(" ", "_")%]', TestAction,  wrapped_container = sm0, succeeded_outcomes = ['succeeded'], aborted_outcomes = ['aborted'], preempted_outcomes = ['preempted'] )
+		asw.run_server()
+		[% }%]
 	
 		[%=out.startPreserve("#", "#", "configureCode", true)%]
 		[%=out.stopPreserve()%]

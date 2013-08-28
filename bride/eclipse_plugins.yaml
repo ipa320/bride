@@ -26,7 +26,7 @@
   - "org.best_of_robotics.model.bcmx.diagram"
   - "org.best_of_robotics.transform.service"
   - "org.best_of_robotics.transform.service.access"
-"http://www.best-of-robotics.org/bride/update/ros/":
+"file:///home/aub/git/bride/src/bride/bride_plugins":
   - "org.ros.model.ros_coordinator.diagram"
   - "org.ros.model.ros_package.diagram"
   - "org.best_of_robotics.transform.ros.to.cplusplus"

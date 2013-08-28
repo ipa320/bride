@@ -29,8 +29,7 @@ outputfile  	= eclipse_plugins.yaml
 include $(shell rospack find mk)/download_unpack_build.mk
 
 installed: $(SOURCE_DIR)/unpacked
-	test -d eclipse || mv build/eclipse eclipse
-	./installer.py eclipse_plugins.yaml
+	if test -d eclipse; then echo "Updating eclipse installation" && ./installer.py eclipse_plugins.yaml; else echo "Installing from scratch" && mv build/eclipse eclipse && ./installer.py eclipse_plugins.yaml; fi
 
 update:
 	./installer.py -u eclipse_plugins.yaml
