@@ -3,7 +3,6 @@
 #based on script for SCALA see https://github.com/scala-ide/scala-ide
 #ported to python an adapted for BRIDE
 
-import roslib
 import os
 import sys
 import subprocess
