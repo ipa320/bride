@@ -63,6 +63,7 @@ for (parameter in node.parameter)
 			acstypes = ac.ActionType.split('::');
 		 %]
 		self.[%=ac.name.replace(" ", "_")%]_goal = [%=acstypes[1]%]Goal()
+		genpy.message.fill_message_args(self.[%=ac.name.replace(" ", "_")%]_goal, [rospy.get_param('[%=ac.goal%]')])
 		[%
 		}%]	
 		[%=out.startPreserve("#", "#", "initCode", true)%]
