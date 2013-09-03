@@ -80,7 +80,7 @@ for (parameter in node.parameter)
 			for (ac in node.actionclient){
 			acstypes = ac.ActionType.split('::');
 		 %]
-			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', [%=acstypes[1]%]Action), {
+			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=ac.name.replace(" ", "_")%]', [%=acstypes[1]%]Action, self.[%=ac.name.replace(" ", "_")%]_goal), {
 			[%
 			for (transition in node.transitions){
 			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
