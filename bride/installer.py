@@ -63,7 +63,7 @@ def install(eclipse_repo, eclipse_component):
 	sts = os.waitpid(p.pid, 0)[1]
 
 def install_local():
-	eclipse_repo = "file://"+os.getcwd()+"/../bride_plugins"
+	eclipse_repo = "file://"+os.getcwd()+"/bride_plugins"
 	eclipse_component = "org.ros.model.ros_coordinator.diagram"
 	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
