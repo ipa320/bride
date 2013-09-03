@@ -25,7 +25,7 @@
         xsi:type="gmfgen:FigureViewmap"
         figureQualifiedClassName="org.eclipse.draw2d.FreeformLayer"/>
     <domainDiagramElement
-        href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package"/>
+        href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package"/>
     <childNodes
         visualID="3001"
         editPartClassName="ActionStateEditPart"
@@ -46,11 +46,11 @@
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActionStateFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActionStateNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActionStateFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setLineWidth(2);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(120)&#xA;, getMapMode().DPtoLP(80)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActionStateNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureActionStateNameFigure.setText(&quot;&lt;..>&quot;);&#xA;&#xA;fFigureActionStateNameFigure.setFont(FFIGUREACTIONSTATENAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureActionStateNameFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureActionStateNameFigure.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureActionStateNameFigure.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureActionStateNameFigure.horizontalIndent = 0;&#xA;constraintFFigureActionStateNameFigure.horizontalSpan = 3;&#xA;constraintFFigureActionStateNameFigure.verticalSpan = 1;&#xA;constraintFFigureActionStateNameFigure.grabExcessHorizontalSpace = false;&#xA;constraintFFigureActionStateNameFigure.grabExcessVerticalSpace = false;&#xA;this.add(fFigureActionStateNameFigure, constraintFFigureActionStateNameFigure);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActionStateNameFigure() {&#xA;&#x9;&#x9;return fFigureActionStateNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREACTIONSTATENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 9, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/ActionState"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/ActionState"/>
         <containmentMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/actionclient"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Node/actionclient"/>
         <childMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/actionclient"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Node/actionclient"/>
       </modelFacet>
       <labels
           visualID="5001"
@@ -71,7 +71,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionClient/name"/>
+              href="../../org.ros.model.ros/model/smach.genmodel#//ros/ActionClient/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -95,11 +95,11 @@
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceStateFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceStateNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceStateFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = false;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setFill(false);&#xA;this.setLineWidth(2);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(120)&#xA;, getMapMode().DPtoLP(80)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceStateNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureServiceStateNameFigure.setText(&quot;&lt;..>&quot;);&#xA;&#xA;fFigureServiceStateNameFigure.setFont(FFIGURESERVICESTATENAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureServiceStateNameFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureServiceStateNameFigure.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureServiceStateNameFigure.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureServiceStateNameFigure.horizontalIndent = 0;&#xA;constraintFFigureServiceStateNameFigure.horizontalSpan = 3;&#xA;constraintFFigureServiceStateNameFigure.verticalSpan = 1;&#xA;constraintFFigureServiceStateNameFigure.grabExcessHorizontalSpace = false;&#xA;constraintFFigureServiceStateNameFigure.grabExcessVerticalSpace = false;&#xA;this.add(fFigureServiceStateNameFigure, constraintFFigureServiceStateNameFigure);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceStateNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceStateNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURESERVICESTATENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 9, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/ServiceState"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/ServiceState"/>
         <containmentMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/serviceClient"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Node/serviceClient"/>
         <childMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/serviceClient"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Node/serviceClient"/>
       </modelFacet>
       <labels
           visualID="5002"
@@ -120,7 +120,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
-              href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceClient/name"/>
+              href="../../org.ros.model.ros/model/smach.genmodel#//ros/ServiceClient/name"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -149,11 +149,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/FinalState"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/FinalState"/>
         <containmentMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine/finalStates"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine/finalStates"/>
         <childMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine/finalStates"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine/finalStates"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -180,11 +180,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/InitActionState"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/InitActionState"/>
         <containmentMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine/initialStates"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine/initialStates"/>
         <childMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine/initialStates"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine/initialStates"/>
       </modelFacet>
     </childNodes>
     <topLevelNodes
@@ -207,11 +207,11 @@
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StateMachineFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureStateMachineNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureStateMachineCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StateMachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;this.setFill(false);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureStateMachineNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureStateMachineNameFigure.setText(&quot;&lt;...>&quot;);&#xA;fFigureStateMachineNameFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10000)&#xA;, getMapMode().DPtoLP(50)&#xA;));&#xA;&#xA;this.add(fFigureStateMachineNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureStateMachineCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureStateMachineCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureStateMachineNameFigure() {&#xA;&#x9;&#x9;return fFigureStateMachineNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureStateMachineCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureStateMachineCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine"/>
         <containmentMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package/node"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package/node"/>
         <childMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package/node"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package/node"/>
       </modelFacet>
       <labels
           visualID="5003"
@@ -229,7 +229,7 @@
             parser="//@labelParsers/@implementations.0"
             editPattern="">
           <metaFeatures
-              href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node/name"/>
+              href="../../org.ros.model.ros/model/smach.genmodel#//ros/Node/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -257,15 +257,15 @@
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHTransition"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHTransition"/>
         <containmentMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine/transitions"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine/transitions"/>
         <childMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHStateMachine/transitions"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHStateMachine/transitions"/>
         <sourceMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHTransition/Source"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHTransition/Source"/>
         <targetMetaFeature
-            href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHTransition/Target"/>
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHTransition/Target"/>
       </modelFacet>
       <labels
           visualID="6001"
@@ -286,7 +286,7 @@
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.1">
           <metaFeatures
-              href="../../org.ros.model.ros/model/ros.genmodel#//smach/SMACHTransition/name"/>
+              href="../../org.ros.model.ros/model/smach.genmodel#//smach/SMACHTransition/name"/>
         </modelFacet>
       </labels>
     </links>
@@ -513,7 +513,7 @@
     </tabs>
   </propertySheet>
   <domainGenModel
-      href="../../org.ros.model.ros/model/ros.genmodel#/"/>
+      href="../../org.ros.model.ros/model/smach.genmodel#/"/>
   <labelParsers
       extensibleViaService="true">
     <implementations

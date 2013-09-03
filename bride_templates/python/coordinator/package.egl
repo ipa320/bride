@@ -24,7 +24,7 @@
 		for(ac in node.actionclient)
 		{		
 				config_creator.setDirectory(TemplateFactory.getOutputRoot());
-				config_creator.write("configs/" + ac.name + "_goal.yaml", ac.ActionType+"Goal");
+				config_creator.write("config/" + ac.name + "_goal.yaml", ac.ActionType+"Goal");
 		}
 	}
 	
