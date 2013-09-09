@@ -26,12 +26,19 @@
 				config_creator.setDirectory(TemplateFactory.getOutputRoot());
 				config_creator.write("configs/" + ac.name + "_goal.yaml", ac.ActionType+"Goal");
 		}
+		
+		//launch File
+		var launchTemplate := TemplateFactory.load('launchfile.egl');
+		launchTemplate.populate('node', node);
+		launchTemplate.populate('package', package);
+		launchTemplate.generate(node.name +'.launch');
 	}
 	
 	//CMakeList
 	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
 	cmakeListsTemplate.populate('package', package);
 	cmakeListsTemplate.generate('CMakeLists.txt');
+	
 	
 	//Makefile
 	var makefileTemplate := TemplateFactory.load('makefile.egl');
