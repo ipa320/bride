@@ -1,4 +1,4 @@
-package org.ros.model.ros.diagram.part;
+package org.ros.model.ros_coordinator.diagram.part;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -17,7 +17,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 /**
  * @generated
  */
-public class RosCreationWizard extends Wizard implements INewWizard {
+public class SmachCreationWizard extends Wizard implements INewWizard {
 
 	/**
 	 * @generated
@@ -32,12 +32,12 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	protected RosCreationWizardPage diagramModelFilePage;
+	protected org.ros.model.ros_coordinator.diagram.part.SmachCreationWizardPage diagramModelFilePage;
 
 	/**
 	 * @generated
 	 */
-	protected RosCreationWizardPage domainModelFilePage;
+	protected org.ros.model.ros_coordinator.diagram.part.SmachCreationWizardPage domainModelFilePage;
 
 	/**
 	 * @generated
@@ -91,8 +91,8 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(Messages.RosCreationWizardTitle);
-		setDefaultPageImageDescriptor(RosDiagramEditorPlugin
+		setWindowTitle(org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizardTitle);
+		setDefaultPageImageDescriptor(org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewRosWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
 	}
@@ -101,32 +101,33 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public void addPages() {
-		diagramModelFilePage = new RosCreationWizardPage(
-				"DiagramModelFile", getSelection(), "ros_system_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage = new org.ros.model.ros_coordinator.diagram.part.SmachCreationWizardPage(
+				"DiagramModelFile", getSelection(), "ros_coordinator_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage
-				.setTitle(Messages.RosCreationWizard_DiagramModelFilePageTitle);
+				.setTitle(org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
-				.setDescription(Messages.RosCreationWizard_DiagramModelFilePageDescription);
+				.setDescription(org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
-		domainModelFilePage = new RosCreationWizardPage(
-				"DomainModelFile", getSelection(), "ros_system") { //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage = new org.ros.model.ros_coordinator.diagram.part.SmachCreationWizardPage(
+				"DomainModelFile", getSelection(), "ros_coordinator") { //$NON-NLS-1$ //$NON-NLS-2$
 
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
 					fileName = fileName.substring(0, fileName.length()
-							- ".ros_system_diagram".length()); //$NON-NLS-1$
-					setFileName(RosDiagramEditorUtil.getUniqueFileName(
-							getContainerFullPath(), fileName, "ros_system")); //$NON-NLS-1$
+							- ".ros_coordinator_diagram".length()); //$NON-NLS-1$
+					setFileName(org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorUtil
+							.getUniqueFileName(getContainerFullPath(),
+									fileName, "ros_coordinator")); //$NON-NLS-1$
 				}
 				super.setVisible(visible);
 			}
 		};
 		domainModelFilePage
-				.setTitle(Messages.RosCreationWizard_DomainModelFilePageTitle);
+				.setTitle(org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizard_DomainModelFilePageTitle);
 		domainModelFilePage
-				.setDescription(Messages.RosCreationWizard_DomainModelFilePageDescription);
+				.setDescription(org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
 	}
 
@@ -138,16 +139,19 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InterruptedException {
-				diagram = RosDiagramEditorUtil.createDiagram(
-						diagramModelFilePage.getURI(),
-						domainModelFilePage.getURI(), monitor);
+				diagram = org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorUtil
+						.createDiagram(diagramModelFilePage.getURI(),
+								domainModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
-						RosDiagramEditorUtil.openDiagram(diagram);
+						org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorUtil
+								.openDiagram(diagram);
 					} catch (PartInitException e) {
-						ErrorDialog.openError(getContainer().getShell(),
-								Messages.RosCreationWizardOpenEditorError,
-								null, e.getStatus());
+						ErrorDialog
+								.openError(
+										getContainer().getShell(),
+										org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizardOpenEditorError,
+										null, e.getStatus());
 					}
 				}
 			}
@@ -158,18 +162,23 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 			return false;
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
-				ErrorDialog.openError(getContainer().getShell(),
-						Messages.RosCreationWizardCreationError, null,
-						((CoreException) e.getTargetException()).getStatus());
+				ErrorDialog
+						.openError(
+								getContainer().getShell(),
+								org.ros.model.ros_coordinator.diagram.part.Messages.SmachCreationWizardCreationError,
+								null, ((CoreException) e.getTargetException())
+										.getStatus());
 			} else {
-				RosDiagramEditorPlugin.getInstance().logError(
-						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+				org.ros.model.ros_coordinator.diagram.part.SmachDiagramEditorPlugin
+						.getInstance()
+						.logError(
+								"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
 			}
 			return false;
 		}
 		return diagram != null;
 	}
-
+	
 	/**
 	 * NOT generated
 	 */
