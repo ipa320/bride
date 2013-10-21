@@ -15,6 +15,9 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>rospack</build_depend>
 
+  <build_depend>curl</build_depend>
+  <build_depend>java</build_depend>
+
 
 </package>
 
