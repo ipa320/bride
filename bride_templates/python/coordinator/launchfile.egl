@@ -3,8 +3,8 @@
 [%=out.stopPreserve()%]
 
 [%for(ac in node.actionclient){%]
-	<rosparam command="load" ns="[%=ac.goal%]" file="$(find logistic_scenario)/config/[%=ac.name.replace(" ", "_")%]_goal.yaml"/>
+	<rosparam command="load" ns="[%=ac.goal%]" file="$(find [%=package.name%])/config/[%=ac.name.replace(" ", "_")%]_goal.yaml"/>
 [% } %]
 
-	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen">
+	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen"/>
 </launch>

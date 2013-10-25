@@ -80,7 +80,7 @@ for (parameter in node.parameter)
 			var remap: String;
 			for (ac in node.actionclient){
 			acstypes = ac.ActionType.split('::');
-			if(ac.remap_overwrite.toString() == ''){
+			if(ac.remap_overwrite == null){
 				remap = ac.name.replace(" ", "_");
 			}
 			else{
