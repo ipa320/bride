@@ -138,7 +138,18 @@ for (parameter in node.parameter)
 		}%]	
 
 		[%if(node.SkillInterface == false){%]
+		[%
+			for (transition in node.transitions){
+			if(transition.Source.type.name == "InitActionState"){
+		%]	
+		sm0.set_initial_state(['[%=transition.Target.name%]'])
+		[%
+			}
+		}%]
+
 		# Execute
+
+		#sm0.set_initial_state()
 		outcome = sm0.execute()
 		[% } else{ %]
 		asw = ActionServerWrapper( '[%=node.name.replace(" ", "_")%]', TestAction,  wrapped_container = sm0, succeeded_outcomes = ['succeeded'], aborted_outcomes = ['aborted'], preempted_outcomes = ['preempted'] )

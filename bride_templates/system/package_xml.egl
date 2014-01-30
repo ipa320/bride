@@ -1,0 +1,27 @@
+<package>
+  <name>[%=architecture.name%]</name>
+  <description>Architecture [%=architecture.name%]</description>
+  <version>0.0.0</version>
+  <maintainer email="TODO@TODO.to">TODO</maintainer>
+  <author email="TODO@TODO.to">TODO</author>
+  <license>TODO</license>
+  <url>TODO</url>
+
+  <buildtool_depend>catkin</buildtool_depend>  
+
+  [%for(package in architecture.packages) {
+  %]
+    <build_depend>[%=package.name%]</build_depend>
+    <run_depend>[%=package.name%]</run_depend>
+  [%
+  }
+  %] 
+  
+
+  [%=out.startPreserve("<!--", "-->", "additional manifest statements", true)%]
+  [%=out.stopPreserve()%]
+  
+  
+</package>
+
+

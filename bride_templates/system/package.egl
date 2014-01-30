@@ -8,9 +8,9 @@
 	launchTemplate.populate('architecture', architecture);
 	launchTemplate.generate('system.launch');
 	
-	//manifest
-	var manifestTemplate := TemplateFactory.load('manifest.egl');
+	//package.xml
+	var manifestTemplate := TemplateFactory.load('package_xml.egl');
 	manifestTemplate.populate('architecture', architecture);
-	manifestTemplate.generate('manifest.xml');
+	manifestTemplate.generate('package.xml');
 	
 %]
