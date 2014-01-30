@@ -9,13 +9,272 @@
     diagramFileExtension="ros_coordinator_diagram"
     domainFileExtension="ros_coordinator"
     pluginDirectory="/org.ros.model.ros_coordinator.diagram/src">
+  <audits>
+    <categories
+        id="SmachPackageAuditContainer"
+        name="SmachPackageAuditContainer"
+        path="//@audits/@categories.0"
+        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16 //@audits/@rules.17 //@audits/@rules.18"/>
+    <rules
+        name="PackageNameAuditRule"
+        id="PackageNameAuditRule"
+        rule="//@expressionProviders/@providers.0/@expressions.0"
+        message="Missing name of package"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="PackageAuthorRule"
+        id="PackageAuthorRule"
+        rule="//@expressionProviders/@providers.0/@expressions.1"
+        message="Missing author and maintainer of package."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="PackageDescriptionRule"
+        id="PackageDescriptionRule"
+        rule="//@expressionProviders/@providers.0/@expressions.2"
+        message="Package description must not be empty"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="PackageAuthorEmailRule"
+        id="PackageAuthorEmailRule"
+        rule="//@expressionProviders/@providers.0/@expressions.3"
+        message="Missing Email of author and maintainer of package."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="NodeNameRule"
+        id="NodeNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.4"
+        message="Missing name of node."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Node"/>
+      </target>
+    </rules>
+    <rules
+        name="PublisherNameRule"
+        id="PublisherNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.5"
+        message="Missing name for Publisher."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Publisher"/>
+      </target>
+    </rules>
+    <rules
+        name="PublisherMsgRule"
+        id="PublisherMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.6"
+        message="You have to define a message type for the Publisher"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Publisher"/>
+      </target>
+    </rules>
+    <rules
+        name="SubscriberNameRule"
+        id="SubscriberNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.7"
+        message="Missing name for Subscriber."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Subscriber"/>
+      </target>
+    </rules>
+    <rules
+        name="SubscriberMsgRule"
+        id="SubscriberMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.8"
+        message="You have to define a message type for the Subscriber."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/Subscriber"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceServerNameRule"
+        id="ServiceServerNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.9"
+        message="Missing name for ServiceServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ServiceServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceServerMsgRule"
+        id="ServiceServerMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.10"
+        message="You have to define a service type for the ServiceServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ServiceServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceStateGoalRule"
+        id="ServiceStateGoalRule"
+        rule="//@expressionProviders/@providers.0/@expressions.11"
+        message="You have to name a goal name that is used to find the goal on the rosparam server."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/ServiceState"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceClientNameRule"
+        id="ServiceClientNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.12"
+        message="Missing name for ServiceClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ServiceClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceClientMsgRule"
+        id="ServiceClientMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.13"
+        message="You have to define a service type for the ServiceClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ServiceClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionServerNameRule"
+        id="ActionServerNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.14"
+        message="Missing name for ActionServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ActionServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionStateGoalRule"
+        id="ActionStateGoalRule"
+        rule="//@expressionProviders/@providers.0/@expressions.15"
+        message="You have to name a goal name that is used to find the goal on the rosparam server."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//smach/ActionState"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionServerActionTypeRule"
+        id="ActionServerActionTypeRule"
+        rule="//@expressionProviders/@providers.0/@expressions.16"
+        message="You have to define a action type for the ActionServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ActionServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionClientNameRule"
+        id="ActionClientNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.17"
+        message="Missing name for ActionClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ActionClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionClientActionTypeRule"
+        id="ActionClientActionTypeRule"
+        rule="//@expressionProviders/@providers.0/@expressions.18"
+        message="You have to define a action type for the ActionClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/smach.genmodel#//ros/ActionClient"/>
+      </target>
+    </rules>
+    <clientContexts
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target //@audits/@rules.17/@target //@audits/@rules.18/@target"/>
+  </audits>
   <diagram
       visualID="1000"
       editPartClassName="PackageEditPart"
       itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
       canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
       iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true"
+      liveValidationUIFeedback="true">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -514,6 +773,68 @@
   </propertySheet>
   <domainGenModel
       href="../../org.ros.model.ros/model/smach.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="author.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="description.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="author_email.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="goal.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="goal.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="ActionType.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="ActionType.size() > 0"/>
+    </providers>
+  </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations
