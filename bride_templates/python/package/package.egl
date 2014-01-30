@@ -40,15 +40,14 @@
 	cmakeListsTemplate.populate('package', package);
 	cmakeListsTemplate.generate('CMakeLists.txt');
 	
-	//Makefile
-	var makefileTemplate := TemplateFactory.load('makefile.egl');
-	makefileTemplate.populate('package', package);
-	makefileTemplate.generate('Makefile');
-	//Manifest
-	
-	//manifest
-	var manifestTemplate := TemplateFactory.load('manifest.egl');
+	//package.xml
+	var manifestTemplate := TemplateFactory.load('package_xml.egl');
 	manifestTemplate.populate('package', package);
-	manifestTemplate.generate('manifest.xml');
+	manifestTemplate.generate('package.xml');
+
+	//setup.py
+	var setupTemplate := TemplateFactory.load('setup_py.egl');
+	setupTemplate.populate('package', package);
+	setupTemplate.generate('setup.py');
 	
 %]
