@@ -2,8 +2,8 @@
   <name>[%=package.name%]</name>
   <description>[%=package.description%]</description>
   <version>0.0.0</version>
-  <maintainer email="TODO@TODO.TODO">[%=package.author%]</maintainer>
-  <author email="TODO@TODO.TODO">[%=package.author%]</author>
+  <maintainer email="[%=package.author_email%]">[%=package.author%]</maintainer>
+  <author email="T[%=package.author_email%]">[%=package.author%]</author>
   <license>[%=package.license%]</license>
   <url>[%=package.url%]</url>
 
