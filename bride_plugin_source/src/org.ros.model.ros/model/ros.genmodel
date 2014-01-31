@@ -40,6 +40,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/depend"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/rosdep"/>
+      <genOperations ecoreOperation="ros.ecore#//Package/validate">
+        <genParameters ecoreParameter="ros.ecore#//Package/validate/diagnostic"/>
+        <genParameters ecoreParameter="ros.ecore#//Package/validate/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Topic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Topic/name"/>
@@ -114,6 +118,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smach.ecore#//SMACHStateMachine/transitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smach.ecore#//SMACHStateMachine/finalStates"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smach.ecore#//SMACHStateMachine/initialStates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHStateMachine/SkillInterface"/>
     </genClasses>
     <genClasses ecoreClass="smach.ecore#//SMACHTransition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHTransition/name"/>
@@ -123,7 +128,7 @@
     <genClasses ecoreClass="smach.ecore#//SMACHState">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/goal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/goal_type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/remap_overwrite"/>
     </genClasses>
     <genClasses ecoreClass="smach.ecore#//ActionState"/>
     <genClasses ecoreClass="smach.ecore#//ServiceState"/>

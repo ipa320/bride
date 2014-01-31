@@ -492,7 +492,7 @@
    </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="org.ros.model.ros_package.diagram.providers.RosValidationDecoratorProvider">
-         <Priority name="Lowest"/>
+         <Priority name="Medium"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
@@ -516,6 +516,220 @@
          markerType="org.eclipse.emf.ecore.diagnostic">
    </markerResolutionGenerator>
 </extension>
+<extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="PackageNameAuditContainer" mandatory="false" name="PackageNameAuditContainer">
+         <![CDATA[]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://ros/1.0"/>
+               <constraints categories="PackageNameAuditContainer">
+                  <constraint id="PackageNameAuditRule"
+            lang="OCL"
+            name="PackageNameAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name of package]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageAuthorRule"
+            lang="OCL"
+            name="PackageAuthorRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[author.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing author and maintainer of package.]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageDescriptionRule"
+            lang="OCL"
+            name="PackageDescriptionRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[description.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Package description must not be empty]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageAuthorEmailRule"
+            lang="OCL"
+            name="PackageAuthorEmailRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[author_email.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing Email of author and maintainer of package.]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="NodeNameRule"
+            lang="OCL"
+            name="NodeNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name of node.]]></message>
+            <target class="ros.Node"/>
+         </constraint>
+                  <constraint id="PublisherNameRule"
+            lang="OCL"
+            name="PublisherNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for Publisher.]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="PublisherMsgRule"
+            lang="OCL"
+            name="PublisherMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a message type for the Publisher]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="SubscriberNameRule"
+            lang="OCL"
+            name="SubscriberNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for Subscriber.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
+                  <constraint id="SubscriberMsgRule"
+            lang="OCL"
+            name="SubscriberMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a message type for the Subscriber.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
+                  <constraint id="ServiceServerNameRule"
+            lang="OCL"
+            name="ServiceServerNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceServerMsgRule"
+            lang="OCL"
+            name="ServiceServerMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a service type for the ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceClientNameRule"
+            lang="OCL"
+            name="ServiceClientNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ServiceClient.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
+                  <constraint id="ServiceClientMsgRule"
+            lang="OCL"
+            name="ServiceClientMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a service type for the ServiceClient.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
+                  <constraint id="ActionServerNameRule"
+            lang="OCL"
+            name="ActionServerNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionServerActionTypeRule"
+            lang="OCL"
+            name="ActionServerActionTypeRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ActionType.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a action type for the ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionClientNameRule"
+            lang="OCL"
+            name="ActionClientNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ActionClient.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
+                  <constraint id="ActionClientActionTypeRule"
+            lang="OCL"
+            name="ActionClientActionTypeRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ActionType.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a action type for the ActionClient.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+<extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.ros.model.ros_package.diagramDefaultCtx">
+         <selector class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.ros.model.ros_package.diagramDefaultCtx">
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageNameAuditRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageDescriptionRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorEmailRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.NodeNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PublisherNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PublisherMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.SubscriberNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.SubscriberMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceServerMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceClientMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionServerActionTypeRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionClientActionTypeRule"/>
+               </binding>
+
+   </extension>
+
+<extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.ros.model.ros_package.diagramDefaultCtx"/>
+   </extension>
+
 
 
 

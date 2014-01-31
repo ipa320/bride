@@ -17,4 +17,12 @@
             genModel="model/ros.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ros -->
+      <package
+            uri="http://smach/1.0"
+            class="org.ros.model.smach.SmachPackage"
+            genModel="model/ros.genmodel"/>
+   </extension>
+
 </plugin>

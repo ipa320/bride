@@ -20,6 +20,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smach.ecore#//SMACHStateMachine/transitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smach.ecore#//SMACHStateMachine/finalStates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smach.ecore#//SMACHStateMachine/initialStates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHStateMachine/SkillInterface"/>
     </genClasses>
     <genClasses ecoreClass="smach.ecore#//SMACHTransition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHTransition/name"/>
@@ -29,7 +30,7 @@
     <genClasses ecoreClass="smach.ecore#//SMACHState">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/goal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/goal_type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smach.ecore#//SMACHState/remap_overwrite"/>
     </genClasses>
     <genClasses ecoreClass="smach.ecore#//ActionState"/>
     <genClasses ecoreClass="smach.ecore#//ServiceState"/>
@@ -70,6 +71,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/node"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Package/coordinators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author_email"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/license"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/depend"/>

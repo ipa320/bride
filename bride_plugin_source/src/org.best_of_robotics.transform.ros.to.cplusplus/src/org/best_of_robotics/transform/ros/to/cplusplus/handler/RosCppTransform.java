@@ -59,6 +59,8 @@ public class RosCppTransform extends AbstractHandler {
 		if(sourcefile == null)
 			return null;
 		
+		
+		
 		//configure new transform parameter
 		String cmd = "rospack find bride_templates";
 		String template_dir = "";

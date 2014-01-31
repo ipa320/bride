@@ -107,7 +107,6 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 				.setTitle(org.ros.model.ros_package.diagram.part.Messages.RosCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
 				.setDescription(org.ros.model.ros_package.diagram.part.Messages.RosCreationWizard_DiagramModelFilePageDescription);
-		diagramModelFilePage.setPageComplete(false);
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new org.ros.model.ros_package.diagram.part.RosCreationWizardPage(
@@ -179,15 +178,14 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 		}
 		return diagram != null;
 	}
-	
+
 	/**
 	 * NOT generated
 	 */
-	public boolean canFinish()
-	{
-		if(getContainer().getCurrentPage() == diagramModelFilePage)
+	public boolean canFinish() {
+		if (getContainer().getCurrentPage() == diagramModelFilePage)
 			return false;
-		else 
+		else
 			return true;
 	}
 }

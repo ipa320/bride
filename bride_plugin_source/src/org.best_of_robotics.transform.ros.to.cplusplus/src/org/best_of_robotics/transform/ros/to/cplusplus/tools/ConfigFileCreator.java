@@ -52,6 +52,7 @@ public class ConfigFileCreator extends AbstractTool {
 	if(f.exists()) {
 		return;
 	}
+	f.getParentFile().mkdirs();
 	FileWriter fstream = null;
 	try {
 		fstream = new FileWriter(f);

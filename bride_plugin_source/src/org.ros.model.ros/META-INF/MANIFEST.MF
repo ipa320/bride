@@ -11,6 +11,7 @@ Export-Package: org.ros.model.ros,
  org.ros.model.ros.impl,
  org.ros.model.ros.util,
  org.ros.model.smach,
+ org.ros.model.smach.impl,
  org.ros.model.smach.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
