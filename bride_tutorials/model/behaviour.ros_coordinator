@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ros="http://ros/1.0" xmlns:smach="http://smach/1.0" name="behaviour" author="Alexander Bubeck" rosdep="">
+<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ros="http://ros/1.0" xmlns:smach="http://smach/1.0" name="behaviour" author="Alexander Bubeck" author_email="aub@ipa.fhg.de" rosdep="">
   <node xsi:type="smach:SMACHStateMachine" name="tutorial_behaviour">
     <actionclient xsi:type="smach:ActionState" name="TriggerPublish" ActionType="bride_tutorials::TriggerPublish"/>
     <transitions Source="//@node.0/@initialStates.0" Target="//@node.0/@actionclient.0"/>

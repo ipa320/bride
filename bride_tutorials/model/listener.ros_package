@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ros="http://ros/1.0" name="listener" author="Alexander Bubeck">
+<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ros="http://ros/1.0" name="listener" author="Alexander Bubeck" author_email="aub@ipa.fhg.de">
   <node name="listener" loopRate="10.0">
     <subscriber name="sub" msg="std_msgs::String"/>
   </node>
