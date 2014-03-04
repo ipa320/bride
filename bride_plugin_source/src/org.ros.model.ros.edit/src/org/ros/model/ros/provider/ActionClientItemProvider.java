@@ -118,7 +118,7 @@ public class ActionClientItemProvider
 							
 				List<String> strings = new ArrayList<String>(); // Copy the students to a temporary list
 				for (String item: pack.getDepend()) {
-					String cmd = "rosmsg package " + item;
+					String cmd = "rosrun bride rosaction.py " + item;
 					Runtime run = Runtime.getRuntime();
 					Process pr;
 					try {
@@ -127,10 +127,8 @@ public class ActionClientItemProvider
 						BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 						String line = "";
 						while ((line=buf.readLine())!=null) {
-							if(line.contains("ActionGoal")){
-								String temp = line.replace("/", "::"); 
-								strings.add(temp.replace("ActionGoal", ""));
-							}
+							String temp = line.replace("/", "::"); 
+							strings.add(temp);
 						}
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
@@ -142,7 +140,7 @@ public class ActionClientItemProvider
 					//strings.add(item);
 				}
 				//Check for messages in the own project
-				String cmd = "rosmsg package " + pack.getName();
+				String cmd = "rosrun bride rosaction.py " + pack.getName();
 				Runtime run = Runtime.getRuntime();
 				Process pr;
 				try {
@@ -151,10 +149,8 @@ public class ActionClientItemProvider
 					BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 					String line = "";
 					while ((line=buf.readLine())!=null) {
-						if(line.contains("ActionGoal")){
-							String temp = line.replace("/", "::"); 
-							strings.add(temp.replace("ActionGoal", ""));
-						}
+						String temp = line.replace("/", "::"); 
+						strings.add(temp);
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
