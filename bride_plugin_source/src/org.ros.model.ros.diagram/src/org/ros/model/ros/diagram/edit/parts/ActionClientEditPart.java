@@ -273,26 +273,6 @@ public class ActionClientEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RosElementTypes.Action_4003);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Action_4003) {
-			types.add(RosElementTypes.ActionServer_3005);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public class ActionClientFigure extends ScalablePolygonShape {
 		public static final int BLUR_SHADOW_WIDTH = 5;
 

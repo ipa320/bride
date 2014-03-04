@@ -15,5 +15,5 @@ if __name__ == '__main__':
 		path = os.path.join(rospack.get_path(sys.argv[1]), "action")
 		resources = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
 		for r in resources:
-			print r
+			print sys.argv[1]+"/"+r.replace(".action","")
 
