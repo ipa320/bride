@@ -8,6 +8,9 @@ find_package(catkin REQUIRED COMPONENTS
 	roscpp
   	rospy
   	std_msgs
+    [%for(node in package.node) {if(node.actionserver.size() > 0){%]
+    actionlib
+    [%}}%]
     dynamic_reconfigure 
 [%for (depend in package.depend) {%]
 	[%=depend%]

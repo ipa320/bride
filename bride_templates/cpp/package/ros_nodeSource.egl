@@ -1,6 +1,8 @@
 // ROS includes
 #include <ros/ros.h>
+[%if(node.actionserver.size() > 0){%]
 #include <actionlib/server/simple_action_server.h>
+[%}%]
 #include <dynamic_reconfigure/server.h>
 #include <[%=package.name.replace(" ", "_")%]/[%=node.name.replace(" ", "_")%]Config.h>
 
