@@ -296,6 +296,7 @@ public class ActionServerEditPart extends AbstractBorderItemEditPart {
 
 			graphics.popState();
 		}
+
 		/**
 		 * @generated
 		 */

@@ -273,38 +273,6 @@ public class PublisherEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RosElementTypes.Topic_4001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof SubscriberEditPart) {
-			types.add(RosElementTypes.Topic_4001);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Topic_4001) {
-			types.add(RosElementTypes.Subscriber_3004);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public class Publisher2Figure extends ScalablePolygonShape {
 		public static final int BLUR_SHADOW_WIDTH = 5;
 

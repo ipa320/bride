@@ -586,7 +586,7 @@ public class SmachDocumentProvider extends AbstractDocumentProvider implements
 	 */
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
-		
+
 		ValidateAction.runValidation((View) document.getContent());
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {

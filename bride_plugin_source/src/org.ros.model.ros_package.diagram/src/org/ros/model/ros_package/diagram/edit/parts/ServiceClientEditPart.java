@@ -296,6 +296,7 @@ public class ServiceClientEditPart extends AbstractBorderItemEditPart {
 
 			graphics.popState();
 		}
+
 		/**
 		 * @generated
 		 */

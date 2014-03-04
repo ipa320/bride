@@ -273,38 +273,6 @@ public class ServiceServerEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RosElementTypes.Service_4002);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof ServiceClientEditPart) {
-			types.add(RosElementTypes.Service_4002);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Service_4002) {
-			types.add(RosElementTypes.ServiceClient_3008);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public class ServiceServerFigure extends ScalablePolygonShape {
 		public static final int BLUR_SHADOW_WIDTH = 5;
 

@@ -296,6 +296,7 @@ public class PublisherEditPart extends AbstractBorderItemEditPart {
 
 			graphics.popState();
 		}
+
 		/**
 		 * @generated
 		 */

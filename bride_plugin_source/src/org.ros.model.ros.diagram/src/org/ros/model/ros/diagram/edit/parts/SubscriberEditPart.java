@@ -272,26 +272,6 @@ public class SubscriberEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(RosElementTypes.Topic_4001);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == RosElementTypes.Topic_4001) {
-			types.add(RosElementTypes.Publisher_3003);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public class Subscriber2Figure extends ScalablePolygonShape {
 		public static final int BLUR_SHADOW_WIDTH = 5;
 

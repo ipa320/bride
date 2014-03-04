@@ -178,7 +178,7 @@ public class SmachCreationWizard extends Wizard implements INewWizard {
 		}
 		return diagram != null;
 	}
-	
+
 	/**
 	 * NOT generated
 	 */
