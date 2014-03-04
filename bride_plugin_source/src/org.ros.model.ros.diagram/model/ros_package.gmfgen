@@ -13,7 +13,7 @@
         id="PackageNameAuditContainer"
         name="PackageNameAuditContainer"
         path="//@audits/@categories.0"
-        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16"/>
+        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16 //@audits/@rules.17 //@audits/@rules.18"/>
     <rules
         name="PackageNameAuditRule"
         id="PackageNameAuditRule"
@@ -235,8 +235,35 @@
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionClient"/>
       </target>
     </rules>
+    <rules
+        name="ParameterNameRule"
+        description=""
+        id="ParameterNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.17"
+        message="You have to define a name for eacht Parameter"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter"/>
+      </target>
+    </rules>
+    <rules
+        name="ParameterValueRule"
+        id="ParameterValueRule"
+        rule="//@expressionProviders/@providers.0/@expressions.18"
+        message="You have to define a default value for eacht Parameter"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter"/>
+      </target>
+    </rules>
     <clientContexts
-        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target"/>
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target //@audits/@rules.17/@target //@audits/@rules.18/@target"/>
   </audits>
   <diagram
       visualID="1000"
@@ -860,6 +887,12 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="ActionType.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="value.size() > 0"/>
     </providers>
   </expressionProviders>
   <labelParsers
