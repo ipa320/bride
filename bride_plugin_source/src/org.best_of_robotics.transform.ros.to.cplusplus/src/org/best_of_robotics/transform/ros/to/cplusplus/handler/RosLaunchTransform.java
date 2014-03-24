@@ -3,168 +3,106 @@
  */
 package org.best_of_robotics.transform.ros.to.cplusplus.handler;
 
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-import org.best_of_robotics.transform.ros.to.cplusplus.jobs.LaunchFile_EglTransformOperationJob;
+import org.best_of_robotics.transform.service.ITransformService;
+import org.best_of_robotics.transform.service.access.TransformAccessActivator;
+import org.best_of_robotics.transform.service.parameter.IEglTransformParameter;
+import org.best_of_robotics.transform.service.parameter.TransformParameterFactory;
+import org.best_of_robotics.transform.ros.to.cplusplus.Activator;
+import org.best_of_robotics.transform.ros.to.cplusplus.EGLTransformer;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResourceRuleFactory;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.jobs.ISchedulingRule;
-import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.part.FileEditorInput;
-import org.ros.model.ros.diagram.part.RosDiagramEditor;
 
 /**
- * @author hugo
+ * @author Alex
  *
  */
 public class RosLaunchTransform extends AbstractHandler {
 	
-	private RosDiagramEditor rosDiagramEditor;
-	private IProject project;
-	private LaunchFile_EglTransformOperationJob eglJob;
-	private ArrayList<IMarker> problems = new ArrayList<IMarker>();
-
-	/**
-	 * 
-	 */
-	public RosLaunchTransform() {
-		// TODO Auto-generated constructor stub
+	public RosLaunchTransform() {		
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
-	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IEditorPart editor = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-
-		if (!(editor instanceof RosDiagramEditor)) {
-			MessageDialog
+		IFile sourcefile = null;
+		IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (editor != null) {
+            IEditorInput input = editor.getEditorInput();
+            if (input instanceof IFileEditorInput) {
+            	sourcefile = ((IFileEditorInput)input).getFile();
+            	System.out.println("File from editor: " + sourcefile.getLocation().toOSString());
+            	if(sourcefile.getFileExtension().compareTo("ros_system") != 0 && sourcefile.getFileExtension().compareTo("ros_system_diagram")!=0)
+            	{
+            		sourcefile = null;
+            		MessageDialog
 					.openError(
 							PlatformUI.getWorkbench()
 									.getActiveWorkbenchWindow().getShell(),
-							"Error on Editor Selection",
+							"Error on Editor Selection 2",
 							"Please select the editor from which you want to generate code and execute command again.");
+            	}
+                
+            }
+        }
+		
+		
+		if(sourcefile == null)
 			return null;
-		} else {
-			rosDiagramEditor = (RosDiagramEditor) editor;
-		}
-
-		String commandName = "rosHandler";
-//		try {
-//			commandName = event.getCommand().getName();
-//		} catch (NotDefinedException e) {
-//			e.printStackTrace();
-//		}
-
-		Resource resource = getFirstSemanticModelResource(rosDiagramEditor
-				.getEditingDomain().getResourceSet());
-
-		//TODO This is error checking for setting the package name in the model.
-//		if (!check(resource)) {
-//			Shell shell = PlatformUI.getWorkbench().getDisplay()
-//			.getActiveShell();
-//			MessageDialog
-//					.openError(
-//							shell,
-//							"Model Not Valid Error",
-//							"The are problems with model. Please check the Problem View for more information.");
-//			try {
-//				PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-//						.getActivePage()
-//						.showView("org.eclipse.ui.views.ProblemView").setFocus();
-//			} catch (PartInitException e) {
-//				e.printStackTrace();
-//			}
-//			return null;
-//		}
 		
-		eglJob = new LaunchFile_EglTransformOperationJob(commandName);
-
-		initializeJobs(resource);
-
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IResourceRuleFactory ruleFactory = workspace.getRuleFactory();
-		ISchedulingRule rule = ruleFactory.modifyRule(project);
-
-		eglJob.setUser(true);
-		eglJob.setPriority(Job.INTERACTIVE);
-		eglJob.setRule(rule);
-		eglJob.schedule();
-		
-		return null;
-	}
-
-	private void initializeJobs(Resource resource) {
-		FileEditorInput fileEditorInput = (FileEditorInput) rosDiagramEditor
-				.getEditorInput();
-		project = fileEditorInput.getFile().getProject();
-		eglJob.setProject(project);
-		eglJob.createSource(resource);
-	}
-
-//	private boolean check(Resource resource) {
-//		if (resource == null) return false;
-//		org.orocos.model.rtt.Package rttPackage = (org.orocos.model.rtt.Package) resource.getContents().get(0);
-//		for (IMarker marker : problems) {
-//			try {
-//				marker.delete();
-//			} catch (CoreException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		problems.clear();
-//		if (rttPackage.getName() == null || rttPackage.getName().equals("")) {
-//			problems.add(createProblemMarker("Package name is not set in diagram."));
-//		}
-//		EList<TaskContext> taskContexts = rttPackage.getTaskContext();
-//		for (TaskContext taskContext : taskContexts) {
-//			if (taskContext.getNamespace() == null || taskContext.getNamespace().equals("")) {
-//				problems.add(createProblemMarker("Namespace is not set for " + taskContext.getName()));
-//			}
-//			if (taskContext.getType() == null || taskContext.getType().equals("")) {
-//				problems.add(createProblemMarker("Type is not set for " + taskContext.getName()));
-//			}
-//		}
-//		if (!problems.isEmpty()) return false;
-//		return true;
-//	}
-
-	private IMarker createProblemMarker(String message) {
+		//configure new transform parameter
+		String cmd = "rospack find bride_templates";
+		String template_dir = "";
+		Runtime run = Runtime.getRuntime();
+		Process pr;
 		try {
-			IMarker problemMarker = ResourcesPlugin.getWorkspace().getRoot().createMarker(IMarker.PROBLEM);
-			problemMarker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
-			problemMarker.setAttribute(IMarker.MESSAGE, message);
-			problemMarker.setAttribute(IMarker.TRANSIENT, true);
-			problemMarker.setAttribute(IMarker.LOCATION, "RTT Graphical Editor");
-			return problemMarker;
-		} catch (CoreException e) {
+			pr = run.exec(cmd);
+			pr.waitFor();
+			BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+			template_dir = buf.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
-		
-	}
-
-	public Resource getFirstSemanticModelResource(ResourceSet resourceSet) {
-		for (Resource resource : resourceSet.getResources()) {
-			if (!(resource instanceof GMFResource)) {
-				return resource;
-			}
+		if(template_dir.length() == 0)
+		{
+			System.out.println("Couldn't find template package");
+			return null;
 		}
+		
+		System.out.println("Taking transformation: " + template_dir + "/system/package.egl");
+		
+		IEglTransformParameter eglTransformParameter = TransformParameterFactory.createEglTransformParameter();
+		eglTransformParameter.setTransformName("ROS System to roslaunch implementation");
+		eglTransformParameter.setEglTransform("file://" + template_dir + "/system/package.egl");
+		eglTransformParameter.setPluginID(Activator.PLUGIN_ID);
+		eglTransformParameter.setSourceMetaModelURI("http://ros/1.0");
+		eglTransformParameter.setSourceModelFilePath(sourcefile.getLocation().removeFileExtension().toOSString() + ".ros_system");
+		eglTransformParameter.setSourceName("Source");
+		eglTransformParameter.setSourceReadOnLoad(true);
+		eglTransformParameter.setSourceStoreOnDisposal(false);
+		
+		eglTransformParameter.setOutputRoot("file:" + sourcefile.getProject().getLocation().toOSString());
+		
+		//get transform service
+		
+		
+		//do transform
+		EGLTransformer transformer = new EGLTransformer(eglTransformParameter);
+		transformer.transform();
+		
 		return null;
 	}
 

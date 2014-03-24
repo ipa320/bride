@@ -1,0 +1,234 @@
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
+import rospy
+import smach
+import smach_ros
+from actionlib import *
+from actionlib.msg import *
+from smach_ros import ActionServerWrapper
+[%
+var acstypes: Sequence;
+for (ac in node.actionclient){
+	acstypes = ac.ActionType.split('::');
+	%]
+from [%=acstypes[0]%].msg import [%=acstypes[1]%]Action, [%=acstypes[1]%]Goal
+[% } %]
+
+[%
+var servicetypes: Sequence;
+for (service in node.serviceClient){
+	servicetypes = service.msg.split('::');
+	%]
+from [%=servicetypes[0]%].srv import [%=servicetypes[1]%]
+[% } %]
+
+[%=out.startPreserve("#", "#", "customHeaders", true)%]
+[%=out.stopPreserve()%]
+
+[%
+var strs3 : String;
+var strs33 : Sequence;
+for (serviceServer in node.serviceServer)
+{
+	strs3 = serviceServer.msg;//.split('::');
+	strs33 = strs3.split('::');
+%]
+from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request 
+[%
+}
+%]
+
+
+class [%=node.name.replace(" ", "_")%]_impl:
+[%
+for (parameter in node.parameter)
+{
+	if(parameter.type.toString() == "string"){
+%]
+	config_[%=parameter.name.replace(" ", "_")%] = "[%=parameter.value%]"
+[%
+}
+	else{
+%]
+	config_[%=parameter.name.replace(" ", "_")%] = [%=parameter.value%]
+[%
+	}
+}
+%]
+	
+	def	__init__(self):
+		[%
+			var acstypes: Sequence;
+			for (ac in node.actionclient){
+			acstypes = ac.ActionType.split('::');
+		 %]
+		self.[%=ac.name.replace(" ", "_")%]_goal = [%=acstypes[1]%]Goal()
+		genpy.message.fill_message_args(self.[%=ac.name.replace(" ", "_")%]_goal, [rospy.get_param('[%=ac.goal%]')])
+		[%
+		}%]	
+		[%=out.startPreserve("#", "#", "initCode", true)%]
+		[%=out.stopPreserve()%]
+		pass
+	
+	def	configure(self):
+		sm0 = smach.StateMachine(outcomes=['succeeded','aborted','preempted'], input_keys = ['action_feedback'], output_keys = ['action_feedback'])
+		sis = smach_ros.IntrospectionServer('[%=node.name.replace(" ", "_")%]', sm0, '/[%=node.name.replace(" ", "_")%]_sm')
+		sis.start()
+		with sm0:
+		[%
+			var acstypes: Sequence;
+			var remap: String;
+			for (ac in node.actionclient){
+			acstypes = ac.ActionType.split('::');
+			if(ac.remap_overwrite == null){
+				remap = ac.name.replace(" ", "_");
+			}
+			else{
+				remap = ac.remap_overwrite;
+			}
+		 %]
+			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=remap%]', [%=acstypes[1]%]Action, self.[%=ac.name.replace(" ", "_")%]_goal), {
+			[%
+			for (transition in node.transitions){
+			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
+			{
+			if(transition.Source.name == ac.name){
+			if(transition.Target.type.name == "ActionState" or transition.Target.type.name == "ServiceState"){
+			%]
+				"[%=transition.name%]":"[%=transition.Target.name%]",
+			[%
+			}
+			else{
+			%]
+				"[%=transition.name%]":"[%=transition.Target.type.name%]",
+			[%
+			}
+			}
+			}
+			}%]
+			})
+		[%
+		}%]
+		[%
+			var servicetypes: Sequence;
+			for (service in node.serviceClient){
+			servicetypes = service.msg.split('::');
+		 %]
+			smach.StateMachine.add('[%=service.name.replace(" ", "_")%]', smach_ros.ServiceState('[%=service.name.replace(" ", "_")%]', [%=servicetypes[1]%]), {
+			[%
+			for (transition in node.transitions){
+			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
+			{
+			if(transition.Source.name == service.name){
+			if(transition.Target.type.name == "ActionState" or transition.Target.type.name == "ServiceState"){ 
+			%]
+				"[%=transition.name%]":"[%=transition.Target.name%]",
+			[%
+			}
+			else{
+			%]
+				"[%=transition.name%]":"[%=transition.Target.type.name%]",
+			[%
+			}
+			}
+			}
+			}%]
+			})
+		[%
+		}%]	
+
+		[%if(node.SkillInterface == false){%]
+		[%
+			for (transition in node.transitions){
+			if(transition.Source.type.name == "InitActionState"){
+		%]	
+		sm0.set_initial_state(['[%=transition.Target.name%]'])
+		[%
+			}
+		}%]
+
+		# Execute
+
+		#sm0.set_initial_state()
+		outcome = sm0.execute()
+		[% } else{ %]
+		asw = ActionServerWrapper( '[%=node.name.replace(" ", "_")%]', TestAction,  wrapped_container = sm0, succeeded_outcomes = ['succeeded'], aborted_outcomes = ['aborted'], preempted_outcomes = ['preempted'] )
+		asw.run_server()
+		[% }%]
+	
+		[%=out.startPreserve("#", "#", "configureCode", true)%]
+		[%=out.stopPreserve()%]
+		pass
+	
+	def	update(self):
+		[%=out.startPreserve("#", "#", "updateCode", true)%]
+		[%=out.stopPreserve()%]
+		pass
+		
+	[%
+	for (service_here in node.serviceServer)
+	{%]
+	def	callback_[%=service_here.name.replace(" ", "_")%](self, req):
+		[%=out.startPreserve("#", "#", "user implementation of service callback for " + service_here.name.replace(" ", "_"), true)%]
+		[%=out.stopPreserve()%]
+		pass
+
+	[%
+	}%]
+	
+
+class [%=node.name.replace(" ", "_")%]:
+	def __init__(self):
+		self.impl = [%=node.name.replace(" ", "_")%]_impl()
+	[%for (publisher in node.publisher) {
+		strs = publisher.msg.split('::');
+	%]
+		self.[%=publisher.name.replace(" ", "_")%] = rospy.Publisher('[%=publisher.name.replace(" ", "_")%]', [%=strs[1]%])
+		[%}%]
+	[%for (subscriber in node.subscriber){
+		strs = subscriber.msg.split('::');
+	%]
+		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback) 
+	[%}%]
+	[%
+	var strs33 : Sequence;
+	for (service_here in node.serviceServer){
+		strs33 = service_here.msg.split('::');
+	%]
+		[%=service_here.name.replace(" ", "_")%]_ = rospy.Service('[%=service_here.name.replace(" ", "_")%]', [%=strs33[1]%], self.impl.callback_[%=service_here.name.replace(" ", "_")%])
+	[%
+	}%]
+
+[%for (subscriber in node.subscriber) {%]
+	def [%=subscriber.name.replace(" ", "_")%]Callback(self, a):
+		self.impl.in_[%=subscriber.name.replace(" ", "_")%] = a
+		[%if(subscriber.eventPort == true){%]
+		self.run() #call only if defined as event port, not called if it is an data port
+        [%}%]
+[%}%]	
+		
+	def run(self):
+		self.impl.update()
+		[%for (publisher in node.publisher) {	%]
+		self.[%=publisher.name.replace(" ", "_")%].publish(self.impl.out_[%=publisher.name.replace(" ", "_")%])
+		[%}%]
+
+if __name__ == "__main__":
+	try:
+		rospy.init_node('[%=node.name.replace(" ", "_")%]')
+		n = [%=node.name.replace(" ", "_")%]()
+		n.impl.configure()
+		while not rospy.is_shutdown():
+			n.run()
+[% if(node.loopRate == 0){}else{
+%]
+			rospy.sleep(1/[%=node.loopRate%])
+[%
+}
+%]
+			
+	except rospy.ROSInterruptException:
+		print "Exit"
+
+
+

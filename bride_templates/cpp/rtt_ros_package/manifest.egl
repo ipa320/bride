@@ -1,0 +1,23 @@
+<package>
+  <description brief="[%=package.name%]">[%=package.description%]</description>
+  <author>[%=package.author%]</author>
+  <license>[%=package.license%]</license>
+  <review status="unreviewed" notes=""/>
+  <url>[%=package.url%]</url>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="rtt"/>
+  <depend package="rtt_rosnode"/>
+  [%for (depend in package.depend) {
+  %]
+  	<depend package="[%=depend%]"/>
+  [%
+  }
+  %]
+  [%=out.startPreserve("/*", "*/", "additional manifest statements", true)%]
+  [%=out.stopPreserve()%]
+  
+  
+</package>
+
+

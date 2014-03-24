@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfmap:Mapping
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:gmfmap="http://www.eclipse.org/gmf/2008/mappings"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <nodes>
+    <containmentFeature
+        href="../../org.ros.model.ros/model/ros.ecore#//Package/node"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          editPattern="">
+        <diagramLabel
+            href="ros_coordinator.gmfgraph#StateMachineName"/>
+        <features
+            href="../../org.ros.model.ros/model/ros.ecore#//Node/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="ros_coordinator.gmfgraph#StateMachine"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.ros.model.ros/model/ros.ecore#//Node/actionclient"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ros.model.ros/model/smach.ecore#//ActionState"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="ros_coordinator.gmfgraph#ActionStateName"/>
+            <features
+                href="../../org.ros.model.ros/model/ros.ecore#//ActionClient/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="ros_coordinator.gmfgraph#ActionState"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.ros.model.ros/model/ros.ecore#//Node/serviceClient"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ros.model.ros/model/smach.ecore#//ServiceState"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="ros_coordinator.gmfgraph#ServiceStateName"/>
+            <features
+                href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="ros_coordinator.gmfgraph#ServiceState"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine/finalStates"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ros.model.ros/model/smach.ecore#//FinalState"/>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.4"/>
+          <diagramNode
+              href="ros_coordinator.gmfgraph#FinalState"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine/initialStates"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ros.model.ros/model/smach.ecore#//InitActionState"/>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.5"/>
+          <diagramNode
+              href="ros_coordinator.gmfgraph#InitialState"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3">
+        <compartment
+            href="ros_coordinator.gmfgraph#StateMachineCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <links>
+    <domainMetaElement
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping">
+      <diagramLabel
+          href="ros_coordinator.gmfgraph#TransitionName"/>
+      <features
+          href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/name"/>
+    </labelMappings>
+    <containmentFeature
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHStateMachine/transitions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="ros_coordinator.gmftool#//@palette/@tools.0/@tools.3"/>
+    <diagramLink
+        href="ros_coordinator.gmfgraph#Transition"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/Source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../org.ros.model.ros/model/smach.ecore#//SMACHTransition/Target"/>
+  </links>
+  <diagram>
+    <diagramCanvas
+        href="ros_coordinator.gmfgraph#rosCoordinator"/>
+    <domainModel
+        href="../../org.ros.model.ros/model/ros.ecore#/"/>
+    <domainMetaElement
+        href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+    <palette
+        href="ros_coordinator.gmftool#//@palette"/>
+  </diagram>
+  <audits
+      id="SmachPackageAuditContainer"
+      name="SmachPackageAuditContainer">
+    <audits
+        name="PackageNameAuditRule"
+        id="PackageNameAuditRule"
+        message="Missing name of package">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="PackageAuthorRule"
+        id="PackageAuthorRule"
+        message="Missing author and maintainer of package.">
+      <rule
+          body="author.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="PackageDescriptionRule"
+        id="PackageDescriptionRule"
+        message="Package description must not be empty">
+      <rule
+          body="description.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="PackageAuthorEmailRule"
+        id="PackageAuthorEmailRule"
+        message="Missing Email of author and maintainer of package.">
+      <rule
+          body="author_email.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="NodeNameRule"
+        id="NodeNameRule"
+        message="Missing name of node.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Node"/>
+      </target>
+    </audits>
+    <audits
+        name="PublisherNameRule"
+        id="PublisherNameRule"
+        message="Missing name for Publisher.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
+      </target>
+    </audits>
+    <audits
+        name="PublisherMsgRule"
+        id="PublisherMsgRule"
+        message="You have to define a message type for the Publisher">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
+      </target>
+    </audits>
+    <audits
+        name="SubscriberNameRule"
+        id="SubscriberNameRule"
+        message="Missing name for Subscriber.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Subscriber"/>
+      </target>
+    </audits>
+    <audits
+        name="SubscriberMsgRule"
+        id="SubscriberMsgRule"
+        message="You have to define a message type for the Subscriber.">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Subscriber"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceServerNameRule"
+        id="ServiceServerNameRule"
+        message="Missing name for ServiceServer.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceServerMsgRule"
+        id="ServiceServerMsgRule"
+        message="You have to define a service type for the ServiceServer.">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceStateGoalRule"
+        id="ServiceStateGoalRule"
+        message="You have to name a goal name that is used to find the goal on the rosparam server.">
+      <rule
+          body="goal.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/smach.ecore#//ServiceState"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceClientNameRule"
+        id="ServiceClientNameRule"
+        message="Missing name for ServiceClient.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceClientMsgRule"
+        id="ServiceClientMsgRule"
+        message="You have to define a service type for the ServiceClient.">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionServerNameRule"
+        id="ActionServerNameRule"
+        message="Missing name for ActionServer.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionStateGoalRule"
+        id="ActionStateGoalRule"
+        message="You have to name a goal name that is used to find the goal on the rosparam server.">
+      <rule
+          body="goal.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/smach.ecore#//ActionState"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionServerActionTypeRule"
+        id="ActionServerActionTypeRule"
+        message="You have to define a action type for the ActionServer.">
+      <rule
+          body="ActionType.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionClientNameRule"
+        id="ActionClientNameRule"
+        message="Missing name for ActionClient.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionClientActionTypeRule"
+        id="ActionClientActionTypeRule"
+        message="You have to define a action type for the ActionClient.">
+      <rule
+          body="ActionType.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionClient"/>
+      </target>
+    </audits>
+  </audits>
+</gmfmap:Mapping>

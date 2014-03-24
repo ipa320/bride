@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.bride.wizards.ros"
+            name="ROS">
+      </category>
+      <wizard
+            category="org.bride.wizards.ros"
+            class="org.bride.wizards.ROSPackageWizard"
+            id="org.bride.wizards.rospackage_wizard"
+            name="ROSPackageWizard"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>

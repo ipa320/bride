@@ -1,18 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfgen:GenEditorGenerator xmi:version="2.0"
+<gmfgen:GenEditorGenerator
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" packageNamePrefix="org.ros.model.ros_package.diagram"
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel"
+    packageNamePrefix="org.ros.model.ros_package.diagram"
     modelID="RosPackage"
     domainFileExtension="ros_package"
     pluginDirectory="/org.ros.model.ros_package.diagram/src">
+  <audits>
+    <categories
+        id="PackageNameAuditContainer"
+        name="PackageNameAuditContainer"
+        path="//@audits/@categories.0"
+        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16 //@audits/@rules.17 //@audits/@rules.18"/>
+    <rules
+        name="PackageNameAuditRule"
+        id="PackageNameAuditRule"
+        rule="//@expressionProviders/@providers.0/@expressions.0"
+        message="Missing name of package"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="PackageAuthorRule"
+        id="PackageAuthorRule"
+        rule="//@expressionProviders/@providers.0/@expressions.1"
+        message="Missing author and maintainer of package."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="PackageDescriptionRule"
+        id="PackageDescriptionRule"
+        rule="//@expressionProviders/@providers.0/@expressions.2"
+        message="Package description must not be empty"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="PackageAuthorEmailRule"
+        id="PackageAuthorEmailRule"
+        rule="//@expressionProviders/@providers.0/@expressions.3"
+        message="Missing Email of author and maintainer of package."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Package"/>
+      </target>
+    </rules>
+    <rules
+        name="NodeNameRule"
+        id="NodeNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.4"
+        message="Missing name of node."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node"/>
+      </target>
+    </rules>
+    <rules
+        name="PublisherNameRule"
+        id="PublisherNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.5"
+        message="Missing name for Publisher."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Publisher"/>
+      </target>
+    </rules>
+    <rules
+        name="PublisherMsgRule"
+        id="PublisherMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.6"
+        message="You have to define a message type for the Publisher"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Publisher"/>
+      </target>
+    </rules>
+    <rules
+        name="SubscriberNameRule"
+        id="SubscriberNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.7"
+        message="Missing name for Subscriber."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Subscriber"/>
+      </target>
+    </rules>
+    <rules
+        name="SubscriberMsgRule"
+        id="SubscriberMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.8"
+        message="You have to define a message type for the Subscriber."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Subscriber"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceServerNameRule"
+        id="ServiceServerNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.9"
+        message="Missing name for ServiceServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceServerMsgRule"
+        id="ServiceServerMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.10"
+        message="You have to define a service type for the ServiceServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceClientNameRule"
+        id="ServiceClientNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.11"
+        message="Missing name for ServiceClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceClientMsgRule"
+        id="ServiceClientMsgRule"
+        rule="//@expressionProviders/@providers.0/@expressions.12"
+        message="You have to define a service type for the ServiceClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionServerNameRule"
+        id="ActionServerNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.13"
+        message="Missing name for ActionServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionServerActionTypeRule"
+        id="ActionServerActionTypeRule"
+        rule="//@expressionProviders/@providers.0/@expressions.14"
+        message="You have to define a action type for the ActionServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionClientNameRule"
+        id="ActionClientNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.15"
+        message="Missing name for ActionClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionClientActionTypeRule"
+        id="ActionClientActionTypeRule"
+        rule="//@expressionProviders/@providers.0/@expressions.16"
+        message="You have to define a action type for the ActionClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ParameterNameRule"
+        description=""
+        id="ParameterNameRule"
+        rule="//@expressionProviders/@providers.0/@expressions.17"
+        message="You have to define a name for eacht Parameter"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter"/>
+      </target>
+    </rules>
+    <rules
+        name="ParameterValueRule"
+        id="ParameterValueRule"
+        rule="//@expressionProviders/@providers.0/@expressions.18"
+        message="You have to define a default value for eacht Parameter"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter"/>
+      </target>
+    </rules>
+    <clientContexts
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target //@audits/@rules.17/@target //@audits/@rules.18/@target"/>
+  </audits>
   <diagram
       visualID="1000"
       editPartClassName="PackageEditPart"
       itemSemanticEditPolicyClassName="PackageItemSemanticEditPolicy"
       canonicalEditPolicyClassName="PackageCanonicalEditPolicy"
       iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true"
+      validationDecoratorProviderPriority="Medium"
+      liveValidationUIFeedback="true">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -43,7 +306,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ParameterFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParameterFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParameterFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParameterFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParameterFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter"/>
@@ -81,10 +344,14 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="ServiceServerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceServerFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceServerNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceServerFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceServerNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureServiceServerNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceServerNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceServerNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceServerNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 0, 0, 190);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceServerFigure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceServerNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceServerFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(30)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(30)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.setFill(true);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceServerNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureServiceServerNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceServerNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceServerNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceServerNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 150, 150, 0);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="20"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -98,8 +365,7 @@
           visualID="5002"
           editPartClassName="ServiceServerNameEditPart"
           itemSemanticEditPolicyClassName="ServiceServerNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ServiceServerNameViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="ServiceServerNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -134,10 +400,14 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="ServiceClientFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceClientFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceClientNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceClientFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceClientNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureServiceClientNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceClientNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceClientNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceClientNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 0, 0, 240);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ServiceClientFigure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureServiceClientNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ServiceClientFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setFill(true);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(22)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureServiceClientNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureServiceClientNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureServiceClientNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureServiceClientNameFigure() {&#xA;&#x9;&#x9;return fFigureServiceClientNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 150, 150, 0);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="20"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -151,8 +421,7 @@
           visualID="5003"
           editPartClassName="ServiceClientNameEditPart"
           itemSemanticEditPolicyClassName="ServiceClientNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ServiceClientNameViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="ServiceClientNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -188,10 +457,15 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="Publisher2Figure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class Publisher2Figure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePublisherNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public Publisher2Figure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.LineBorder(null, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePublisherNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigurePublisherNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePublisherNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePublisherNameFigure() {&#xA;&#x9;&#x9;return fFigurePublisherNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 140, 0, 0);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class Publisher2Figure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePublisherNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public Publisher2Figure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(30)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(30)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.setFill(true);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePublisherNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePublisherNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePublisherNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePublisherNameFigure() {&#xA;&#x9;&#x9;return fFigurePublisherNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 211, 72, 54);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 211, 72, 54);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
             fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="20"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -205,8 +479,7 @@
           visualID="5004"
           editPartClassName="PublisherNameEditPart"
           itemSemanticEditPolicyClassName="PublisherNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="PublisherNameViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="PublisherNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -231,7 +504,8 @@
         canonicalEditPolicyClassName="ActionServerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ActionServerGraphicalNodeEditPolicy"
         createCommandClassName="ActionServerCreateCommand"
-        containers="//@diagram/@topLevelNodes.0">
+        containers="//@diagram/@topLevelNodes.0"
+        preferredSideName="EAST">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -241,10 +515,14 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="ActionServerFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActionServerFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActionServerNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActionServerFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActionServerNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActionServerNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureActionServerNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActionServerNameFigure() {&#xA;&#x9;&#x9;return fFigureActionServerNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 0, 140, 0);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActionServerFigure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActionServerNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActionServerFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(30)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(30)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.setFill(true);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActionServerNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureActionServerNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureActionServerNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActionServerNameFigure() {&#xA;&#x9;&#x9;return fFigureActionServerNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 22, 166, 30);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="20"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -258,8 +536,7 @@
           visualID="5005"
           editPartClassName="ActionServerNameEditPart"
           itemSemanticEditPolicyClassName="ActionServerNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ActionServerNameViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="ActionServerNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -283,7 +560,8 @@
         canonicalEditPolicyClassName="ActionClientCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ActionClientGraphicalNodeEditPolicy"
         createCommandClassName="ActionClientCreateCommand"
-        containers="//@diagram/@topLevelNodes.0">
+        containers="//@diagram/@topLevelNodes.0"
+        preferredSideName="WEST">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -293,10 +571,14 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="ActionClientFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActionClientFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActionClientNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActionClientFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActionClientNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActionClientNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureActionClientNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActionClientNameFigure() {&#xA;&#x9;&#x9;return fFigureActionClientNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 0, 240, 0);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActionClientFigure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActionClientNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActionClientFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setFill(true);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(22)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActionClientNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureActionClientNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureActionClientNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActionClientNameFigure() {&#xA;&#x9;&#x9;return fFigureActionClientNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 22, 166, 30);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
             fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="20"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -310,8 +592,7 @@
           visualID="5006"
           editPartClassName="ActionClientNameEditPart"
           itemSemanticEditPolicyClassName="ActionClientNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ActionClientNameViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="ActionClientNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -346,10 +627,15 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="Subscriber2Figure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class Subscriber2Figure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSubscriberNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public Subscriber2Figure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSubscriberNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSubscriberNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSubscriberNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSubscriberNameFigure() {&#xA;&#x9;&#x9;return fFigureSubscriberNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 240, 0, 0);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class Subscriber2Figure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSubscriberNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public Subscriber2Figure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setFill(true);&#xA;&#x9;this.setForegroundColor(THIS_FORE&#xA;);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(22)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(2)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSubscriberNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSubscriberNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSubscriberNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSubscriberNameFigure() {&#xA;&#x9;&#x9;return fFigureSubscriberNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_FORE = new org.eclipse.swt.graphics.Color(null, 211, 72, 54);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 211, 72, 54);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
             fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="20"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -363,8 +649,7 @@
           visualID="5007"
           editPartClassName="SubscriberNameEditPart"
           itemSemanticEditPolicyClassName="SubscriberNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="SubscriberNameViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="SubscriberNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -397,7 +682,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="NodeFigure2"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class NodeFigure2 extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureNodeNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureParameterCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public NodeFigure2() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setLineWidth(2);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(240)&#xA;, getMapMode().DPtoLP(180)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.RectangleFigure nodeTopFigure0 = new org.eclipse.draw2d.RectangleFigure();&#xA;&#x9;nodeTopFigure0.setForegroundColor(NODETOPFIGURE0_FORE&#xA;);&#xA;&#xA;nodeTopFigure0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintNodeTopFigure0 = new org.eclipse.draw2d.GridData();&#xA;constraintNodeTopFigure0.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintNodeTopFigure0.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintNodeTopFigure0.horizontalIndent = 0;&#xA;constraintNodeTopFigure0.horizontalSpan = 1;&#xA;constraintNodeTopFigure0.verticalSpan = 1;&#xA;constraintNodeTopFigure0.grabExcessHorizontalSpace = true;&#xA;constraintNodeTopFigure0.grabExcessVerticalSpace = false;&#xA;this.add(nodeTopFigure0, constraintNodeTopFigure0);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutNodeTopFigure0 = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutNodeTopFigure0.numColumns = 1;&#xA;&#x9;layoutNodeTopFigure0.makeColumnsEqualWidth = true;&#xA;&#x9;nodeTopFigure0.setLayoutManager(layoutNodeTopFigure0);&#xA;&#xA;&#xA;&#xA;fFigureNodeNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureNodeNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureNodeNameFigure.setFont(FFIGURENODENAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureNodeNameFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureNodeNameFigure.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureNodeNameFigure.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureNodeNameFigure.horizontalIndent = 0;&#xA;constraintFFigureNodeNameFigure.horizontalSpan = 3;&#xA;constraintFFigureNodeNameFigure.verticalSpan = 1;&#xA;constraintFFigureNodeNameFigure.grabExcessHorizontalSpace = false;&#xA;constraintFFigureNodeNameFigure.grabExcessVerticalSpace = false;&#xA;nodeTopFigure0.add(fFigureNodeNameFigure, constraintFFigureNodeNameFigure);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;fFigureParameterCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureParameterCompartmentFigure.setFill(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureParameterCompartmentFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureParameterCompartmentFigure.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureParameterCompartmentFigure.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureParameterCompartmentFigure.horizontalIndent = 0;&#xA;constraintFFigureParameterCompartmentFigure.horizontalSpan = 1;&#xA;constraintFFigureParameterCompartmentFigure.verticalSpan = 1;&#xA;constraintFFigureParameterCompartmentFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureParameterCompartmentFigure.grabExcessVerticalSpace = true;&#xA;this.add(fFigureParameterCompartmentFigure, constraintFFigureParameterCompartmentFigure);&#xA;&#xA;fFigureParameterCompartmentFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureNodeNameFigure() {&#xA;&#x9;&#x9;return fFigureNodeNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureParameterCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureParameterCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color NODETOPFIGURE0_FORE = new org.eclipse.swt.graphics.Color(null, 236, 232, 233);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURENODENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 10, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class NodeFigure2 extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureNodeNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureParameterCompartmentFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public NodeFigure2() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.setLineWidth(2);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(240)&#xA;, getMapMode().DPtoLP(180)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.RectangleFigure nodeTopFigure0 = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#x9;nodeTopFigure0.setForegroundColor(NODETOPFIGURE0_FORE&#xA;);&#xA;&#xA;nodeTopFigure0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintNodeTopFigure0 = new org.eclipse.draw2d.GridData();&#xA;constraintNodeTopFigure0.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintNodeTopFigure0.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintNodeTopFigure0.horizontalIndent = 0;&#xA;constraintNodeTopFigure0.horizontalSpan = 1;&#xA;constraintNodeTopFigure0.verticalSpan = 1;&#xA;constraintNodeTopFigure0.grabExcessHorizontalSpace = true;&#xA;constraintNodeTopFigure0.grabExcessVerticalSpace = false;&#xA;this.add(nodeTopFigure0, constraintNodeTopFigure0);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutNodeTopFigure0 = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutNodeTopFigure0.numColumns = 1;&#xA;&#x9;layoutNodeTopFigure0.makeColumnsEqualWidth = true;&#xA;&#x9;nodeTopFigure0.setLayoutManager(layoutNodeTopFigure0);&#xA;&#xA;&#xA;&#xA;fFigureNodeNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureNodeNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureNodeNameFigure.setFont(FFIGURENODENAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureNodeNameFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureNodeNameFigure.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureNodeNameFigure.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFFigureNodeNameFigure.horizontalIndent = 0;&#xA;constraintFFigureNodeNameFigure.horizontalSpan = 3;&#xA;constraintFFigureNodeNameFigure.verticalSpan = 1;&#xA;constraintFFigureNodeNameFigure.grabExcessHorizontalSpace = false;&#xA;constraintFFigureNodeNameFigure.grabExcessVerticalSpace = false;&#xA;nodeTopFigure0.add(fFigureNodeNameFigure, constraintFFigureNodeNameFigure);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;fFigureParameterCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFigureParameterCompartmentFigure.setFill(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureParameterCompartmentFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureParameterCompartmentFigure.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureParameterCompartmentFigure.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureParameterCompartmentFigure.horizontalIndent = 0;&#xA;constraintFFigureParameterCompartmentFigure.horizontalSpan = 1;&#xA;constraintFFigureParameterCompartmentFigure.verticalSpan = 1;&#xA;constraintFFigureParameterCompartmentFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureParameterCompartmentFigure.grabExcessVerticalSpace = true;&#xA;this.add(fFigureParameterCompartmentFigure, constraintFFigureParameterCompartmentFigure);&#xA;&#xA;fFigureParameterCompartmentFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureNodeNameFigure() {&#xA;&#x9;&#x9;return fFigureNodeNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureParameterCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureParameterCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color NODETOPFIGURE0_FORE = new org.eclipse.swt.graphics.Color(null, 236, 232, 233);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURENODENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 10, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node"/>
@@ -520,39 +805,12 @@
   <plugin
       iD="org.ros.model.ros_package.diagram"
       name="RosPackage Plugin">
+    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
   </plugin>
   <editor
       className="RosPackageDiagramEditor"/>
-  <navigator>
-    <childReferences
-        child="//@diagram"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.0"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.1"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.2"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.3"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.4"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.5"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.0"
-        child="//@diagram/@childNodes.6"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.0"/>
-  </navigator>
   <diagramUpdater/>
   <propertySheet>
     <tabs
@@ -575,6 +833,68 @@
   </propertySheet>
   <domainGenModel
       href="../../org.ros.model.ros/model/ros.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="author.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="description.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="author_email.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="msg.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="ActionType.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="ActionType.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="name.size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="value.size() > 0"/>
+    </providers>
+  </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations

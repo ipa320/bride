@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ros:Architecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ros="http://ros/1.0" name="deployment">
+  <topic name="/say">
+    <publisher href="platform:/resource//bride_tutorials/model/talker.ros_package#//@node.0/@publisher.0"/>
+    <subscriber href="platform:/resource//bride_tutorials/model/listener.ros_package#//@node.0/@subscriber.0"/>
+  </topic>
+  <packages href="platform:/resource//bride_tutorials/model/talker.ros_package#/"/>
+  <packages href="platform:/resource//bride_tutorials/model/listener.ros_package#/"/>
+  <packages href="platform:/resource//bride_tutorials/model/behaviour.ros_coordinator#/"/>
+  <action name="talk_trigger">
+    <actionserver href="platform:/resource//bride_tutorials/model/talker.ros_package#//@node.0/@actionserver.0"/>
+    <actionclient href="platform:/resource//bride_tutorials/model/behaviour.ros_coordinator#//@node.0/@actionclient.0"/>
+  </action>
+</ros:Architecture>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="rosPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Coordinator Building">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="StateMachine">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ActionState">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ServiceState">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Transition">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="FinalState">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="InitialState"
+          description="InitialState that is finished after an action is triggered">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

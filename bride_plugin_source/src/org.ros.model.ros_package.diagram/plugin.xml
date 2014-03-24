@@ -42,33 +42,18 @@
 
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="org.eclipse.ui.BRIDE"
   	     class="org.ros.model.ros_package.diagram.part.RosCreationWizard"
   	     id="org.ros.model.ros_package.diagram.part.RosCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
-      <?gmfgen generated="true"?>
-      <objectContribution
-            id="org.ros.model.ros_package.diagram.InitDiagram"
-            nameFilter="*.ros_package"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="org.ros.model.ros_package.diagram.part.RosInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="org.ros.model.ros_package.diagram.InitDiagramAction">
-         </action>
-      </objectContribution>
-   </extension>
-	
+   	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
@@ -209,7 +194,6 @@
             class="org.ros.model.ros_package.diagram.sheet.RosPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
@@ -397,129 +381,10 @@
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
-	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
-      <?gmfgen generated="true"?>
-       <propertyTester
-           id="org.ros.model.ros_package.diagram.URIEditorInputPropertyTester"
-           type="org.eclipse.emf.common.ui.URIEditorInput"
-           namespace="org.ros.model.ros_package.diagram"
-           properties="isURIEditorInput"
-           class="org.ros.model.ros_package.diagram.part.RosUriEditorInputTester">
-       </propertyTester>
-   </extension>
-
-	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
-      <?gmfgen generated="true"?>
-      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-         <includes>
-            <contentExtension pattern="org.ros.model.ros_package.diagram.resourceContent"/>
-			<contentExtension pattern="org.ros.model.ros_package.diagram.domainResourceContent"/>
-            <contentExtension pattern="org.ros.model.ros_package.diagram.navigatorLinkHelper"/>
-         </includes>
-      </viewerContentBinding>
-      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
-         <includes>
-            <actionExtension pattern="org.ros.model.ros_package.diagram.navigatorActionProvider"/>
-         </includes>
-      </viewerActionBinding>
-   </extension>
-
-   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
-      <?gmfgen generated="true"?>
-      <navigatorContent
-            id="org.ros.model.ros_package.diagram.resourceContent" 
-            name="%navigatorContentName" 
-            priority="normal" 
-            contentProvider="org.ros.model.ros_package.diagram.navigator.RosNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros_package.diagram.navigator.RosNavigatorLabelProvider"
-            icon="icons/obj16/RosDiagramFile.gif"
-            activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros_package_diagram"/>
-               </and>
-               <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
-           	      <test property="org.ros.model.ros_package.diagram.isShortcut"/>
-           	   </adapt>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <or>
-         	   <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
-           	      <test property="org.ros.model.ros_package.diagram.isShortcut"/>
-           	   </adapt>
-            </or>
-         </possibleChildren>
-         <commonSorter 
-               id="org.ros.model.ros_package.diagram.navigatorSorter" 
-               class="org.ros.model.ros_package.diagram.navigator.RosNavigatorSorter">
-            <parentExpression>
-               <or>
-	              <and>
-    	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="ros_package_diagram"/>
-                  </and>
-                  <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-               </or>
-            </parentExpression>
-         </commonSorter>
-      </navigatorContent>
-      <navigatorContent
-            id="org.ros.model.ros_package.diagram.domainResourceContent" 
-            name="%domainNavigatorContentName" 
-            priority="normal" 
-            contentProvider="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorContentProvider" 
-            labelProvider="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorLabelProvider"
-            icon="icons/obj16/RosDiagramFile.gif"
-            activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros_package"/>
-               </and>
-               <instanceof value="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorItem"/>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <instanceof value="org.ros.model.ros_package.diagram.navigator.RosDomainNavigatorItem"/>
-         </possibleChildren>
-      </navigatorContent>
-      <actionProvider
-            id="org.ros.model.ros_package.diagram.navigatorActionProvider"
-            class="org.ros.model.ros_package.diagram.navigator.RosNavigatorActionProvider">
-         <enablement>
-            <or>
-               <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-           	   <adapt type="org.eclipse.gmf.runtime.notation.View">
-           	      <test property="org.ros.model.ros_package.diagram.isShortcut"/>
-           	   </adapt>
-            </or>
-         </enablement>
-      </actionProvider>
-   </extension>
-   
-	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
-      <?gmfgen generated="true"?>
-      <linkHelper
-            id="org.ros.model.ros_package.diagram.navigatorLinkHelper"
-            class="org.ros.model.ros_package.diagram.navigator.RosNavigatorLinkHelper">
-         <editorInputEnablement>
-            <and>
-               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
-               <test property="org.ros.model.ros_package.diagram.isURIEditorInput"/>
-            </and>
-         </editorInputEnablement>
-         <selectionEnablement>
-            <instanceof value="org.ros.model.ros_package.diagram.navigator.RosAbstractNavigatorItem"/>
-         </selectionEnablement>
-      </linkHelper>
-   </extension>
-   <extension point="org.eclipse.ui.commands" id="update-cmd">
+	   
+	   
+      
+	      <extension point="org.eclipse.ui.commands" id="update-cmd">
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
@@ -591,16 +456,287 @@
       </decoratorProvider>
    </extension>
 
-<extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isShortcut">
+
+
+
+
+
+<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
       <?gmfgen generated="true"?>
-       <propertyTester
-           id="org.ros.model.ros_package.diagram.ShortcutPropertyTester"
-           type="org.eclipse.gmf.runtime.notation.View"
-           namespace="org.ros.model.ros_package.diagram"
-           properties="isShortcut"
-           class="org.ros.model.ros_package.diagram.part.RosShortcutPropertyTester">
-       </propertyTester>
+      <objectContribution
+            id="org.ros.model.ros_package.diagram.InitDiagram"
+            nameFilter="*.ros_package"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.ros.model.ros_package.diagram.part.RosInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.ros.model.ros_package.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
    </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="org.ros.model.ros_package.diagram.providers.RosMarkerNavigationProvider">
+         <MarkerType name="org.ros.model.ros_package.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+<extension id="diagnostic" name="RosPackage Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="org.ros.model.ros_package.diagram.providers.RosValidationDecoratorProvider">
+         <Priority name="Medium"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+<extension
+      point="org.eclipse.epsilon.evl.emf.validation">
+   <constraintsBinding
+         constraints="validation/ros_package.evl"
+         namespaceURI="ros_package_validation">
+   </constraintsBinding>
+</extension>
+<extension
+      point="org.eclipse.ui.ide.markerResolution">
+   <markerResolutionGenerator
+         class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+         markerType="org.ros.model.ros_package.diagram.diagnostic">
+   </markerResolutionGenerator>
+   <markerResolutionGenerator
+         class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+         markerType="org.eclipse.emf.ecore.diagnostic">
+   </markerResolutionGenerator>
+</extension>
+<extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="PackageNameAuditContainer" mandatory="false" name="PackageNameAuditContainer">
+         <![CDATA[]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://ros/1.0"/>
+               <constraints categories="PackageNameAuditContainer">
+                  <constraint id="PackageNameAuditRule"
+            lang="OCL"
+            name="PackageNameAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name of package]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageAuthorRule"
+            lang="OCL"
+            name="PackageAuthorRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[author.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing author and maintainer of package.]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageDescriptionRule"
+            lang="OCL"
+            name="PackageDescriptionRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[description.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Package description must not be empty]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageAuthorEmailRule"
+            lang="OCL"
+            name="PackageAuthorEmailRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[author_email.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing Email of author and maintainer of package.]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="NodeNameRule"
+            lang="OCL"
+            name="NodeNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name of node.]]></message>
+            <target class="ros.Node"/>
+         </constraint>
+                  <constraint id="PublisherNameRule"
+            lang="OCL"
+            name="PublisherNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for Publisher.]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="PublisherMsgRule"
+            lang="OCL"
+            name="PublisherMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a message type for the Publisher]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="SubscriberNameRule"
+            lang="OCL"
+            name="SubscriberNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for Subscriber.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
+                  <constraint id="SubscriberMsgRule"
+            lang="OCL"
+            name="SubscriberMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a message type for the Subscriber.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
+                  <constraint id="ServiceServerNameRule"
+            lang="OCL"
+            name="ServiceServerNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceServerMsgRule"
+            lang="OCL"
+            name="ServiceServerMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a service type for the ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceClientNameRule"
+            lang="OCL"
+            name="ServiceClientNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ServiceClient.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
+                  <constraint id="ServiceClientMsgRule"
+            lang="OCL"
+            name="ServiceClientMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a service type for the ServiceClient.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
+                  <constraint id="ActionServerNameRule"
+            lang="OCL"
+            name="ActionServerNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionServerActionTypeRule"
+            lang="OCL"
+            name="ActionServerActionTypeRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ActionType.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a action type for the ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionClientNameRule"
+            lang="OCL"
+            name="ActionClientNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ActionClient.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
+                  <constraint id="ActionClientActionTypeRule"
+            lang="OCL"
+            name="ActionClientActionTypeRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ActionType.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a action type for the ActionClient.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+<extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.ros.model.ros_package.diagramDefaultCtx">
+         <selector class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.ros.model.ros_package.diagramDefaultCtx">
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageNameAuditRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageDescriptionRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorEmailRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.NodeNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PublisherNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PublisherMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.SubscriberNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.SubscriberMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceServerMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceClientMsgRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionServerActionTypeRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionClientActionTypeRule"/>
+               </binding>
+
+   </extension>
+
+<extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.ros.model.ros_package.diagramDefaultCtx"/>
+   </extension>
+
+
+
+
+
+
+
+
 
 
    <!-- optionally, specify keybindings -->

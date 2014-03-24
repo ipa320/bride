@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:ros="http://ros/1.0" xmi:id="_TUZSEJedEeK3c_Qif3JNZA" type="RosPackage" name="talker.ros_package_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_UTsL4JedEeK3c_Qif3JNZA" type="2001" fontName="Lucida Grande">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UTuBEJedEeK3c_Qif3JNZA" type="5008"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UTvPMJedEeK3c_Qif3JNZA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_UYwtkJenEeK7FNfjDwIS9Q" type="3001">
+        <element xmi:type="ros:Parameter" href="talker.ros_package#//@node.0/@parameter.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UYwtkZenEeK7FNfjDwIS9Q"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_UTvPMZedEeK3c_Qif3JNZA" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UTvPMpedEeK3c_Qif3JNZA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UTvPM5edEeK3c_Qif3JNZA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ejZhIJedEeK3c_Qif3JNZA" type="3004">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ejaIMJedEeK3c_Qif3JNZA" type="5004"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_ejZhIZedEeK3c_Qif3JNZA"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ejZhIpedEeK3c_Qif3JNZA" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_ejZhI5edEeK3c_Qif3JNZA"/>
+      <element xmi:type="ros:Publisher" href="talker.ros_package#//@node.0/@publisher.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ejZhJJedEeK3c_Qif3JNZA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_X-DZQJenEeK7FNfjDwIS9Q" type="3005">
+      <children xmi:type="notation:DecorationNode" xmi:id="_X-EAUJenEeK7FNfjDwIS9Q" type="5005"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_X-DZQZenEeK7FNfjDwIS9Q"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_X-DZQpenEeK7FNfjDwIS9Q" fontName="Lucida Grande"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_X-DZQ5enEeK7FNfjDwIS9Q"/>
+      <element xmi:type="ros:ActionServer" href="talker.ros_package#//@node.0/@actionserver.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X-DZRJenEeK7FNfjDwIS9Q" x="48" y="-39"/>
+    </children>
+    <element xmi:type="ros:Node" href="talker.ros_package#//@node.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UTsL4ZedEeK3c_Qif3JNZA" x="280" y="160" width="293" height="253"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_TUZ5IJedEeK3c_Qif3JNZA"/>
+  <element xmi:type="ros:Package" href="talker.ros_package#/"/>
+</notation:Diagram>

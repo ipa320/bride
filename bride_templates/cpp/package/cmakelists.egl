@@ -1,0 +1,92 @@
+cmake_minimum_required(VERSION 2.8.3)
+project([%=package.name%])
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
+find_package(catkin REQUIRED COMPONENTS
+	roscpp
+  	rospy
+  	std_msgs
+    [%for(node in package.node) {if(node.actionserver.size() > 0){%]
+    actionlib
+    [%}}%]
+    dynamic_reconfigure 
+[%for (depend in package.depend) {%]
+	[%=depend%]
+[% } %]
+)
+
+[%=out.startPreserve("#", "#", "additional user defined REQUIREMENTS", true)%]
+[%=out.stopPreserve()%]
+
+[%for(node in package.node) {%]
+generate_dynamic_reconfigure_options(cfg/[%=node.name%].cfg)
+[%}%]
+
+###################################
+## catkin specific configuration ##
+###################################
+## The catkin_package macro generates cmake config files for your package
+## Declare things to be passed to dependent projects
+## LIBRARIES: libraries you create in this project that dependent projects also need
+## CATKIN_DEPENDS: catkin_packages dependent projects also need
+## DEPENDS: system dependencies of this project that dependent projects also need
+catkin_package(
+  INCLUDE_DIRS
+    common/src
+  CATKIN_DEPENDS 
+  	roscpp
+  	rospy
+  	std_msgs
+    dynamic_reconfigure
+[%for (depend in package.depend) {%]
+	[%=depend%]
+[% } %]   
+)
+
+###########
+## Build ##
+###########
+
+## Specify additional locations of header files
+## Your package locations should be listed before other locations
+include_directories(common/include)
+include_directories(common/src)
+include_directories(${catkin_INCLUDE_DIRS})
+
+
+[%for(node in package.node) {%]
+## Declare a cpp executable
+add_executable([%=node.name%] ros/src/[%=node.name%]_ros.cpp)
+
+## Add cmake target dependencies of the executable/library
+## as an example, message headers may need to be generated before nodes
+add_dependencies([%=node.name%] [%=node.name%]_gencfg)
+add_dependencies([%=node.name%] ${[%=package.name%]_EXPORTED_TARGETS})
+
+## Specify libraries to link a library or executable target against
+target_link_libraries([%=node.name%]
+  ${catkin_LIBRARIES}
+)
+[%}%]
+
+[%=out.startPreserve("#", "#", "additional user defined BUILD STATEMENTS", true)%]
+[%=out.stopPreserve()%]
+
+
+#############
+## Install ##
+#############
+
+[%for(node in package.node) {%]
+## Mark executables and/or libraries for installation
+install(TARGETS [%=node.name%]
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+[%}%]
+
+[%=out.startPreserve("#", "#", "user Cmake macros", true)%]
+[%=out.stopPreserve()%]

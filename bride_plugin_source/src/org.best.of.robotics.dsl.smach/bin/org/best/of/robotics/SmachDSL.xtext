@@ -1,0 +1,53 @@
+
+grammar org.best.of.robotics.SmachDSL with org.eclipse.xtext.common.Terminals
+
+import "http://ros/1.0" as ros
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate smachDSL "http://www.best.org/of/robotics/SmachDSL"
+
+
+PrimitivePackage:
+	statemachines+=StateMachine*;
+
+StateMachine:
+	'statemachine' name=ID '{'
+		actionclients+=ActionClient*
+		serviceclients+=ServiceClient*
+		actionsstates+=ActionState*
+	'}'
+	;
+
+ActionClient:
+	'ActionClient' name=ID '{'
+		'aname:' actionname=STRING ','
+		'atype:' actiontype=STRING
+	'}'
+;
+
+ServiceClient:
+	'ServiceClient' name=ID '{'
+		'name:' servicename=STRING ','
+		'srv:' servicesrv=STRING
+	'}'
+;
+
+ActionState:
+	'actionstate' name=ID '{'
+		'client:' clientname=[ActionClient] ',' 
+		(transitions+=Transition* ',')?
+	'}';
+
+TO_SPECIFY:
+	"TO_SPECIFY"
+;
+	
+Transition:
+	outcome=OUTCOME '=>' state=[ActionState];
+
+OUTCOME:
+	"succeeded" | "preempted" | "aborted"
+;
+//| PREEMPTED = "preempted" | ABORTED = "aborted"
+//MonitorTransition:
+//;

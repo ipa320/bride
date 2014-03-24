@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(bride_compilers)
+
+find_package(catkin REQUIRED COMPONENTS)
+
+
+
+catkin_package()
+
+install(PROGRAMS bin/m2t DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/)
+
+install(DIRECTORY bin
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/bin
+)
+
+install(DIRECTORY lib
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/lib
+)
+
+install(DIRECTORY src
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/src
+)

@@ -19,13 +19,18 @@
       </command>
       <command
             categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
-            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
-            name="Generate Ros Messages">
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
+            name="Generate Launch File for ros system">
       </command>
       <command
             categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
-            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch"
-            name="Generate Launch File for ros system">
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
+            name="Generate Coordinator for ros system">
+      </command>
+      <command
+            categoryId="org.best_of_robotics.transform.ros.to.cplusplus.category"
+            id="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosOrocosCPP"
+            name="Generate ROS-Orocos Component">
       </command>
 
    </extension>
@@ -40,12 +45,16 @@
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformPython">
       </handler>
       <handler
-            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosMsgsTransform"
-            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs">
-      </handler>
-      <handler
             class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosLaunchTransform"
             commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosLaunch">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosCoordinatorTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator">
+      </handler>
+      <handler
+            class="org.best_of_robotics.transform.ros.to.cplusplus.handler.RosOrocosCppTransform"
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosOrocosCPP">
       </handler>
    </extension>
    <extension
@@ -76,7 +85,11 @@
                   visible="true">
             </separator>
             <command
-                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosMsgs"
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosCoordinator"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformRosOrocosCPP"
                   style="push">
             </command>
          </menu>
@@ -88,6 +101,13 @@
       <tool
             class="org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool"
             defaultName="CHModTool">
+      </tool>
+   </extension>
+   <extension
+         point="org.eclipse.epsilon.common.dt.tool">
+      <tool
+            class="org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator"
+            defaultName="ConfigFileCreator">
       </tool>
    </extension>
 

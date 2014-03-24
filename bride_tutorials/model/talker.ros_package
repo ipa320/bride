@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ros:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ros="http://ros/1.0" name="talker" author="Alexander Bubeck" author_email="aub@ipa.fhg.de" description="A simple node for the BRIDE tutorial" license="">
+  <node name="talker" loopRate="10.0" paramSource="">
+    <publisher name="pub" msg="std_msgs::String"/>
+    <parameter name="word" value="HelloWorld" type="string"/>
+    <actionserver name="TriggerPublish" ActionType="bride_tutorials::TriggerPublish"/>
+  </node>
+  <depend>std_msgs</depend>
+  <depend>bride_tutorials</depend>
+</ros:Package>

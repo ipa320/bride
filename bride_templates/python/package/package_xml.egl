@@ -1,0 +1,34 @@
+<package>
+  <name>[%=package.name%]</name>
+  <description>[%=package.description%]</description>
+  <version>0.0.0</version>
+  <maintainer email="[%=package.author_email%]">[%=package.author%]</maintainer>
+  <author email="T[%=package.author_email%]">[%=package.author%]</author>
+  <license>[%=package.license%]</license>
+  <url>[%=package.url%]</url>
+
+  <buildtool_depend>catkin</buildtool_depend>  
+
+  <build_depend>std_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+
+  [%for (depend in package.depend) {
+  %]
+  	<build_depend>[%=depend%]</build_depend>
+    <run_depend>[%=depend%]</run_depend>
+  [%
+  }
+  %]
+  
+
+  [%=out.startPreserve("<!--", "-->", "additional manifest statements", true)%]
+  [%=out.stopPreserve()%]
+  
+  
+</package>
+
+

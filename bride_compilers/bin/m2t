@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp $(echo `rospack find bride_compilers`/lib/*.jar | tr ' ' ':'):`rospack find bride_plugin_source`/src/org.best_of_robotics.transform.ros.to.cplusplus/bin/:`rospack find bride_compilers`/bin/ org.ros.model.compilers.M2CStandalone $@

@@ -1,0 +1,57 @@
+[%
+	
+	var package : Package := Package.allInstances().at(0);
+	var s : OrderedSet := package.node;
+
+	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
+	var config_creator = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator");
+	
+
+	//node
+	for(node in package.node) {
+		var sourceTemplate := TemplateFactory.load('nodeSource.egl');
+		var startTemplate := TemplateFactory.load('start.egl');
+		
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('package', package);
+		sourceTemplate.generate('src/' + node.name + '.py');
+		
+		startTemplate.generate('src/' + node.name);
+		chmodTool.setName(node.name);
+		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
+		chmodTool.chmod2("a+x"); // makes executable
+		
+		for(ac in node.actionclient)
+		{		
+				config_creator.setDirectory(TemplateFactory.getOutputRoot());
+				config_creator.write("config/" + ac.name + "_goal.yaml", ac.ActionType+"Goal");
+		}
+		
+		//launch File
+		var launchTemplate := TemplateFactory.load('launchfile.egl');
+		launchTemplate.populate('node', node);
+		launchTemplate.populate('package', package);
+		launchTemplate.generate(node.name +'.launch');
+	}
+	
+	//CMakeList
+	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
+	cmakeListsTemplate.populate('package', package);
+	cmakeListsTemplate.generate('CMakeLists.txt');
+	
+	
+	//package.xml
+	var manifestTemplate := TemplateFactory.load('package_xml.egl');
+	manifestTemplate.populate('package', package);
+	manifestTemplate.generate('package.xml');
+
+	//setup.py
+	var setupTemplate := TemplateFactory.load('setup_py.egl');
+	setupTemplate.populate('package', package);
+	setupTemplate.generate('setup.py');
+	
+	
+
+	
+	
+%]

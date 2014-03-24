@@ -1,30 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfgraph:Canvas xmi:version="2.0"
+<gmfgraph:Canvas
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="ros">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition"
+    name="ros">
   <figures
       name="Default">
     <descriptors
         name="Publisher2Figure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:ScalablePolygon"
           name="Publisher2Figure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="211"
+            green="72"
+            blue="54"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="140"/>
-        <maximumSize
-            dx="10"
-            dy="10"/>
-        <border
-            xsi:type="gmfgraph:LineBorder"
-            width="0"/>
+            red="211"
+            green="72"
+            blue="54"/>
+        <preferredSize
+            dx="80"
+            dy="20"/>
+        <insets
+            top="2"
+            left="2"
+            bottom="2"
+            right="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="Publisher2NameFigure"
             text="&lt;...>"/>
+        <template/>
+        <template
+            x="30"/>
+        <template
+            x="40"
+            y="20"/>
+        <template
+            x="30"
+            y="40"/>
+        <template
+            y="40"/>
       </actualFigure>
       <accessors
           accessor="getFigurePublisherNameFigure"
@@ -33,17 +58,41 @@
     <descriptors
         name="ActionServerFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:ScalablePolygon"
           name="ActionServerFigure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            green="140"/>
+            red="22"
+            green="166"
+            blue="30"/>
+        <preferredSize
+            dx="80"
+            dy="20"/>
+        <insets
+            top="2"
+            left="2"
+            bottom="2"
+            right="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ActionServerNameFigure"
             text="&lt;...>"/>
+        <template/>
+        <template
+            x="30"/>
+        <template
+            x="40"
+            y="20"/>
+        <template
+            x="30"
+            y="40"/>
+        <template
+            y="40"/>
       </actualFigure>
       <accessors
           accessor="getFigureActionServerNameFigure"
@@ -52,17 +101,40 @@
     <descriptors
         name="ServiceServerFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:ScalablePolygon"
           name="ServiceServerFigure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            blue="190"/>
+            red="150"
+            green="150"/>
+        <preferredSize
+            dx="80"
+            dy="20"/>
+        <insets
+            top="2"
+            left="2"
+            bottom="2"
+            right="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceServerNameFigure"
             text="&lt;...>"/>
+        <template/>
+        <template
+            x="30"/>
+        <template
+            x="40"
+            y="20"/>
+        <template
+            x="30"
+            y="40"/>
+        <template
+            y="40"/>
       </actualFigure>
       <accessors
           accessor="getFigureServiceServerNameFigure"
@@ -71,17 +143,40 @@
     <descriptors
         name="ServiceClientFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:ScalablePolygon"
           name="ServiceClientFigure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            blue="240"/>
+            red="150"
+            green="150"/>
+        <preferredSize
+            dx="80"
+            dy="20"/>
+        <insets
+            top="2"
+            left="22"
+            bottom="2"
+            right="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceClientNameFigure"
             text="&lt;...>"/>
+        <template/>
+        <template
+            x="40"/>
+        <template
+            x="40"
+            y="40"/>
+        <template
+            y="40"/>
+        <template
+            x="10"
+            y="20"/>
       </actualFigure>
       <accessors
           accessor="getFigureServiceClientNameFigure"
@@ -90,17 +185,41 @@
     <descriptors
         name="ActionClientFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:ScalablePolygon"
           name="ActionClientFigure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            green="240"/>
+            red="22"
+            green="166"
+            blue="30"/>
+        <preferredSize
+            dx="80"
+            dy="20"/>
+        <insets
+            top="2"
+            left="22"
+            bottom="2"
+            right="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ActionClientNameFigure"
             text="&lt;...>"/>
+        <template/>
+        <template
+            x="40"/>
+        <template
+            x="40"
+            y="40"/>
+        <template
+            y="40"/>
+        <template
+            x="10"
+            y="20"/>
       </actualFigure>
       <accessors
           accessor="getFigureActionClientNameFigure"
@@ -234,17 +353,46 @@
     <descriptors
         name="Subscriber2Figure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:ScalablePolygon"
           name="Subscriber2Figure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="211"
+            green="72"
+            blue="54"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            red="240"/>
+            red="211"
+            green="72"
+            blue="54"/>
+        <preferredSize
+            dx="80"
+            dy="20"/>
+        <insets
+            top="2"
+            left="22"
+            bottom="2"
+            right="2"/>
         <children
             xsi:type="gmfgraph:Label"
             name="Subscriber2NameFigure"
             text="&lt;...>"/>
+        <template/>
+        <template
+            x="40"/>
+        <template
+            x="40"
+            y="40"/>
+        <template
+            y="40"/>
+        <template
+            x="10"
+            y="20"/>
       </actualFigure>
       <accessors
           accessor="getFigureSubscriberNameFigure"
@@ -276,11 +424,11 @@
   <nodes
       name="ActionServer"
       figure="ActionServerFigure"
-      affixedParentSide="NORTH_WEST"/>
+      affixedParentSide="EAST"/>
   <nodes
       name="ActionClient"
       figure="ActionClientFigure"
-      affixedParentSide="NORTH_EAST"/>
+      affixedParentSide="WEST"/>
   <connections
       name="Topic"
       figure="TopicFigure"/>
@@ -304,38 +452,47 @@
   <labels
       name="ActionServerName"
       figure="ActionServerFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels
       name="ServiceServerName"
       figure="ServiceServerFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.2/@accessors.0"/>
   <labels
       name="ServiceClientName"
       figure="ServiceClientFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
       name="ActionClientName"
       figure="ActionClientFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="PublisherName"
       figure="NodeFigure2"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
       name="SubscriberName"
       figure="Subscriber2Figure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels
       name="TopicName"
       figure="TopicFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
       name="ServiceName"
       figure="ServiceFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="ActionName"
       figure="ActionFigure"
+      elementIcon="false"
       accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels
       name="ParameterName"

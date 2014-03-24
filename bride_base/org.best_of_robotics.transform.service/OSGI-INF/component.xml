@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.best_of_robotics.transform.service">
+   <implementation class="org.best_of_robotics.internal.transform.service.TransformService"/>
+   <service>
+      <provide interface="org.best_of_robotics.transform.service.ITransformService"/>
+   </service>
+</scr:component>

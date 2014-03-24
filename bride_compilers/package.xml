@@ -1,0 +1,19 @@
+<package>
+  <name>bride_compilers</name>
+  <version>0.3.0</version>
+  <description>bride_compilers</description>
+  <maintainer email="aub@ipa.fhg.de">Alexander Bubeck</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/bride_compilers</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author email="aub@ipa.fhg.de">Alexander Bubeck</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+
+  </export>
+</package>

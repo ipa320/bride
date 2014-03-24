@@ -1,0 +1,245 @@
+// ROS includes
+#include <ros/ros.h>
+[%if(node.actionserver.size() > 0){%]
+#include <actionlib/server/simple_action_server.h>
+[%}%]
+#include <dynamic_reconfigure/server.h>
+#include <[%=package.name.replace(" ", "_")%]/[%=node.name.replace(" ", "_")%]Config.h>
+
+// ROS message includes
+[%
+var str : String;
+for (publisher in node.publisher)
+{
+	str = publisher.msg.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (subscriber in node.subscriber)
+{
+	str = subscriber.msg.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (serviceServer in node.serviceServer)
+{
+	str = serviceServer.msg.replace('::','/');
+%]
+#include <[%=str%].h>
+[%
+}
+%]
+[%
+var str : String;
+for (actionServer in node.actionserver)
+{
+	str = actionServer.ActionType.replace('::','/');
+%]
+#include <[%=str%]Action.h>
+[%
+}
+%]
+
+
+
+
+#include <[%=node.name.replace(" ", "_")%]_common.cpp>
+
+
+class [%=node.name.replace(" ", "_")%]_ros
+{
+	public:
+		ros::NodeHandle n_;
+		
+		dynamic_reconfigure::Server<[%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config> server;
+  		dynamic_reconfigure::Server<[%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config>::CallbackType f;
+		
+
+[%
+for (publisher in node.publisher)
+{
+%]
+		ros::Publisher [%=publisher.name.replace(" ", "_")%]_;
+[%
+}
+%]		
+
+[%
+for (subscriber in node.subscriber)
+{
+%]
+		ros::Subscriber [%=subscriber.name.replace(" ", "_")%]_;
+[%
+}
+%]
+[%
+for (service in node.serviceServer)
+{
+%]
+	ros::ServiceServer [%=service.name.replace(" ", "_")%]_;
+[%
+}
+%]
+[%
+for (action in node.actionserver)
+{
+%]
+	actionlib::SimpleActionServer<[%=action.ActionType%]Action> as_[%=action.name.replace(" ", "_")%]_;
+[%
+}
+%]
+        
+ 
+        [%=node.name.replace(" ", "_")%]_data component_data_;
+        [%=node.name.replace(" ", "_")%]_config component_config_;
+        [%=node.name.replace(" ", "_")%]_impl component_implementation_;
+
+        [%=node.name.replace(" ", "_")%]_ros()
+	[%
+ 	for (action in node.actionserver) 	{ 	%]
+        :as_[%=action.name.replace(" ", "_")%]_(n_, "[%=action.name.replace(" ", "_")%]", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
+	[% } %]
+        {
+       	
+  			f = boost::bind(&[%=node.name.replace(" ", "_")%]_ros::configure_callback, this, _1, _2);
+  			server.setCallback(f);
+        	[%
+ 			for (action in node.actionserver) 	{ 	%]
+ 			as_[%=action.name.replace(" ", "_")%]_.start();
+ 			[% } %]
+        	
+        	[%
+        	for (service in node.serviceServer)
+        	{
+        	%]
+        		std::string [%=service.name.replace(" ", "_")%]_remap;
+        		n_.param("[%=service.name.replace(" ", "_")%]_remap", [%=service.name.replace(" ", "_")%]_remap, (std::string)"[%=service.name.replace(" ", "_")%]");
+        		[%=service.name.replace(" ", "_")%]_ = n_.advertiseService<[%=service.msg%]::Request , [%=service.msg%]::Response>([%=service.name.replace(" ", "_")%]_remap, boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=service.name.replace(" ", "_")%], &component_implementation_,_1,_2,component_config_));
+        	[%
+        	}
+        	%]
+        
+			[%
+			for (publisher in node.publisher)
+			{
+			%]
+				[%=publisher.name.replace(" ", "_")%]_ = 	n_.advertise<[%=publisher.msg%]>("[%=publisher.name.replace(" ", "_")%]", 1);
+			[%
+			}
+			%]
+			[%
+			for (subscriber in node.subscriber)
+			{
+			%]
+					[%=subscriber.name.replace(" ", "_")%]_ =  n_.subscribe("[%=subscriber.name.replace(" ", "_")%]", 1, &[%=node.name.replace(" ", "_")%]_ros::topicCallback_[%=subscriber.name.replace(" ", "_")%], this);
+			[%
+			}
+			%]  	
+
+			[%
+			for (parameter in node.parameter)
+			{
+				if(parameter.type.toString() == "string"){
+			%]
+				n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], (std::[%=parameter.type.toString()%])"[%=parameter.value%]");
+			[%
+			}
+				else{
+			%]
+				n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], ([%=parameter.type.toString()%])[%=parameter.value%]);
+			[%
+			}
+			}
+			%]
+            
+        }
+        [%
+		for (service in node.serviceServer)
+		{
+		%]
+		
+		[%
+		}
+		%]
+        
+		[%
+		for (subscriber in node.subscriber)
+		{
+		%]
+        void topicCallback_[%=subscriber.name.replace(" ", "_")%](const [%=subscriber.msg%]::ConstPtr& msg)
+		{
+            component_data_.in_[%=subscriber.name.replace(" ", "_")%] = *msg;
+            [%if(subscriber.eventPort == true){%]
+            update(); //call only if defined as event port, not called if it is an data port
+            [%}%]
+            
+        }
+        [%
+		}
+		%]
+		
+		void configure_callback([%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config &config, uint32_t level) 
+		{
+		[%
+			for (parameter in node.parameter)
+			{
+			%]
+				component_config_.[%=parameter.name.replace(" ", "_")%] = config.[%=parameter.name.replace(" ", "_")%];
+			[%
+			}
+			%]
+		}
+
+        void configure()
+        {
+			component_implementation_.configure(component_config_);
+        }
+
+        void update()
+        {
+            component_implementation_.update(component_data_, component_config_);
+            [%
+			for (publisher in node.publisher)
+			{
+			%]
+				[%=publisher.name.replace(" ", "_")%]_.publish(component_data_.out_[%=publisher.name.replace(" ", "_")%]);
+			[%
+			}
+			%]
+    
+        }
+ 
+};
+
+int main(int argc, char** argv)
+{
+
+	ros::init(argc, argv, "[%=node.name.replace(" ", "_")%]");
+
+	[%=node.name.replace(" ", "_")%]_ros node;
+    node.configure();
+
+	[%	if(node.loopRate == 0)	{%] // if cycle time == 0 do a spin() here without calling node.update() 
+	ros::spin();
+	[% } else {	%]
+	
+ 	ros::Rate loop_rate([%=node.loopRate%]); // Hz
+
+	while(node.n_.ok())
+	{
+        node.update();
+		loop_rate.sleep();
+		ros::spinOnce();
+	}
+	[%}%]
+	
+    return 0;
+}

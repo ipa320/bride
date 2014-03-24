@@ -20,13 +20,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="ros_diagram"/>
+      <fileTypes type="text" extension="ros_system_diagram"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="ros_diagram"
+         type="ros_system_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -37,7 +37,7 @@
          id="org.ros.model.ros.diagram.part.RosDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/RosDiagramFile.gif"
-         extensions="ros_diagram"
+         extensions="ros_system_diagram"
          default="true"
          class="org.ros.model.ros.diagram.part.RosDiagramEditor"
          matchingStrategy="org.ros.model.ros.diagram.part.RosMatchingStrategy"
@@ -56,11 +56,14 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
+      <category
+          id="org.eclipse.ui.BRIDE"
+          name="BRIDE"></category>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RosDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="org.eclipse.ui.BRIDE"
   	     class="org.ros.model.ros.diagram.part.RosCreationWizard"
   	     id="org.ros.model.ros.diagram.part.RosCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
@@ -72,7 +75,7 @@
       <?gmfgen generated="true"?>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
-         id="RosPresentation">
+         id="RosSystemPresentation">
          <Priority name="Lowest"/>
          <ViewId id="org.ros.model.ros.diagram.part.RosDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
@@ -89,7 +92,7 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
-         id="RosPresentationIDE">
+         id="RosSystemPresentationIDE">
          <Priority name="Lowest"/>
          <ViewId id="org.ros.model.ros.diagram.part.RosDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
@@ -99,7 +102,7 @@
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
-            id="RosRender">
+            id="RosSystemRender">
          <Priority name="Lowest"/>
          <ViewId id="org.ros.model.ros.diagram.part.RosDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
@@ -217,7 +220,7 @@
       <?gmfgen generated="true"?>
       <viewProvider class="org.ros.model.ros.diagram.providers.RosViewProvider">
          <Priority name="Lowest"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Ros"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="RosSystem"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3004,3005,3006,3007,3008"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
       </viewProvider>
@@ -228,7 +231,7 @@
       <editpartProvider class="org.ros.model.ros.diagram.providers.RosEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
-            <method name="getType()" value="Ros"/>
+            <method name="getType()" value="RosSystem"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
             <method name="getType()" value="2001,3001,3002,3003,3004,3005,3006,3007,3008"/>
@@ -237,7 +240,7 @@
             <method name="getType()" value="4001,4002,4003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5009,5008,5001,5002,5003,5004,5005,5006,5007"/>
+            <method name="getType()" value="5008,5007,5001,5002,5003,5004,5005,5006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7002"/>
@@ -494,11 +497,58 @@
    </extension>
 
 
-	<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+	   
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.ros.model.ros.diagram.SystemDeveloperPerspectiveFactory"
+            id="org.ros.model.ros.diagram.ComponentDeveloperPerspective"
+            name="System Developer">
+      </perspective>
+   </extension>
+
+
+
+   
+<extension point="org.eclipse.ui.bindings">
+	<key commandId="org.ros.model.ros.configureNode" sequence="M1+C" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+</extension>
+<extension point="org.eclipse.ui.commands">
+	<category name="Configure" description="Configuring of Nodes." id="org.eclipse.gmf.category.configure"/>
+	<command categoryId="org.eclipse.gmf.category.configure" description="Configures as node" id="org.ros.model.ros.configureNode" name="Configure Node">
+	</command>
+</extension>
+<extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.ros.model.ros.diagram.ui.objectContribution.NodeEditPart1"
+            objectClass="org.ros.model.ros.diagram.edit.parts.NodeEditPart">
+         <menu 
+            id="NodeConfigure" 
+            label="&amp;Configure" 
+            path="additions"> 
+            <separator name="group1"/>
+         </menu>
+         <action
+               class="org.ros.model.ros.diagram.part.ConfigureNodeAction"
+               definitionId="org.ros.model.ros.configureNode"
+               enablesFor="1"
+               id="org.ros.model.ros.popup.ConfigureNodeActionID"
+               label="&amp;Node"
+               menubarPath="NodeConfigure/group1">
+         </action>
+      </objectContribution>                    
+</extension>
+
+
+
+
+
+<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
       <?gmfgen generated="true"?>
       <objectContribution
             id="org.ros.model.ros.diagram.InitDiagram"
-            nameFilter="*.ros"
+            nameFilter="*.ros_system"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
@@ -509,15 +559,8 @@
          </action>
       </objectContribution>
    </extension>
-   
-   <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            class="org.ros.model.ros.diagram.SystemDeveloperPerspectiveFactory"
-            id="org.ros.model.ros.diagram.ComponentDeveloperPerspective"
-            name="System Developer">
-      </perspective>
-   </extension><extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+
+<extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
       <?gmfgen generated="true"?>
        <propertyTester
            id="org.ros.model.ros.diagram.URIEditorInputPropertyTester"
@@ -558,7 +601,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="ros_system_diagram"/>
                </and>
                <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
             </or>
@@ -575,7 +618,7 @@
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="ros_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="ros_system_diagram"/>
                   </and>
                   <instanceof value="org.ros.model.ros.diagram.navigator.RosAbstractNavigatorItem"/>
                </or>
@@ -594,7 +637,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ros"/>
+        	      <test property="org.eclipse.core.resources.extension" value="ros_system"/>
                </and>
                <instanceof value="org.ros.model.ros.diagram.navigator.RosDomainNavigatorItem"/>
             </or>
@@ -630,9 +673,24 @@
          </selectionEnablement>
       </linkHelper>
    </extension>
-
-   
-
+<extension
+      point="org.eclipse.epsilon.evl.emf.validation">
+   <constraintsBinding
+         constraints="validation/ros_package.evl"
+         namespaceURI="org.ros.model.ros_package.diagram.constraintsBinding1">
+   </constraintsBinding>
+</extension>
+<extension
+      point="org.eclipse.ui.ide.markerResolution">
+   <markerResolutionGenerator
+         class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+         markerType="org.ros.model.ros_package.diagram.diagnostic">
+   </markerResolutionGenerator>
+   <markerResolutionGenerator
+         class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+         markerType="org.eclipse.emf.ecore.diagnostic">
+   </markerResolutionGenerator>
+</extension>
 
 
 

@@ -1,0 +1,145 @@
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
+import rospy
+
+[%=out.startPreserve("#", "#", "customHeaders", true)%]
+[%=out.stopPreserve()%]
+
+[%
+var strs : Sequence;
+for (publisher in node.publisher)
+{
+	strs = publisher.msg.split('::');
+%]
+from [%=strs[0]%].msg import [%=strs[1]%] 
+[%
+}
+%]
+[%
+var strs22 : Sequence;
+for (sub in node.subscriber)
+{
+	strs22 = sub.msg.split('::');
+%]
+from [%=strs22[0]%].msg import [%=strs22[1]%] 
+[%
+}
+%]
+[%
+var strs3 : String;
+var strs33 : Sequence;
+for (serviceServer in node.serviceServer)
+{
+	strs3 = serviceServer.msg;//.split('::');
+	strs33 = strs3.split('::');
+%]
+from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request 
+[%
+}
+%]
+
+
+class [%=node.name.replace(" ", "_")%]_impl:
+[%for (subscriber in node.subscriber){
+	strs = subscriber.msg.split('::');
+%]
+	in_[%=subscriber.name.replace(" ", "_")%] = [%=strs[1]%]()
+[%}%]
+[%for (publisher in node.publisher){
+	strs = publisher.msg.split('::');
+%]
+	out_[%=publisher.name.replace(" ", "_")%] = [%=strs[1]%]()
+[%}%]
+	
+	def	__init__(self):
+[%for (parameter in node.parameter){
+	if(parameter.type.toString() == "string"){
+%]
+		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', "[%=parameter.value%]")
+[%
+}
+	else{
+%]
+		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', [%=parameter.value%])
+[% }}%]
+		[%=out.startPreserve("#", "#", "initCode", true)%]
+		[%=out.stopPreserve()%]
+		pass
+	
+	def	configure(self):
+		[%=out.startPreserve("#", "#", "configureCode", true)%]
+		[%=out.stopPreserve()%]
+		pass
+	
+	def	update(self):
+		[%=out.startPreserve("#", "#", "updateCode", true)%]
+		[%=out.stopPreserve()%]
+		pass
+		
+	[%
+	for (service_here in node.serviceServer)
+	{%]
+	def	callback_[%=service_here.name.replace(" ", "_")%](self, req):
+		[%=out.startPreserve("#", "#", "user implementation of service callback for " + service_here.name.replace(" ", "_"), true)%]
+		[%=out.stopPreserve()%]
+		pass
+
+	[%
+	}%]
+	
+
+class [%=node.name.replace(" ", "_")%]:
+	def __init__(self):
+		self.impl = [%=node.name.replace(" ", "_")%]_impl()
+	[%for (publisher in node.publisher) {
+		strs = publisher.msg.split('::');
+	%]
+		self.[%=publisher.name.replace(" ", "_")%] = rospy.Publisher('[%=publisher.name.replace(" ", "_")%]', [%=strs[1]%])
+		[%}%]
+	[%for (subscriber in node.subscriber){
+		strs = subscriber.msg.split('::');
+	%]
+		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback) 
+	[%}%]
+	[%
+	var strs33 : Sequence;
+	for (service_here in node.serviceServer){
+		strs33 = service_here.msg.split('::');
+	%]
+		[%=service_here.name.replace(" ", "_")%]_ = rospy.Service('[%=service_here.name.replace(" ", "_")%]', [%=strs33[1]%], self.impl.callback_[%=service_here.name.replace(" ", "_")%])
+	[%
+	}%]
+
+[%for (subscriber in node.subscriber) {%]
+	def [%=subscriber.name.replace(" ", "_")%]Callback(self, a):
+		self.impl.in_[%=subscriber.name.replace(" ", "_")%] = a
+		[%if(subscriber.eventPort == true){%]
+		self.run() #call only if defined as event port, not called if it is an data port
+        [%}%]
+[%}%]	
+		
+	def run(self):
+		self.impl.update()
+		[%for (publisher in node.publisher) {	%]
+		self.[%=publisher.name.replace(" ", "_")%].publish(self.impl.out_[%=publisher.name.replace(" ", "_")%])
+		[%}%]
+
+if __name__ == "__main__":
+	try:
+		rospy.init_node('[%=node.name.replace(" ", "_")%]')
+		n = [%=node.name.replace(" ", "_")%]()
+		n.impl.configure()
+		while not rospy.is_shutdown():
+			n.run()
+[% if(node.loopRate == 0){}else{
+%]
+			rospy.sleep(1/[%=node.loopRate%])
+[%
+}
+%]
+			
+	except rospy.ROSInterruptException:
+		print "Exit"
+
+
+

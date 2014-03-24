@@ -192,7 +192,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof org.ros.model.ros_package.diagram.edit.parts.ActionServerEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NONE);
+					PositionConstants.EAST);
 			getBorderedFigure()
 					.getBorderItemContainer()
 					.add(((org.ros.model.ros_package.diagram.edit.parts.ActionServerEditPart) childEditPart)
@@ -201,7 +201,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof org.ros.model.ros_package.diagram.edit.parts.ActionClientEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NONE);
+					PositionConstants.WEST);
 			getBorderedFigure()
 					.getBorderItemContainer()
 					.add(((org.ros.model.ros_package.diagram.edit.parts.ActionClientEditPart) childEditPart)
@@ -588,6 +588,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 		private void createContents() {
 
 			RectangleFigure nodeTopFigure0 = new RectangleFigure();
+
 			nodeTopFigure0.setForegroundColor(NODETOPFIGURE0_FORE);
 
 			nodeTopFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
@@ -610,6 +611,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 			nodeTopFigure0.setLayoutManager(layoutNodeTopFigure0);
 
 			fFigureNodeNameFigure = new WrappingLabel();
+
 			fFigureNodeNameFigure.setText("<...>");
 
 			fFigureNodeNameFigure.setFont(FFIGURENODENAMEFIGURE_FONT);
@@ -626,6 +628,7 @@ public class NodeEditPart extends AbstractBorderedShapeEditPart {
 					constraintFFigureNodeNameFigure);
 
 			fFigureParameterCompartmentFigure = new RectangleFigure();
+
 			fFigureParameterCompartmentFigure.setFill(false);
 
 			GridData constraintFFigureParameterCompartmentFigure = new GridData();

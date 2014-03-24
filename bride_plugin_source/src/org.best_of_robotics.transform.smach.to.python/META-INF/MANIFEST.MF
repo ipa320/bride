@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BRIDE SMACH model to python transform
+Bundle-SymbolicName: org.best_of_robotics.transform.smach.to.python;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.best_of_robotics.transform.smach.to.python.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.8.1",
+ org.best_of_robotics.transform.service.access;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.ui

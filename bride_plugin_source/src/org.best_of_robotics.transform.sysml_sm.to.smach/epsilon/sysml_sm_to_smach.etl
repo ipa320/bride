@@ -1,0 +1,89 @@
+operation Any getStateOutcome() {
+	if(self.name == "succeeded")
+		return Target!StateOutcomes#succeeded;
+	if(self.name == "aborted")
+		return Target!StateOutcomes#aborted;
+	if(self.name == "preempted")
+		return Target!StateOutcomes#preempted;
+	return Target!StateOutcomes#succeeded;
+}
+
+rule BundleToPackage 
+	transform source : Source!Model
+	to target :  Target!Package {
+	for(packagedElement in source.packagedElement)
+	{
+		if(packagedElement.type.name == "StateMachine")
+		{
+			var sm = new Target!Node;
+			var nonspecified_client = 0;
+			sm.name = packagedElement.name;
+			for(reg in packagedElement.region)
+			{
+				for(elem in reg.subvertex)
+				{
+					if(elem.type.name == "State")
+					{
+						var state = new Target!ActionClient;
+						state.name = elem.name;
+						state.ActionType = elem.type.name.toString();
+						sm.actionclient.add(state);
+					}
+					if(elem.type.name == "FinalState")
+					{
+						var fstate = new Target!FinalState;
+						fstate.type = elem.getStateOutcome();
+						sm.finalStates.add(fstate);
+					}
+				}
+				for(trans in reg.transition)
+				{
+					for(state in sm.actionclient)
+					{
+						if(trans.source.name == state.name)
+						{
+							var newtrans = new Target!StateTransition;
+							newtrans.name = trans.getStateOutcome();
+							newtrans.Source = state;
+							for(ss in sm.actionclient)
+							{
+								if(ss.name == trans.target.name)
+								{
+									newtrans.Target = ss;
+								}
+							}			 
+							sm.statetransition.add(newtrans);
+						}
+					}
+				}
+			}
+			target.node.add(sm);
+		}
+	}
+	
+	//if (not source.components.isEmpty()) {
+	//	for(component in source.components) {
+	//		var taskContext = new  Target!TaskContext;
+	//		taskContext.name = component.name;
+	//		var psmName : Sequence;
+	//		psmName = component.platformSpecificName.split("::");
+	//		taskContext.namespace = psmName.first();
+	//		taskContext.type = psmName.last();
+			//if (component.ports.isDefined()) {
+			//	for (aPort in component.ports) {
+			//		if (aPort.type == PortType#OUT) {
+			//			var outputPort = new Target!OutputPort;
+			//			outputPort.name = aPort.name;
+			//			taskContext.outputPort.add(outputPort);
+			//		}
+			//		if (aPort.type == PortType#IN) {
+			//			var inputPort = new Target!InputPort;
+			//			inputPort.name = aPort.name;
+			//			taskContext.inputPort.add(inputPort);
+			//		}
+			//	}
+			//}
+	
+		//}
+	//}
+}

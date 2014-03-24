@@ -1,0 +1,4 @@
+include $(shell rospack find mk)/cmake.mk
+
+regen:
+	rosrun bride_compilers m2t -o [%=package.name%] -l python -p [%=package.name%] model/*.ros_package

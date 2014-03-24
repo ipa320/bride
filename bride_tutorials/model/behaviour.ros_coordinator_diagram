@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:ros="http://ros/1.0" xmlns:smach="http://smach/1.0" xmi:id="_52qAYJuiEeKJQ6THUydsKA" type="RosCoordinator" name="behaviour.ros_coordinator_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_6plSIJuiEeKJQ6THUydsKA" type="2002" fontName="Lucida Grande">
+    <children xmi:type="notation:DecorationNode" xmi:id="_6pl5MJuiEeKJQ6THUydsKA" type="5004"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_6pmgQJuiEeKJQ6THUydsKA" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_9h90gJuiEeKJQ6THUydsKA" type="3007">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_9h90gZuiEeKJQ6THUydsKA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_9h90gpuiEeKJQ6THUydsKA" fontName="Lucida Grande"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_9h90g5uiEeKJQ6THUydsKA"/>
+        <element xmi:type="smach:InitActionState" href="behaviour.ros_coordinator#//@node.0/@initialStates.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9h90hJuiEeKJQ6THUydsKA" x="25" y="83"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_-OgxcJuiEeKJQ6THUydsKA" type="3004">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_-OgxcZuiEeKJQ6THUydsKA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_-OgxcpuiEeKJQ6THUydsKA" fontName="Lucida Grande"/>
+        <element xmi:type="smach:FinalState" href="behaviour.ros_coordinator#//@node.0/@finalStates.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Ogxc5uiEeKJQ6THUydsKA" x="305" y="128"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="__1EfkJuiEeKJQ6THUydsKA" type="3005" fontName="Lucida Grande">
+        <children xmi:type="notation:DecorationNode" xmi:id="__1EfkpuiEeKJQ6THUydsKA" type="5005"/>
+        <element xmi:type="smach:ActionState" href="behaviour.ros_coordinator#//@node.0/@actionclient.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="__1EfkZuiEeKJQ6THUydsKA" x="118" y="89"/>
+      </children>
+    </children>
+    <element xmi:type="smach:SMACHStateMachine" href="behaviour.ros_coordinator#//@node.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6plSIZuiEeKJQ6THUydsKA" x="336" y="108" width="385" height="289"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_52qAYZuiEeKJQ6THUydsKA"/>
+  <element xmi:type="ros:Package" href="behaviour.ros_coordinator#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_FDUtIJujEeKJQ6THUydsKA" type="4001" source="_9h90gJuiEeKJQ6THUydsKA" target="__1EfkJuiEeKJQ6THUydsKA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_FDVUMJujEeKJQ6THUydsKA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_FDVUMZujEeKJQ6THUydsKA" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_FDUtIZujEeKJQ6THUydsKA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_FDUtIpujEeKJQ6THUydsKA" fontName="Lucida Grande"/>
+    <element xmi:type="smach:SMACHTransition" href="behaviour.ros_coordinator#//@node.0/@transitions.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FDUtI5ujEeKJQ6THUydsKA" points="[7, 1, -75, -18]$[60, 14, -22, -5]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FDdQAJujEeKJQ6THUydsKA" id="(0.825,0.475)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FDdQAZujEeKJQ6THUydsKA" id="(0.18333333333333332,0.4)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_FuB3AJujEeKJQ6THUydsKA" type="4001" source="__1EfkJuiEeKJQ6THUydsKA" target="_-OgxcJuiEeKJQ6THUydsKA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_FuCeEJujEeKJQ6THUydsKA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_FuCeEZujEeKJQ6THUydsKA" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_FuB3AZujEeKJQ6THUydsKA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_FuB3ApujEeKJQ6THUydsKA" fontName="Lucida Grande"/>
+    <element xmi:type="smach:SMACHTransition" href="behaviour.ros_coordinator#//@node.0/@transitions.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FuB3A5ujEeKJQ6THUydsKA" points="[28, 5, -87, -25]$[110, 10, -5, -20]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FuETQJujEeKJQ6THUydsKA" id="(0.7666666666666667,0.3625)"/>
+  </edges>
+</notation:Diagram>

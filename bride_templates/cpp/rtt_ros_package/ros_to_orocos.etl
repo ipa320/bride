@@ -1,0 +1,29 @@
+operation Any getConnectionPolicy() {
+	return Target!ConnectionPolicyType#DATA;
+}
+
+rule PackageToPackage 
+	transform source : Source!Package
+	to target :  Target!Package {
+	target.name = source.name;
+	var conPolicy = new Target!ConnectionPolicy;
+	conPolicy.name = "Test";
+	target.connectionPolicy.add(conPolicy);
+	if (not source.node.isEmpty()) {
+		for(node in source.node) {
+			var taskContext = new  Target!TaskContext;
+			taskContext.name = node.name;
+			taskContext.namespace = source.name;
+			taskContext.type = node.name;
+			if (not node.publisher.isEmpty()) {
+				for(pub in node.publisher) {
+					var outputPort = new Target!OutputPort;
+					outputPort.name = pub.name;
+					outputPort.outputConnectionPolicy = conPolicy;
+					taskContext.outputPort.add(outputPort); 
+				}
+			}
+			target.taskContext.add(taskContext);
+		}
+	}
+}

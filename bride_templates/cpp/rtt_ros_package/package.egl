@@ -1,0 +1,51 @@
+[%
+	
+	var package : Package := Package.allInstances().at(0);
+	var s : OrderedSet := package.node;
+
+	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
+	
+	
+
+	//node
+	for(node in package.node) {
+		//ROS Node code
+		var sourceTemplate := TemplateFactory.load('orocos_nodeSource.egl');
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('package', package);
+		sourceTemplate.generate('orocos/src/' + node.name + '_orocos.cpp');
+		
+		//Common node code
+		var sourceTemplate := TemplateFactory.load('common_nodeSource.egl');
+		sourceTemplate.populate('node', node);
+		sourceTemplate.populate('package', package);
+		sourceTemplate.generate('common/src/' + node.name + '_common.cpp');
+		
+		//Deployment code
+		var deploymentTemplate := TemplateFactory.load('deployment.egl');
+		deploymentTemplate.populate('node', node);
+		deploymentTemplate.populate('package', package);
+		deploymentTemplate.generate(node.name + '_test.ops');
+		
+	}
+	
+	//CMakeList
+	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
+	cmakeListsTemplate.populate('package', package);
+	cmakeListsTemplate.generate('CMakeLists.txt');
+	
+	//Makefile
+	var makefileTemplate := TemplateFactory.load('makefile.egl');
+	makefileTemplate.populate('package', package);
+	makefileTemplate.generate('Makefile');
+	//Manifest
+	
+	//manifest
+	var manifestTemplate := TemplateFactory.load('manifest.egl');
+	manifestTemplate.populate('package', package);
+	manifestTemplate.generate('manifest.xml');
+	
+
+	
+	
+%]

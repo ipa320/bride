@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.best_of_robotics.model.datatypes.DataType;
-import org.best_of_robotics.model.datatypes.DatatypesFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -119,8 +117,7 @@ public class ServiceServerItemProvider
 			org.ros.model.ros.Package pack = (org.ros.model.ros.Package) serviceserver.eContainer().eContainer();
 			System.out.println(pack.getName());
 			
-			DataType test = DatatypesFactory.eINSTANCE.createSimpleType();
-						
+									
 			List<String> strings = new ArrayList<String>(); // Copy the students to a temporary list
 			for (String item: pack.getDepend()) {
 				String cmd = "rossrv package " + item;
@@ -142,6 +139,25 @@ public class ServiceServerItemProvider
 					e.printStackTrace();
 				}
 				//strings.add(item);
+			}
+			//Check for services in the own project
+			String cmd = "rossrv package " + pack.getName();
+			Runtime run = Runtime.getRuntime();
+			Process pr;
+			try {
+				pr = run.exec(cmd);
+				pr.waitFor();
+				BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+				String line = "";
+				while ((line=buf.readLine())!=null) {
+					strings.add(line.replace("/", "::"));
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			return strings;
 		}

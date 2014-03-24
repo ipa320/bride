@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfmap:Mapping xmi:version="2.0"
+<gmfmap:Mapping
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfmap="http://www.eclipse.org/gmf/2008/mappings"
@@ -185,4 +186,237 @@
     <palette
         href="ros_package.gmftool#//@palette"/>
   </diagram>
+  <audits
+      id="PackageNameAuditContainer"
+      name="PackageNameAuditContainer">
+    <audits
+        name="PackageNameAuditRule"
+        id="PackageNameAuditRule"
+        message="Missing name of package">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="PackageAuthorRule"
+        id="PackageAuthorRule"
+        message="Missing author and maintainer of package.">
+      <rule
+          body="author.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="PackageDescriptionRule"
+        id="PackageDescriptionRule"
+        message="Package description must not be empty">
+      <rule
+          body="description.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="PackageAuthorEmailRule"
+        id="PackageAuthorEmailRule"
+        message="Missing Email of author and maintainer of package.">
+      <rule
+          body="author_email.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
+        name="NodeNameRule"
+        id="NodeNameRule"
+        message="Missing name of node.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Node"/>
+      </target>
+    </audits>
+    <audits
+        name="PublisherNameRule"
+        id="PublisherNameRule"
+        message="Missing name for Publisher.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
+      </target>
+    </audits>
+    <audits
+        name="PublisherMsgRule"
+        id="PublisherMsgRule"
+        message="You have to define a message type for the Publisher">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
+      </target>
+    </audits>
+    <audits
+        name="SubscriberNameRule"
+        id="SubscriberNameRule"
+        message="Missing name for Subscriber.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Subscriber"/>
+      </target>
+    </audits>
+    <audits
+        name="SubscriberMsgRule"
+        id="SubscriberMsgRule"
+        message="You have to define a message type for the Subscriber.">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Subscriber"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceServerNameRule"
+        id="ServiceServerNameRule"
+        message="Missing name for ServiceServer.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceServerMsgRule"
+        id="ServiceServerMsgRule"
+        message="You have to define a service type for the ServiceServer.">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceClientNameRule"
+        id="ServiceClientNameRule"
+        message="Missing name for ServiceClient.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceClientMsgRule"
+        id="ServiceClientMsgRule"
+        message="You have to define a service type for the ServiceClient.">
+      <rule
+          body="msg.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionServerNameRule"
+        id="ActionServerNameRule"
+        message="Missing name for ActionServer.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionServerActionTypeRule"
+        id="ActionServerActionTypeRule"
+        message="You have to define a action type for the ActionServer.">
+      <rule
+          body="ActionType.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionClientNameRule"
+        id="ActionClientNameRule"
+        message="Missing name for ActionClient.">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionClientActionTypeRule"
+        id="ActionClientActionTypeRule"
+        message="You have to define a action type for the ActionClient.">
+      <rule
+          body="ActionType.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionClient"/>
+      </target>
+    </audits>
+    <audits
+        name="ParameterNameRule"
+        description=""
+        id="ParameterNameRule"
+        message="You have to define a name for eacht Parameter">
+      <rule
+          body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Parameter"/>
+      </target>
+    </audits>
+    <audits
+        name="ParameterValueRule"
+        id="ParameterValueRule"
+        message="You have to define a default value for eacht Parameter">
+      <rule
+          body="value.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Parameter"/>
+      </target>
+    </audits>
+  </audits>
 </gmfmap:Mapping>

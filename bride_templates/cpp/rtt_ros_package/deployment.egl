@@ -1,0 +1,19 @@
+import("[%=package.name%]")
+import("rtt_std_msgs")
+
+# Load a HelloRobot component
+loadComponent("[%=node.name.replace(" ", "_")%]_orocos","[%=node.name.replace(" ", "_")%]_orocos")
+
+# Give it a periodic activity
+setActivity("[%=node.name.replace(" ", "_")%]_orocos",0.4,HighestPriority,ORO_SCHED_RT)
+
+# Create connections
+[%for (publisher in node.publisher) { %]stream("[%=node.name.replace(" ", "_")%]_orocos.outport_[%=publisher.name.replace(" ", "_")%]_", ros.topic("[%=publisher.name.replace(" ", "_")%]"))  [%}%]
+
+[%for (subscriber in node.subscriber) { %]stream("[%=node.name.replace(" ", "_")%]_orocos.inport_[%=subscriber.name.replace(" ", "_")%]_", ros.topic("[%=subscriber.name.replace(" ", "_")%]"))  [%}%]
+
+# Configure the HelloRobot component
+[%=node.name.replace(" ", "_")%]_orocos.configure()
+
+# Start it
+[%=node.name.replace(" ", "_")%]_orocos.start()

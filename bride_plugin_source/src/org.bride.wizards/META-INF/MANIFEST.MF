@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: bride_wizards
+Bundle-SymbolicName: org.bride.wizards;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.bride.wizards.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.workbench,
+ org.eclipse.ui.ide;bundle-version="3.9.2",
+ org.eclipse.equinox.registry
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.core.internal.resources,
+ org.eclipse.core.resources
