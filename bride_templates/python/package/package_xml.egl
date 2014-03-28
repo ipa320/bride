@@ -1,33 +1,35 @@
 <package>
   <name>[%=package.name%]</name>
   <description>[%=package.description%]</description>
-  <version>0.0.0</version>
+  <version>0.1.0</version>
   <maintainer email="[%=package.author_email%]">[%=package.author%]</maintainer>
-  <author email="T[%=package.author_email%]">[%=package.author%]</author>
+  <author email="[%=package.author_email%]">[%=package.author%]</author>
   <license>[%=package.license%]</license>
   <url>[%=package.url%]</url>
 
   <buildtool_depend>catkin</buildtool_depend>  
 
-  <build_depend>std_msgs</build_depend>
+  <!-- bride default dependencies -->
   <build_depend>rospy</build_depend>
   <build_depend>dynamic_reconfigure</build_depend>
-  <run_depend>std_msgs</run_depend>
+  [%for(node in package.node) {if(node.actionserver.size() > 0){%]
+  <build_depend>actionlib</build_depend>
+  [%}}%]
   <run_depend>rospy</run_depend>
   <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>actionlib</run_depend>
 
+  <!-- user dependencies -->
   [%for (depend in package.depend) {
   %]
-  	<build_depend>[%=depend%]</build_depend>
-    <run_depend>[%=depend%]</run_depend>
+  <build_depend>[%=depend%]</build_depend>
+  <run_depend>[%=depend%]</run_depend>
   [%
   }
   %]
-  
 
   [%=out.startPreserve("<!--", "-->", "additional manifest statements", true)%]
   [%=out.stopPreserve()%]
-  
   
 </package>
 

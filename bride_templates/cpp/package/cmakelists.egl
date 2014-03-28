@@ -6,8 +6,6 @@ project([%=package.name%])
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
 	roscpp
-  	rospy
-  	std_msgs
     [%for(node in package.node) {if(node.actionserver.size() > 0){%]
     actionlib
     [%}}%]
@@ -37,8 +35,6 @@ catkin_package(
     common/src
   CATKIN_DEPENDS 
   	roscpp
-  	rospy
-  	std_msgs
     dynamic_reconfigure
 [%for (depend in package.depend) {%]
 	[%=depend%]
