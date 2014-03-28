@@ -75,6 +75,7 @@ public:
 	{
 	%]
     	[%=publisher.msg%] out_[%=publisher.name.replace(" ", "_")%];
+    	bool out_[%=publisher.name.replace(" ", "_")%]_active;
     [%
 	}
 	%] 
