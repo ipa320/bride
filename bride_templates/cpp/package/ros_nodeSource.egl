@@ -203,13 +203,28 @@ for (action in node.actionserver)
 			component_implementation_.configure(component_config_);
         }
 
+
+	    void activate_all_output()
+        {
+            [%
+		    for (publisher in node.publisher)
+		    {
+		    %]
+		    component_data_.out_[%=publisher.name.replace(" ", "_")%]_active = true;
+		    [%
+		    }
+		    %]
+        }
+
         void update()
         {
+            activate_all_output();
             component_implementation_.update(component_data_, component_config_);
             [%
 			for (publisher in node.publisher)
 			{
 			%]
+			  if (component_data_.out_[%=publisher.name.replace(" ", "_")%]_active)
 				[%=publisher.name.replace(" ", "_")%]_.publish(component_data_.out_[%=publisher.name.replace(" ", "_")%]);
 			[%
 			}
@@ -231,7 +246,7 @@ int main(int argc, char** argv)
 	ros::spin();
 	[% } else {	%]
 	
- 	ros::Rate loop_rate([%=node.loopRate%]); // Hz
+ 	ros::Rate loop_rate(1/[%=node.loopRate%]); // Hz
 
 	while(node.n_.ok())
 	{
