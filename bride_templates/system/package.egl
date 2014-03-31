@@ -6,11 +6,16 @@
 	//launch File
 	var launchTemplate := TemplateFactory.load('launchfile.egl');
 	launchTemplate.populate('architecture', architecture);
-	launchTemplate.generate('system.launch');
+	launchTemplate.generate('launch/system.launch');
 	
 	//package.xml
 	var manifestTemplate := TemplateFactory.load('package_xml.egl');
 	manifestTemplate.populate('architecture', architecture);
 	manifestTemplate.generate('package.xml');
+
+	//CMakeList
+	var cmakeListsTemplate := TemplateFactory.load('cmakelists.egl');
+	cmakeListsTemplate.populate('architecture', architecture);
+	cmakeListsTemplate.generate('CMakeLists.txt');
 	
 %]
