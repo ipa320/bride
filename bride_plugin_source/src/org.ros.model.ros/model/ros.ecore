@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ros" nsURI="http://ros/1.0" nsPrefix="ros">
   <eClassifiers xsi:type="ecore:EClass" name="Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loopRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="publisher" upperBound="-1"
         eType="#//Publisher" containment="true"/>
