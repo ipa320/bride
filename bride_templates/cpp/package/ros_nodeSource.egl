@@ -234,7 +234,7 @@ int main(int argc, char** argv)
     [% if(node.loopRate == 0) {%] // if cycle time == 0 do a spin() here without calling node.update()
     ros::spin();
     [% } else { %]
-    ros::Rate loop_rate(1/[%=node.loopRate%]);
+    ros::Rate loop_rate([%=node.loopRate%]);
 
     while(node.n_.ok())
     {
