@@ -10,9 +10,24 @@
       <wizard
             category="org.bride.wizards.ros"
             class="org.bride.wizards.ROSPackageWizard"
+            icon="rqt.png"
             id="org.bride.wizards.rospackage_wizard"
             name="ROSPackageWizard"
             project="true">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="org.bride.wizards.ros"
+            name="ROS">
+      </category>
+      <wizard
+            category="org.bride.wizards.ros"
+            class="org.bride.wizards.ROSPackageImportWizard"
+            icon="rqt.png"
+            id="org.bride.wizards.rospackage_import_wizard"
+            name="ROSPackageImportWizard">
       </wizard>
    </extension>
 
