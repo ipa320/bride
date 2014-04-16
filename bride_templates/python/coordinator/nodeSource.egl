@@ -216,16 +216,19 @@ class [%=node.name.replace(" ", "_")%]:
 if __name__ == "__main__":
 	try:
 		rospy.init_node('[%=node.name.replace(" ", "_")%]')
+[% if(node.loopRate == 0){ %]
+		r = rospy.Rate(10)
+[%}else{
+%]
+		r = rospy.Rate([%=node.loopRate%])
+[%
+}
+%]
 		n = [%=node.name.replace(" ", "_")%]()
 		n.impl.configure()
 		while not rospy.is_shutdown():
 			n.run()
-[% if(node.loopRate == 0){}else{
-%]
-			rospy.sleep(1/[%=node.loopRate%])
-[%
-}
-%]
+			r.sleep()
 			
 	except rospy.ROSInterruptException:
 		print "Exit"
