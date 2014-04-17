@@ -14,14 +14,18 @@ import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
 import org.eclipse.epsilon.etl.EtlModule;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.PlatformUI;
 
 public class EtlTransformer {
 
 	private IEtlTransformParameter parameter;
+	int problem_;
 
 	
 	public EtlTransformer(IEtlTransformParameter etlTransformParameter) {
 		parameter = etlTransformParameter;
+		problem_ = 0;
 		
 	}
 
@@ -36,6 +40,7 @@ public class EtlTransformer {
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			showError();
 		}
 		
 		
@@ -47,8 +52,10 @@ public class EtlTransformer {
 			transformURI = resolvedTransformationURL.toURI();
 		} catch (IOException e) {
 			e.printStackTrace();
+			showError();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
+			showError();
 		}
 
 		IEolExecutableModule etlModule = new EtlModule();
@@ -56,6 +63,7 @@ public class EtlTransformer {
 			etlModule.parse(transformURI);
 		} catch (Exception e) {
 			e.printStackTrace();
+			showError();
 		}
 
 		if (etlModule.getParseProblems().size() > 0) {
@@ -70,10 +78,19 @@ public class EtlTransformer {
 			etlModule.execute();
 		} catch (EolRuntimeException e) {
 			e.printStackTrace();
+			showError();
 		}
 
 
 		etlModule.getContext().getModelRepository().dispose();
+		if(problem_ == 0)
+		{
+			MessageDialog.openInformation(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				"Codegeneration finished",
+				"The codegeneration was finished successfully. You might have to refresh you project to see the changes.");
+		}
+		
 
 	}
 
@@ -88,6 +105,7 @@ public class EtlTransformer {
 			emfModel.load();
 		} catch (EolModelLoadingException e) {
 			e.printStackTrace();
+			showError();
 		}
 		return emfModel;
 	}
@@ -103,9 +121,18 @@ public class EtlTransformer {
 			emfModel.load();
 		} catch (EolModelLoadingException e) {
 			e.printStackTrace();
+			showError();
 		}
 		return emfModel;
 	}
 
+	public void showError()
+	{
+		problem_ = 1;
+		MessageDialog.openError(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				"Code generation failed.",
+				"Something went wrong with the code generation. Please check the terminal for errors.");
+	}
 
 }
