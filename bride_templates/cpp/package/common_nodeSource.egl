@@ -46,10 +46,16 @@ public:
     [%
     }
     else{
+    if(parameter.type.toString() == "XmlRpcValue"){
+    %]
+    XmlRpc::XmlRpcValue [%=parameter.name.replace(" ", "_")%];
+    [%
+    }
+    else{
     %]
     [%=parameter.type%] [%=parameter.name.replace(" ", "_")%];
     [%
-    }
+    }}
     }
     %]
 };

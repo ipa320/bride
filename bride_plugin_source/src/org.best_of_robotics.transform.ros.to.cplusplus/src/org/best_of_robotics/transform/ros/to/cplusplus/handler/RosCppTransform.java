@@ -35,6 +35,16 @@ public class RosCppTransform extends AbstractHandler {
 	public RosCppTransform() {		
 	}
 
+	public void showError()
+	{
+		MessageDialog
+		.openError(
+				PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getShell(),
+				"Code generation failed.",
+				"Something went wrong with the code generation. Please check the terminal for errors.");
+	}
+	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IFile sourcefile = null;
@@ -77,8 +87,9 @@ public class RosCppTransform extends AbstractHandler {
 		
 		
 		if(sourcefile == null)
+		{
 			return null;
-		
+		}
 		
 		
 		//configure new transform parameter
@@ -94,9 +105,11 @@ public class RosCppTransform extends AbstractHandler {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			showError();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			showError();
 		}
 		if(template_dir.length() == 0)
 		{
@@ -121,7 +134,7 @@ public class RosCppTransform extends AbstractHandler {
 		//do transform
 		EGLTransformer transformer = new EGLTransformer(eglTransformParameter);
 		transformer.transform();
-		
+	
 		return null;
 	}
 
