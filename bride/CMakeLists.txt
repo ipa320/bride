@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(bride)
 
 find_package(catkin REQUIRED COMPONENTS)
+file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/bin/)
 
 
 add_custom_target(
