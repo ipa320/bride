@@ -149,7 +149,10 @@ class [%=node.name.replace(" ", "_")%]_ros
         else{
         if(parameter.type.toString() == "XmlRpcValue"){
         %]
-        n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], ( XmlRpc::[%=parameter.type.toString()%])"[%=parameter.value%]");
+        if(n_.hasParam("[%=parameter.name.replace(" ", "_")%]"))
+            n_.getParam("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%]);
+        else
+            ROS_ERROR("Parameter [%=parameter.name.replace(" ", "_")%] not set");
         [%
         }
         else{
