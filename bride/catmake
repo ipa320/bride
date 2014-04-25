@@ -1,0 +1,7 @@
+#!/bin/bash
+function upsearch () {
+    test / == "$PWD" && return || test -e "src" && test -e "src/CMakeLists.txt" && grep "catkin_workspace()" src/CMakeLists.txt &&echo "found: " "$PWD" && return || cd .. && upsearch "$1"
+}
+
+upsearch
+catkin_make

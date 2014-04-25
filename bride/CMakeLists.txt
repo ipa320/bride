@@ -7,6 +7,14 @@ find_package(catkin REQUIRED COMPONENTS)
 add_custom_target(
     bride_install ALL COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.tarball) 
 
+
+add_custom_target(
+    copy_catmake ALL
+    COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/catmake ${CATKIN_DEVEL_PREFIX}/bin/
+    )
+
+add_dependencies(bride_install copy_catmake)
+
 catkin_package()
 
 
@@ -21,3 +29,6 @@ install(PROGRAMS eclipse/eclipse DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 install(PROGRAMS catkin_create_eclipse_package.sh eclipsefy_catkin_package.sh rosaction.py 
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+install(PROGRAMS catmake
+  DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
