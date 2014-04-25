@@ -144,6 +144,15 @@ class [%=node.name.replace(" ", "_")%]_ros
         if(parameter.type.toString() == "string"){
         %]
         n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], (std::[%=parameter.type.toString()%])"[%=parameter.value%]");
+         [%
+        }
+        else{
+        if(parameter.type.toString() == "XmlRpcValue"){
+        %]
+        if(n_.hasParam("[%=parameter.name.replace(" ", "_")%]"))
+            n_.getParam("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%]);
+        else
+            ROS_ERROR("Parameter [%=parameter.name.replace(" ", "_")%] not set");
         [%
         }
         else{
@@ -151,7 +160,7 @@ class [%=node.name.replace(" ", "_")%]_ros
         n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], ([%=parameter.type.toString()%])[%=parameter.value%]);
         [%
         }
-        }
+        }}
         %]
         }
         [%
@@ -182,10 +191,12 @@ class [%=node.name.replace(" ", "_")%]_ros
     {
     [%
     for (parameter in node.parameter)
-    {
+    { 
+        if(parameter.type.toString() == "XmlRpcValue"){}else{
     %]
         component_config_.[%=parameter.name.replace(" ", "_")%] = config.[%=parameter.name.replace(" ", "_")%];
     [%
+        }
     }
     %]
     }
@@ -231,10 +242,10 @@ int main(int argc, char** argv)
     [%=node.name.replace(" ", "_")%]_ros node;
     node.configure();
 
-    [% if(node.loopRate == 0) {%] // if cycle time == 0 do a spin() here without calling node.update()
+    [% if(node.frequency == 0) {%] // if cycle time == 0 do a spin() here without calling node.update()
     ros::spin();
     [% } else { %]
-    ros::Rate loop_rate([%=node.loopRate%]);
+    ros::Rate loop_rate([%=node.frequency%]);
 
     while(node.n_.ok())
     {

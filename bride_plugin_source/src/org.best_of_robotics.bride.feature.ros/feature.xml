@@ -22,21 +22,18 @@
    </url>
 
    <requires>
-      <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.cdt.core" version="5.3.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.cdt.ui" version="5.3.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.jface"/>
-      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.navigator"/>
       <import plugin="org.eclipse.ui.navigator.resources"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.gmf.runtime.emf.core"/>
       <import plugin="org.eclipse.gmf.runtime.emf.commands.core"/>
       <import plugin="org.eclipse.gmf.runtime.emf.ui.properties"/>
@@ -50,7 +47,42 @@
       <import plugin="org.eclipse.draw2d"/>
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.eclipse.gef"/>
-      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.cdt.core" version="5.3.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.ui" version="5.3.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="org.best_of_robotics.model.datatypes" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.tooling.runtime"/>
+      <import plugin="org.eclipse.epsilon.evl.emf.validation" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="org.eclipse.emf.validation"/>
+      <import plugin="org.eclipse.emf.validation.ocl"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui.ide" version="3.8.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.core"/>
+      <import plugin="org.eclipse.core.resources" version="3.7.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="org.ros.model.ros" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.egl.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.emc.emf" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eol.engine" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.best_of_robotics.bride" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.ros.model.ros.diagram" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.transaction" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor" version="1.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.common.dt" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.ros.model.ros_package.diagram" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.eol.dt" version="0.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.core" version="8.1.0" match="greaterOrEqual"/>
+      <import plugin="org.best_of_robotics.transform.service"/>
+      <import plugin="org.best_of_robotics.transform.service.access"/>
+      <import plugin="org.eclipse.epsilon.etl.engine"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.ui.ide" version="3.9.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.registry"/>
    </requires>
 
    <plugin
@@ -123,6 +155,13 @@
 
    <plugin
          id="org.ros.model.ros_coordinator.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.bride.wizards"
          download-size="0"
          install-size="0"
          version="0.0.0"

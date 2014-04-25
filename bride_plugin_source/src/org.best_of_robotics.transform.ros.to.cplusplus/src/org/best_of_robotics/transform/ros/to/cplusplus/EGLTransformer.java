@@ -17,14 +17,17 @@ import org.eclipse.epsilon.eol.IEolExecutableModule;
 import org.eclipse.epsilon.eol.dt.ExtensionPointToolNativeTypeDelegate;
 import org.eclipse.epsilon.eol.exceptions.EolRuntimeException;
 import org.eclipse.epsilon.eol.exceptions.models.EolModelLoadingException;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.PlatformUI;
 
 public class EGLTransformer {
 	
 	IEglTransformParameter parameter;
+	int problem_;
 	
 	public EGLTransformer(IEglTransformParameter param) {
 		parameter = param;
-		
+		problem_ = 0;
 	}
 	
 	public void transform()
@@ -36,6 +39,7 @@ public class EGLTransformer {
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			showError();
 		}
 		URL resolvedTransformationURL = null;
 		URI transformURI = null;
@@ -46,8 +50,10 @@ public class EGLTransformer {
 			transformURI = resolvedTransformationURL.toURI();
 		} catch (IOException e) {
 			e.printStackTrace();
+			showError();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
+			showError();
 		}
 		
 		
@@ -60,8 +66,10 @@ public class EGLTransformer {
 			eglModule.parse(transformURI);
 		} catch (EglRuntimeException e2) {
 			e2.printStackTrace();
+			showError();
 		} catch (Exception e) {
 			e.printStackTrace();
+			showError();
 		}
 
 		if (eglModule.getParseProblems().size() > 0) {
@@ -82,6 +90,7 @@ public class EGLTransformer {
 			emfModel.load();
 		} catch (EolModelLoadingException e) {
 			e.printStackTrace();
+			showError();
 		}
 		
 		eglModule.getContext().getModelRepository().addModel(emfModel);
@@ -89,8 +98,25 @@ public class EGLTransformer {
 			eglModule.execute();
 		} catch (EolRuntimeException e) {
 			e.printStackTrace();
+			showError();
 		}
 		eglModule.getContext().getModelRepository().dispose();
+		if(problem_ == 0)
+		{
+			MessageDialog.openInformation(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				"Codegeneration finished",
+				"The codegeneration was finished successfully. You might have to refresh you project to see the changes.");
+		}
+		
+	}
+	public void showError()
+	{
+		problem_ = 1;
+		MessageDialog.openError(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				"Code generation failed.",
+				"Something went wrong with the code generation. Please check the terminal for errors.");
 	}
 
 }
