@@ -56,6 +56,7 @@ class [%=node.name.replace(" ", "_")%]_ros
 {
     public:
     ros::NodeHandle n_;
+    ros::NodeHandle np_;
 
     dynamic_reconfigure::Server<[%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config> server;
     dynamic_reconfigure::Server<[%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config>::CallbackType f;
@@ -97,7 +98,7 @@ class [%=node.name.replace(" ", "_")%]_ros
     [%=node.name.replace(" ", "_")%]_config component_config_;
     [%=node.name.replace(" ", "_")%]_impl component_implementation_;
 
-    [%=node.name.replace(" ", "_")%]_ros()
+    [%=node.name.replace(" ", "_")%]_ros() : np_("~")
     [%
     for (action in node.actionserver) { %]
     :as_[%=action.name.replace(" ", "_")%]_(n_, "[%=action.name.replace(" ", "_")%]", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
@@ -143,21 +144,21 @@ class [%=node.name.replace(" ", "_")%]_ros
         {
         if(parameter.type.toString() == "string"){
         %]
-        n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], (std::[%=parameter.type.toString()%])"[%=parameter.value%]");
+        np_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], (std::[%=parameter.type.toString()%])"[%=parameter.value%]");
          [%
         }
         else{
         if(parameter.type.toString() == "XmlRpcValue"){
         %]
-        if(n_.hasParam("[%=parameter.name.replace(" ", "_")%]"))
-            n_.getParam("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%]);
+        if(np_.hasParam("[%=parameter.name.replace(" ", "_")%]"))
+            np_.getParam("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%]);
         else
             ROS_ERROR("Parameter [%=parameter.name.replace(" ", "_")%] not set");
         [%
         }
         else{
         %]
-        n_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], ([%=parameter.type.toString()%])[%=parameter.value%]);
+        np_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], ([%=parameter.type.toString()%])[%=parameter.value%]);
         [%
         }
         }}
