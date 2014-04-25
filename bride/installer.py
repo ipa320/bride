@@ -76,6 +76,9 @@ def install_local():
 	eclipse_component = "org.best_of_robotics.transform.service.access"
 	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
+	eclipse_component = "org.bride.wizards"
+	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
+	sts = os.waitpid(p.pid, 0)[1]
 
 
 def uninstall(eclipse_repo, eclipse_component):
