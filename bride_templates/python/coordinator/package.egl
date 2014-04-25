@@ -31,7 +31,7 @@
 		var launchTemplate := TemplateFactory.load('launchfile.egl');
 		launchTemplate.populate('node', node);
 		launchTemplate.populate('package', package);
-		launchTemplate.generate(node.name +'.launch');
+		launchTemplate.generate('launch/' + node.name + '.launch');
 	}
 	
 	//CMakeList
