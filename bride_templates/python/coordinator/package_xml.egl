@@ -3,7 +3,7 @@
   <description>[%=package.description%]</description>
   <version>0.0.0</version>
   <maintainer email="[%=package.author_email%]">[%=package.author%]</maintainer>
-  <author email="T[%=package.author_email%]">[%=package.author%]</author>
+  <author email="[%=package.author_email%]">[%=package.author%]</author>
   <license>[%=package.license%]</license>
   <url>[%=package.url%]</url>
 
