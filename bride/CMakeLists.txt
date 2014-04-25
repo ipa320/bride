@@ -17,3 +17,7 @@ install(DIRECTORY eclipse/
 )
 
 install(PROGRAMS eclipse/eclipse DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/)
+
+install(PROGRAMS catkin_create_eclipse_package.sh eclipsefy_catkin_package.sh rosaction.py 
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
