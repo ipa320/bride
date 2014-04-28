@@ -141,27 +141,27 @@ public class RosDiagramEditorUtil {
 		dialog.open();
 	}
 
-	
-	public static IProject getCurrentProject(){    
-        ISelectionService selectionService =     
-            Workbench.getInstance().getActiveWorkbenchWindow().getSelectionService();    
+	public static IProject getCurrentProject() {
+		ISelectionService selectionService = Workbench.getInstance()
+				.getActiveWorkbenchWindow().getSelectionService();
 
-        ISelection selection = selectionService.getSelection();    
+		ISelection selection = selectionService.getSelection();
 
-        IProject project = null;    
-        if(selection instanceof IStructuredSelection) {
-        	IStructuredSelection ss = (IStructuredSelection) selection;
-            Object element = ss.getFirstElement();
-            if (element instanceof IResource)
-            	return ((IResource) element).getProject();
-            if (!(element instanceof IAdaptable))
-               return null;
-            IAdaptable adaptable = (IAdaptable)element;
-            Object adapter = adaptable.getAdapter(IResource.class);
-            return ((IResource) adapter).getProject();
-        }     
-        return project;    
-    }
+		IProject project = null;
+		if (selection instanceof IStructuredSelection) {
+			IStructuredSelection ss = (IStructuredSelection) selection;
+			Object element = ss.getFirstElement();
+			if (element instanceof IResource)
+				return ((IResource) element).getProject();
+			if (!(element instanceof IAdaptable))
+				return null;
+			IAdaptable adaptable = (IAdaptable) element;
+			Object adapter = adaptable.getAdapter(IResource.class);
+			return ((IResource) adapter).getProject();
+		}
+		return project;
+	}
+
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @not generated
@@ -180,7 +180,6 @@ public class RosDiagramEditorUtil {
 				.createResource(modelURI);
 		final String diagramName = diagramURI.lastSegment();
 
-		
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				editingDomain,
 				org.ros.model.ros_package.diagram.part.Messages.RosDiagramEditorUtil_CreateDiagramCommandLabel,
@@ -191,19 +190,18 @@ public class RosDiagramEditorUtil {
 				Package model = createInitialModel();
 				IProject project = getCurrentProject();
 				String project_name = "";
-				if(project != null)
-				{
+				if (project != null) {
 					project_name = project.getName();
 				}
-				
+
 				model.setName(project_name);
 				model.setDescription("The " + project_name + " package");
-				
-				String user = "TODO"; 
-				user = System.getProperty("user.name") ;
+
+				String user = "TODO";
+				user = System.getProperty("user.name");
 				model.setAuthor(user);
 				model.setAuthor_email(user + "@todo.todo");
-				
+
 				model.setLicense("TODO");
 				attachModelToResource(model, modelResource);
 

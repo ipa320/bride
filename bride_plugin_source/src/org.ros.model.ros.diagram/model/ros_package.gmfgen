@@ -252,7 +252,7 @@
     <rules
         name="ParameterValueRule"
         id="ParameterValueRule"
-        rule="//@expressionProviders/@providers.0/@expressions.18"
+        rule="//@expressionProviders/@providers.1/@expressions.0"
         message="You have to define a default value for eacht Parameter"
         category="//@audits/@categories.0">
       <target
@@ -890,9 +890,12 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="name.size() > 0"/>
+    </providers>
+    <providers
+        xsi:type="gmfgen:GenJavaExpressionProvider">
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="value.size() > 0"/>
+          body="if (type.getValue() != 4){&#xA;&#x9;if(value.size() > 0)&#xA;&#x9;{ &#xA;&#x9;&#x9;return false;&#xA;&#x9;}&#xA;&#x9;else{&#xA;&#x9;&#x9;return false;&#xA;&#x9;}&#xA;}&#xA;else &#xA;{&#xA;&#x9;return false;&#xA;}&#xA;endif"/>
     </providers>
   </expressionProviders>
   <labelParsers
