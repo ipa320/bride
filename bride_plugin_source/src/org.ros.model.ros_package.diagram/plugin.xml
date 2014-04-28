@@ -236,19 +236,52 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.RosModelingAssistantProvider">
+      <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfPackageEditPart">
          <Priority name="Lowest"/>
          <object class="org.ros.model.ros_package.diagram.edit.parts.PackageEditPart" id="Package_1000"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.NodeEditPart" id="Node_2001"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.ParameterEditPart" id="Parameter_3001"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.ServiceServerEditPart" id="ServiceServer_3002"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.ServiceClientEditPart" id="ServiceClient_3003"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.PublisherEditPart" id="Publisher_3004"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.ActionServerEditPart" id="ActionServer_3005"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.ActionClientEditPart" id="ActionClient_3006"/>
-         <object class="org.ros.model.ros_package.diagram.edit.parts.SubscriberEditPart" id="Subscriber_3007"/>
-         <context elements="Package_1000,Node_2001,Parameter_3001,ServiceServer_3002,ServiceClient_3003,Publisher_3004,ActionServer_3005,ActionClient_3006,Subscriber_3007"/>
+         <context elements="Package_1000"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfNodeEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.NodeEditPart" id="Node_2001"/>
+         <context elements="Node_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfParameterEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.ParameterEditPart" id="Parameter_3001"/>
+         <context elements="Parameter_3001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfServiceServerEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.ServiceServerEditPart" id="ServiceServer_3002"/>
+         <context elements="ServiceServer_3002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfServiceClientEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.ServiceClientEditPart" id="ServiceClient_3003"/>
+         <context elements="ServiceClient_3003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfPublisherEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.PublisherEditPart" id="Publisher_3004"/>
+         <context elements="Publisher_3004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfActionServerEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.ActionServerEditPart" id="ActionServer_3005"/>
+         <context elements="ActionServer_3005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfActionClientEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.ActionClientEditPart" id="ActionClient_3006"/>
+         <context elements="ActionClient_3006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_package.diagram.providers.assistants.RosModelingAssistantProviderOfSubscriberEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_package.diagram.edit.parts.SubscriberEditPart" id="Subscriber_3007"/>
+         <context elements="Subscriber_3007"/>
+      </modelingAssistantProvider>
+      
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
@@ -694,6 +727,26 @@
             <message><![CDATA[You have to define a action type for the ActionClient.]]></message>
             <target class="ros.ActionClient"/>
          </constraint>
+                  <constraint id="ParameterNameRule"
+            lang="OCL"
+            name="ParameterNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a name for eacht Parameter]]></message>
+            <target class="ros.Parameter"/>
+         </constraint>
+                  <constraint id="ParameterValueRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter19"
+            name="ParameterValueRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a default value for eacht Parameter]]></message>
+            <target class="ros.Parameter"/>
+         </constraint>
                   </constraints>
       </constraintProvider>
    </extension>
@@ -721,6 +774,8 @@
                   <constraint ref="org.ros.model.ros_package.diagram.ActionServerActionTypeRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ActionClientNameRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ActionClientActionTypeRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ParameterNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ParameterValueRule"/>
                </binding>
 
    </extension>
