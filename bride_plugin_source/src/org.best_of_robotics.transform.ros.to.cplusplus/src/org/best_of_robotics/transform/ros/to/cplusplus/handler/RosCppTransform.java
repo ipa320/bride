@@ -66,7 +66,7 @@ public class RosCppTransform extends AbstractHandler {
             	}
                 try {
 					int errors = sourcefile.getProject().findMaxProblemSeverity(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
-					if(errors != -1)
+					if(errors == IMarker.SEVERITY_ERROR)
 					{
 						sourcefile = null;
 	            		MessageDialog
