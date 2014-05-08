@@ -101,7 +101,7 @@ class [%=node.name.replace(" ", "_")%]_ros
     [%=node.name.replace(" ", "_")%]_ros() : np_("~")
     [%
     for (action in node.actionserver) { %]
-    :as_[%=action.name.replace(" ", "_")%]_(n_, "[%=action.name.replace(" ", "_")%]", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
+    , as_[%=action.name.replace(" ", "_")%]_(n_, "[%=action.name.replace(" ", "_")%]", boost::bind(&[%=node.name.replace(" ", "_")%]_impl::callback_[%=action.name.replace(" ", "_")%]_, &component_implementation_, _1, &as_[%=action.name.replace(" ", "_")%]_), false)
     [% } %]
     {
         f = boost::bind(&[%=node.name.replace(" ", "_")%]_ros::configure_callback, this, _1, _2);
