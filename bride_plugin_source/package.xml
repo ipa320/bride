@@ -1,6 +1,6 @@
 <package>
   <name>bride_plugin_source</name>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <description>Source code for BRICS eclipse plugins.</description>
   <maintainer email="aub@ipa.fhg.de">Alexander Bubeck</maintainer>
 
