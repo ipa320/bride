@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <package>
   <name>[%=architecture.name%]</name>
   <description>Architecture [%=architecture.name%]</description>
