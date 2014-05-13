@@ -49,5 +49,11 @@
 	var setupTemplate := TemplateFactory.load('setup_py.egl');
 	setupTemplate.populate('package', package);
 	setupTemplate.generate('setup.py');
+
+	//README.md
+	var readmeTemplate := TemplateFactory.load('readme.egl');
+	readmeTemplate.populate('package', package);
+	readmeTemplate.generate('README.md');
+
 	
 %]
