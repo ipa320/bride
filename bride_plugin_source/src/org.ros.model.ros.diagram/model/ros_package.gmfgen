@@ -13,7 +13,7 @@
         id="PackageNameAuditContainer"
         name="PackageNameAuditContainer"
         path="//@audits/@categories.0"
-        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16 //@audits/@rules.17 //@audits/@rules.18"/>
+        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7 //@audits/@rules.8 //@audits/@rules.9 //@audits/@rules.10 //@audits/@rules.11 //@audits/@rules.12 //@audits/@rules.13 //@audits/@rules.14 //@audits/@rules.15 //@audits/@rules.16 //@audits/@rules.17 //@audits/@rules.18 //@audits/@rules.19 //@audits/@rules.20 //@audits/@rules.21 //@audits/@rules.22 //@audits/@rules.23 //@audits/@rules.24 //@audits/@rules.25 //@audits/@rules.26"/>
     <rules
         name="PackageNameAuditRule"
         id="PackageNameAuditRule"
@@ -80,10 +80,37 @@
       </target>
     </rules>
     <rules
+        name="NodeNameValidityRule"
+        id="NodeNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.0"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Node"/>
+      </target>
+    </rules>
+    <rules
         name="PublisherNameRule"
         id="PublisherNameRule"
         rule="//@expressionProviders/@providers.0/@expressions.5"
         message="Missing name for Publisher."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Publisher"/>
+      </target>
+    </rules>
+    <rules
+        name="PublisherNameValidityRule"
+        description=""
+        id="PublisherNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.1"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names."
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -119,6 +146,19 @@
       </target>
     </rules>
     <rules
+        name="SubscriberNameValidityRule"
+        id="SubscriberNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.2"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Subscriber"/>
+      </target>
+    </rules>
+    <rules
         name="SubscriberMsgRule"
         id="SubscriberMsgRule"
         rule="//@expressionProviders/@providers.0/@expressions.8"
@@ -136,6 +176,19 @@
         id="ServiceServerNameRule"
         rule="//@expressionProviders/@providers.0/@expressions.9"
         message="Missing name for ServiceServer."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceServer"/>
+      </target>
+    </rules>
+    <rules
+        name="ServiceServerNameValidityRule"
+        id="ServiceServerNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.3"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names."
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -171,6 +224,19 @@
       </target>
     </rules>
     <rules
+        name="ServiceClientNameValidityRule"
+        id="ServiceClientNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.4"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ServiceClient"/>
+      </target>
+    </rules>
+    <rules
         name="ServiceClientMsgRule"
         id="ServiceClientMsgRule"
         rule="//@expressionProviders/@providers.0/@expressions.12"
@@ -197,6 +263,19 @@
       </target>
     </rules>
     <rules
+        name="ActionServerNameValidityRule"
+        id="ActionServerNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.5"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionServer"/>
+      </target>
+    </rules>
+    <rules
         name="ActionServerActionTypeRule"
         id="ActionServerActionTypeRule"
         rule="//@expressionProviders/@providers.0/@expressions.14"
@@ -214,6 +293,19 @@
         id="ActionClientNameRule"
         rule="//@expressionProviders/@providers.0/@expressions.15"
         message="Missing name for ActionClient."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/ActionClient"/>
+      </target>
+    </rules>
+    <rules
+        name="ActionClientNameValidityRule"
+        id="ActionClientNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.6"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names."
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -250,9 +342,22 @@
       </target>
     </rules>
     <rules
+        name="ParameterNameValidityRule"
+        id="ParameterNameValidityRule"
+        rule="//@expressionProviders/@providers.1/@expressions.7"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor."
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ros.model.ros/model/ros.genmodel#//ros/Parameter"/>
+      </target>
+    </rules>
+    <rules
         name="ParameterValueRule"
         id="ParameterValueRule"
-        rule="//@expressionProviders/@providers.1/@expressions.0"
+        rule="//@expressionProviders/@providers.1/@expressions.8"
         message="You have to define a default value for eacht Parameter"
         category="//@audits/@categories.0">
       <target
@@ -263,7 +368,7 @@
       </target>
     </rules>
     <clientContexts
-        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target //@audits/@rules.17/@target //@audits/@rules.18/@target"/>
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target //@audits/@rules.10/@target //@audits/@rules.11/@target //@audits/@rules.12/@target //@audits/@rules.13/@target //@audits/@rules.14/@target //@audits/@rules.15/@target //@audits/@rules.16/@target //@audits/@rules.17/@target //@audits/@rules.18/@target //@audits/@rules.19/@target //@audits/@rules.20/@target //@audits/@rules.21/@target //@audits/@rules.22/@target //@audits/@rules.23/@target //@audits/@rules.24/@target //@audits/@rules.25/@target //@audits/@rules.26/@target"/>
   </audits>
   <diagram
       visualID="1000"
@@ -893,6 +998,30 @@
     </providers>
     <providers
         xsi:type="gmfgen:GenJavaExpressionProvider">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="&#xA;"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body=" "/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="if (type.getValue() != 4){&#xA;&#x9;if(value.size() > 0)&#xA;&#x9;{ &#xA;&#x9;&#x9;return false;&#xA;&#x9;}&#xA;&#x9;else{&#xA;&#x9;&#x9;return false;&#xA;&#x9;}&#xA;}&#xA;else &#xA;{&#xA;&#x9;return false;&#xA;}&#xA;endif"/>
