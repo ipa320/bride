@@ -18,9 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
 [%=out.startPreserve("#", "#", "additional user defined REQUIREMENTS", true)%]
 [%=out.stopPreserve()%]
 
-[%for(node in package.node) {%]
-generate_dynamic_reconfigure_options(cfg/[%=node.name%].cfg)
-[%}%]
+generate_dynamic_reconfigure_options([%for(node in package.node) {%]cfg/[%=node.name%].cfg [%}%])
 
 ###################################
 ## catkin specific configuration ##

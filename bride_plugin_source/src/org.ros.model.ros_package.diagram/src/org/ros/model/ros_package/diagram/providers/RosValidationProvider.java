@@ -8,7 +8,14 @@ import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.emf.validation.model.IClientSelector;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ros.model.ros.ActionClient;
+import org.ros.model.ros.ActionServer;
+import org.ros.model.ros.Node;
 import org.ros.model.ros.Parameter;
+import org.ros.model.ros.Publisher;
+import org.ros.model.ros.ServiceClient;
+import org.ros.model.ros.ServiceServer;
+import org.ros.model.ros.Subscriber;
 
 /**
  * @generated
@@ -85,9 +92,115 @@ public class RosValidationProvider {
 	}
 
 	/**
-	 * @generated
+	 * @not generated
 	 */
-	public static class Adapter19 extends AbstractModelConstraint {
+	public static class Adapter6 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Node context = (Node) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter8 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Publisher context = (Publisher) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter11 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Subscriber context = (Subscriber) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+			
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter14 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ServiceServer context = (ServiceServer) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+			
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter17 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ServiceClient context = (ServiceClient) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+			
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter7 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Publisher context = (Publisher) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter20 extends AbstractModelConstraint {
 
 		/**
 		 * @not generated
@@ -96,20 +209,65 @@ public class RosValidationProvider {
 			Parameter context = (Parameter) ctx.getTarget();
 			if (context.getType().getValue() == 4)
 				return ctx.createSuccessStatus();
-			else
-			{
-				if(context.getValue().length() > 0)
+			else {
+				if (context.getValue().length() > 0)
 					return ctx.createSuccessStatus();
 				else
 					return ctx.createFailureStatus(context);
 			}
-			// TODO: put validation code here
-			// Ensure that you remove @generated tag or use @generated NOT
-			//
-			// To construct approprate return value, use ctx.createSuccessStatus()
-			// or ctx.createFailureStatus(...)
-			//throw new UnsupportedOperationException(
-			//		"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter23 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ActionClient context = (ActionClient) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+			
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter26 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Parameter context = (Parameter) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+		}
+	}
+
+	/**
+	 * @not generated
+	 */
+	public static class Adapter27 extends AbstractModelConstraint {
+
+		/**
+		 * @not generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Parameter context = (Parameter) ctx.getTarget();
+			if (context.getName().matches("^[a-z|A-Z].*$"))
+				return ctx.createSuccessStatus();
+			else
+				return ctx.createFailureStatus(context);
+
 		}
 	}
 

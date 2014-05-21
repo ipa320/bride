@@ -10,4 +10,6 @@ mv .project ..
 mv .cproject .. 
 cd .. 
 rm -rf bride 
-cd .. 
+mkdir model
+cd ..
+
