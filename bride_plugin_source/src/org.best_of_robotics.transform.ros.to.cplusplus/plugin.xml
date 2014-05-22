@@ -110,5 +110,20 @@
             defaultName="ConfigFileCreator">
       </tool>
    </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transform"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Alt+C">
+      </key>
+      <key
+            commandId="org.best_of_robotics.transform.ros.to.cplusplus.command.transformPython"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Alt+P">
+      </key>
+   </extension>
 
 </plugin>

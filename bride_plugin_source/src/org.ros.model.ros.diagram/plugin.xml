@@ -251,20 +251,57 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.RosModelingAssistantProvider">
+      <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfArchitectureEditPart">
          <Priority name="Lowest"/>
          <object class="org.ros.model.ros.diagram.edit.parts.ArchitectureEditPart" id="Architecture_1000"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.PackageEditPart" id="Package_2001"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.NodeEditPart" id="Node_3001"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.ParameterEditPart" id="Parameter_3002"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.PublisherEditPart" id="Publisher_3003"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.SubscriberEditPart" id="Subscriber_3004"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.ActionServerEditPart" id="ActionServer_3005"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.ActionClientEditPart" id="ActionClient_3006"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.ServiceServerEditPart" id="ServiceServer_3007"/>
-         <object class="org.ros.model.ros.diagram.edit.parts.ServiceClientEditPart" id="ServiceClient_3008"/>
-         <context elements="Architecture_1000,Package_2001,Node_3001,Parameter_3002,Publisher_3003,Subscriber_3004,ActionServer_3005,ActionClient_3006,ServiceServer_3007,ServiceClient_3008"/>
+         <context elements="Architecture_1000"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfPackageEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.PackageEditPart" id="Package_2001"/>
+         <context elements="Package_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfNodeEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.NodeEditPart" id="Node_3001"/>
+         <context elements="Node_3001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfParameterEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ParameterEditPart" id="Parameter_3002"/>
+         <context elements="Parameter_3002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfPublisherEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.PublisherEditPart" id="Publisher_3003"/>
+         <context elements="Publisher_3003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfSubscriberEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.SubscriberEditPart" id="Subscriber_3004"/>
+         <context elements="Subscriber_3004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfActionServerEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ActionServerEditPart" id="ActionServer_3005"/>
+         <context elements="ActionServer_3005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfActionClientEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ActionClientEditPart" id="ActionClient_3006"/>
+         <context elements="ActionClient_3006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfServiceServerEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ServiceServerEditPart" id="ServiceServer_3007"/>
+         <context elements="ServiceServer_3007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros.diagram.providers.assistants.RosModelingAssistantProviderOfServiceClientEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros.diagram.edit.parts.ServiceClientEditPart" id="ServiceClient_3008"/>
+         <context elements="ServiceClient_3008"/>
+      </modelingAssistantProvider>
+      
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">

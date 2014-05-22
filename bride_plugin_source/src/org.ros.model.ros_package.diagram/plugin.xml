@@ -607,6 +607,16 @@
             <message><![CDATA[Missing name of node.]]></message>
             <target class="ros.Node"/>
          </constraint>
+                  <constraint id="NodeNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter6"
+            name="NodeNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor.]]></message>
+            <target class="ros.Node"/>
+         </constraint>
                   <constraint id="PublisherNameRule"
             lang="OCL"
             name="PublisherNameRule"
@@ -615,6 +625,16 @@
             <![CDATA[name.size() > 0]]>
             <description><![CDATA[]]></description>
             <message><![CDATA[Missing name for Publisher.]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="PublisherNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter8"
+            name="PublisherNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.]]></message>
             <target class="ros.Publisher"/>
          </constraint>
                   <constraint id="PublisherMsgRule"
@@ -637,6 +657,16 @@
             <message><![CDATA[Missing name for Subscriber.]]></message>
             <target class="ros.Subscriber"/>
          </constraint>
+                  <constraint id="SubscriberNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter11"
+            name="SubscriberNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
                   <constraint id="SubscriberMsgRule"
             lang="OCL"
             name="SubscriberMsgRule"
@@ -655,6 +685,16 @@
             <![CDATA[name.size() > 0]]>
             <description><![CDATA[]]></description>
             <message><![CDATA[Missing name for ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceServerNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter14"
+            name="ServiceServerNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.]]></message>
             <target class="ros.ServiceServer"/>
          </constraint>
                   <constraint id="ServiceServerMsgRule"
@@ -677,6 +717,16 @@
             <message><![CDATA[Missing name for ServiceClient.]]></message>
             <target class="ros.ServiceClient"/>
          </constraint>
+                  <constraint id="ServiceClientNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter17"
+            name="ServiceClientNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
                   <constraint id="ServiceClientMsgRule"
             lang="OCL"
             name="ServiceClientMsgRule"
@@ -695,6 +745,16 @@
             <![CDATA[name.size() > 0]]>
             <description><![CDATA[]]></description>
             <message><![CDATA[Missing name for ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionServerNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter20"
+            name="ActionServerNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.]]></message>
             <target class="ros.ActionServer"/>
          </constraint>
                   <constraint id="ActionServerActionTypeRule"
@@ -717,6 +777,16 @@
             <message><![CDATA[Missing name for ActionClient.]]></message>
             <target class="ros.ActionClient"/>
          </constraint>
+                  <constraint id="ActionClientNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter23"
+            name="ActionClientNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
                   <constraint id="ActionClientActionTypeRule"
             lang="OCL"
             name="ActionClientActionTypeRule"
@@ -737,8 +807,18 @@
             <message><![CDATA[You have to define a name for eacht Parameter]]></message>
             <target class="ros.Parameter"/>
          </constraint>
+                  <constraint id="ParameterNameValidityRule"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter26"
+            name="ParameterNameValidityRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . "~" and "/" are not allowed to be used in the capability editor.]]></message>
+            <target class="ros.Parameter"/>
+         </constraint>
                   <constraint id="ParameterValueRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter19"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter27"
             name="ParameterValueRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -762,19 +842,27 @@
                   <constraint ref="org.ros.model.ros_package.diagram.PackageDescriptionRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorEmailRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.NodeNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.NodeNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.PublisherNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.PublisherNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.PublisherMsgRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.SubscriberNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.SubscriberNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.SubscriberMsgRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ServiceServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceServerNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ServiceServerMsgRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ServiceClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ServiceClientNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ServiceClientMsgRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ActionServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionServerNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ActionServerActionTypeRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ActionClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ActionClientNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ActionClientActionTypeRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ParameterNameRule"/>
+                  <constraint ref="org.ros.model.ros_package.diagram.ParameterNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.ParameterValueRule"/>
                </binding>
 

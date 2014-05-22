@@ -250,11 +250,38 @@
       </target>
     </audits>
     <audits
+        name="NodeNameValidityRule"
+        id="NodeNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor.">
+      <rule
+          body=" "
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Node"/>
+      </target>
+    </audits>
+    <audits
         name="PublisherNameRule"
         id="PublisherNameRule"
         message="Missing name for Publisher.">
       <rule
           body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Publisher"/>
+      </target>
+    </audits>
+    <audits
+        name="PublisherNameValidityRule"
+        description=""
+        id="PublisherNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.">
+      <rule
+          body="&#xA;"
+          language="java"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
@@ -286,6 +313,19 @@
       </target>
     </audits>
     <audits
+        name="SubscriberNameValidityRule"
+        id="SubscriberNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.">
+      <rule
+          body=" "
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Subscriber"/>
+      </target>
+    </audits>
+    <audits
         name="SubscriberMsgRule"
         id="SubscriberMsgRule"
         message="You have to define a message type for the Subscriber.">
@@ -303,6 +343,19 @@
         message="Missing name for ServiceServer.">
       <rule
           body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ServiceServerNameValidityRule"
+        id="ServiceServerNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.">
+      <rule
+          body=" "
+          language="java"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
@@ -334,6 +387,19 @@
       </target>
     </audits>
     <audits
+        name="ServiceClientNameValidityRule"
+        id="ServiceClientNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.">
+      <rule
+          body=" "
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ServiceClient"/>
+      </target>
+    </audits>
+    <audits
         name="ServiceClientMsgRule"
         id="ServiceClientMsgRule"
         message="You have to define a service type for the ServiceClient.">
@@ -351,6 +417,19 @@
         message="Missing name for ActionServer.">
       <rule
           body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionServer"/>
+      </target>
+    </audits>
+    <audits
+        name="ActionServerNameValidityRule"
+        id="ActionServerNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.">
+      <rule
+          body=" "
+          language="java"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
@@ -382,6 +461,19 @@
       </target>
     </audits>
     <audits
+        name="ActionClientNameValidityRule"
+        id="ActionClientNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor. Please use the system editor to genenerate remappings to globel names.">
+      <rule
+          body=" "
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//ActionClient"/>
+      </target>
+    </audits>
+    <audits
         name="ActionClientActionTypeRule"
         id="ActionClientActionTypeRule"
         message="You have to define a action type for the ActionClient.">
@@ -400,6 +492,19 @@
         message="You have to define a name for eacht Parameter">
       <rule
           body="name.size() > 0"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Parameter"/>
+      </target>
+    </audits>
+    <audits
+        name="ParameterNameValidityRule"
+        id="ParameterNameValidityRule"
+        message="Your chosen name is not valid according to the ROS naming convention. See http://wiki.ros.org/Names . &quot;~&quot; and &quot;/&quot; are not allowed to be used in the capability editor.">
+      <rule
+          body=" "
+          language="java"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
