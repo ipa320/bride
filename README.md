@@ -63,4 +63,4 @@ Please report issues here on github. If you want to develop for BRIDE you can fi
 Status
 ------------
 
-[![Build Status](https://travis-ci.org/abubeck/bride.png)](https://travis-ci.org/abubeck/bride)
+[![Build Status](https://travis-ci.org/ipa320/bride.png)](https://travis-ci.org/ipa320/bride)
