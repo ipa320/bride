@@ -9,6 +9,7 @@ python:
 compiler:
   - gcc
 notifications:
+  slack: ipa323:Xp3nQcGsngxdJ0jeCX2WB89y
   email:
     recipients:
       - aub@ipa.fhg.de
