@@ -1,24 +1,50 @@
+# Based on MoveIt Travis Continuous Integration Configuration File
+# Credits to: Dave Coleman, Jonathan Bohren
+
 language:
   - cpp
   - python
+python:
+  - "2.7"
 compiler:
   - gcc
-install:
+notifications:
+  slack: ipa323:Xp3nQcGsngxdJ0jeCX2WB89y
+  email:
+    recipients:
+      - aub@ipa.fhg.de
+    on_success: change #[always|never|change] # default: change
+    on_failure: change #[always|never|change] # default: always
+before_install: # Use this to prepare the system to install prerequisites or dependencies
+  # Define some config vars
+  - export ROS_DISTRO=hydro
+  - export CI_SOURCE_PATH=$(pwd)
+  - export REPOSITORY_NAME=${PWD##*/}
+  - echo "Testing branch $TRAVIS_BRANCH of $REPOSITORY_NAME"
   - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
   - wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
   - sudo apt-get update -qq
-  - sudo apt-get install python-rosdep python-catkin-pkg python-nose python-coverage python-wstool pep8 -qq
-  - sudo apt-get install ros-groovy-ros-base -qq
+  - sudo apt-get install -qq -y python-catkin-pkg python-rosdep python-wstool ros-$ROS_DISTRO-catkin ros-$ROS_DISTRO-ros
+  # Setup rosdep
   - sudo rosdep init
-  - rosdep update
+  - rosdep update    
+    
+install:
+  # Create workspace
+  - mkdir -p ~/ros/ws_bride/src
+  - cd ~/ros/ws_bride/src
+  - ln -s $CI_SOURCE_PATH . # Link the repo we are testing to the new workspace
+  - cd ../
+  - rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
+
+before_script: # Use this to prepare your build for testing e.g. copy database configurations, environment variables, etc.
+  - source /opt/ros/$ROS_DISTRO/setup.bash
+
 script:
-  - source /opt/ros/groovy/setup.bash
-  - cd bride 
-  - make
-after_script:
-  - source /opt/ros/groovy/setup.bash
-  - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:.
-  - cd bride_tutorials
-  - sh ./run.sh
-notifications:
-  email: false
+  - catkin_make -j2
+  
+#after_script:
+#  - source /opt/ros/groovy/setup.bash
+#  - cd bride_tutorials
+#  - sh ./run.sh
+
