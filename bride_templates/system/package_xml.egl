@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package>
   <name>[%=architecture.name%]</name>
-  <description>Architecture [%=architecture.name%]</description>
-  <version>0.0.0</version>
-  <maintainer email="TODO@TODO.to">TODO</maintainer>
-  <author email="TODO@TODO.to">TODO</author>
-  <license>TODO</license>
-  <url>TODO</url>
+  <description>[%=architecture.description%]</description>
+  <version>0.0.1</version>
+  <maintainer email="[%=architecture.author_email%]">[%=architecture.author%]</maintainer>
+  <author email="[%=architecture.author_email%]">[%=architecture.author%]</author>
+  <license>[%=architecture.license%]</license>
+  <url>[%=architecture.url%]</url>
 
-  <buildtool_depend>catkin</buildtool_depend>  
+  <buildtool_depend>catkin</buildtool_depend>
 
   [%for(package in architecture.packages) {
   %]
@@ -16,13 +16,11 @@
     <run_depend>[%=package.name%]</run_depend>
   [%
   }
-  %] 
-  
+  %]
+
 
   [%=out.startPreserve("<!--", "-->", "additional manifest statements", true)%]
   [%=out.stopPreserve()%]
-  
-  
+
+
 </package>
-
-
