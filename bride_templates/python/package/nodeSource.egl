@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
 import rospy
-[%if(node.actionserver.size() > 0){%]
+[%if(node.actionserver.size() > 0 or node.actionclient.size() > 0){%]
 import actionlib
 [%}%]
 import dynamic_reconfigure.server
