@@ -126,7 +126,7 @@ class [%=node.name.replace(" ", "_")%]_ros
         for (publisher in node.publisher)
         {
         %]
-        [%=publisher.name.replace(" ", "_")%]_ = n_.advertise<[%=publisher.msg%]>("[%=publisher.name.replace(" ", "_")%]", 1);
+        [%=publisher.name.replace(" ", "_")%]_ = n_.advertise<[%=publisher.msg%]>("[%=publisher.name.replace(" ", "_")%]", [%=publisher.queueSize%]);
         [%
         }
         %]
@@ -134,7 +134,7 @@ class [%=node.name.replace(" ", "_")%]_ros
         for (subscriber in node.subscriber)
         {
         %]
-        [%=subscriber.name.replace(" ", "_")%]_ = n_.subscribe("[%=subscriber.name.replace(" ", "_")%]", 1, &[%=node.name.replace(" ", "_")%]_ros::topicCallback_[%=subscriber.name.replace(" ", "_")%], this);
+        [%=subscriber.name.replace(" ", "_")%]_ = n_.subscribe("[%=subscriber.name.replace(" ", "_")%]", [%=subscriber.queueSize%], &[%=node.name.replace(" ", "_")%]_ros::topicCallback_[%=subscriber.name.replace(" ", "_")%], this);
         [%
         }
         %]
@@ -192,7 +192,7 @@ class [%=node.name.replace(" ", "_")%]_ros
     {
     [%
     for (parameter in node.parameter)
-    { 
+    {
         if(parameter.type.toString() == "XmlRpcValue"){}else{
     %]
         component_config_.[%=parameter.name.replace(" ", "_")%] = config.[%=parameter.name.replace(" ", "_")%];

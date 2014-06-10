@@ -128,12 +128,12 @@ class [%=node.name.replace(" ", "_")%]:
 	[%for (publisher in node.publisher) {
 		strs44 = publisher.msg.split('::');
 	%]
-		self.[%=publisher.name.replace(" ", "_")%] = rospy.Publisher('[%=publisher.name.replace(" ", "_")%]', [%=strs44[1]%])
+		self.[%=publisher.name.replace(" ", "_")%] = rospy.Publisher('[%=publisher.name.replace(" ", "_")%]', [%=strs44[1]%], queue_size=[%=publisher.queueSize%])
 		[%}%]
 	[%for (subscriber in node.subscriber){
 		strs = subscriber.msg.split('::');
 	%]
-		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback)
+		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback, queue_size=[%=subscriber.queueSize%])
 	[%}%]
 	[%
 	var strs33 : Sequence;
