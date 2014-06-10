@@ -142,6 +142,8 @@ class [%=node.name.replace(" ", "_")%]_ros
         [%
         for (parameter in node.parameter)
         {
+        if(parameter.obligatory == false)
+        {
         if(parameter.type.toString() == "string"){
         %]
         np_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], (std::[%=parameter.type.toString()%])"[%=parameter.value%]");
@@ -161,9 +163,16 @@ class [%=node.name.replace(" ", "_")%]_ros
         np_.param("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%], ([%=parameter.type.toString()%])[%=parameter.value%]);
         [%
         }
-        }}
-        %]
         }
+        }
+        else{
+        %]
+        if(np_.hasParam("[%=parameter.name.replace(" ", "_")%]"))
+          np_.getParam("[%=parameter.name.replace(" ", "_")%]", component_config_.[%=parameter.name.replace(" ", "_")%]);
+        else
+          ROS_ERROR("Parameter [%=parameter.name.replace(" ", "_")%] is obligatory but not set");
+        [%}
+        }%]
         [%
         for (service in node.serviceServer)
         {
@@ -172,7 +181,7 @@ class [%=node.name.replace(" ", "_")%]_ros
     [%
     }
     %]
-
+    }
     [%
     for (subscriber in node.subscriber)
     {
@@ -191,14 +200,14 @@ class [%=node.name.replace(" ", "_")%]_ros
     void configure_callback([%=package.name.replace(" ", "_")%]::[%=node.name.replace(" ", "_")%]Config &config, uint32_t level)
     {
     [%
-    for (parameter in node.parameter)
-    {
+    for (parameter in node.parameter){
+    if(parameter.obligatory == false){
         if(parameter.type.toString() == "XmlRpcValue"){}else{
     %]
         component_config_.[%=parameter.name.replace(" ", "_")%] = config.[%=parameter.name.replace(" ", "_")%];
     [%
         }
-    }
+    }}
     %]
     }
 

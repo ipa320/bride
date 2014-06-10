@@ -66,6 +66,7 @@ class [%=node.name.replace(" ", "_")%]_impl:
 
 	def	__init__(self):
 [%for (parameter in node.parameter){
+	if(parameter.obligatory == false){
 	if(parameter.type.toString() == "string"){
 %]
 		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', "[%=parameter.value%]")
@@ -74,7 +75,16 @@ class [%=node.name.replace(" ", "_")%]_impl:
 	else{
 %]
 		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', [%=parameter.value%])
-[% }}%]
+[% }}
+	else{%]
+		if rospy.has_param('~[%=parameter.name.replace(" ", "_")%]'):
+			self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]')
+		else:
+			rospy.logerr("Parameter [%=parameter.name.replace(" ", "_")%] is obligatory but not set")
+	[%}} %]
+
+
+
 		[%=out.startPreserve("#", "#", "initCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
@@ -159,9 +169,10 @@ class [%=node.name.replace(" ", "_")%]:
 		[%}%]
 
 	def config_callback(self, config, level):
-[%for (parameter in node.parameter){%]
+[%for (parameter in node.parameter){
+if(parameter.obligatory == false){%]
 		self.impl.config_[%=parameter.name.replace(" ", "_")%] = config["[%=parameter.name.replace(" ", "_")%]"]
-[%}%]
+[%}}%]
 		return config
 
 if __name__ == "__main__":
