@@ -4,6 +4,7 @@
 package org.best_of_robotics.transform.ros.to.cplusplus.handler;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -78,6 +79,24 @@ public class RosPythonTransform extends AbstractHandler {
 		if(sourcefile == null)
 			return null;
 		
+		//Check if we generated cpp code before, if so ask user if he wants to proceed
+		File ros_folder = new File(sourcefile.getProject().getLocation()+"/ros");
+		File common_folder = new File(sourcefile.getProject().getLocation()+"/common");
+		if(common_folder.isDirectory() && ros_folder.isDirectory())
+		{
+			MessageDialog dialog = new MessageDialog(
+				      null, "C++ code found", null, "You generated C++ code before in this package. Proceeding with python generation will make the C++ code non-functional! Do you want to proceed?",
+				      MessageDialog.QUESTION,
+				      new String[] {"Yes", "No"},
+				      1); // no is the default
+			int result = dialog.open();
+			if(result == 1)
+			{
+				return null;
+			}
+		}
+		
+		
 		//configure new transform parameter
 		String cmd = "rospack find bride_templates";
 		String template_dir = "";
@@ -123,6 +142,7 @@ public class RosPythonTransform extends AbstractHandler {
 		transformer.transform();
 		
 		return null;
+		
 	}
 
 }
