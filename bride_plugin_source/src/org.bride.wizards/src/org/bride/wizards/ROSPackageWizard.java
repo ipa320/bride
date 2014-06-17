@@ -49,7 +49,7 @@ import org.eclipse.ui.internal.wizards.datatransfer.WizardProjectsImportPage;
 public class ROSPackageWizard extends Wizard implements INewWizard {
 	
 	private static final String WIZARD_NAME = "New ROS Package";
-	private WizardNewProjectCreationPage _pageOne;
+	private ROSWizardNewProjectCreationPage _pageOne;
 
 	public ROSPackageWizard() {
 		// TODO Auto-generated constructor stub
@@ -212,9 +212,9 @@ public class ROSPackageWizard extends Wizard implements INewWizard {
 	public void addPages() {
 	    super.addPages();
 	 
-	    _pageOne = new WizardNewProjectCreationPage("From Scratch Project Wizard");
-	    _pageOne.setTitle("From Scratch Project");
-	    _pageOne.setDescription("Create something from scratch.");
+	    _pageOne = new ROSWizardNewProjectCreationPage("ROS Package Creation Wizard");
+	    _pageOne.setTitle("ROS Package Creation Wizard");
+	    _pageOne.setDescription("Create a new ROS package as Eclipse project.");
 	    
 	    
 	 
