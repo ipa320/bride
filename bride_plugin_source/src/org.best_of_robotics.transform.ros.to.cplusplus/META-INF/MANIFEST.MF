@@ -30,4 +30,5 @@ Import-Package: org.best_of_robotics.transform.service,
  org.best_of_robotics.transform.service.access,
  org.best_of_robotics.transform.service.parameter,
  org.eclipse.epsilon.etl,
+ org.eclipse.gmf.runtime.diagram.ui.render.util,
  org.ros.model.ros_coordinator.diagram.part

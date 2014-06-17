@@ -1,0 +1,39 @@
+[%=package.name%]
+====================
+
+General description
+---------------------
+[%=package.description%]
+
+<img src="./model/[%=package.name%].png" width="300px" />
+
+[%for(node in package.node) {%]
+Node: [%=node.name%]
+---------------------
+#### Parameters
+[%for (parameter in node.parameter){
+%]
+**[%=parameter.name%]** *([%=parameter.type%], default: [%=parameter.value%])*
+[%=out.startPreserve("<!---", "-->", parameter.name, true)%]
+[%=out.stopPreserve()%]
+
+[% }%]
+
+#### Published Topics
+[%for (publisher in node.publisher) { %]
+**[%=publisher.name%]** *([%=publisher.msg%])*   
+[%=out.startPreserve("<!---", "-->", publisher.name, true)%]
+[%=out.stopPreserve()%]
+
+[%}%]
+
+#### Subscribed Topics
+[%for (subscriber in node.subscriber) { %]
+**[%=subscriber.name%]** *([%=subscriber.msg%])*   
+[%=out.startPreserve("<!---", "-->", subscriber.name, true)%]
+[%=out.stopPreserve()%]
+
+[%}%]
+
+
+ [%}%]
