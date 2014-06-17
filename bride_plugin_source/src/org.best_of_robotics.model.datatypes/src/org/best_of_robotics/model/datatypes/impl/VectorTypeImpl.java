@@ -118,7 +118,7 @@ public class VectorTypeImpl extends EObjectImpl implements VectorType {
 	 */
 	public TypesLibrary getTypesLibrary() {
 		if (eContainerFeatureID() != DatatypesPackage.VECTOR_TYPE__TYPES_LIBRARY) return null;
-		return (TypesLibrary)eContainer();
+		return (TypesLibrary)eInternalContainer();
 	}
 
 	/**

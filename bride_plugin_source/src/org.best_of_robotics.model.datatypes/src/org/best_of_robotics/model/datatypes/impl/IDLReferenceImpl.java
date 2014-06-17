@@ -104,7 +104,7 @@ public abstract class IDLReferenceImpl extends EObjectImpl implements IDLReferen
 	 */
 	public TypesLibrary getTypesLibrary() {
 		if (eContainerFeatureID() != DatatypesPackage.IDL_REFERENCE__TYPES_LIBRARY) return null;
-		return (TypesLibrary)eContainer();
+		return (TypesLibrary)eInternalContainer();
 	}
 
 	/**

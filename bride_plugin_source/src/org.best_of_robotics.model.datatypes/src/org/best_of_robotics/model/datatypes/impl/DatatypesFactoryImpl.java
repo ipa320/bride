@@ -42,7 +42,7 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 */
 	public static DatatypesFactory init() {
 		try {
-			DatatypesFactory theDatatypesFactory = (DatatypesFactory)EPackage.Registry.INSTANCE.getEFactory("http://datatypes/1.0"); 
+			DatatypesFactory theDatatypesFactory = (DatatypesFactory)EPackage.Registry.INSTANCE.getEFactory(DatatypesPackage.eNS_URI);
 			if (theDatatypesFactory != null) {
 				return theDatatypesFactory;
 			}
