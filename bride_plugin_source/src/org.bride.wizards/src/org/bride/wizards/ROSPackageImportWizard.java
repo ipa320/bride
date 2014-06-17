@@ -69,6 +69,7 @@ public class ROSPackageImportWizard extends Wizard implements IImportWizard {
 	@Override
 	public boolean performFinish() {
 		
+		boolean generate_project_files = true;
 		System.out.println(_pageOne.getCurrentPath());
 		final File directory = new File(_pageOne.getCurrentPath());
 		if(!directory.isDirectory())
@@ -81,8 +82,24 @@ public class ROSPackageImportWizard extends Wizard implements IImportWizard {
 		if(projectfile.exists() && !projectfile.isDirectory())
 		{
 			System.out.println("Importing existing project");
+			MessageDialog dialog = new MessageDialog(
+				      null, "Existing project files found", null, "Do you want to regenerate and overwrite the existing project files of this package?",
+				      MessageDialog.QUESTION,
+				      new String[] {"Yes", "No"},
+				      1); // no is the default
+			int result = dialog.open();
+			System.out.println("Result is " + result);
+			if(result == 0)
+			{
+				System.out.println("Regenerating project files");
+				generate_project_files = true;
+			}
+			else
+				generate_project_files = false;
+			
 		}
-		else
+		
+		if(generate_project_files == true)
 		{
 			Runtime run = Runtime.getRuntime();
 			Process pr, pr2;
