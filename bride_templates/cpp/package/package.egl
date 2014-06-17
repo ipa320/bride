@@ -42,6 +42,11 @@
 	manifestTemplate.populate('package', package);
 	manifestTemplate.generate('package.xml');
 	
+	//README.md
+	var readmeTemplate := TemplateFactory.load('readme.egl');
+	readmeTemplate.populate('package', package);
+	readmeTemplate.generate('README.md');
+	
 
 	
 	

@@ -21,7 +21,13 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.diagram.ui.render.util.DiagramRenderUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
@@ -40,6 +46,7 @@ public class RosPythonTransform extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IFile sourcefile = null;
 		IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		
 		if (editor != null) {
             IEditorInput input = editor.getEditorInput();
             if (input instanceof IFileEditorInput) {
@@ -78,7 +85,7 @@ public class RosPythonTransform extends AbstractHandler {
 		
 		if(sourcefile == null)
 			return null;
-		
+	
 		//Check if we generated cpp code before, if so ask user if he wants to proceed
 		File ros_folder = new File(sourcefile.getProject().getLocation()+"/ros");
 		File common_folder = new File(sourcefile.getProject().getLocation()+"/common");
@@ -97,6 +104,14 @@ public class RosPythonTransform extends AbstractHandler {
 		}
 		
 		
+
+		DiagramEditor diagedit = (DiagramEditor) editor;
+		Image renderImage = DiagramRenderUtil.renderToSWTImage(diagedit.getDiagram());
+		ImageLoader loader = new ImageLoader();
+		loader.data = new ImageData[] {renderImage.getImageData()};
+		System.out.println(sourcefile.getName());
+		loader.save(sourcefile.getParent().getLocation().toOSString() + "/" + sourcefile.getName().split("\\.(?=[^\\.]+$)")[0] + ".png", SWT.IMAGE_PNG);
+	    
 		//configure new transform parameter
 		String cmd = "rospack find bride_templates";
 		String template_dir = "";
