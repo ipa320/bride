@@ -2,7 +2,6 @@ BRIDE - The MDE tool chain for ROS
 ==================
 
 BRIDE is a model driven engineering tool chain based on Eclipse for the development of ROS components, systems and applications.
-> Detailed Installation and Tutorials in [ROS wiki](http://wiki.ros.org/bride).
 
 ![BRIDE screenshot](http://cybernotic.org/bride/img/small_system.png "BRIDE screenshot")
 
@@ -65,3 +64,8 @@ Status
 ------------
 
 [![Build Status](https://travis-ci.org/ipa320/bride.png)](https://travis-ci.org/ipa320/bride)
+
+Tutorials
+------------
+Detailed Informations and Tutorials in [ROS wiki](http://wiki.ros.org/bride).
+
