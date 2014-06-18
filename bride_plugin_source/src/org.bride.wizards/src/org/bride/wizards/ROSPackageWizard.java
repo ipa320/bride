@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.internal.resources.LocalMetaArea;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
@@ -22,8 +23,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -41,10 +44,12 @@ import org.eclipse.ui.wizards.datatransfer.FileSystemStructureProvider;
 import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import org.eclipse.ui.internal.wizards.datatransfer.WizardProjectsImportPage;
+
 public class ROSPackageWizard extends Wizard implements INewWizard {
 	
 	private static final String WIZARD_NAME = "New ROS Package";
-	private WizardNewProjectCreationPage _pageOne;
+	private ROSWizardNewProjectCreationPage _pageOne;
 
 	public ROSPackageWizard() {
 		// TODO Auto-generated constructor stub
@@ -89,6 +94,15 @@ public class ROSPackageWizard extends Wizard implements INewWizard {
     		System.out.println("File is deleted : " + file.getAbsolutePath());
     	}
     }
+	
+	private boolean isDefaultLocation(IPath path) {
+		// The project description file must at least be within the project,
+		// which is within the workspace location
+		if (path.segmentCount() < 2)
+			return false;
+		return path.removeLastSegments(2).toFile().equals(
+				Platform.getLocation().toFile());
+	}
 
 	@Override
 	public boolean performFinish() {
@@ -132,14 +146,25 @@ public class ROSPackageWizard extends Wizard implements INewWizard {
 			protected void execute(IProgressMonitor monitor)
 					throws InvocationTargetException, InterruptedException {
 						try {
-							IProjectDescription description = ResourcesPlugin.getWorkspace().loadProjectDescription(  new Path(location.getPath() +"/.project"));
-							String projectName = description.getName().split("@")[0];
+							IPath path = new Path(location.getPath() +"/.project");
+							IProjectDescription description = null;
+							String projectName = "";
+							// if the file is in the default location, use the directory
+							// name as the project name
+							if (isDefaultLocation(path)) {
+								projectName = path.segment(path.segmentCount() - 2);
+								description = IDEWorkbenchPlugin.getPluginWorkspace()
+										.newProjectDescription(projectName);
+							} else {
+								description = IDEWorkbenchPlugin.getPluginWorkspace()
+										.loadProjectDescription(path);
+								projectName = description.getName().split("@")[0];;
+							}
 							final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 							final IProject project = workspace.getRoot().getProject(projectName);
 							description.setName(projectName);
-							
 							monitor.beginTask(DataTransferMessages.WizardProjectsImportPage_CreateProjectsTask,	100);
-							project.create(description, new SubProgressMonitor(monitor, 30));
+							project.create(description, new SubProgressMonitor(monitor, 30)); //Contains: /home/aub/runtime-BRIDE_KEPLER/debug5 overlaps the location of another project: 'debug5'
 							project.open(IResource.BACKGROUND_REFRESH, new SubProgressMonitor(monitor, 70));
 						} catch (CoreException e) {
 							// TODO Auto-generated catch block
@@ -187,9 +212,9 @@ public class ROSPackageWizard extends Wizard implements INewWizard {
 	public void addPages() {
 	    super.addPages();
 	 
-	    _pageOne = new WizardNewProjectCreationPage("From Scratch Project Wizard");
-	    _pageOne.setTitle("From Scratch Project");
-	    _pageOne.setDescription("Create something from scratch.");
+	    _pageOne = new ROSWizardNewProjectCreationPage("ROS Package Creation Wizard");
+	    _pageOne.setTitle("ROS Package Creation Wizard");
+	    _pageOne.setDescription("Create a new ROS package as Eclipse project.");
 	    
 	    
 	 

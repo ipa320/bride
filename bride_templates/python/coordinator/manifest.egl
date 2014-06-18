@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <package>
   <description brief="[%=package.name%]">[%=package.description%]</description>
   <author>[%=package.author%]</author>

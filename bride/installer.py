@@ -62,22 +62,28 @@ def install(eclipse_repo, eclipse_component):
 	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
 
+def installs(eclipse_repo, eclipse_component):
+	#print "installing multiple packages. ", eclipse_component
+	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIUs " + eclipse_component, shell=True)
+	sts = os.waitpid(p.pid, 0)[1]
+
 def install_local():
 	eclipse_repo = "file://"+os.getcwd()+"/bride_plugins"
 	eclipse_component = "org.ros.model.ros_coordinator.diagram"
-	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
-	sts = os.waitpid(p.pid, 0)[1]
-	eclipse_component = "org.ros.model.ros_package.diagram"
-	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
-	sts = os.waitpid(p.pid, 0)[1]
-	eclipse_component = "org.best_of_robotics.transform.ros.to.cplusplus"
-	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
-	sts = os.waitpid(p.pid, 0)[1]
-	eclipse_component = "org.best_of_robotics.transform.service.access"
-	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
-	sts = os.waitpid(p.pid, 0)[1]
-	eclipse_component = "org.bride.wizards"
-	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
+	#p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
+	#sts = os.waitpid(p.pid, 0)[1]
+	eclipse_component += ",org.ros.model.ros_package.diagram"
+	#p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
+	#sts = os.waitpid(p.pid, 0)[1]
+	eclipse_component += ",org.best_of_robotics.transform.ros.to.cplusplus"
+	#p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
+	#sts = os.waitpid(p.pid, 0)[1]
+	eclipse_component += ",org.best_of_robotics.transform.service.access"
+	#p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIU " + eclipse_component, shell=True)
+	#sts = os.waitpid(p.pid, 0)[1]
+	eclipse_component += ",org.bride.wizards"
+	#print "Installing components: ", eclipse_component
+	p = subprocess.Popen("./eclipse/eclipse " + eclipse_opts + " -application " + eclipse_app + " -repository " + eclipse_repo + " -installIUs " + eclipse_component, shell=True)
 	sts = os.waitpid(p.pid, 0)[1]
 
 
@@ -102,8 +108,15 @@ if __name__ == "__main__":
 		stream = file(sys.argv[1], 'r') 
 		toinstall = yaml.load(stream, OrderedDictYAMLLoader)
 		for repo in toinstall:
-			for package in toinstall[repo]:
-				install(repo, package)
+			if(len(toinstall[repo]) > 1):
+				packages = ""
+				for package in toinstall[repo]:
+					packages += package + ","
+				packages = packages[:-1]
+				installs(repo, packages)	
+			else:
+				for package in toinstall[repo]:
+					install(repo, package)
 		install_local()
 	elif(len(sys.argv) == 3):
 		if(sys.argv[1] == '-u'):

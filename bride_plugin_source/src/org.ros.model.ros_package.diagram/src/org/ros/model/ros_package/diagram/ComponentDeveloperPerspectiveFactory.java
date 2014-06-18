@@ -31,6 +31,7 @@ public class ComponentDeveloperPerspectiveFactory implements IPerspectiveFactory
         
 	        IFolderLayout bottom = layout.createFolder("topLeft", IPageLayout.BOTTOM, 0.75f,editorArea);
 	        bottom.addView(IPageLayout.ID_PROP_SHEET);
+	        bottom.addView(IPageLayout.ID_PROBLEM_VIEW);
 	        bottom.addView("org.eclipse.ui.console.ConsoleView");
             
             

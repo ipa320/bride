@@ -2,17 +2,23 @@ package org.ros.model.ros.diagram.part;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
+import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.internal.Workbench;
 
 /**
  * @generated
@@ -97,8 +103,30 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 		setNeedsProgressMonitor(true);
 	}
 
+	public static IProject getCurrentProject() {
+		ISelectionService selectionService = Workbench.getInstance()
+				.getActiveWorkbenchWindow().getSelectionService();
+
+		ISelection selection = selectionService.getSelection();
+
+		IProject project = null;
+		if (selection instanceof IStructuredSelection) {
+			IStructuredSelection ss = (IStructuredSelection) selection;
+			Object element = ss.getFirstElement();
+			if (element instanceof IResource)
+				return ((IResource) element).getProject();
+			if (!(element instanceof IAdaptable))
+				return null;
+			IAdaptable adaptable = (IAdaptable) element;
+			Object adapter = adaptable.getAdapter(IResource.class);
+			return ((IResource) adapter).getProject();
+		}
+		return project;
+	}
+		
+	
 	/**
-	 * @generated
+	 * @not generated
 	 */
 	public void addPages() {
 		diagramModelFilePage = new RosCreationWizardPage(
@@ -107,6 +135,14 @@ public class RosCreationWizard extends Wizard implements INewWizard {
 				.setTitle(Messages.RosCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
 				.setDescription(Messages.RosCreationWizard_DiagramModelFilePageDescription);
+		
+		IProject project = getCurrentProject();
+		String project_name = "";
+		if (project != null) {
+			project_name = project.getName();
+		}
+		diagramModelFilePage.setFileName(project_name + ".ros_system_diagram");
+		
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new RosCreationWizardPage(

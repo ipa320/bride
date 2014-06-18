@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <package>
   <name>[%=package.name%]</name>
   <description>[%=package.description%]</description>

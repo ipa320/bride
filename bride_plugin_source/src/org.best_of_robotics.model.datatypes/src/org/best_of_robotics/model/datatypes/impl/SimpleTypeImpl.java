@@ -102,7 +102,7 @@ public class SimpleTypeImpl extends EObjectImpl implements SimpleType {
 	 */
 	public TypesLibrary getTypesLibrary() {
 		if (eContainerFeatureID() != DatatypesPackage.SIMPLE_TYPE__TYPES_LIBRARY) return null;
-		return (TypesLibrary)eContainer();
+		return (TypesLibrary)eInternalContainer();
 	}
 
 	/**

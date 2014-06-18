@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
+import rospy
+
+import actionlib
+import yaml
+[%
+var strs : Sequence;
+strs = action.ActionType.split('::');
+%]
+from [%=strs[0]%].msg import *
+
+test_[%=action.name.replace(" ", "_")%]_goal = open("test/testdata_[%=node.name.replace(" ", "_")%]_[%=action.name.replace(" ", "_")%]", 'r')
+
+def [%=action.name.replace(" ", "_")%]_client():
+    client = actionlib.SimpleActionClient('/[%=action.name.replace(" ", "_")%]', [%=strs[1]%]Action)
+    client.wait_for_server()
+    
+    goal =[%=strs[1]%]Goal()
+    genpy.message.fill_message_args(goal, yaml.load(test_[%=action.name.replace(" ", "_")%]_goal))
+
+    client.send_goal(goal)
+    client.wait_for_result()
+
+    return client.get_result()
+
+
+if __name__ == "__main__":
+    rospy.init_node('[%=action.name.replace(" ", "_")%]_test')
+    print [%=action.name.replace(" ", "_")%]_client()

@@ -4,6 +4,7 @@
 package org.best_of_robotics.transform.ros.to.cplusplus.handler;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -20,7 +21,13 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.diagram.ui.render.util.DiagramRenderUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
@@ -91,6 +98,29 @@ public class RosCppTransform extends AbstractHandler {
 			return null;
 		}
 		
+		//Check if we generated python code before, if so ask user if he wants to proceed
+		File setup_py_file = new File(sourcefile.getProject().getLocation()+"/setup.py");
+		if(setup_py_file.exists() && !setup_py_file.isDirectory())
+		{
+			MessageDialog dialog = new MessageDialog(
+				      null, "Python code found", null, "You generated python code before in this package. Proceeding with C++ generation will make the python code non-functional! Do you want to proceed?",
+				      MessageDialog.QUESTION,
+				      new String[] {"Yes", "No"},
+				      1); // no is the default
+			int result = dialog.open();
+			if(result == 1)
+			{
+				return null;
+			}
+		}
+				
+
+		DiagramEditor diagedit = (DiagramEditor) editor;
+		Image renderImage = DiagramRenderUtil.renderToSWTImage(diagedit.getDiagram());
+		ImageLoader loader = new ImageLoader();
+		loader.data = new ImageData[] {renderImage.getImageData()};
+		System.out.println(sourcefile.getName());
+		loader.save(sourcefile.getParent().getLocation().toOSString() + "/" + sourcefile.getName().split("\\.(?=[^\\.]+$)")[0] + ".png", SWT.IMAGE_PNG);
 		
 		//configure new transform parameter
 		String cmd = "rospack find bride_templates";
@@ -136,6 +166,7 @@ public class RosCppTransform extends AbstractHandler {
 		transformer.transform();
 	
 		return null;
+
 	}
 
 }

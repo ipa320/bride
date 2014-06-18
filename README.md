@@ -1,28 +1,66 @@
-## Status ##
+BRIDE - The MDE tool chain for ROS
+==================
 
-[![Build Status](https://travis-ci.org/abubeck/bride.png)](https://travis-ci.org/abubeck/bride)
+BRIDE is a model driven engineering tool chain based on Eclipse for the development of ROS components, systems and applications.
 
-## Installation ##
+![BRIDE screenshot](http://cybernotic.org/bride/img/small_system.png "BRIDE screenshot")
 
-Checkout repository into a directory that is part of your $ROS_PACKAGE_PATH (or add bride directory into $ROS_PACKAGE_PATH afterwards)
 
-      # git clone git://github.com/ipa320/bride.git
+Installation
+------------
 
-Install eclipse and all necessary plugins
+## From official ROS repositories ##
 
-      # roscd bride
+~~~ sh
+$ sudo apt-get install ros-hydro-bride
+~~~
 
-      # make
+## From source ##
 
-To start bride use:
+~~~ sh
+$ mkdir -p ~/git/bride_ws/src                  (or somewhere else)
+$ cd git/bride_ws/src
+$ catkin_init_workspace
+~~~
 
-      # rosrun bride eclipse
+Clone the release version of the BRIDE repository
 
-## Updating Installation ##
+~~~ sh
+$ git clone https://github.com/ipa320/bride.git
+$ cd ..
+~~~
 
-After updates in the brics plugins a complete installation is not necessary. 
-To reinstall the updated brics plugins in your existing bride installation do the following steps:
+Install eclipse and the necessary plugins by building the workspace:
 
-      # roscd bride
+~~~ sh
+$ catkin_make
+~~~
 
-      # make update
+Run bride from the workspace 
+
+~~~ sh
+$ source devel/setup.sh
+$ rosrun bride eclipse
+~~~
+
+
+## Updating a source installation ##
+
+If you installed BRIDE from source you can update your installed version by updating the repository with git:
+
+~~~ sh
+$ git pull origin develop
+~~~
+
+Afterwards start BRIDE as usually and go into the "Help" menu and select "Check for Updates". If there are updates in the generated plugins in the repository, Eclipse should install them during the update process.
+
+Development
+------------
+
+Please report issues here on github. If you want to develop for BRIDE you can find documentation on the setup here:
+<https://github.com/ipa320/bride/wiki/Developer-setup>
+      
+Status
+------------
+
+[![Build Status](https://travis-ci.org/ipa320/bride.png)](https://travis-ci.org/ipa320/bride)
