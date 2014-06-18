@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('[%=package.name.replace(" ", "_")%]')
 import rospy
+[%if(node.actionserver.size() > 0 or node.actionclient.size() > 0){%]
+import actionlib
+[%}%]
+import dynamic_reconfigure.server
+from [%=package.name.replace(" ", "_")%].cfg import [%=node.name.replace(" ", "_")%]Config as ConfigType
+
+
 
 [%=out.startPreserve("#", "#", "customHeaders", true)%]
 [%=out.stopPreserve()%]
@@ -11,7 +18,7 @@ for (publisher in node.publisher)
 {
 	strs = publisher.msg.split('::');
 %]
-from [%=strs[0]%].msg import [%=strs[1]%] 
+from [%=strs[0]%].msg import [%=strs[1]%]
 [%
 }
 %]
@@ -21,7 +28,7 @@ for (sub in node.subscriber)
 {
 	strs22 = sub.msg.split('::');
 %]
-from [%=strs22[0]%].msg import [%=strs22[1]%] 
+from [%=strs22[0]%].msg import [%=strs22[1]%]
 [%
 }
 %]
@@ -33,10 +40,16 @@ for (serviceServer in node.serviceServer)
 	strs3 = serviceServer.msg;//.split('::');
 	strs33 = strs3.split('::');
 %]
-from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request 
+from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request
 [%
 }
 %]
+[% var strs44 : Sequence;
+for (actionserver in node.actionserver) {
+			strs44 = actionserver.actiontype.split('::');
+%]
+from [%=strs44[0]%].msg import [%=strs44[1]%]Action, [%=strs44[1]%]Feedback, [%=strs44[1]%]Result
+[%}%]
 
 
 class [%=node.name.replace(" ", "_")%]_impl:
@@ -50,9 +63,10 @@ class [%=node.name.replace(" ", "_")%]_impl:
 %]
 	out_[%=publisher.name.replace(" ", "_")%] = [%=strs[1]%]()
 [%}%]
-	
+
 	def	__init__(self):
 [%for (parameter in node.parameter){
+	if(parameter.obligatory == false){
 	if(parameter.type.toString() == "string"){
 %]
 		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', "[%=parameter.value%]")
@@ -61,21 +75,30 @@ class [%=node.name.replace(" ", "_")%]_impl:
 	else{
 %]
 		self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]', [%=parameter.value%])
-[% }}%]
+[% }}
+	else{%]
+		if rospy.has_param('~[%=parameter.name.replace(" ", "_")%]'):
+			self.config_[%=parameter.name.replace(" ", "_")%] = rospy.get_param('~[%=parameter.name.replace(" ", "_")%]')
+		else:
+			rospy.logerr("Parameter [%=parameter.name.replace(" ", "_")%] is obligatory but not set")
+	[%}} %]
+
+
+
 		[%=out.startPreserve("#", "#", "initCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
-	
+
 	def	configure(self):
 		[%=out.startPreserve("#", "#", "configureCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
-	
+
 	def	update(self):
 		[%=out.startPreserve("#", "#", "updateCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
-		
+
 	[%
 	for (service_here in node.serviceServer)
 	{%]
@@ -86,20 +109,41 @@ class [%=node.name.replace(" ", "_")%]_impl:
 
 	[%
 	}%]
-	
+
+	[%	for (actionserver in node.actionserver){
+		strs = actionserver.actiontype.split('::');
+	%]
+	def	execute_[%=actionserver.name.replace(" ", "_")%]_cb(self, goal):
+		# Examples:	self.as_[%=actionserver.name.replace(" ", "_")%].set_succeeded(_result)
+		#			self.as_[%=actionserver.name.replace(" ", "_")%].set_aborted()
+		#			self.as_[%=actionserver.name.replace(" ", "_")%].publish_feedback(_feedback)
+		_feedback = [%=strs[1]%]Feedback()
+		_result = [%=strs[1]%]Result()
+		[%=out.startPreserve("#", "#", "user implementation of action callback for " + actionserver.name.replace(" ", "_"), true)%]
+		[%=out.stopPreserve()%]
+		pass
+	[%}%]
+
 
 class [%=node.name.replace(" ", "_")%]:
 	def __init__(self):
 		self.impl = [%=node.name.replace(" ", "_")%]_impl()
+		self_dynrecon_server = dynamic_reconfigure.server.Server(ConfigType, self.config_callback)
+[%for (actionserver in node.actionserver) {
+			strs = actionserver.actiontype.split('::');
+%]
+		self.impl.as_[%=actionserver.name.replace(" ", "_")%] = actionlib.SimpleActionServer('[%=actionserver.name.replace(" ", "_")%]', [%=strs[1]%]Action, execute_cb=self.impl.execute_[%=actionserver.name.replace(" ", "_")%]_cb, auto_start=False)
+		self.impl.as_[%=actionserver.name.replace(" ", "_")%].start()
+		[%}%]
 	[%for (publisher in node.publisher) {
-		strs = publisher.msg.split('::');
+		strs44 = publisher.msg.split('::');
 	%]
-		self.[%=publisher.name.replace(" ", "_")%] = rospy.Publisher('[%=publisher.name.replace(" ", "_")%]', [%=strs[1]%])
+		self.[%=publisher.name.replace(" ", "_")%] = rospy.Publisher('[%=publisher.name.replace(" ", "_")%]', [%=strs44[1]%], queue_size=[%=publisher.queueSize%])
 		[%}%]
 	[%for (subscriber in node.subscriber){
 		strs = subscriber.msg.split('::');
 	%]
-		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback) 
+		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback, queue_size=[%=subscriber.queueSize%])
 	[%}%]
 	[%
 	var strs33 : Sequence;
@@ -116,13 +160,20 @@ class [%=node.name.replace(" ", "_")%]:
 		[%if(subscriber.eventPort == true){%]
 		self.run() #call only if defined as event port, not called if it is an data port
         [%}%]
-[%}%]	
-		
+[%}%]
+
 	def run(self):
 		self.impl.update()
 		[%for (publisher in node.publisher) {	%]
 		self.[%=publisher.name.replace(" ", "_")%].publish(self.impl.out_[%=publisher.name.replace(" ", "_")%])
 		[%}%]
+
+	def config_callback(self, config, level):
+[%for (parameter in node.parameter){
+if(parameter.obligatory == false){%]
+		self.impl.config_[%=parameter.name.replace(" ", "_")%] = config["[%=parameter.name.replace(" ", "_")%]"]
+[%}}%]
+		return config
 
 if __name__ == "__main__":
 	try:
@@ -137,9 +188,6 @@ if __name__ == "__main__":
 [%
 }
 %]
-			
+
 	except rospy.ROSInterruptException:
 		print "Exit"
-
-
-

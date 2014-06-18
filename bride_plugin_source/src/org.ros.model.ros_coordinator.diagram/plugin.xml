@@ -247,16 +247,37 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachModelingAssistantProvider">
+      <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.assistants.SmachModelingAssistantProviderOfPackageEditPart">
          <Priority name="Lowest"/>
          <object class="org.ros.model.ros_coordinator.diagram.edit.parts.PackageEditPart" id="Package_1000"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.SMACHStateMachineEditPart" id="SMACHStateMachine_2001"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ActionStateEditPart" id="ActionState_3001"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ServiceClientEditPart" id="ServiceState_3002"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.FinalState2EditPart" id="FinalState_3003"/>
-         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.FinalStateEditPart" id="InitActionState_3004"/>
-         <context elements="Package_1000,SMACHStateMachine_2001,ActionState_3001,ServiceState_3002,FinalState_3003,InitActionState_3004"/>
+         <context elements="Package_1000"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.assistants.SmachModelingAssistantProviderOfSMACHStateMachineEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.SMACHStateMachineEditPart" id="SMACHStateMachine_2001"/>
+         <context elements="SMACHStateMachine_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.assistants.SmachModelingAssistantProviderOfActionStateEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ActionStateEditPart" id="ActionState_3001"/>
+         <context elements="ActionState_3001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.assistants.SmachModelingAssistantProviderOfServiceClientEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.ServiceClientEditPart" id="ServiceState_3002"/>
+         <context elements="ServiceState_3002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.assistants.SmachModelingAssistantProviderOfFinalState2EditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.FinalState2EditPart" id="FinalState_3003"/>
+         <context elements="FinalState_3003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="org.ros.model.ros_coordinator.diagram.providers.assistants.SmachModelingAssistantProviderOfFinalStateEditPart">
+         <Priority name="Lowest"/>
+         <object class="org.ros.model.ros_coordinator.diagram.edit.parts.FinalStateEditPart" id="InitActionState_3004"/>
+         <context elements="InitActionState_3004"/>
+      </modelingAssistantProvider>
+      
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
@@ -561,6 +582,266 @@
 	         </action>
 	      </objectContribution>                    
 </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachMarkerNavigationProvider">
+         <MarkerType name="org.ros.model.ros_coordinator.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+<extension id="diagnostic" name="RosCoordinator Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>
+<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="org.ros.model.ros_coordinator.diagram.providers.SmachValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+<extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="SmachPackageAuditContainer" mandatory="false" name="SmachPackageAuditContainer">
+         <![CDATA[]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://ros/1.0"/>
+         <package namespaceUri="http://smach/1.0"/>
+               <constraints categories="SmachPackageAuditContainer">
+                  <constraint id="PackageNameAuditRule"
+            lang="OCL"
+            name="PackageNameAuditRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name of package]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageAuthorRule"
+            lang="OCL"
+            name="PackageAuthorRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[author.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing author and maintainer of package.]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageDescriptionRule"
+            lang="OCL"
+            name="PackageDescriptionRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[description.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Package description must not be empty]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="PackageAuthorEmailRule"
+            lang="OCL"
+            name="PackageAuthorEmailRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[author_email.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing Email of author and maintainer of package.]]></message>
+            <target class="ros.Package"/>
+         </constraint>
+                  <constraint id="NodeNameRule"
+            lang="OCL"
+            name="NodeNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name of node.]]></message>
+            <target class="ros.Node"/>
+         </constraint>
+                  <constraint id="PublisherNameRule"
+            lang="OCL"
+            name="PublisherNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for Publisher.]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="PublisherMsgRule"
+            lang="OCL"
+            name="PublisherMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a message type for the Publisher]]></message>
+            <target class="ros.Publisher"/>
+         </constraint>
+                  <constraint id="SubscriberNameRule"
+            lang="OCL"
+            name="SubscriberNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for Subscriber.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
+                  <constraint id="SubscriberMsgRule"
+            lang="OCL"
+            name="SubscriberMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a message type for the Subscriber.]]></message>
+            <target class="ros.Subscriber"/>
+         </constraint>
+                  <constraint id="ServiceServerNameRule"
+            lang="OCL"
+            name="ServiceServerNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceServerMsgRule"
+            lang="OCL"
+            name="ServiceServerMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a service type for the ServiceServer.]]></message>
+            <target class="ros.ServiceServer"/>
+         </constraint>
+                  <constraint id="ServiceStateGoalRule"
+            lang="OCL"
+            name="ServiceStateGoalRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[goal.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to name a goal name that is used to find the goal on the rosparam server.]]></message>
+            <target class="smach.ServiceState"/>
+         </constraint>
+                  <constraint id="ServiceClientNameRule"
+            lang="OCL"
+            name="ServiceClientNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ServiceClient.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
+                  <constraint id="ServiceClientMsgRule"
+            lang="OCL"
+            name="ServiceClientMsgRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[msg.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a service type for the ServiceClient.]]></message>
+            <target class="ros.ServiceClient"/>
+         </constraint>
+                  <constraint id="ActionServerNameRule"
+            lang="OCL"
+            name="ActionServerNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionStateGoalRule"
+            lang="OCL"
+            name="ActionStateGoalRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[goal.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to name a goal name that is used to find the goal on the rosparam server.]]></message>
+            <target class="smach.ActionState"/>
+         </constraint>
+                  <constraint id="ActionServerActionTypeRule"
+            lang="OCL"
+            name="ActionServerActionTypeRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ActionType.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a action type for the ActionServer.]]></message>
+            <target class="ros.ActionServer"/>
+         </constraint>
+                  <constraint id="ActionClientNameRule"
+            lang="OCL"
+            name="ActionClientNameRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[name.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[Missing name for ActionClient.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
+                  <constraint id="ActionClientActionTypeRule"
+            lang="OCL"
+            name="ActionClientActionTypeRule"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[ActionType.size() > 0]]>
+            <description><![CDATA[]]></description>
+            <message><![CDATA[You have to define a action type for the ActionClient.]]></message>
+            <target class="ros.ActionClient"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+<extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="org.ros.model.ros_coordinator.diagramDefaultCtx">
+         <selector class="org.ros.model.ros_coordinator.diagram.providers.SmachValidationProvider$DefaultCtx"/>
+      </clientContext>
+      <binding context="org.ros.model.ros_coordinator.diagramDefaultCtx">
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.PackageNameAuditRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.PackageAuthorRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.PackageDescriptionRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.PackageAuthorEmailRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.NodeNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.PublisherNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.PublisherMsgRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.SubscriberNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.SubscriberMsgRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ServiceServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ServiceServerMsgRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ServiceStateGoalRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ServiceClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ServiceClientMsgRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ActionServerNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ActionStateGoalRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ActionServerActionTypeRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ActionClientNameRule"/>
+                  <constraint ref="org.ros.model.ros_coordinator.diagram.ActionClientActionTypeRule"/>
+               </binding>
+
+   </extension>
+
+<extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.ros.model.ros_coordinator.diagramDefaultCtx"/>
+   </extension>
+
    
 
    <!-- optionally, specify keybindings -->

@@ -4,6 +4,7 @@
 	var s : OrderedSet := package.node;
 	
 	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
+	var configTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator");
 
 	//node
 	for(node in package.node) {
@@ -31,6 +32,17 @@
 		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
 		chmodTool.chmod("a+x"); // makes executable
 		
+		//test_generation
+ 		for(action in node.actionserver) {
+ 			configTool.setDirectory(TemplateFactory.getOutputRoot() + "/test/");
+ 			configTool.write('testdata_'+ node.name + '_' + action.name + '.yaml', action.ActionType.replace('::','/').toString()+"Goal"); 
+ 			var testActionTemplate := TemplateFactory.load('test_actionclient.egl');
+ 			testActionTemplate.populate('node', node);
+ 			testActionTemplate.populate('action', action);
+ 			testActionTemplate.populate('package', package);
+ 			testActionTemplate.generate('test/test_'+ node.name + '_' + action.name + '.py');
+ 		}
+		
 	}
 	
 	
@@ -49,5 +61,11 @@
 	var setupTemplate := TemplateFactory.load('setup_py.egl');
 	setupTemplate.populate('package', package);
 	setupTemplate.generate('setup.py');
+
+	//README.md
+	var readmeTemplate := TemplateFactory.load('readme.egl');
+	readmeTemplate.populate('package', package);
+	readmeTemplate.generate('README.md');
+
 	
 %]

@@ -12,9 +12,11 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -54,9 +56,20 @@ public class ROSPackageImportWizard extends Wizard implements IImportWizard {
 
 	}
 
+	private boolean isDefaultLocation(IPath path) {
+		// The project description file must at least be within the project,
+		// which is within the workspace location
+		if (path.segmentCount() < 2)
+			return false;
+		return path.removeLastSegments(2).toFile().equals(
+				Platform.getLocation().toFile());
+	}
+
+	
 	@Override
 	public boolean performFinish() {
 		
+		boolean generate_project_files = true;
 		System.out.println(_pageOne.getCurrentPath());
 		final File directory = new File(_pageOne.getCurrentPath());
 		if(!directory.isDirectory())
@@ -69,8 +82,24 @@ public class ROSPackageImportWizard extends Wizard implements IImportWizard {
 		if(projectfile.exists() && !projectfile.isDirectory())
 		{
 			System.out.println("Importing existing project");
+			MessageDialog dialog = new MessageDialog(
+				      null, "Existing project files found", null, "Do you want to regenerate and overwrite the existing project files of this package?",
+				      MessageDialog.QUESTION,
+				      new String[] {"Yes", "No"},
+				      1); // no is the default
+			int result = dialog.open();
+			System.out.println("Result is " + result);
+			if(result == 0)
+			{
+				System.out.println("Regenerating project files");
+				generate_project_files = true;
+			}
+			else
+				generate_project_files = false;
+			
 		}
-		else
+		
+		if(generate_project_files == true)
 		{
 			Runtime run = Runtime.getRuntime();
 			Process pr, pr2;
@@ -104,8 +133,21 @@ public class ROSPackageImportWizard extends Wizard implements IImportWizard {
 				protected void execute(IProgressMonitor monitor)
 						throws InvocationTargetException, InterruptedException {
 							try {
-								IProjectDescription description = ResourcesPlugin.getWorkspace().loadProjectDescription(  new Path(directory.getPath() +"/.project"));
-								String projectName = description.getName().split("@")[0];
+								IPath path = new Path(directory.getPath() +"/.project");
+								IProjectDescription description = null;
+								String projectName = "";
+								// if the file is in the default location, use the directory
+								// name as the project name
+								if (isDefaultLocation(path)) {
+									projectName = path.segment(path.segmentCount() - 2);
+									description = IDEWorkbenchPlugin.getPluginWorkspace()
+											.newProjectDescription(projectName);
+								} else {
+									description = IDEWorkbenchPlugin.getPluginWorkspace()
+											.loadProjectDescription(path);
+									projectName = description.getName().split("@")[0];;
+								}
+								
 								final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 								final IProject project = workspace.getRoot().getProject(projectName);
 								description.setName(projectName);

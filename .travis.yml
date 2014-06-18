@@ -1,24 +1,38 @@
 language:
-  - cpp
-  - python
+- cpp
+- python
+python:
+- '2.7'
 compiler:
-  - gcc
-install:
-  - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
-  - wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
-  - sudo apt-get update -qq
-  - sudo apt-get install python-rosdep python-catkin-pkg python-nose python-coverage python-wstool pep8 -qq
-  - sudo apt-get install ros-groovy-ros-base -qq
-  - sudo rosdep init
-  - rosdep update
-script:
-  - source /opt/ros/groovy/setup.bash
-  - cd bride 
-  - make
-after_script:
-  - source /opt/ros/groovy/setup.bash
-  - export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:.
-  - cd bride_tutorials
-  - sh ./run.sh
+- gcc
 notifications:
-  email: false
+  email:
+    recipients:
+    - aub@ipa.fhg.de
+    on_success: change
+    on_failure: change
+  hipchat:
+    rooms:
+      secure: GXlV9W5RvPV7Dy2KZ4TGH8jdlmuhlEIURbwIKXU8dTII0QlmgDvSKKBjLjBmESLq4TBVbi5v1rHElAcVZmG+k9FUoAXIlb8jT60UyN1ZOopy4Kdviko/B681cVQ1dUmsVFIyHfvs6Z70KO0cbvJ/EAAZ5PhtGP+Zh/C/FaOwx+0=
+before_install:
+- export ROS_DISTRO=hydro
+- export CI_SOURCE_PATH=$(pwd)
+- export REPOSITORY_NAME=${PWD##*/}
+- echo "Testing branch $TRAVIS_BRANCH of $REPOSITORY_NAME"
+- sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
+- wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+- sudo apt-get update -qq
+- sudo apt-get install -qq -y python-catkin-pkg python-rosdep python-wstool ros-$ROS_DISTRO-catkin
+  ros-$ROS_DISTRO-ros
+- sudo rosdep init
+- rosdep update
+install:
+- mkdir -p ~/ros/ws_bride/src
+- cd ~/ros/ws_bride/src
+- ln -s $CI_SOURCE_PATH .
+- cd ../
+- rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
+before_script:
+- source /opt/ros/$ROS_DISTRO/setup.bash
+script:
+- catkin_make -j2

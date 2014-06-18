@@ -6,13 +6,11 @@ package org.ros.model.ros.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,11 +21,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
 import org.ros.model.ros.Node;
 import org.ros.model.ros.RosFactory;
 import org.ros.model.ros.RosPackage;
-
 import org.ros.model.smach.SmachFactory;
 
 /**
@@ -122,9 +122,18 @@ public class NodeItemProvider
 	 * This adds a property descriptor for the Args feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	protected void addArgsPropertyDescriptor(Object object) {
+		IFile sourcefile = null;
+		IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (editor != null) {
+            IEditorInput input = editor.getEditorInput();
+            if (input instanceof IFileEditorInput) {
+            	sourcefile = ((IFileEditorInput)input).getFile();
+            	System.out.println("File from editor: " + sourcefile.getLocation().toOSString());
+            	if(sourcefile.getFileExtension().compareTo("ros_package") != 0 && sourcefile.getFileExtension().compareTo("ros_package_diagram")!=0)
+            	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -138,15 +147,27 @@ public class NodeItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+            	}
+            }
+		}
 	}
 
 	/**
 	 * This adds a property descriptor for the Param Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	protected void addParamSourcePropertyDescriptor(Object object) {
+		IFile sourcefile = null;
+		IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (editor != null) {
+            IEditorInput input = editor.getEditorInput();
+            if (input instanceof IFileEditorInput) {
+            	sourcefile = ((IFileEditorInput)input).getFile();
+            	System.out.println("File from editor: " + sourcefile.getLocation().toOSString());
+            	if(sourcefile.getFileExtension().compareTo("ros_package") != 0 && sourcefile.getFileExtension().compareTo("ros_package_diagram")!=0)
+            	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -160,15 +181,27 @@ public class NodeItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+              	}
+            }
+		}
 	}
 
 	/**
 	 * This adds a property descriptor for the Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not generated
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
+		IFile sourcefile = null;
+		IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		if (editor != null) {
+            IEditorInput input = editor.getEditorInput();
+            if (input instanceof IFileEditorInput) {
+            	sourcefile = ((IFileEditorInput)input).getFile();
+            	System.out.println("File from editor: " + sourcefile.getLocation().toOSString());
+            	if(sourcefile.getFileExtension().compareTo("ros_package") != 0 && sourcefile.getFileExtension().compareTo("ros_package_diagram")!=0)
+            	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -182,6 +215,9 @@ public class NodeItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+            	}
+            }
+		}
 	}
 
 	/**

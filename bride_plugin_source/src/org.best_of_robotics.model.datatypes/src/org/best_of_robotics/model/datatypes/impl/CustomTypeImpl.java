@@ -123,7 +123,7 @@ public class CustomTypeImpl extends EObjectImpl implements CustomType {
 	 */
 	public TypesLibrary getTypesLibrary() {
 		if (eContainerFeatureID() != DatatypesPackage.CUSTOM_TYPE__TYPES_LIBRARY) return null;
-		return (TypesLibrary)eContainer();
+		return (TypesLibrary)eInternalContainer();
 	}
 
 	/**

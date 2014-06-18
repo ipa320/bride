@@ -4,6 +4,7 @@
 	var s : OrderedSet := package.node;
 
 	var chmodTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.CHModTool");
+	var configTool = new Native("org.best_of_robotics.transform.ros.to.cplusplus.tools.ConfigFileCreator");
 	
 	
 
@@ -30,6 +31,17 @@
 		chmodTool.setName(node.name);
 		chmodTool.setDirectory(TemplateFactory.getOutputRoot());
 		chmodTool.chmod("a+x"); // makes executable
+		
+		//test_generation
+ 		for(action in node.actionserver) {
+ 			configTool.setDirectory(TemplateFactory.getOutputRoot() + "/test/");
+ 			configTool.write('testdata_'+ node.name + '_' + action.name + '.yaml', action.ActionType.replace('::','/').toString()+"Goal"); 
+ 			var testActionTemplate := TemplateFactory.load('test_actionclient.egl');
+ 			testActionTemplate.populate('node', node);
+ 			testActionTemplate.populate('action', action);
+ 			testActionTemplate.populate('package', package);
+ 			testActionTemplate.generate('test/test_'+ node.name + '_' + action.name + '.py');
+ 		}
 	}
 	
 	//CMakeList
@@ -41,6 +53,11 @@
 	var manifestTemplate := TemplateFactory.load('package_xml.egl');
 	manifestTemplate.populate('package', package);
 	manifestTemplate.generate('package.xml');
+	
+	//README.md
+	var readmeTemplate := TemplateFactory.load('readme.egl');
+	readmeTemplate.populate('package', package);
+	readmeTemplate.generate('README.md');
 	
 
 	
