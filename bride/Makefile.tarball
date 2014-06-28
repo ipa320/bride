@@ -1,14 +1,14 @@
 all: installed
 
-ECLIPSE_VERSION=SR2
+ECLIPSE_VERSION=R
 
 UNPACK_CMD  	= tar zxf
 SOURCE_DIR 	= build/eclipse
 
 #32 bit version as default
-TARBALL		= build/eclipse-modeling-kepler-$(ECLIPSE_VERSION)-linux-gtk.tar.gz
-TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/$(ECLIPSE_VERSION)/eclipse-modeling-kepler-$(ECLIPSE_VERSION)-linux-gtk.tar.gz
-MD5SUM_FILE 	= eclipse-modeling-kepler-$(ECLIPSE_VERSION)-linux-gtk.tar.gz.md5sum
+TARBALL		= build/eclipse-modeling-luna-$(ECLIPSE_VERSION)-linux-gtk.tar.gz
+TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/luna/$(ECLIPSE_VERSION)/eclipse-modeling-luna-$(ECLIPSE_VERSION)-linux-gtk.tar.gz
+MD5SUM_FILE 	= eclipse-modeling-luna-$(ECLIPSE_VERSION)-linux-gtk.tar.gz.md5sum
 
 #Detect architecture
 ARCH = $(shell dpkg --print-architecture)
@@ -22,17 +22,17 @@ endif
 
 #64 bit version linux
 ifeq ($(ARCH),amd64)
-	TARBALL		= build/eclipse-modeling-kepler-$(ECLIPSE_VERSION)-linux-gtk-x86_64.tar.gz
-	TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/$(ECLIPSE_VERSION)/eclipse-modeling-kepler-$(ECLIPSE_VERSION)-linux-gtk-x86_64.tar.gz
-	MD5SUM_FILE 	= eclipse-modeling-kepler-$(ECLIPSE_VERSION)-linux-gtk-x86_64.tar.gz.md5sum	
+	TARBALL		= build/eclipse-modeling-luna-$(ECLIPSE_VERSION)-linux-gtk-x86_64.tar.gz
+	TARBALL_URL 	= http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/luna/$(ECLIPSE_VERSION)/eclipse-modeling-luna-$(ECLIPSE_VERSION)-linux-gtk-x86_64.tar.gz
+	MD5SUM_FILE 	= eclipse-modeling-luna-$(ECLIPSE_VERSION)-linux-gtk-x86_64.tar.gz.md5sum	
 endif
 
 #64 bit version mac
 SYSNAME = $(shell uname)
 ifeq ($(SYSNAME),Darwin)
-        TARBALL         = build/eclipse-modeling-kepler-$(ECLIPSE_VERSION)-macosx-cocoa-x86_64.tar.gz
-        TARBALL_URL     = http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/$(ECLIPSE_VERSION)/eclipse-modeling-kepler-$(ECLIPSE_VERSION)-macosx-cocoa-x86_64.tar.gz
-        MD5SUM_FILE     = eclipse-modeling-kepler-$(ECLIPSE_VERSION)-macosx-cocoa-x86_64.tar.gz.md5sum
+        TARBALL         = build/eclipse-modeling-luna-$(ECLIPSE_VERSION)-macosx-cocoa-x86_64.tar.gz
+        TARBALL_URL     = http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/luna/$(ECLIPSE_VERSION)/eclipse-modeling-luna-$(ECLIPSE_VERSION)-macosx-cocoa-x86_64.tar.gz
+        MD5SUM_FILE     = eclipse-modeling-luna-$(ECLIPSE_VERSION)-macosx-cocoa-x86_64.tar.gz.md5sum
 endif
 
 url 	= http://bride.cybernotic.org/eclipse_plugins_0.2.yaml
