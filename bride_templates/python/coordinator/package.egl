@@ -27,6 +27,12 @@
 				config_creator.write("config/" + ac.goal + "_goal.yaml", ac.ActionType+"Goal");
 		}
 		
+		//config_launch File
+		var configlaunchTemplate := TemplateFactory.load('launchfile_config.egl');
+		configlaunchTemplate.populate('node', node);
+		configlaunchTemplate.populate('package', package);
+		configlaunchTemplate.generate('launch/' + node.name + '_config.launch');
+
 		//launch File
 		var launchTemplate := TemplateFactory.load('launchfile.egl');
 		launchTemplate.populate('node', node);

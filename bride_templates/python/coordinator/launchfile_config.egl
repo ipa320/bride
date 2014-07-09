@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+[%=out.startPreserve("<!--", "-->", "additional custom Launchfile statements in the beginning", true)%]
+[%=out.stopPreserve()%]
+
+[%for(ac in node.actionclient){%]
+	<rosparam command="load" ns="[%=ac.goal%]" file="$(find [%=package.name%])/config/[%=ac.goal.replace(" ", "_")%]_goal.yaml"/>
+[% } %]
+
+</launch>

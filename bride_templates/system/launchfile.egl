@@ -10,6 +10,9 @@ for(package in architecture.packages) {
 [%
 for(node in package.node) {
 %]
+	[% if(node.type.name == "SMACHStateMachine") {%]
+	<include file="$(find [%=package.name%])/launch/[%=node.name%]_config.launch" />	
+	[%}%]
 	[% if(node.paramSource.isDefined()) {%]
 	<rosparam command="load" ns="[%=node.name%]" file="[%=node.paramSource%]" />
 	[%}%]

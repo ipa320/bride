@@ -3,9 +3,7 @@
 [%=out.startPreserve("<!--", "-->", "additional custom Launchfile statements in the beginning", true)%]
 [%=out.stopPreserve()%]
 
-[%for(ac in node.actionclient){%]
-	<rosparam command="load" ns="[%=ac.goal%]" file="$(find [%=package.name%])/config/[%=ac.goal.replace(" ", "_")%]_goal.yaml"/>
-[% } %]
 
+	<include file="$(find [%=package.name%])/launch/[%=node.name%]_config.launch" />
 	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen"/>
 </launch>

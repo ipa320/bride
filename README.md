@@ -59,7 +59,14 @@ Development
 
 Please report issues here on github. If you want to develop for BRIDE you can find documentation on the setup here:
 <https://github.com/ipa320/bride/wiki/Developer-setup>
-      
+
+
+Tutorials
+------------
+
+You can find detailed examples and tutorials on the [ROS wiki pages](http://wiki.ros.org/bride).
+
+
 Status
 ------------
 
