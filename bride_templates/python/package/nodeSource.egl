@@ -123,6 +123,9 @@ class [%=node.name.replace(" ", "_")%]_impl:
 		[%=out.stopPreserve()%]
 		pass
 	[%}%]
+	
+	[%=out.startPreserve("#", "#", "user defined functions", true)%]
+	[%=out.stopPreserve()%]
 
 
 class [%=node.name.replace(" ", "_")%]:
@@ -180,14 +183,13 @@ if __name__ == "__main__":
 		rospy.init_node('[%=node.name.replace(" ", "_")%]')
 		n = [%=node.name.replace(" ", "_")%]()
 		n.impl.configure()
+[% if(node.frequency == 0){%]	
+		rospy.spin()
+[%}else{%]
 		while not rospy.is_shutdown():
 			n.run()
-[% if(node.frequency == 0){}else{
-%]
 			rospy.sleep([%=node.frequency%])
-[%
-}
-%]
+[%}%]
 
 	except rospy.ROSInterruptException:
 		print "Exit"
