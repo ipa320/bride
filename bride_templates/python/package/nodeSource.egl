@@ -123,6 +123,9 @@ class [%=node.name.replace(" ", "_")%]_impl:
 		[%=out.stopPreserve()%]
 		pass
 	[%}%]
+	
+	[%=out.startPreserve("#", "#", "user defined functions", true)%]
+	[%=out.stopPreserve()%]
 
 
 class [%=node.name.replace(" ", "_")%]:
