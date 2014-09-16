@@ -63,15 +63,26 @@ for (parameter in node.parameter)
 			acstypes = ac.ActionType.split('::');
 		 %]
 		self.[%=ac.name.replace(" ", "_")%]_goal = [%=acstypes[1]%]Goal()
-		genpy.message.fill_message_args(self.[%=ac.name.replace(" ", "_")%]_goal, [rospy.get_param('[%=ac.goal%]')])
 		[%
 		}%]	
 		[%=out.startPreserve("#", "#", "initCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
 	
+	def goal_cb(self, userdata, goal):
+		genpy.message.fill_message_args(goal, [rospy.get_param(userdata.goal_param)])
+		return goal
+
 	def	configure(self):
 		sm0 = smach.StateMachine(outcomes=['succeeded','aborted','preempted'], input_keys = ['action_feedback'], output_keys = ['action_feedback'])
+		sm0.userdata.goal_param = 'none'
+		[%
+		for (ac in node.actionclient){
+		%]
+		sm0.userdata.[%=ac.name.replace(" ", "_")%]_param_name = '/[%=package.name.replace(" ", "_")%]/[%=node.name.replace(" ", "_")%]/[%=ac.goal%]'
+		[%
+		}
+		%]
 		sis = smach_ros.IntrospectionServer('[%=node.name.replace(" ", "_")%]', sm0, '/[%=node.name.replace(" ", "_")%]_sm')
 		sis.start()
 		with sm0:
@@ -86,8 +97,11 @@ for (parameter in node.parameter)
 			else{
 				remap = ac.remap_overwrite;
 			}
-		 %]
-			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=remap%]', [%=acstypes[1]%]Action, self.[%=ac.name.replace(" ", "_")%]_goal), {
+		%]
+			smach.StateMachine.add('[%=ac.name.replace(" ", "_")%]', smach_ros.SimpleActionState('[%=remap%]',
+				[%=acstypes[1]%]Action, goal=self.[%=ac.name.replace(" ", "_")%]_goal, goal_cb=self.goal_cb, input_keys=['goal_param']),
+				remapping={'goal_param':'[%=ac.name.replace(" ", "_")%]_param_name'},
+				transitions={
 			[%
 			for (transition in node.transitions){
 			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
