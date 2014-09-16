@@ -5,5 +5,7 @@
 
 
 	<include file="$(find [%=package.name%])/launch/[%=node.name%]_config.launch" />
-	<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen"/>
+	<group ns="[%=package.name.replace(" ", "_")%]">
+		<node pkg="[%=package.name%]" type="[%=node.name%]" name="[%=node.name%]" output="screen"/>
+	</group>
 </launch>
