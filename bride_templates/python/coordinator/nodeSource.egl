@@ -152,6 +152,14 @@ for (parameter in node.parameter)
 		#sm0.set_initial_state()
 		outcome = sm0.execute()
 		[% } else{ %]
+		[%
+			for (transition in node.transitions){
+			if(transition.Source.type.name == "InitActionState"){
+		%]	
+		sm0.set_initial_state(['[%=transition.Target.name%]'])
+		[%
+			}
+		}%]
 		
 		asw = ActionServerWrapper( '[%=node.name.replace(" ", "_")%]', TestAction,  wrapped_container = sm0, succeeded_outcomes = ['succeeded'], aborted_outcomes = ['aborted'], preempted_outcomes = ['preempted'] )
 		asw.run_server()
