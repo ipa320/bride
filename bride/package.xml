@@ -14,6 +14,8 @@
   <url>http://ros.org/wiki/bride</url>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>rospack</build_depend>
+  <build_depend>gcc-multilib</build_depend>
+  <build_depend>g++-multilib</build_depend>
 
   <run_depend>bride_templates</run_depend>
   <run_depend>bride_tutorials</run_depend>
