@@ -55,6 +55,9 @@ add_executable([%=node.name%] ros/src/[%=node.name%]_ros.cpp)
 ## as an example, message headers may need to be generated before nodes
 add_dependencies([%=node.name%] [%=node.name%]_gencfg)
 add_dependencies([%=node.name%] ${[%=package.name%]_EXPORTED_TARGETS})
+[%for (depend in package.depend) {%]
+add_dependencies([%=node.name%] [%=depend%]_gencpp)	
+[% } %]
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries([%=node.name%]
