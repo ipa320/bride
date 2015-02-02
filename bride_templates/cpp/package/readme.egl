@@ -19,6 +19,7 @@ Node: [%=node.name%]
 
 [% }%]
 
+[%if(node.publisher.size() > 0) {%]
 #### Published Topics
 [%for (publisher in node.publisher) { %]
 **[%=publisher.name%]** *([%=publisher.msg%])*   
@@ -26,7 +27,9 @@ Node: [%=node.name%]
 [%=out.stopPreserve()%]
 
 [%}%]
+[%}%]
 
+[%if(node.subscriber.size() > 0) {%]
 #### Subscribed Topics
 [%for (subscriber in node.subscriber) { %]
 **[%=subscriber.name%]** *([%=subscriber.msg%])*   
@@ -34,6 +37,26 @@ Node: [%=node.name%]
 [%=out.stopPreserve()%]
 
 [%}%]
+[%}%]
 
+[%if(node.actionserver.size() > 0) {%]
+#### ActionServers
+[%for (actionserver in node.actionserver) { %]
+**[%=actionserver.name%]** *([%=actionserver.actiontype%])*   
+[%=out.startPreserve("<!---", "-->", actionserver.name, true)%]
+[%=out.stopPreserve()%]
+
+[%}%]
+[%}%]
+
+[%if(node.actionclient.size() > 0) {%]
+#### ActionClients
+[%for (actionclient in node.actionclient) { %]
+**[%=actionclient.name%]** *([%=actionclient.actiontype%])*   
+[%=out.startPreserve("<!---", "-->", actionclient.name, true)%]
+[%=out.stopPreserve()%]
+
+[%}%]
+[%}%]
 
  [%}%]
