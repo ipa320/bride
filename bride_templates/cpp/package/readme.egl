@@ -56,6 +56,25 @@ Node: [%=node.name%]
 [%=out.startPreserve("<!---", "-->", actionclient.name, true)%]
 [%=out.stopPreserve()%]
 
+[%}%][%}%]
+
+[%if(node.serviceserver.size() > 0) {%]
+#### ServiceServers
+[%for (serviceserver in node.serviceserver) { %]
+**[%=serviceserver.name%]** *([%=serviceserver.msg%])*   
+[%=out.startPreserve("<!---", "-->", serviceserver.name, true)%]
+[%=out.stopPreserve()%]
+
+[%}%]
+[%}%]
+
+[%if(node.serviceclient.size() > 0) {%]
+#### ServiceClients
+[%for (serviceclient in node.serviceclient) { %]
+**[%=serviceclient.name%]** *([%=serviceclient.msg%])*   
+[%=out.startPreserve("<!---", "-->", serviceclient.name, true)%]
+[%=out.stopPreserve()%]
+
 [%}%]
 [%}%]
 
