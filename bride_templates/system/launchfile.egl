@@ -29,6 +29,27 @@ for(node in package.node) {
 [%  
 	} 
 		}
+	for(action in architecture.action) {
+	if(node.actionserver.contains(action.actionserver))
+	{
+%] 		<remap from="/[%=action.actionserver.name%]" to="/[%=action.name%]"/> 
+[%	}
+	if(node.actionclient.contains(action.actionclient))
+	{ 
+%]		<remap from="/[%=action.actionclient.name%]" to="/[%=action.name%]"/>
+[%  
+	} 
+		}
+	for(service in architecture.service) {	if(node.serviceServer.contains(service.serviceserver[0]))
+	{
+%] 		<remap from="/[%=service.serviceserver[0].name%]" to="/[%=service.name%]"/> 
+[%	}
+	if(node.serviceClient.contains(service.serviceclient[0]))
+	{ 
+%]		<remap from="/[%=service.serviceclient[0].name%]" to="/[%=service.name%]"/>
+[%  
+	} 
+		}
 	if(not node.paramSource.isDefined()) {
 	for(param in node.parameter)
 	{
