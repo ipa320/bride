@@ -6,7 +6,7 @@ project([%=package.name%])
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
 	roscpp
-    [%for(node in package.node) {if(node.actionserver.size() > 0){%]
+    [%for(node in package.node) {if(node.actionserver.size() > 0 or node.actionclient.size() > 0 ){%]
     actionlib
     [%}}%]
     dynamic_reconfigure 

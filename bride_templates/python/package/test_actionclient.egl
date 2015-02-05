@@ -10,7 +10,7 @@ strs = action.ActionType.split('::');
 %]
 from [%=strs[0]%].msg import *
 
-test_[%=action.name.replace(" ", "_")%]_goal = open("test/testdata_[%=node.name.replace(" ", "_")%]_[%=action.name.replace(" ", "_")%]", 'r')
+test_[%=action.name.replace(" ", "_")%]_goal = open("test/testdata_[%=node.name.replace(" ", "_")%]_[%=action.name.replace(" ", "_")%].yaml", 'r')
 
 def [%=action.name.replace(" ", "_")%]_client():
     client = actionlib.SimpleActionClient('/[%=action.name.replace(" ", "_")%]', [%=strs[1]%]Action)
