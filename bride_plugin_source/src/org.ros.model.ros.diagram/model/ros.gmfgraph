@@ -150,7 +150,7 @@
             vertical="true"
             majorAlignment="CENTER"
             minorAlignment="CENTER"/>
-         <backgroundColor
+        <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="150"
             green="150"/>
@@ -301,10 +301,12 @@
           lineKind="LINE_DASH">
         <foregroundColor
             xsi:type="gmfgraph:RGBColor"
-            blue="180"/>
+            red="150"
+            green="150"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
-            blue="180"/>
+            red="150"
+            green="150"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ServiceNameFigure"
@@ -421,7 +423,7 @@
             xsi:type="gmfgraph:Label"
             name="Subscriber2NameFigure"
             text="&lt;...>"/>
-          <template/>
+        <template/>
         <template
             x="40"/>
         <template
