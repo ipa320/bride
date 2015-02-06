@@ -3,8 +3,12 @@
   <name>[%=package.name%]</name>
   <description>[%=package.description%]</description>
   <version>0.0.0</version>
-  <maintainer email="[%=package.author_email%]">[%=package.author%]</maintainer>
-  <author email="[%=package.author_email%]">[%=package.author%]</author>
+  [%for(i in Sequence{0..(package.maintainer.size()-1)}) {%]
+  <maintainer email="[%=package.maintainer_email.at(i)%]">[%=package.maintainer.at(i)%]</maintainer>
+  [%}%]
+  [%for(i in Sequence{0..(package.author.size()-1)}) {%]
+  <author email="[%=package.author_email.at(i)%]">[%=package.author.at(i)%]</author>
+  [%}%]
   <license>[%=package.license%]</license>
   <url>[%=package.url%]</url>
 

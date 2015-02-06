@@ -572,9 +572,9 @@
             name="PackageAuthorRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
-            <![CDATA[author.size() > 0]]>
+            <![CDATA[author->size() = author_email->size()]]>
             <description><![CDATA[]]></description>
-            <message><![CDATA[Missing author and maintainer of package.]]></message>
+            <message><![CDATA[Author name and email not the same size.]]></message>
             <target class="ros.Package"/>
          </constraint>
                   <constraint id="PackageDescriptionRule"
@@ -585,16 +585,6 @@
             <![CDATA[description.size() > 0]]>
             <description><![CDATA[]]></description>
             <message><![CDATA[Package description must not be empty]]></message>
-            <target class="ros.Package"/>
-         </constraint>
-                  <constraint id="PackageAuthorEmailRule"
-            lang="OCL"
-            name="PackageAuthorEmailRule"
-            mode="Batch"
-            severity="ERROR" statusCode="200">
-            <![CDATA[author_email.size() > 0]]>
-            <description><![CDATA[]]></description>
-            <message><![CDATA[Missing Email of author and maintainer of package.]]></message>
             <target class="ros.Package"/>
          </constraint>
                   <constraint id="NodeNameRule"
@@ -608,7 +598,7 @@
             <target class="ros.Node"/>
          </constraint>
                   <constraint id="NodeNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter6"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter5"
             name="NodeNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -628,7 +618,7 @@
             <target class="ros.Publisher"/>
          </constraint>
                   <constraint id="PublisherNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter8"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter7"
             name="PublisherNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -658,7 +648,7 @@
             <target class="ros.Subscriber"/>
          </constraint>
                   <constraint id="SubscriberNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter11"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter10"
             name="SubscriberNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -688,7 +678,7 @@
             <target class="ros.ServiceServer"/>
          </constraint>
                   <constraint id="ServiceServerNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter14"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter13"
             name="ServiceServerNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -718,7 +708,7 @@
             <target class="ros.ServiceClient"/>
          </constraint>
                   <constraint id="ServiceClientNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter17"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter16"
             name="ServiceClientNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -748,7 +738,7 @@
             <target class="ros.ActionServer"/>
          </constraint>
                   <constraint id="ActionServerNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter20"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter19"
             name="ActionServerNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -778,7 +768,7 @@
             <target class="ros.ActionClient"/>
          </constraint>
                   <constraint id="ActionClientNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter23"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter22"
             name="ActionClientNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -808,7 +798,7 @@
             <target class="ros.Parameter"/>
          </constraint>
                   <constraint id="ParameterNameValidityRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter26"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter25"
             name="ParameterNameValidityRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -818,7 +808,7 @@
             <target class="ros.Parameter"/>
          </constraint>
                   <constraint id="ParameterValueRule"
-            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter27"
+            lang="Java" class="org.ros.model.ros_package.diagram.providers.RosValidationProvider$Adapter26"
             name="ParameterValueRule"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -840,7 +830,6 @@
                   <constraint ref="org.ros.model.ros_package.diagram.PackageNameAuditRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.PackageDescriptionRule"/>
-                  <constraint ref="org.ros.model.ros_package.diagram.PackageAuthorEmailRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.NodeNameRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.NodeNameValidityRule"/>
                   <constraint ref="org.ros.model.ros_package.diagram.PublisherNameRule"/>

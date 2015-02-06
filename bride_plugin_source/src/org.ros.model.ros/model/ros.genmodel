@@ -43,6 +43,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Package/coordinators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author_email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/maintainer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/maintainer_email"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/license"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/depend"/>

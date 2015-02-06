@@ -214,6 +214,18 @@
       </target>
     </audits>
     <audits
+        name="PackageMaintainerRule"
+        id="PackageMaintainerRule"
+        message="Maintainer and maintainer_email have to be the same number.">
+      <rule
+          body="maintainer->size() = maintainer_email->size()"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
+      </target>
+    </audits>
+    <audits
         name="PackageDescriptionRule"
         id="PackageDescriptionRule"
         message="Package description must not be empty">

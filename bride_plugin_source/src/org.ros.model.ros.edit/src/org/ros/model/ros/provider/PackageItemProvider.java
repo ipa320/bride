@@ -68,6 +68,8 @@ public class PackageItemProvider
 			addCoordinatorsPropertyDescriptor(object);
 			addAuthorPropertyDescriptor(object);
 			addAuthor_emailPropertyDescriptor(object);
+			addMaintainerPropertyDescriptor(object);
+			addMaintainer_emailPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addLicensePropertyDescriptor(object);
 			addDependPropertyDescriptor(object);
@@ -156,6 +158,50 @@ public class PackageItemProvider
 				 getString("_UI_Package_author_email_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Package_author_email_feature", "_UI_Package_type"),
 				 RosPackage.Literals.PACKAGE__AUTHOR_EMAIL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Maintainer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaintainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_maintainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_maintainer_feature", "_UI_Package_type"),
+				 RosPackage.Literals.PACKAGE__MAINTAINER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Maintainer email feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaintainer_emailPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Package_maintainer_email_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_maintainer_email_feature", "_UI_Package_type"),
+				 RosPackage.Literals.PACKAGE__MAINTAINER_EMAIL,
 				 true,
 				 false,
 				 false,
@@ -322,6 +368,8 @@ public class PackageItemProvider
 			case RosPackage.PACKAGE__NAME:
 			case RosPackage.PACKAGE__AUTHOR:
 			case RosPackage.PACKAGE__AUTHOR_EMAIL:
+			case RosPackage.PACKAGE__MAINTAINER:
+			case RosPackage.PACKAGE__MAINTAINER_EMAIL:
 			case RosPackage.PACKAGE__DESCRIPTION:
 			case RosPackage.PACKAGE__LICENSE:
 			case RosPackage.PACKAGE__DEPEND:
