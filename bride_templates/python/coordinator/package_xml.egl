@@ -2,7 +2,7 @@
 <package>
   <name>[%=package.name%]</name>
   <description>[%=package.description%]</description>
-  <version>0.0.0</version>
+  <version>[%=package.version%]</version>
   [%for(i in Sequence{0..(package.maintainer.size()-1)}) {%]
   <maintainer email="[%=package.maintainer_email.at(i)%]">[%=package.maintainer.at(i)%]</maintainer>
   [%}%]

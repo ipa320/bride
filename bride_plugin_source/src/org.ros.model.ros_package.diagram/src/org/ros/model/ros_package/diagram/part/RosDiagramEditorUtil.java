@@ -201,6 +201,7 @@ public class RosDiagramEditorUtil {
 				user = System.getProperty("user.name");
 				//model.setAuthor(user);
 				//model.setAuthor_email(user + "@todo.todo");
+				model.setVersion("0.0.0");
 
 				model.setLicense("TODO");
 				attachModelToResource(model, modelResource);
