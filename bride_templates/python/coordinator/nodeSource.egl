@@ -111,10 +111,17 @@ for (parameter in node.parameter)
 		}%]
 		[%
 			var servicetypes: Sequence;
+			var remap: String;
 			for (service in node.serviceClient){
 			servicetypes = service.msg.split('::');
+			if(service.remap_overwrite == null or service.remap_overwrite == ""){
+				remap = service.name.replace(" ", "_");
+			}
+			else{
+				remap = service.remap_overwrite;
+			}	
 		 %]
-			smach.StateMachine.add('[%=service.name.replace(" ", "_")%]', smach_ros.ServiceState('[%=service.name.replace(" ", "_")%]', [%=servicetypes[1]%]), {
+			smach.StateMachine.add('[%=service.name.replace(" ", "_")%]', smach_ros.ServiceState('[%=remap%]', [%=servicetypes[1]%]), {
 			[%
 			for (transition in node.transitions){
 			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
