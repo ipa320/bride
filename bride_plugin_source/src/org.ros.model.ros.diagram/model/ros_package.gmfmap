@@ -204,9 +204,9 @@
     <audits
         name="PackageAuthorRule"
         id="PackageAuthorRule"
-        message="Missing author and maintainer of package.">
+        message="Author name and email not the same size.">
       <rule
-          body="author.size() > 0"/>
+          body="author->size() = author_email->size()"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
@@ -219,18 +219,6 @@
         message="Package description must not be empty">
       <rule
           body="description.size() > 0"/>
-      <target
-          xsi:type="gmfmap:DomainElementTarget">
-        <element
-            href="../../org.ros.model.ros/model/ros.ecore#//Package"/>
-      </target>
-    </audits>
-    <audits
-        name="PackageAuthorEmailRule"
-        id="PackageAuthorEmailRule"
-        message="Missing Email of author and maintainer of package.">
-      <rule
-          body="author_email.size() > 0"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element

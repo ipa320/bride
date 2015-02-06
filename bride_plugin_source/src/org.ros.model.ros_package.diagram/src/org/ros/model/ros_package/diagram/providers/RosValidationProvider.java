@@ -92,6 +92,26 @@ public class RosValidationProvider {
 	}
 
 	/**
+	 * @generated
+	 */
+	public static class Adapter5 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Node context = (Node) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
 	 * @not generated
 	 */
 	public static class Adapter6 extends AbstractModelConstraint {
@@ -139,7 +159,7 @@ public class RosValidationProvider {
 				return ctx.createSuccessStatus();
 			else
 				return ctx.createFailureStatus(context);
-			
+
 		}
 	}
 
@@ -157,7 +177,7 @@ public class RosValidationProvider {
 				return ctx.createSuccessStatus();
 			else
 				return ctx.createFailureStatus(context);
-			
+
 		}
 	}
 
@@ -175,7 +195,7 @@ public class RosValidationProvider {
 				return ctx.createSuccessStatus();
 			else
 				return ctx.createFailureStatus(context);
-			
+
 		}
 	}
 
@@ -194,6 +214,126 @@ public class RosValidationProvider {
 			else
 				return ctx.createFailureStatus(context);
 
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class Adapter10 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Subscriber context = (Subscriber) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class Adapter13 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ServiceServer context = (ServiceServer) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class Adapter16 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ServiceClient context = (ServiceClient) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class Adapter19 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ActionServer context = (ActionServer) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class Adapter22 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			ActionClient context = (ActionClient) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class Adapter25 extends AbstractModelConstraint {
+
+		/**
+		 * @generated
+		 */
+		public IStatus validate(IValidationContext ctx) {
+			Parameter context = (Parameter) ctx.getTarget();
+			// TODO: put validation code here
+			// Ensure that you remove @generated tag or use @generated NOT
+			//
+			// To construct approprate return value, use ctx.createSuccessStatus()
+			// or ctx.createFailureStatus(...)
+			throw new UnsupportedOperationException(
+					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
 		}
 	}
 
@@ -232,7 +372,7 @@ public class RosValidationProvider {
 				return ctx.createSuccessStatus();
 			else
 				return ctx.createFailureStatus(context);
-			
+
 		}
 	}
 

@@ -15,10 +15,17 @@
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/double"/>
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/bool"/>
       <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/string"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ParameterTypes/XmlRpcValue"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ros.ecore#//ComputationTypes">
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ComputationTypes/cpp"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ComputationTypes/python"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ComputationTypes/simulink"/>
+      <genEnumLiterals ecoreEnumLiteral="ros.ecore#//ComputationTypes/halcon"/>
     </genEnums>
     <genClasses ecoreClass="ros.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/loopRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Node/frequency"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/publisher"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/subscriber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Node/serviceClient"/>
@@ -35,15 +42,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Package/node"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ros.ecore#//Package/coordinators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/author_email"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/license"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/depend"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Package/rosdep"/>
-      <genOperations ecoreOperation="ros.ecore#//Package/validate">
-        <genParameters ecoreParameter="ros.ecore#//Package/validate/diagnostic"/>
-        <genParameters ecoreParameter="ros.ecore#//Package/validate/context"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Topic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Topic/name"/>
@@ -79,8 +82,11 @@
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/obligatory"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/min_value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Parameter/max_value"/>
     </genClasses>
     <genClasses ecoreClass="ros.ecore#//Action">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Action/name"/>
@@ -101,6 +107,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Architecture/action"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ros.ecore#//Architecture/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/author_email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ros.ecore#//Architecture/description"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Smach" basePackage="org.ros.model" ecorePackage="smach.ecore#/">
