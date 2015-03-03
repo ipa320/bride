@@ -33,7 +33,7 @@ for (serviceServer in node.serviceServer)
 	strs3 = serviceServer.msg;//.split('::');
 	strs33 = strs3.split('::');
 %]
-from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request 
+from [%=strs33[0]%].srv import [%=strs33[1]%], [%=strs33[1]%]Response, [%=strs33[1]%]Request
 [%
 }
 %]
@@ -55,7 +55,7 @@ for (parameter in node.parameter)
 	}
 }
 %]
-	
+
 	def	__init__(self):
 		[%
 			var acstypes: Sequence;
@@ -63,13 +63,14 @@ for (parameter in node.parameter)
 			acstypes = ac.ActionType.split('::');
 		 %]
 		self.[%=ac.name.replace(" ", "_")%]_goal = [%=acstypes[1]%]Goal()
-		genpy.message.fill_message_args(self.[%=ac.name.replace(" ", "_")%]_goal, [rospy.get_param('[%=ac.goal%]')])
+		if(rospy.has_param('[%=ac.goal%]')):
+			genpy.message.fill_message_args(self.[%=ac.name.replace(" ", "_")%]_goal, [rospy.get_param('[%=ac.goal%]')])
 		[%
-		}%]	
+		}%]
 		[%=out.startPreserve("#", "#", "initCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
-	
+
 	def	configure(self):
 		sm0 = smach.StateMachine(outcomes=['succeeded','aborted','preempted'], input_keys = ['action_feedback'], output_keys = ['action_feedback'])
 		sis = smach_ros.IntrospectionServer('[%=node.name.replace(" ", "_")%]', sm0, '/[%=node.name.replace(" ", "_")%]_sm')
@@ -119,7 +120,7 @@ for (parameter in node.parameter)
 			}
 			else{
 				remap = service.remap_overwrite;
-			}	
+			}
 		 %]
 			smach.StateMachine.add('[%=service.name.replace(" ", "_")%]', smach_ros.ServiceState('[%=remap%]', [%=servicetypes[1]%]), {
 			[%
@@ -127,7 +128,7 @@ for (parameter in node.parameter)
 			if(transition.Source.type.name == "ActionState" or transition.Source.type.name == "ServiceState")
 			{
 			if(transition.Source.name == service.name){
-			if(transition.Target.type.name == "ActionState" or transition.Target.type.name == "ServiceState"){ 
+			if(transition.Target.type.name == "ActionState" or transition.Target.type.name == "ServiceState"){
 			%]
 				"[%=transition.name%]":"[%=transition.Target.name%]",
 			[%
@@ -142,13 +143,13 @@ for (parameter in node.parameter)
 			}%]
 			})
 		[%
-		}%]	
+		}%]
 
 		[%if(node.SkillInterface == false){%]
 		[%
 			for (transition in node.transitions){
 			if(transition.Source.type.name == "InitActionState"){
-		%]	
+		%]
 		sm0.set_initial_state(['[%=transition.Target.name%]'])
 		[%
 			}
@@ -162,7 +163,7 @@ for (parameter in node.parameter)
 		[%
 			for (transition in node.transitions){
 			if(transition.Source.type.name == "InitActionState"){
-		%]	
+		%]
 		sm0.set_initial_state(['[%=transition.Target.name%]'])
 		[%
 			}
@@ -170,16 +171,16 @@ for (parameter in node.parameter)
 		asw = ActionServerWrapper( '[%=node.name.replace(" ", "_")%]', TestAction,  wrapped_container = sm0, succeeded_outcomes = ['succeeded'], aborted_outcomes = ['aborted'], preempted_outcomes = ['preempted'] )
 		asw.run_server()
 		[% }%]
-	
+
 		[%=out.startPreserve("#", "#", "configureCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
-	
+
 	def	update(self):
 		[%=out.startPreserve("#", "#", "updateCode", true)%]
 		[%=out.stopPreserve()%]
 		pass
-		
+
 	[%
 	for (service_here in node.serviceServer)
 	{%]
@@ -190,7 +191,7 @@ for (parameter in node.parameter)
 
 	[%
 	}%]
-	
+
 
 class [%=node.name.replace(" ", "_")%]:
 	def __init__(self):
@@ -203,7 +204,7 @@ class [%=node.name.replace(" ", "_")%]:
 	[%for (subscriber in node.subscriber){
 		strs = subscriber.msg.split('::');
 	%]
-		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback) 
+		self.[%=subscriber.name.replace(" ", "_")%] = rospy.Subscriber("[%=subscriber.name.replace(" ", "_")%]",[%=strs[1]%], self.[%=subscriber.name.replace(" ", "_")%]Callback)
 	[%}%]
 	[%
 	var strs33 : Sequence;
@@ -220,8 +221,8 @@ class [%=node.name.replace(" ", "_")%]:
 		[%if(subscriber.eventPort == true){%]
 		self.run() #call only if defined as event port, not called if it is an data port
         [%}%]
-[%}%]	
-		
+[%}%]
+
 	def run(self):
 		self.impl.update()
 		[%for (publisher in node.publisher) {	%]
@@ -241,9 +242,6 @@ if __name__ == "__main__":
 		while not rospy.is_shutdown():
 			n.run()
 			r.sleep()
-			
+
 	except rospy.ROSInterruptException:
 		print "Exit"
-
-
-
