@@ -32,11 +32,20 @@ for(node in package.node) {
 	for(action in architecture.action) {
 	if(node.actionserver.contains(action.actionserver))
 	{
-%] 		<remap from="/[%=action.actionserver.name%]" to="/[%=action.name%]"/> 
+%] 		<remap from="/[%=action.actionserver.name%]/goal" to="/[%=action.name%]/goal"/> 
+		<remap from="/[%=action.actionserver.name%]/cancel" to="/[%=action.name%]/cancel"/> 
+		<remap from="/[%=action.actionserver.name%]/status" to="/[%=action.name%]/status"/> 
+		<remap from="/[%=action.actionserver.name%]/result" to="/[%=action.name%]/result"/> 
+		<remap from="/[%=action.actionserver.name%]/feedback" to="/[%=action.name%]/feedback"/> 
 [%	}
 	if(node.actionclient.contains(action.actionclient))
 	{ 
-%]		<remap from="/[%=action.actionclient.name%]" to="/[%=action.name%]"/>
+%]		<remap from="/[%=action.actionclient.name%]/goal" to="/[%=action.name%]/goal"/>
+		<remap from="/[%=action.actionclient.name%]/cancel" to="/[%=action.name%]/cancel"/> 
+		<remap from="/[%=action.actionclient.name%]/status" to="/[%=action.name%]/status"/> 
+		<remap from="/[%=action.actionclient.name%]/result" to="/[%=action.name%]/result"/> 
+		<remap from="/[%=action.actionclient.name%]/feedback" to="/[%=action.name%]/feedback"/> 
+
 [%  
 	} 
 		}
