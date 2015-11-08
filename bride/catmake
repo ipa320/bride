@@ -2,6 +2,6 @@
 function upsearch () {
     test / == "$PWD" && return || test -e "src" && test -e "src/CMakeLists.txt" && grep "catkin_workspace()" src/CMakeLists.txt &&echo "found: " "$PWD" && return || cd .. && upsearch "$1"
 }
-
+pkg="${PWD##*/}"
 upsearch
-catkin_make
+catkin_make --pkg $pkg

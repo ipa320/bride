@@ -71,3 +71,8 @@ Status
 ------------
 
 [![Build Status](https://travis-ci.org/ipa320/bride.png)](https://travis-ci.org/ipa320/bride)
+
+Tutorials
+------------
+Detailed Informations and Tutorials in [ROS wiki](http://wiki.ros.org/bride).
+
